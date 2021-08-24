@@ -1,9 +1,5 @@
-import ForgotPassword from "../component/forgotPassword/forgotPassword"
+import ForgotPassword from "../component/forgotPassword/forgotPassword";
 
-
-export default function ForgotPasswordForm(){
-    return(
-
-        <ForgotPassword/>
-    )
+export default function ForgotPasswordForm() {
+  return <ForgotPassword />;
 }
