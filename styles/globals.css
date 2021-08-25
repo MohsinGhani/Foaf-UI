@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Poppins" !important
+  font-family: "Poppins" !important;
 }
 
 a {
@@ -12,4 +12,7 @@ a {
 
 * {
   box-sizing: border-box;
+}
+input {
+  outline: none;
 }

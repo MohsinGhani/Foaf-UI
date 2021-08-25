@@ -1,10 +1,9 @@
 import Image from "next/image";
-
-import styles from "./login.module.scss";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import Link from "next/link";
 import { useState } from "react";
+import styles from "./login.module.scss";
 
 export default function Login() {
   const [passwordShow, setpasswordShow] = useState(false);
@@ -15,16 +14,18 @@ export default function Login() {
   return (
     <div className={styles.container}>
       <div className={styles.imageSide}>
-        <div className={styles.image}>
-          <Image
+        {/* <div className={styles.image}> */}
+        {/* <Image
             src="/images/login.png"
             className={styles.mediaImage}
             alt="login"
-            width="500"
-            height="500"
+            width="600"
+            height="1870px"
+            // layout="fixed"
           />
-        </div>
-        <div className={styles.imageText}>
+        </div> */}
+        {/* </div> */}
+        {/* <div className={styles.imageText}>
           <p className={styles.imageTextOne}>
             Lorem ipsum dolor sit amet, consectetur elit.
           </p>
@@ -33,11 +34,11 @@ export default function Login() {
             ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
             purus tellus magnis tristique leo.
           </p>
-        </div>
+        </div> */}
       </div>
       <div className={styles.formSide}>
         <div className={styles.form}>
-          <Image src="/images/foaf.svg" alt="logo" width="110" height="48" />
+          <Image src="/images/foaf.svg" alt="logo" width="168" height="73.31" />
           <p className={styles.signup}>Login </p>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">

@@ -1,5 +1,3 @@
-// import Head from 'next/head'
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./signup.module.scss";
 import { Form } from "react-bootstrap";
@@ -7,6 +5,7 @@ import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
+import Image from "next/image";
 
 export default function Signup() {
   const [passwordShow, setpasswordShow] = useState(false);
@@ -42,7 +41,7 @@ export default function Signup() {
   return (
     <div className={styles.container}>
       <div className={styles.imageSide}>
-        <div className={styles.image}>
+        {/* <div className={styles.image}>
           <Image
             src="/images/signup.png"
             className={styles.mediaImage}
@@ -50,8 +49,8 @@ export default function Signup() {
             width="500"
             height="500"
           />
-        </div>
-        <div className={styles.imageText}>
+        </div> */}
+        {/* <div className={styles.imageText}>
           <p className={styles.imageTextOne}>
             {" "}
             Lorem ipsum dolor sit amet, consectetur elit.
@@ -61,11 +60,11 @@ export default function Signup() {
             ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
             purus tellus magnis tristique leo.
           </p>
-        </div>
+        </div> */}
       </div>
       <div className={styles.formSide}>
         <div className={styles.form}>
-          <Image src="/images/foaf.svg" alt="logo" width="110" height="48" />
+          <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
           <p className={styles.signup}>Sign Up </p>
 
           <Formik

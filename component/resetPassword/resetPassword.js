@@ -18,7 +18,7 @@ export default function ResetPassword() {
   return (
     <div className={styles.container}>
       <div className={styles.imageSide}>
-        <div className={styles.image}>
+        {/* <div className={styles.image}>
           <Image
             src="/images/reset.png"
             className={styles.mediaImage}
@@ -26,8 +26,8 @@ export default function ResetPassword() {
             width="500"
             height="500"
           />
-        </div>
-        <div className={styles.imageText}>
+        </div> */}
+        {/* <div className={styles.imageText}>
           <p className={styles.imageTextOne}>
             {" "}
             Lorem ipsum dolor sit amet, consectetur elit.
@@ -37,11 +37,16 @@ export default function ResetPassword() {
             ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
             purus tellus magnis tristique leo.
           </p>
-        </div>
+        </div> */}
       </div>
       <div className={styles.formSide}>
-        <div className={styles.form}>
-          <Image src="/images/logo.png" alt="logo" width="110" height="48" />
+        <div className={styles.formCenter}>
+          <Image
+            src="/images/foaf.svg "
+            alt="logo"
+            width="168"
+            height="73.31"
+          />
           <p className={styles.signup}>Reset Password </p>
           <p className={styles.loremText}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum

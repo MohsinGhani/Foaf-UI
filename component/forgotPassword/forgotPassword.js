@@ -8,7 +8,7 @@ export default function ForgotPassword() {
   return (
     <div className={styles.container}>
       <div className={styles.imageSide}>
-        <div className={styles.image}>
+        {/* <div className={styles.image}>
           <Image
             src="/images/forgot.png"
             className={styles.mediaImage}
@@ -16,8 +16,8 @@ export default function ForgotPassword() {
             width="500"
             height="500"
           />
-        </div>
-        <div className={styles.imageText}>
+        </div> */}
+        {/* <div className={styles.imageText}>
           <p className={styles.imageTextOne}>
             {" "}
             Lorem ipsum dolor sit amet, consectetur elit.
@@ -27,11 +27,11 @@ export default function ForgotPassword() {
             ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
             purus tellus magnis tristique leo.
           </p>
-        </div>
+        </div> */}
       </div>
       <div className={styles.formSide}>
         <div className={styles.form}>
-          <Image src="/images/foaf.svg" alt="logo" width="100" height="44" />
+          <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
           <p className={styles.signup}>Forgot Password </p>
           <p className={styles.loremText}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum
@@ -47,7 +47,7 @@ export default function ForgotPassword() {
                 placeholder="mail@friendsofaforever.com"
               />
             </Form.Group>
-            <Link href="/forgotChange-page">
+            <Link href="/resetPassword-page">
               <Button
                 variant="primary"
                 className={styles.signUpButton}
