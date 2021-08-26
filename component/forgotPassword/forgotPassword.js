@@ -48,13 +48,15 @@ export default function ForgotPassword() {
               />
             </Form.Group>
             <Link href="/resetPassword-page">
-              <Button
-                variant="primary"
-                className={styles.signUpButton}
-                type="submit"
-              >
-                Send
-              </Button>
+              <a>
+                <Button
+                  variant="primary"
+                  className={styles.signUpButton}
+                  type="submit"
+                >
+                  Send
+                </Button>
+              </a>
             </Link>
           </Form>
           {/* <Image src="/images/ShowIcon.png" alt="showIcon" width="24" height="24"/> */}

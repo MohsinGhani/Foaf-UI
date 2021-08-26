@@ -67,6 +67,7 @@ export default function Login() {
                   }
                   width="25"
                   height="25"
+                  alt="eye"
                   onClick={togglePasswordVisibility}
                 />
               </div>
@@ -95,52 +96,54 @@ export default function Login() {
               className={styles.signUpButton}
               type="submit"
             >
-              Sign Up
+              Login
             </Button>
           </Form>
-        </div>
 
-        <div className={styles.bottomText}>
-          <p> OR Sign Up With </p>
-        </div>
-
-        <div className={styles.bottom}>
-          <div className={styles.signin}>
-            <Button variant="light" type="submit">
-              <Image
-                src="/images/google.png"
-                alt="google"
-                width="15"
-                height="15"
-                className={styles.googleImage}
-              />
-              <p>
-                <span className={styles.hideText}>Sign in with </span> Google
-              </p>
-            </Button>
+          <div className={styles.bottomText}>
+            <p> OR Sign Up With </p>
           </div>
 
-          <div className={styles.signin}>
-            <Button variant="light" type="submit">
-              <Image
-                src="/images/apple.png"
-                alt="apple"
-                width="15"
-                height="15"
-                className={styles.appleImage}
-              />
-              <p>
-                <span className={styles.hideText}>Sign in with </span> Apple
-              </p>
-            </Button>
+          <div className={styles.bottom}>
+            <div className={styles.signin}>
+              <Button variant="light" type="submit">
+                <Image
+                  src="/images/google.png"
+                  alt="google"
+                  width="15"
+                  height="15"
+                  className={styles.googleImage}
+                />
+                <p>
+                  <span className={styles.hideText}>Sign in with </span> Google
+                </p>
+              </Button>
+            </div>
+
+            <div className={styles.signin}>
+              <Button variant="light" type="submit">
+                <Image
+                  src="/images/apple.png"
+                  alt="apple"
+                  width="15"
+                  height="15"
+                  className={styles.appleImage}
+                />
+                <p>
+                  <span className={styles.hideText}>Sign in with </span> Apple
+                </p>
+              </Button>
+            </div>
           </div>
+          <p className={styles.signUpLink}>
+            Dont have an account?
+            <span className={styles.textGreen}>
+              <Link href="/signup-page">
+                <a> Sign Up</a>
+              </Link>
+            </span>
+          </p>
         </div>
-        <p className={styles.signUpLink}>
-          Don't have an account?{" "}
-          <span className={styles.textGreen}>
-            <Link href="/signup-page">Sign Up</Link>
-          </span>
-        </p>
       </div>
     </div>
   );

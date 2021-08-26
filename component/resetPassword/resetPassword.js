@@ -40,7 +40,7 @@ export default function ResetPassword() {
         </div> */}
       </div>
       <div className={styles.formSide}>
-        <div className={styles.formCenter}>
+        <div className={styles.form}>
           <Image
             src="/images/foaf.svg "
             alt="logo"
@@ -71,6 +71,7 @@ export default function ResetPassword() {
                       : "/images/hidePassword.jpg"
                   }
                   width="25"
+                  alt="eye"
                   height="25"
                   onClick={togglePasswordVisibility}
                 />
@@ -96,6 +97,7 @@ export default function ResetPassword() {
                   }
                   width="25"
                   height="25"
+                  alt="eye"
                   onClick={toggleConformPasswordVisibility}
                 />
               </div>
@@ -105,7 +107,7 @@ export default function ResetPassword() {
               className={styles.signUpButton}
               type="submit"
             >
-              Sign Up
+              Reset Password
             </Button>
           </Form>
         </div>

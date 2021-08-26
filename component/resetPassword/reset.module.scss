@@ -5,8 +5,8 @@
   display: flex;
   margin: 0 auto;
   // flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   // padding-top: 40px;
   // margin-top: 30px;
   // padding-bottom: 10px;
@@ -16,7 +16,8 @@
     // justify-content: center;
     width: 40%;
     background-image: url(../../public/images/login.png);
-    height: 100vh;
+    background-size: cover;
+    min-height: 100vh;
     // width: 100%;
     // align-items: center;
     // flex-direction: column;
@@ -55,13 +56,13 @@
   .formSide {
     // margin-top: 30px;
     width: 60%;
-    height: 100vh;
-    padding: 70px;
-    display: flex;
-    flex-direction: column;
-    /* height: 100%; */
-    justify-content: center;
-    align-items: center;
+    // height: 100vh;
+    padding: 40px;
+    // display: flex;
+    // flex-direction: column;
+    // /* height: 100%; */
+    // justify-content: center;
+    // align-items: center;
     // text-align: center;
     // margin: auto;
     // padding: auto;
@@ -82,13 +83,26 @@
 
     // margin: auto;
     // justify-content: start;
+
     // }
+    .form {
+      max-width: 800px !important;
+      margin: 0 auto;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+      // height: 100vh;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     .password {
       position: relative;
       max-width: 800px;
       .eyeButton {
         position: absolute;
-        top: 52px;
+        top: 45px;
         cursor: pointer;
         right: 8px;
       }
@@ -98,7 +112,7 @@
       max-width: 800px;
       font-weight: 400;
       color: #94a3b8;
-      margin-bottom: 40px;
+      // margin-bottom: 30px;
     }
 
     // padding-bottom: 10px;
@@ -137,7 +151,7 @@
 
       // max-width: 700px;
       // width: 100%;
-      height: 64px;
+      height: 50px;
     }
     .label {
       font-size: 16px !important;
@@ -150,8 +164,8 @@
       text-align: center;
       font-weight: bold;
       background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-      margin-top: 40px;
-      height: 64px;
+      margin-top: 24px;
+      height: 50px;
       max-width: 800px;
       // margin-bottom: 300px;
       // max-width: 700px;
@@ -264,6 +278,7 @@
   @media screen and (max-width: 576px) {
     .formSide {
       width: 100% !important;
+      // margin: 0 auto;
       // padding-left: 20px;
       // width: 100%;
       // height: 100%;
@@ -289,7 +304,7 @@
   @media screen and (max-width: 400px) {
     .formSide {
       // margin-right: 12px;
-      padding: 13px;
+      // padding: 13px;
       .bottomText {
         p {
           margin-top: 5px !important;

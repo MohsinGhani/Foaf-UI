@@ -16,7 +16,8 @@
     // justify-content: center;
     width: 40%;
     background-image: url(../../public/images/login.png);
-    height: 100vh;
+    background-size: cover;
+    min-height: 100vh;
     // margin-bottom: 20px;
     // width: 100%;
     // align-items: center;
@@ -62,15 +63,27 @@
     // width: 100%;
     // height: 60%;
     width: 65%;
-    padding: 70px;
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
+    padding: 40px;
+    // display: flex;
+    // height: 100vh;
+    // flex-direction: column;
     /* height: 100%; */
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
 
     // padding-right: 30px;
+    .form {
+      max-width: 800px !important;
+      margin: 0 auto;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+      // height: 100vh;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     .loremText {
       max-width: 800px;
       font-weight: 400;
@@ -113,7 +126,7 @@
       max-width: 800px;
       // max-width: 600px;
       // width: 100%;
-      height: 64px;
+      height: 50px;
     }
     .label {
       font-size: 16px !important;
@@ -127,7 +140,7 @@
       font-weight: bold;
       background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
       margin-top: 24px;
-      height: 64px;
+      height: 50px;
       max-width: 800px;
       // max-width: 600px;
       // margin-top: 300px;
@@ -230,6 +243,7 @@
     .formSide {
       width: 100% !important;
       padding: 10px;
+
       // width: 100%;
       // height: 100%;
       // justify-content: center;

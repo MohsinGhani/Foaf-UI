@@ -5,8 +5,8 @@
   display: flex;
   margin: 0 auto;
   // flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   // padding-top: 40px;
   // margin-top: 30px;
   // padding-bottom: 10px;
@@ -17,7 +17,11 @@
     width: 40%;
     // height: 2000px;
     background-image: url(../../public/images/login.png);
-    height: 100vh;
+    background-size: cover;
+    // background-attachment: fixed;
+    min-height: 100vh;
+    // background-clip: border-box;
+    // height: 100vh;
     // width: 100%;
     // align-items: center;
     // flex-direction: column;
@@ -71,8 +75,31 @@
     // height: 60%;
     width: 60%;
     padding: 70px;
+    // height: auto;
+    // overflow-y: scroll;
+    // margin: auto;
+    // max-width: 800px;
     // height: 100vh;
+    // max-width: 800px;
+    // height: 100vh;
+    .form {
+      max-width: 800px !important;
+      margin: 0 auto;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+      // height: 100vh;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
+    // display: flex;
+    // flex-direction: column;
+    /* height: 100%; */
+    // justify-content: center;
+    // align-items: center;
     // padding-right: 30px;
 
     // padding-bottom: 10px;
@@ -80,13 +107,15 @@
     // .form {
     //   width: 100%;
     //   height: 100vh;
+
     // }
+
     .password {
       position: relative;
       max-width: 800px;
       .eyeButton {
         position: absolute;
-        top: 52px;
+        top: 45px;
         cursor: pointer;
         right: 8px;
       }
@@ -95,10 +124,11 @@
       // margin-bottom: 10px !important;
       text-align: center;
       font-size: 15px;
+      max-width: 800px;
     }
 
     .checkbox {
-      font-size: 12px;
+      // font-size: 12px;
       max-width: 800px;
       label {
         // max-width: 800px;
@@ -113,6 +143,7 @@
     .textGreen {
       // color: #6fd6a4 !important;
       a {
+        max-width: 800px;
         text-decoration: none;
         color: #6fd6a4 !important;
       }
@@ -123,7 +154,7 @@
 
       max-width: 800px;
       // width: 100%;
-      height: 64px;
+      height: 50px;
     }
     .label {
       font-size: 16px !important;
@@ -137,7 +168,7 @@
       font-weight: bold;
       background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
       margin-top: 24px;
-      height: 64px;
+      height: 50px;
       max-width: 800px;
     }
     .signup {
@@ -153,10 +184,11 @@
       justify-content: center;
       margin-top: 40px;
       color: #949494;
-      p {
-        margin-top: 40px;
-        margin-bottom: 58px;
-      }
+      max-width: 800px;
+      // p {
+      //   margin-top: 40px;
+      //   margin-bottom: 58px;
+      // }
     }
 
     .bottom {
@@ -166,10 +198,12 @@
       max-width: 800px;
       // height: 56px;
       justify-content: space-between;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+
       // padding-right: 30px;
 
       .signin {
+        max-width: 800px;
         background-color: #f8f8f8;
         // max-width: 50%;
         // width: 100%;
@@ -180,7 +214,7 @@
 
         button {
           display: flex;
-
+          max-width: 800px;
           align-items: center;
         }
         p {
@@ -193,6 +227,9 @@
   }
   @media screen and (max-width: 1035px) {
     // .formSide {
+    .checkbox {
+      font-size: 13px;
+    }
     //   .password {
     //     .eyeButton {
     // right: 7px;
@@ -249,7 +286,7 @@
   @media screen and (max-width: 576px) {
     .formSide {
       width: 100% !important;
-      // padding: 10px;
+      padding: 10px;
       // width: 100%;
       // height: 100%;
       // justify-content: center;
