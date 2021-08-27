@@ -24,3 +24,9 @@ input:focus {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
+button:focus {
+  border-color: #f9445b !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}

@@ -186,16 +186,15 @@
       // padding-right: 30px;
 
       .signin {
-        background-color: #f8f8f8;
-        // max-width: 50%;
-        // width: 100%;
-        height: 56px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-
         button {
+          background-color: #f8f8f8;
+          // max-width: 50%;
+          // width: 100%;
+          height: 56px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
           display: flex;
 
           align-items: center;
@@ -207,12 +206,15 @@
         }
       }
       .apple {
-        background: none;
+        // background: none;
         // border-radius: 10px;
         // outline: olivedrab !important;
-        border: 0.5px solid #f9445b;
+        // border: 0.5px solid #f9445b;
         button {
+          border: 0.5px solid #ffe9eb;
+          // background: none;
           background: none;
+          // border-radius: 10px;
           // border-radius: 10px;
         }
       }
