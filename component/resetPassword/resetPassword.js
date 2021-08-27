@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 import styles from "./reset.module.scss";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -41,12 +41,9 @@ export default function ResetPassword() {
       </div>
       <div className={styles.formSide}>
         <div className={styles.form}>
-          <Image
-            src="/images/foaf.svg "
-            alt="logo"
-            width="168"
-            height="73.31"
-          />
+          <Link href="/" passHref={true}>
+            <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+          </Link>
           <p className={styles.signup}>Reset Password </p>
           <p className={styles.loremText}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum

@@ -31,7 +31,9 @@ export default function ForgotPassword() {
       </div>
       <div className={styles.formSide}>
         <div className={styles.form}>
-          <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+          <Link href="/" passHref={true}>
+            <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+          </Link>
           <p className={styles.signup}>Forgot Password </p>
           <p className={styles.loremText}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum

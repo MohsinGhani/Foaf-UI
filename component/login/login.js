@@ -99,9 +99,16 @@ export default function Login() {
               Login
             </Button>
           </Form>
-
-          <div className={styles.bottomText}>
-            <p> OR Sign Up With </p>
+          <div className={styles.sepratorPosition}>
+            <div className={styles.seprator}>
+              <hr />
+            </div>
+            <div className={styles.bottomText}>
+              <p>OR Sign In With </p>
+            </div>
+            <div className={styles.seprator}>
+              <hr />
+            </div>
           </div>
 
           <div className={styles.bottom}>

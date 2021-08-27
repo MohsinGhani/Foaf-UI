@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./signup.module.scss";
-import { Form } from "react-bootstrap";
+import { Form, InputGroup, FormControl } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Formik } from "formik";
@@ -64,7 +64,9 @@ export default function Signup() {
       </div>
       <div className={styles.formSide}>
         <div className={styles.form}>
-          <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+          <Link href="/" passHref={true}>
+            <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+          </Link>
           <p className={styles.signup}>Sign Up </p>
 
           <Formik
@@ -96,6 +98,7 @@ export default function Signup() {
                   <Form.Label className={styles.label}>
                     Phone Number*
                   </Form.Label>
+
                   <Form.Control
                     type="number"
                     className={styles.input}
@@ -196,8 +199,8 @@ export default function Signup() {
                   variant="primary"
                   className={styles.signUpButton}
                   type="submit"
-                  onClick={(event) => {
-                    submit(event, handleSubmit);
+                  onClick={() => {
+                    submit(handleSubmit);
                   }}
                 >
                   Sign Up
@@ -208,8 +211,16 @@ export default function Signup() {
           {/* </Form> */}
           {/* <Image src="/images/ShowIcon.png" alt="showIcon" width="24" height="24"/> */}
 
-          <div className={styles.bottomText}>
-            <p> OR Sign Up With </p>
+          <div className={styles.sepratorPosition}>
+            <div className={styles.seprator}>
+              <hr />
+            </div>
+            <div className={styles.bottomText}>
+              <p>OR Sign In With </p>
+            </div>
+            <div className={styles.seprator}>
+              <hr />
+            </div>
           </div>
 
           <div className={styles.bottom}>
