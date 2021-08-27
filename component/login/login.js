@@ -127,7 +127,7 @@ export default function Login() {
               </Button>
             </div>
 
-            <div className={styles.signin}>
+            <div className={`${styles.signin} ${styles.apple}`}>
               <Button variant="light" type="submit">
                 <Image
                   src="/images/apple.png"

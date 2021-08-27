@@ -193,6 +193,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 10px;
 
         button {
           display: flex;
@@ -203,6 +204,16 @@
           font-weight: bold;
           margin: 0;
           padding-left: 10px;
+        }
+      }
+      .apple {
+        background: none;
+        // border-radius: 10px;
+        // outline: olivedrab !important;
+        border: 0.5px solid #f9445b;
+        button {
+          background: none;
+          // border-radius: 10px;
         }
       }
     }
