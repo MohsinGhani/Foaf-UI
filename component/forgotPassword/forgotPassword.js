@@ -34,19 +34,48 @@ export default function ForgotPassword() {
       headers: {
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify(userdetailes),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        router.push({
-          pathname: `/resetPassword-page`,
-          query: { token: data?.token, email: value?.email },
-        });
-        console.log("Success:", data?.token);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+      //     .then((response) => response)
+      //     .then((data) => {
+      //       // router.push({
+      //       //   pathname: `/resetPassword-page`,
+      //       //   query: { token: data?.token, email: value?.email },
+      //       // });
+      //       setButton(false);
+      //       console.log("Success:", data);
+      //     })
+      //     .catch((error) => {
+      //       setButton(false);
+      //       console.error("Error:", error);
+      //     });
+      .then(
+        function (response) {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+
+          // Examine the text in the response
+          response.json()
+
+            .then(function (data) {
+              router.push({
+                pathname: `/resetPassword-page`,
+                query: { token: data?.token, email: value?.email },
+              });
+              setButton(false);
+              console.log(data);
+            });
+        }
+      )
+      .catch(function (err) {
+        setButton(false);
+        console.log('Fetch Error :-S', err);
       });
+
   };
 
   const submit = (handleSubmit) => {
