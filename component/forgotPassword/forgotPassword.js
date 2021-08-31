@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 export default function ForgotPassword() {
   const router = useRouter();
-
+  const [button, setButton] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
 
   const forgotValidationSchema = yup.object().shape({
@@ -28,7 +28,7 @@ export default function ForgotPassword() {
     let userdetailes = {
       email: value.email,
     };
-
+    setButton(true);
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/password_reset`, {
       method: "POST",
       headers: {
@@ -125,6 +125,7 @@ export default function ForgotPassword() {
                 <Button
                   variant="primary"
                   className={styles.signUpButton}
+                  disabled={!button ? false : true}
                   type="submit"
                   onClick={() => {
                     submit(handleSubmit);

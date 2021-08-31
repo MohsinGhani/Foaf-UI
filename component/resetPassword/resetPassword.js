@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 
 export default function ResetPassword() {
   const router = useRouter();
+  const [button, setButton] = useState(false);
   const [passwordShow, setpasswordShow] = useState(false);
   const [conformPasswordShow, setConformPasswordshow] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
@@ -31,7 +32,7 @@ export default function ResetPassword() {
       password: value.newPassword,
       email: router.query.email,
     };
-
+    setButton(true);
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/confirm/${router.query.token}`, {
       method: "POST",
       headers: {
@@ -178,6 +179,7 @@ export default function ResetPassword() {
                 <Button
                   variant="primary"
                   className={styles.signUpButton}
+                  disabled={!button ? false : true}
                   type="submit"
                   onClick={() => {
                     submit(handleSubmit);

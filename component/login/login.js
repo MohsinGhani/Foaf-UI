@@ -12,6 +12,7 @@ export default function Login() {
   const router = useRouter();
   const [passwordShow, setpasswordShow] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
+  const [button, setButton] = useState(false);
 
   const signInValidationSchema = yup.object().shape({
     email: yup
@@ -29,7 +30,7 @@ export default function Login() {
       email: value.email,
       password: value.password,
     };
-
+    setButton(true);
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/login_user`, {
       method: "POST",
       headers: {
@@ -45,12 +46,14 @@ export default function Login() {
         console.log("Success:", data);
       })
       .catch((error) => {
+        setButton(false);
         console.error("Error:", error);
       });
   };
 
   const submit = (handleSubmit) => {
     setShowInvalidInput(true);
+
     handleSubmit();
   };
 
@@ -168,6 +171,7 @@ export default function Login() {
                 <Button
                   variant="primary"
                   className={styles.signUpButton}
+                  disabled={!button ? false : true}
                   type="submit"
                   onClick={() => {
                     submit(handleSubmit);

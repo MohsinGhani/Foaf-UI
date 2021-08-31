@@ -10,6 +10,8 @@ import { useRouter } from "next/router";
 
 export default function Signup() {
   const router = useRouter();
+  const [button, setButton] = useState(false);
+
   const [passwordShow, setpasswordShow] = useState(false);
   const [conformPasswordShow, setConformPasswordshow] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
@@ -45,7 +47,7 @@ export default function Signup() {
       username: value.fullName,
       password: value.password,
     };
-
+    setButton(true);
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/create_user`, {
       method: "POST",
       headers: {
@@ -261,6 +263,7 @@ export default function Signup() {
                 <Button
                   variant="primary"
                   className={styles.signUpButton}
+                  disabled={!button ? false : true}
                   type="submit"
                   onClick={() => {
                     submit(handleSubmit);
