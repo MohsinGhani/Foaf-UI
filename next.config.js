@@ -19,16 +19,7 @@ module.exports = withCSS(
   )
 );
 
-module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
 
-    return config;
-  },
-};
 
 const withImage = require("next-images");
 module.exports = withImage();
@@ -37,5 +28,15 @@ module.exports = {
   images: {
     loader: "imgix",
     path: "https://foaf-ui.web.app/",
+  },
+};
+module.exports = {
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
   },
 };

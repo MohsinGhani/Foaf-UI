@@ -12,7 +12,7 @@ export default function Signup() {
   const [conformPasswordShow, setConformPasswordshow] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
 
-  const loginValidationSchema = yup.object().shape({
+  const signUpValidationSchema = yup.object().shape({
     fullName: yup
       .string()
       .min(3, "Too Short")
@@ -24,9 +24,38 @@ export default function Signup() {
       .required("Email Address is Required"),
     password: yup
       .string()
-      .min(6, ({ min }) => `Password must be at least ${min} characters`)
+      .min(8, ({ min }) => `Password must be at least ${min} characters`)
       .required("Password is required"),
   });
+
+  const signUp = (value) => {
+    let userdetailes = {
+      email: value.email,
+      username:value.fullName,
+      password: value.password,
+    }
+
+
+    fetch('http://18.118.79.251/api/create_user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userdetailes),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+  }
+
+
+
+
 
   const togglePasswordVisibility = () => {
     setpasswordShow(passwordShow ? false : true);
@@ -34,10 +63,15 @@ export default function Signup() {
   const toggleConformPasswordVisibility = () => {
     setConformPasswordshow(conformPasswordShow ? false : true);
   };
+
+
+
   const submit = (handleSubmit) => {
     setShowInvalidInput(true);
     handleSubmit();
   };
+
+
   return (
     <div className={styles.container}>
       <div className={styles.imageSide}>
@@ -71,8 +105,8 @@ export default function Signup() {
 
           <Formik
             initialValues={{ fullName: "", email: "", password: "" }}
-            validationSchema={loginValidationSchema}
-            onSubmit={(value) => console.log(value, "signupvalue")}
+            validationSchema={signUpValidationSchema}
+            onSubmit={( value) =>  signUp(value) }
           >
             {({
               handleChange,
@@ -82,7 +116,9 @@ export default function Signup() {
               errors,
               isValid,
             }) => (
-              <Form>
+              <Form onSubmit={(e)=>{
+                e.preventDefault()
+              }}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Label className={styles.label}>Full Name*</Form.Label>
                   <Form.Control
@@ -227,7 +263,7 @@ export default function Signup() {
             <div className={styles.signin}>
               <Button variant="light" type="submit">
                 <Image
-                  src="/images/google.png"
+                  src="/images/google.svg"
                   alt="google"
                   width="15"
                   height="15"
@@ -242,7 +278,7 @@ export default function Signup() {
             <div className={`${styles.signin} ${styles.apple}`}>
               <Button variant="light" type="submit">
                 <Image
-                  src="/images/apple.png"
+                  src="/images/apple.svg"
                   alt="apple"
                   width="15"
                   height="15"

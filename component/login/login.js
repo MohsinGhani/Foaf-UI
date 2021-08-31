@@ -3,10 +3,67 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import Link from "next/link";
 import { useState } from "react";
+import { Formik } from "formik";
+import * as yup from "yup";
 import styles from "./login.module.scss";
 
 export default function Login() {
   const [passwordShow, setpasswordShow] = useState(false);
+  let [showInvalidInput, setShowInvalidInput] = useState(false);
+
+
+  const signInValidationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Please enter valid email")
+      .required("Email Address is Required"),
+    password: yup
+      .string()
+      .min(8, ({ min }) => `Password must be at least ${min} characters`)
+      .required("Password is required"),
+  });
+
+
+  const signIn = (value) => {
+    let userdetailes = {
+
+      email: value.email,
+      password: value.password,
+    }
+
+
+    fetch('http://18.118.79.251/api/login_user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userdetailes),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+  }
+
+
+
+
+
+
+
+
+
+
+  const submit = (handleSubmit) => {
+    setShowInvalidInput(true);
+    handleSubmit();
+  };
+
+
   const togglePasswordVisibility = () => {
     setpasswordShow(passwordShow ? false : true);
   };
@@ -40,65 +97,90 @@ export default function Login() {
         <div className={styles.form}>
           <Image src="/images/foaf.svg" alt="logo" width="168" height="73.31" />
           <p className={styles.signup}>Login </p>
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label className={styles.label}>Email*</Form.Label>
-              <Form.Control
-                type="email"
-                className={styles.input}
-                placeholder="mail@friendsofaforever.com"
-              />
-            </Form.Group>
-            <div className={styles.password}>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className={styles.label}>Password*</Form.Label>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={signInValidationSchema}
+            onSubmit={(value) => signIn(value)}
+          >
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              errors,
+              isValid,
+            }) => (<Form
+              onSubmit={(e) => {
+                e.preventDefault()
+              }}
+            >
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label className={styles.label}>Email*</Form.Label>
                 <Form.Control
-                  type={passwordShow ? "text" : "password"}
+                  type="email"
+                  onChange={handleChange("email")}
                   className={styles.input}
-                  placeholder="Password"
+                  placeholder="mail@friendsofaforever.com"
                 />
               </Form.Group>
-              <div className={styles.eyeButton}>
-                <Image
-                  src={
-                    passwordShow
-                      ? "/images/showPassword.png"
-                      : "/images/hidePassword.jpg"
-                  }
-                  width="25"
-                  height="25"
-                  alt="eye"
-                  onClick={togglePasswordVisibility}
-                />
+              {showInvalidInput && errors.email && <p>{errors.email}</p>}
+              <div className={styles.password}>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label className={styles.label}>Password*</Form.Label>
+                  <Form.Control
+                    type={passwordShow ? "text" : "password"}
+                    onChange={handleChange("password")}
+                    className={styles.input}
+                    placeholder="Password"
+                  />
+                </Form.Group>
+                {showInvalidInput && errors.password && <p>{errors.password}</p>}
+                <div className={styles.eyeButton}>
+                  <Image
+                    src={
+                      passwordShow
+                        ? "/images/showPassword.png"
+                        : "/images/hidePassword.jpg"
+                    }
+                    width="25"
+                    height="25"
+                    alt="eye"
+                    onClick={togglePasswordVisibility}
+                  />
+                </div>
               </div>
-            </div>
 
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <div className={styles.checkbox}>
-                <Form.Check
-                  type="checkbox"
-                  label={
-                    <>
-                      Remember me
-                      <div className={styles.textGreen}>
-                        <Link href="/forgotPassword-page">
-                          <a> Forgot Password?</a>
-                        </Link>
-                      </div>
-                    </>
-                  }
-                />
-              </div>
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <div className={styles.checkbox}>
+                  <Form.Check
+                    type="checkbox"
+                    label={
+                      <>
+                        Remember me
+                        <div className={styles.textGreen}>
+                          <Link href="/forgotPassword-page">
+                            <a> Forgot Password?</a>
+                          </Link>
+                        </div>
+                      </>
+                    }
+                  />
+                </div>
+              </Form.Group>
 
-            <Button
-              variant="primary"
-              className={styles.signUpButton}
-              type="submit"
-            >
-              Login
-            </Button>
-          </Form>
+              <Button
+                variant="primary"
+                className={styles.signUpButton}
+                type="submit"
+                onClick={() => {
+                  submit(handleSubmit);
+                }}
+              >
+                Login
+              </Button>
+            </Form>
+            )}
+          </Formik>
           <div className={styles.sepratorPosition}>
             <div className={styles.seprator}>
               <hr />
@@ -115,7 +197,7 @@ export default function Login() {
             <div className={styles.signin}>
               <Button variant="light" type="submit">
                 <Image
-                  src="/images/google.png"
+                  src="/images/google.svg"
                   alt="google"
                   width="15"
                   height="15"
@@ -130,7 +212,7 @@ export default function Login() {
             <div className={`${styles.signin} ${styles.apple}`}>
               <Button variant="light" type="submit">
                 <Image
-                  src="/images/apple.png"
+                  src="/images/apple.svg"
                   alt="apple"
                   width="15"
                   height="15"
