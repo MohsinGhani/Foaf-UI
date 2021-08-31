@@ -6,14 +6,21 @@ import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Signup() {
+  const router = useRouter();
   const [passwordShow, setpasswordShow] = useState(false);
   const [conformPasswordShow, setConformPasswordshow] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
-
+  console.log(process.env.NEXT_PUBLIC_BASE_URL, "BASE URLll");
   const signUpValidationSchema = yup.object().shape({
     fullName: yup
+      .string()
+      .min(3, "Too Short")
+      .max(20, "Too Long")
+      .required("required"),
+    phoneNumber: yup
       .string()
       .min(3, "Too Short")
       .max(20, "Too Long")
@@ -26,36 +33,35 @@ export default function Signup() {
       .string()
       .min(8, ({ min }) => `Password must be at least ${min} characters`)
       .required("Password is required"),
+    passwordConfirmation: yup
+      .string()
+      .required("conform password is required")
+      .oneOf([yup.ref("password"), null], "Passwords must match"),
   });
 
   const signUp = (value) => {
     let userdetailes = {
       email: value.email,
-      username:value.fullName,
+      username: value.fullName,
       password: value.password,
-    }
+    };
 
-
-    fetch('http://18.118.79.251/api/create_user', {
-      method: 'POST',
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/create_user`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(userdetailes),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
+      .then((response) => response.json())
+      .then((data) => {
+        router.push("/login-page");
+        console.log("Success:", data);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
-
-  }
-
-
-
-
+  };
 
   const togglePasswordVisibility = () => {
     setpasswordShow(passwordShow ? false : true);
@@ -64,13 +70,10 @@ export default function Signup() {
     setConformPasswordshow(conformPasswordShow ? false : true);
   };
 
-
-
   const submit = (handleSubmit) => {
     setShowInvalidInput(true);
     handleSubmit();
   };
-
 
   return (
     <div className={styles.container}>
@@ -104,9 +107,15 @@ export default function Signup() {
           <p className={styles.signup}>Sign Up </p>
 
           <Formik
-            initialValues={{ fullName: "", email: "", password: "" }}
+            initialValues={{
+              fullName: "",
+              phoneNumber: "",
+              email: "",
+              password: "",
+              passwordConfirmation: "",
+            }}
             validationSchema={signUpValidationSchema}
-            onSubmit={( value) =>  signUp(value) }
+            onSubmit={(value) => signUp(value)}
           >
             {({
               handleChange,
@@ -116,9 +125,11 @@ export default function Signup() {
               errors,
               isValid,
             }) => (
-              <Form onSubmit={(e)=>{
-                e.preventDefault()
-              }}>
+              <Form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Label className={styles.label}>Full Name*</Form.Label>
                   <Form.Control
@@ -129,7 +140,9 @@ export default function Signup() {
                     placeholder="Enter Your Full Name"
                   />
                 </Form.Group>
-
+                {showInvalidInput && errors.fullName && (
+                  <p className={styles.error}>{errors.fullName}</p>
+                )}
                 <Form.Group className="mb-3" controlId="formPhoneNumber">
                   <Form.Label className={styles.label}>
                     Phone Number*
@@ -139,9 +152,13 @@ export default function Signup() {
                     type="number"
                     className={styles.input}
                     placeholder="Enter Your Phone Number*"
+                    onChange={handleChange("phoneNumber")}
+                    value={values.phoneNumber}
                   />
                 </Form.Group>
-
+                {showInvalidInput && errors.phoneNumber && (
+                  <p className={styles.error}>{errors.phoneNumber}</p>
+                )}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label className={styles.label}>Email*</Form.Label>
                   <Form.Control
@@ -152,7 +169,9 @@ export default function Signup() {
                     placeholder="mail@friendsofaforever.com"
                   />
                 </Form.Group>
-                {showInvalidInput && errors.email && <p>{errors.email}</p>}
+                {showInvalidInput && errors.email && (
+                  <p className={styles.error}>{errors.email}</p>
+                )}
                 <div className={styles.password}>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label className={styles.label}>Password*</Form.Label>
@@ -165,7 +184,7 @@ export default function Signup() {
                     />
                   </Form.Group>
                   {showInvalidInput && errors.password && (
-                    <p> {errors.password}</p>
+                    <p className={styles.error}> {errors.password}</p>
                   )}
                   <div className={styles.eyeButton}>
                     <Image
@@ -193,8 +212,16 @@ export default function Signup() {
                       className={styles.input}
                       type={conformPasswordShow ? "text" : "password"}
                       placeholder="Conform Password"
+                      onChange={handleChange("passwordConfirmation")}
+                      value={values.passwordConfirmation}
                     />
                   </Form.Group>
+                  {showInvalidInput && errors.passwordConfirmation && (
+                    <p className={styles.error}>
+                      {" "}
+                      {errors.passwordConfirmation}
+                    </p>
+                  )}
                   <div className={styles.eyeButton}>
                     <Image
                       src={

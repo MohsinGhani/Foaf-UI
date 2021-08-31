@@ -6,10 +6,10 @@ import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 export default function ForgotPassword() {
-  const router = useRouter()
+  const router = useRouter();
 
   let [showInvalidInput, setShowInvalidInput] = useState(false);
 
@@ -24,49 +24,35 @@ export default function ForgotPassword() {
     //   .required("Password is required"),
   });
 
- const forgotPassword = (value) => {
+  const forgotPassword = (value) => {
     let userdetailes = {
-
       email: value.email,
-      
-    }
-  
-    fetch('http://18.118.79.251/api/password_reset', {
-      method: 'POST',
+    };
+
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/password_reset`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(userdetailes),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         router.push({
-          pathname: `http://localhost:3000/resetPassword-page`,
-          query: { token: data?.token },
-
-        })
-        console.log('Success:', data?.token);
+          pathname: `/resetPassword-page`,
+          query: { token: data?.token, email: value?.email },
+        });
+        console.log("Success:", data?.token);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
+  };
 
-
-
-
-  
-  
-  }
-    
-
-
-    const submit = (handleSubmit) => {
-      setShowInvalidInput(true);
-      handleSubmit();
-    };
-
-
-
+  const submit = (handleSubmit) => {
+    setShowInvalidInput(true);
+    handleSubmit();
+  };
 
   return (
     <div className={styles.container}>
@@ -115,22 +101,26 @@ export default function ForgotPassword() {
               values,
               errors,
               isValid,
-            }) => (<Form
-              onSubmit={(e) => {
-                e.preventDefault()
-              }}
-            >
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label className={styles.label}>Email*</Form.Label>
-              <Form.Control
-                type="email"
-                className={styles.input}
-                onChange={handleChange("email")}
-                placeholder="mail@friendsofaforever.com"
-              />
-            </Form.Group>
-            {showInvalidInput && errors.email && <p>{errors.email}</p>}
-            {/* <Link href="/resetPassword-page">
+            }) => (
+              <Form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label className={styles.label}>Email*</Form.Label>
+                  <Form.Control
+                    type="email"
+                    className={styles.input}
+                    onChange={handleChange("email")}
+                    value={values.email}
+                    placeholder="mail@friendsofaforever.com"
+                  />
+                </Form.Group>
+                {showInvalidInput && errors.email && (
+                  <p className={styles.error}>{errors.email}</p>
+                )}
+                {/* <Link href="/resetPassword-page">
               <a> */}
                 <Button
                   variant="primary"
@@ -142,11 +132,11 @@ export default function ForgotPassword() {
                 >
                   Send
                 </Button>
-              {/* </a>
+                {/* </a>
             </Link> */}
-          </Form>
+              </Form>
             )}
-            </Formik>
+          </Formik>
           {/* <Image src="/images/ShowIcon.png" alt="showIcon" width="24" height="24"/> */}
         </div>
       </div>

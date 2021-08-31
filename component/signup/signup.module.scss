@@ -75,6 +75,7 @@
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+
       .sepratorPosition {
         display: flex;
         justify-content: center;
@@ -174,7 +175,10 @@
       // line-height: 48px;
       margin: 10px 0;
     }
-
+    .error {
+      color: red;
+      // background-color: red;
+    }
     .bottom {
       //  display: inline-block;
       // width: 50%;
