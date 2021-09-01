@@ -40,10 +40,16 @@ export default function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
-        router.push({
-          pathname: `/home-page`,
-        });
-        console.log("Success:", data);
+        if (data?.token) {
+          router.push({
+            pathname: `/home-page`,
+          });
+          console.log("Success:", data);
+          setButton(false);
+        } else {
+          console.log("something wentwrong");
+          setButton(false);
+        }
       })
       .catch((error) => {
         setButton(false);

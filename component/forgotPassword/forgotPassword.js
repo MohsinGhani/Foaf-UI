@@ -12,6 +12,8 @@ export default function ForgotPassword() {
   const router = useRouter();
   const [button, setButton] = useState(false);
   let [showInvalidInput, setShowInvalidInput] = useState(false);
+  const [passwordShow, setpasswordShow] = useState(false);
+  const [conformPasswordShow, setConformPasswordshow] = useState(false);
 
   const forgotValidationSchema = yup.object().shape({
     email: yup
