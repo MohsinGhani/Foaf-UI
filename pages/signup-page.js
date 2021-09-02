@@ -1,9 +1,3 @@
-import Signup from "../component/signup/signUp"
+import Signup from "../component/signup/signUp";
 
-export default  function SignupForm(){
-    return (
-
-        <Signup />
-
-    
-        )}
+export default Signup;

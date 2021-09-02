@@ -8,12 +8,13 @@ import { Button } from "react-bootstrap";
 import Login from "../component/login/login";
 import ResetPassword from "../component/resetPassword/resetPassword";
 import ForgotPassword from "../component/forgotPassword/forgotPassword";
-// import ForgotPasswordChange from '../component/forgotPasswordChange/forgotPasswordChange'
+import DashBoard from "../component/forgotPassword/forgotPassword";
 
 export default function Home() {
   return (
     //  <Signup/>
-    <Login />
+    // <Login />
+    <DashBoard />
     // <ResetPassword/>
     // <ForgotPassword/>
     // <ForgotPasswordChange/>

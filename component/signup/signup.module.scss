@@ -53,12 +53,26 @@
     // height: 800px;
     // }
   }
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    .topBar {
+      display: none;
+      width: 100%;
+      height: 30px;
+      background-image: url(../../public/images/login.png);
+      background-size: cover;
+    }
+  }
   .formSide {
     // margin-top: 30px;
     // width: 50%;
     // width: 100%;
     // height: 60%;
-    width: 60%;
+    width: 100%;
     padding: 70px;
     // height: 100vh;
 
@@ -100,126 +114,128 @@
           // }
         }
       }
-    }
-    .password {
-      max-width: 800px;
-      position: relative;
-      .eyeButton {
-        position: absolute;
-        top: 45px;
-        cursor: pointer;
-        right: 8px;
+      .error {
+        color: red;
+        // background-color: red;
       }
-    }
 
-    .signUpLink {
-      // margin-bottom: 10px !important;
-      text-align: center;
-      font-size: 15px;
-      max-width: 800px;
-    }
-    .checkbox {
-      // font-size: 12px;
-      max-width: 800px;
-      input {
-        border: 1px solid rgba(255, 57, 81, 1) !important;
+      .password {
+        max-width: 800px;
+        position: relative;
+        .eyeButton {
+          position: absolute;
+          top: 45px;
+          cursor: pointer;
+          right: 8px;
+        }
       }
-      input:checked {
-        background-color: #f9445b;
+
+      .signUpLink {
+        // margin-bottom: 10px !important;
+        text-align: center;
+        font-size: 15px;
+        max-width: 800px;
       }
-    }
-    .textGreen {
-      color: #6fd6a4 !important;
-      a {
-        text-decoration: none;
+      .checkbox {
+        // font-size: 12px;
+        max-width: 800px;
+        input {
+          border: 1px solid rgba(255, 57, 81, 1) !important;
+        }
+        input:checked {
+          background-color: #f9445b;
+        }
+      }
+      .textGreen {
         color: #6fd6a4 !important;
-      }
-    }
-    .input {
-      background: #f8f8f8;
-      max-width: 800px;
-
-      // max-width: 700px;
-      // width: 100%;
-      height: 50px;
-    }
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    input[type="number"] {
-      -moz-appearance: textfield;
-    }
-    .label {
-      font-size: 16px !important;
-      font-weight: bold;
-    }
-
-    .signUpButton {
-      width: 100% !important;
-      border-radius: 8px !important;
-      text-align: center;
-      font-weight: bold;
-      background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-      // margin-top: 24px;
-      height: 50px;
-      max-width: 800px;
-      border: none;
-      // max-width: 700px;
-    }
-    .signup {
-      // font-family: "Poppins" ;
-      font-weight: 600;
-      font-size: 40px;
-      // line-height: 48px;
-      margin: 10px 0;
-    }
-    .error {
-      color: red;
-      // background-color: red;
-    }
-    .bottom {
-      //  display: inline-block;
-      // width: 50%;
-      display: flex;
-      max-width: 800px;
-      // height: 56px;
-      justify-content: space-around;
-      margin-bottom: 30px;
-      // padding-right: 30px;
-
-      .signin {
-        button {
-          background-color: #f8f8f8;
-          // max-width: 50%;
-          // width: 100%;
-          height: 56px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 10px;
-          display: flex;
-
-          align-items: center;
-        }
-        p {
-          font-weight: bold;
-          margin: 0;
-          padding-left: 10px;
+        a {
+          text-decoration: none;
+          color: #6fd6a4 !important;
         }
       }
-      .apple {
-        // background: none;
-        // border-radius: 10px;
-        // outline: olivedrab !important;
-        // border: 0.5px solid #f9445b;
-        button {
-          border: 0.5px solid #ffe9eb;
+      .input {
+        background: #f8f8f8;
+        max-width: 800px;
+
+        // max-width: 700px;
+        // width: 100%;
+        height: 50px;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      .label {
+        font-size: 16px !important;
+        font-weight: bold;
+      }
+
+      .signUpButton {
+        width: 100% !important;
+        border-radius: 8px !important;
+        text-align: center;
+        font-weight: bold;
+        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+        // margin-top: 24px;
+        height: 50px;
+        max-width: 800px;
+        border: none;
+        // max-width: 700px;
+      }
+      .signup {
+        // font-family: "Poppins" ;
+        font-weight: 600;
+        font-size: 40px;
+        // line-height: 48px;
+        margin: 10px 0;
+      }
+
+      .bottom {
+        //  display: inline-block;
+        // width: 50%;
+        display: flex;
+        max-width: 800px;
+        // height: 56px;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        // padding-right: 30px;
+
+        .signin {
+          button {
+            background-color: #f8f8f8;
+            // max-width: 50%;
+            // width: 100%;
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            display: flex;
+
+            align-items: center;
+          }
+          p {
+            font-weight: bold;
+            margin: 0;
+            padding-left: 10px;
+          }
+        }
+        .apple {
           // background: none;
-          background: none;
           // border-radius: 10px;
-          // border-radius: 10px;
+          // outline: olivedrab !important;
+          // border: 0.5px solid #f9445b;
+          button {
+            border: 0.5px solid #ffe9eb;
+            // background: none;
+            background: none;
+            // border-radius: 10px;
+            // border-radius: 10px;
+          }
         }
       }
     }
@@ -286,6 +302,12 @@
     }
   }
   @media screen and (max-width: 576px) {
+    .main {
+      width: 100%;
+      .topBar {
+        display: block;
+      }
+    }
     .formSide {
       width: 100% !important;
       padding: 10px;
