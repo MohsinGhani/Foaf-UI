@@ -1,0 +1,25 @@
+.main {
+    width: 100px;
+    height: 140px;
+    border: 1px solid white;
+    // padding:152px 75px 0 75px
+    border-radius: 16px;
+    position: relative;
+    // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%),
+    //     linear-gradient(0deg, rgba(110, 194, 255, 0.57), rgba(110, 194, 255, 0.57));
+
+    .profile {
+        position: absolute;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        top: 12px;
+        left:12px;
+       
+    }
+    .name{
+        position: absolute;
+        top: 96px;
+        left: 12px;
+    }
+}

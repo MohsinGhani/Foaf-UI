@@ -1,0 +1,77 @@
+.post-main {
+    // display: flex;
+    
+    max-width: 580px;
+    // height: 504px;
+    // width: 100px;
+    // height: 100px;
+    .profile-main {
+        display: flex;
+        max-width: 580px;
+        max-height: 60px;
+        justify-content: space-between;
+        // justify-content: center;
+        align-items: center;
+        .profile-image {
+            display: flex;
+            .post-profile {
+                max-width: 60px;
+                max-height: 60px;
+                border: 3px solid #bfbfbf;
+                border-radius: 10px;
+                margin: 0px 10px;
+                display: flex;
+                justify-content: center;
+            }
+            .name {
+                display: flex;
+                justify-content: center;
+                // align-items: center;
+                flex-direction: column;
+                p {
+                    color: #bfbfbf;
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+            }
+        }
+        .dot {
+            max-width: 30px;
+            max-height: 30px;
+        }
+    }
+    .bottom{
+        display: flex;
+        
+        .heart{
+            display: flex;
+        .heartIcon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 24px;
+            max-height:24px;
+        }
+                
+          p{
+            color: #BFBFBF;
+            margin: 0px 4px;
+          }  
+        }
+        .views{
+            display: flex;    
+            margin-left: 24px;
+            .viewsIcon{
+                display: flex;
+                justify-content: center;
+                // align-items: center;
+                max-width: 24px;
+                max-height:24px;
+            }
+            p{
+                color: #BFBFBF;
+                margin: 0px 4px;
+            }
+        }
+    }
+}
