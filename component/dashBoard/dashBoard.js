@@ -1,27 +1,31 @@
 import { Layout, Menu, Breadcrumb } from "antd";
-import React from "react"
-
+import React from "react";
 
 import { useState } from "react";
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Collapse } from "react-bootstrap";
 import Logo from "../reUsabelComponent/dashBoard/logoSvg";
 import Card from "../reUsabelComponent/dashBoard/dashBoardStories/dashBoardStories";
 import Post from "../reUsabelComponent/dashBoard/dashBoardPost/dashBoardPost";
-
+import Sponsored from "../reUsabelComponent/dashBoard/dashBoardSponsored/dashBoardSponsored";
+import Request from "../reUsabelComponent/dashBoard/dashBoardRequest/dashBoardRequest";
+import Searchicon from "../reUsabelComponent/dashBoard/dashboardIcons/search";
+import MessagesIcon from "../reUsabelComponent/dashBoard/dashboardIcons/messages";
+import GroupIcon from "../reUsabelComponent/dashBoard/dashboardIcons/groups";
+import LocationIcon from "../reUsabelComponent/dashBoard/dashboardIcons/location";
+import ProfileIcon from "../reUsabelComponent/dashBoard/dashboardIcons/profile";
+import NotificationIcon from "../reUsabelComponent/dashBoard/dashboardIcons/notification";
+import SettingIcon from "../reUsabelComponent/dashBoard/dashboardIcons/settings";
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
 export default function DashBoard() {
-  React.useLayoutEffect = React.useEffect
   const [collapsed, setCollapsed] = useState(false);
-
+  const image = [
+    {
+      src: "/images/dashboard/userProfile.svg",
+      alt: "profile",
+      width: "24",
+      height: "24",
+    },
+  ];
   return (
     <Layout className="layout">
       <Sider
@@ -30,61 +34,37 @@ export default function DashBoard() {
         collapsed={collapsed}
         onMouseEnter={() => setCollapsed(false)}
         onMouseLeave={() => setCollapsed(true)}
+        reverseArrow={true}
       >
-        <Logo />
+        <div className="logo">
+          <Logo />
+        </div>
         <Menu className="menu" defaultSelectedKeys={["1"]} mode="inline">
-          <Menu.Item
-            key="1"
-            icon={"hello"}
-          >
+          <Menu.Item key="1" icon={<Searchicon />}>
             <input type="text" placeholder={"search"} />
           </Menu.Item>
-          <Menu.Item
-            key="2"
-            icon={"hello"}
-          >
+          <Menu.Item key="2" icon={<MessagesIcon />}>
             Messages
           </Menu.Item>
-          <Menu.Item
-            key="4"
-            icon={"hello"}
-          >
+          <Menu.Item key="4" icon={<GroupIcon />}>
             Groups
           </Menu.Item>
-          <Menu.Item
-            key="5"
-            icon={"hello"}
-          >
+          <Menu.Item key="5" icon={<LocationIcon />}>
             Location
           </Menu.Item>
-          <Menu.Item
-            key="6"
-            icon={"hello"}
-          >
+          <Menu.Item key="6" icon={<NotificationIcon />}>
             Notification
           </Menu.Item>
-          <Menu.Item
-            key="7"
-            icon={"hello"}
-          >
+          <Menu.Item key="7" icon={<SettingIcon />}>
             Setting
           </Menu.Item>
-          <Menu.Item
-            key="8"
-            icon={"hello"}
-          >
+          <Menu.Item key="8" icon={<ProfileIcon image={image} />}>
             Profile
           </Menu.Item>
         </Menu>
       </Sider>
 
       <Layout className="site-layout">
-        <Header
-          //   className="site-layout-background"
-          className="header"
-          style={{ padding: 0 }}
-        />
-
         <Content className="container">
           <div className="page">
             <div className="left-side">
@@ -96,19 +76,40 @@ export default function DashBoard() {
                 <Card url="/images/dashboard/profile2.svg" />
               </div>
               <div className="post">
-                <Post />
+                <Post
+                  url="/images/dashboard/ProfileImage.svg"
+                  time="10mins ago"
+                  profilecolor={true}
+                />
+              </div>
+              <div className="post">
+                <Post
+                  url="/images/dashboard/ProfileImage2.svg"
+                  time="1hour ago"
+                  profilecolor={false}
+                />
               </div>
             </div>
             <div className="right-side">
-            
-                <Post />
-              
+              <div className="scroll">
+                <div>
+                  <Sponsored />
+                </div>
+                <div>
+                  <div className="request">
+                    <p>Request</p>
+                    <div className="circle">3</div>
+                  </div>
+                  <div className="request-card">
+                    <Request url="/images/dashboard/requestProfile1.svg" />
+                    <Request url="/images/dashboard/requestProfile2.svg" />
+                    <Request url="/images/dashboard/requestProfile3.svg" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Content>
-        {/* <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer> */}
       </Layout>
     </Layout>
   );

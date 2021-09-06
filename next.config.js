@@ -19,11 +19,8 @@ module.exports = withCSS(
   )
 );
 
-
 const withImage = require("next-images");
 module.exports = withImage();
-
-
 
 module.exports = {
   images: {
@@ -31,9 +28,6 @@ module.exports = {
     path: "https://foaf-ui.web.app/",
   },
 };
-
-
-
 
 module.exports = {
   webpack(config) {
@@ -45,4 +39,3 @@ module.exports = {
     return config;
   },
 };
-

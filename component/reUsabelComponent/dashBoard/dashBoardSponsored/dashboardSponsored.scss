@@ -1,0 +1,71 @@
+.sponsored-main {
+    // display: flex;
+
+    max-width: 360px;
+    // height: 504px;
+    // width: 100px;
+    // height: 100px;
+    .text {
+        p {
+            margin: 44px 20px 0;
+            color: #010010;
+            font-weight: 500;
+            opacity: 0.5;
+        }
+    }
+    .sponsored-post {
+        box-shadow: 0px 0px 24px -10px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        margin: 16px 0px;
+        display: flex;
+        flex-direction: column;
+        height: 281px;
+        justify-content: space-evenly;
+        max-width: 360px;
+
+        // align-items: center;
+
+        .profile-main {
+            display: flex;
+            max-width: 580px;
+            max-height: 45px;
+            justify-content: space-between;
+            // justify-content: center;
+            margin: 0 20px;
+            align-items: center;
+            .profile-image {
+                display: flex;
+                .post-profile {
+                    max-width: 45px;
+                    max-height: 45px;
+                    // border: 3px solid #bfbfbf;
+                    // border-radius: 10px;
+                    margin: 0px 10px 0 0;
+
+                    display: flex;
+                    justify-content: center;
+                }
+                .name {
+                    display: flex;
+                    justify-content: center;
+                    // align-items: center;
+                    flex-direction: column;
+                    p {
+                        color: #bfbfbf;
+                        font-weight: 400;
+                        font-size: 12px;
+                    }
+                }
+            }
+            .dot {
+                max-width: 30px;
+                max-height: 30px;
+            }
+        }
+        .post {
+            width: 320px;
+            height: 172px;
+            margin: 0 20px;
+        }
+    }
+}
