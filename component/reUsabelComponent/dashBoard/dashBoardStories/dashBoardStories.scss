@@ -1,7 +1,7 @@
 .main {
     width: 100px;
     height: 140px;
-    border: 1px solid white;
+    border: 1px solid black;
     // padding:152px 75px 0 75px
     border-radius: 16px;
     position: relative;
@@ -14,10 +14,9 @@
         width: 40px;
         height: 40px;
         top: 12px;
-        left:12px;
-       
+        left: 12px;
     }
-    .name{
+    .name {
         position: absolute;
         top: 96px;
         left: 12px;

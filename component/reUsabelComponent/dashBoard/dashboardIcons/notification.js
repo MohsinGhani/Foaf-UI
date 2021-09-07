@@ -1,24 +1,24 @@
 export default function NotificationIcon() {
   return (
-    <div>
+    <div className="icon notification">
       <svg
-        width="50"
-        height="40"
-        viewBox="0 0 50 40"
-        fill="none"
+        width="20"
+        height="22"
+        viewBox="0 0 20 22"
+        fill="white"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M20 25.8476C25.6392 25.8476 28.2481 25.1242 28.5 22.2205C28.5 19.3188 26.6812 19.5054 26.6812 15.9451C26.6812 13.1641 24.0452 10 20 10C15.9548 10 13.3188 13.1641 13.3188 15.9451C13.3188 19.5054 11.5 19.3188 11.5 22.2205C11.753 25.1352 14.3618 25.8476 20 25.8476Z"
+          d="M10 16.8476C15.6392 16.8476 18.2481 16.1242 18.5 13.2205C18.5 10.3188 16.6812 10.5054 16.6812 6.94511C16.6812 4.16414 14.0452 1 10 1C5.95477 1 3.31885 4.16414 3.31885 6.94511C3.31885 10.5054 1.5 10.3188 1.5 13.2205C1.75295 16.1352 4.36177 16.8476 10 16.8476Z"
           stroke="#BFBFBF"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M22.3889 28.8574C21.0247 30.3721 18.8967 30.3901 17.5195 28.8574"
+          d="M12.3889 19.8574C11.0247 21.3721 8.89672 21.3901 7.51953 19.8574"
           stroke="#BFBFBF"
           strokeWidth="1.5"
           strokeLinecap="round"

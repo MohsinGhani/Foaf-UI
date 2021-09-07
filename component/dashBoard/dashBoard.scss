@@ -1,26 +1,114 @@
 .layout {
     min-height: 100vh !important;
     // background: #ffffff !important;
+    background: white !important;
+    .ant-layout {
+        background: white;
+
+        // display: flex;
+    }
+    .menu-scroll {
+        position: relative;
+    }
     .slider {
         background: none;
+        background: white;
         // background: #fbfbfb;
-    }
-    .logo {
-        position: fixed;
-        top: 32px;
-        left: 30px;
-    }
-    .menu {
-        background: #fbfbfb !important;
-        border-radius: 16px;
-    }
-    .ant-layout-sider-children {
-        display: flex;
+        margin-left: 30px;
+        // display: flex !important;
         // align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        overflow: hidden;
+        // justify-content: center;
+        position: fixed;
+        top: 266px;
+
+        .menu {
+            background: #fbfbfb !important;
+            border-radius: 16px;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-evenly;
+            // text-align: center;
+            // margin-left: 30px;
+            // width: 100px !important;
+            width: 202px;
+            // position: fixed;
+
+            // flex-direction: column;
+
+            // margin: 0 auto;
+            // align-items: center;
+            // .search {
+            // widows: 300px;
+            // height: 48px;
+            // background: #ffffff;
+            // border-radius: 12px;
+            // padding: 4px 0px;
+            // }
+            .profile {
+                img {
+                    // border: 1px solid #f7f7f7;
+                    border-radius: 8px;
+                }
+            }
+        }
+        .logo {
+            position: fixed;
+            top: 32px;
+            left: 36px;
+        }
     }
+    .ant-menu-item-selected {
+        // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+        background: none !important;
+        .home {
+            background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+        }
+        .message {
+            background: #6ec2ff;
+        }
+        .group {
+            background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+        }
+        .location {
+            background: #ffa2b9;
+        }
+        .notification {
+            background: #c39eff;
+        }
+        .setting {
+            background: #f2bd6f;
+        }
+        .profile {
+            img {
+                border: 2px solid #ed8439 !important;
+                box-shadow: 0px 0px 4px #ed8439;
+                border-radius: 8px;
+            }
+        }
+
+        .ant-menu-title-content {
+            color: #010010;
+        }
+    }
+    .ant-menu-title-content {
+        color: #bfbfbf;
+    }
+    .ant-menu-item {
+        // position: fixed !important;
+        // display: flex;
+        // flex-direction: column;
+        padding: 0 0 0 20px !important;
+        margin: 20px 0 20px 0px !important;
+    }
+
+    // .ant-layout-sider-children {
+    // display: flex;
+    // align-items: center;
+    // position: fixed;
+    // justify-content: center;
+    // flex-direction: column;
+    // overflow: hidden;
+    // }
     .ant-layout-sider-trigger {
         display: none;
     }
@@ -30,7 +118,7 @@
     .container {
         margin: 0 auto;
         max-width: 1158px;
-        max-height: 964px;
+        // min-height: 964px;
         margin-top: 30px;
         // background: #ffffff !important;
         // overflow: auto;
@@ -40,6 +128,8 @@
             height: 100%;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
+            // background: #ffffff;
+
             // display: flex;
             // justify-content:center;
             overflow: scroll;
@@ -62,7 +152,9 @@
                 padding: 40px 80px 30px;
                 width: 60%;
                 // height: 964px;
-
+                .toggel {
+                    margin: 0 0 32px 0;
+                }
                 .status {
                     display: flex;
                     flex-direction: row;

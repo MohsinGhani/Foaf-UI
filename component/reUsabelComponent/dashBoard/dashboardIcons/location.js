@@ -1,17 +1,17 @@
 export default function LocationIcon() {
   return (
-    <div>
+    <div className="icon location">
       <svg
-        width="50"
-        height="40"
-        viewBox="0 0 50 40"
-        fill="none"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="white"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M22.5 18.5005C22.5 17.1192 21.3808 16 20.0005 16C18.6192 16 17.5 17.1192 17.5 18.5005C17.5 19.8808 18.6192 21 20.0005 21C21.3808 21 22.5 19.8808 22.5 18.5005Z"
+          d="M14.5 10.5005C14.5 9.11924 13.3808 8 12.0005 8C10.6192 8 9.5 9.11924 9.5 10.5005C9.5 11.8808 10.6192 13 12.0005 13C13.3808 13 14.5 11.8808 14.5 10.5005Z"
           stroke="#BFBFBF"
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -20,7 +20,7 @@ export default function LocationIcon() {
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M19.9995 29C18.801 29 12.5 23.8984 12.5 18.5633C12.5 14.3866 15.8571 11 19.9995 11C24.1419 11 27.5 14.3866 27.5 18.5633C27.5 23.8984 21.198 29 19.9995 29Z"
+          d="M11.9995 21C10.801 21 4.5 15.8984 4.5 10.5633C4.5 6.38664 7.8571 3 11.9995 3C16.1419 3 19.5 6.38664 19.5 10.5633C19.5 15.8984 13.198 21 11.9995 21Z"
           stroke="#BFBFBF"
           strokeWidth="1.5"
           strokeLinecap="round"

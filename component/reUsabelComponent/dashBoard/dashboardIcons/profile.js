@@ -1,18 +1,8 @@
-import Image from "next-images";
-
-export default function ProfileIcon(props) {
-  const { image } = props;
+/* eslint-disable @next/next/no-img-element */
+export default function ProfileIcon() {
   return (
-    <div>
-      {image.map((image, key) => (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          key={key}
-        />
-      ))}
+    <div className="icon profile">
+      <img src="/images/dashboard/userProfile.svg" alt="userimage" />
     </div>
   );
 }

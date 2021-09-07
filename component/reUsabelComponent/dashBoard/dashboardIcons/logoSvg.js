@@ -1,6 +1,6 @@
 export default function Logo() {
   return (
-    <span style={{ textAlign: "center" }}>
+    <span>
       <svg
         width="48"
         height="48"

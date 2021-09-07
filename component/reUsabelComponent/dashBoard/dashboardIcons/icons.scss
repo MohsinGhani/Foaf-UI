@@ -1,0 +1,38 @@
+.icon {
+    width: 40px;
+    height: 40px;
+    margin: 0px 10px 0 0;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.search {
+    width: 40px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 12px;
+    input {
+        display: none;
+    }
+}
+
+.full {
+    width: 130px !important;
+    background: #ffffff;
+    border-radius: 12px;
+    margin: 0px 10px;
+    border-radius: 12px;
+    padding: 0 0 0 5px;
+    // text-align: center;
+    // padding: 20px;
+    // overflow: hidden;
+
+    input {
+        width: 125px !important;
+        border: none;
+        padding: 4px 0px 4px 10px !important;
+        // width: 100% !important;
+        padding: 0 0 0px 10px;
+        color: black;
+    }
+}
