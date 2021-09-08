@@ -1,26 +1,52 @@
 .layout {
-    min-height: 100vh !important;
+    max-height: 100vh !important;
     // background: #ffffff !important;
+    // margin-top: 30px;
     background: white !important;
     .ant-layout {
         background: white;
 
         // display: flex;
     }
+    .logo {
+        position: fixed;
+        top: 32px;
+        left: 36px;
+    }
     .menu-scroll {
-        position: relative;
+        // max-height: 100vh;
+        // width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // position: relative;
+        // position: relative;
+        // align-items: center;
+        // position: fixed;
+        // overflow: scroll;
     }
     .slider {
         background: none;
         background: white;
         // background: #fbfbfb;
         margin-left: 30px;
+        // position: absolute;
+        // top: 30%;
+        // align-items: center;
         // display: flex !important;
         // align-items: center;
         // justify-content: center;
-        position: fixed;
-        top: 266px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // position: fixed;
+        // top: 266px;
+        // align-items: center;
 
+        // display: flex;
+        // flex-direction: column;
         .menu {
             background: #fbfbfb !important;
             border-radius: 16px;
@@ -30,9 +56,9 @@
             // text-align: center;
             // margin-left: 30px;
             // width: 100px !important;
-            width: 202px;
+            max-width: 202px;
             // position: fixed;
-
+            // align-items: center;
             // flex-direction: column;
 
             // margin: 0 auto;
@@ -50,11 +76,6 @@
                     border-radius: 8px;
                 }
             }
-        }
-        .logo {
-            position: fixed;
-            top: 32px;
-            left: 36px;
         }
     }
     .ant-menu-item-selected {
@@ -112,6 +133,9 @@
     .ant-layout-sider-trigger {
         display: none;
     }
+    .ant-layout-sider-has-trigger {
+        padding: 0px;
+    }
     // .ant-menu {
     //     background: rgba(251, 251, 251, 1);
     // }
@@ -119,62 +143,70 @@
         margin: 0 auto;
         max-width: 1158px;
         // min-height: 964px;
-        margin-top: 30px;
+        // padding-top: 30px;
+        // overflow: hidden;
         // background: #ffffff !important;
         // overflow: auto;
         // min-width: 1280px;
+
         .page {
-            width: 100%;
-            height: 100%;
+            // width: 100wh;
+            max-height: 100vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
+            // margin-top: 30px;
             // background: #ffffff;
-
+            display: flex;
             // display: flex;
             // justify-content:center;
-            overflow: scroll;
 
             box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
             // padding:152px  ;
-            display: flex;
-            &::-webkit-scrollbar {
-                display: none;
-            }
+
             .left-side {
+                overflow: scroll;
                 // position: fixed;
                 // top: 20px;
-
+                // height: 100vh;
                 // left: 500px;
-                display: flex;
+                // display: flex;
                 flex-direction: column;
                 align-items: center;
                 // justify-content:space-between;
-                padding: 40px 80px 30px;
+                // padding: 40px 80px 30px;
                 width: 60%;
                 // height: 964px;
                 .toggel {
-                    margin: 0 0 32px 0;
+                    margin: 30px 0 32px 0;
                 }
+
                 .status {
+                    // overflow-x: scroll;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
                     width: 580px;
                     height: 140px;
+                    // overflow: hidden;
                 }
                 .post {
                     margin-top: 30px;
                 }
+                display: flex;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
             .right-side {
                 width: 40%;
+                // height: 100vh;
+                overflow: scroll;
                 // position: fixed;
                 // right: 0px;
-                position: relative;
+                // position: relative;
                 // padding: 40px 80px 30px;
-                .scroll {
-                    position: fixed;
-                    top: 30px;
+                &::-webkit-scrollbar {
+                    display: none;
                 }
 
                 .request {

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Layout, Menu, Breadcrumb } from "antd";
 import React from "react";
 import Image from "next-images";
@@ -23,6 +24,9 @@ export default function DashBoard() {
 
   return (
     <Layout className="layout">
+      <div className="logo">
+        <Logo />
+      </div>
       <div className="menu-scroll">
         <Sider
           className="slider"
@@ -32,10 +36,6 @@ export default function DashBoard() {
           onMouseLeave={() => setCollapsed(true)}
           reverseArrow={true}
         >
-          <div className="logo">
-            <Logo />
-          </div>
-
           <Menu className="menu" defaultSelectedKeys={["1"]} mode="inline">
             <Menu.Item
               key="1"
@@ -72,12 +72,32 @@ export default function DashBoard() {
               <div className="toggel">
                 <Toggel />
               </div>
-              <div className="status">
-                <Card url="/images/dashboard/profile1.svg" />
-                <Card url="/images/dashboard/profile2.svg" />
-                <Card url="/images/dashboard/profile3.svg" />
-                <Card url="/images/dashboard/profile1.svg" />
-                <Card url="/images/dashboard/profile2.svg" />
+              <div>
+                <div className="status">
+                  <Card
+                    url="/images/dashboard/profile1.svg"
+                    name="Erin Press"
+                  />
+                  <Card
+                    url="/images/dashboard/profile2.svg"
+                    name="Charlie Carder"
+                  />
+                  <Card
+                    url="/images/dashboard/profile3.svg"
+                    name="Alfredo Schleifer"
+                  />
+                  <Card
+                    url="/images/dashboard/profile1.svg"
+                    name="Tatiana Dortwart"
+                  />
+
+                  <img
+                    src="/images/dashboard/king.png"
+                    alt="king"
+                    width="100"
+                    height="140"
+                  />
+                </div>
               </div>
               <div className="post">
                 <Post
@@ -109,20 +129,27 @@ export default function DashBoard() {
               </div>
             </div>
             <div className="right-side">
-              <div className="scroll">
-                <div>
-                  <Sponsored />
+              <div>
+                <Sponsored />
+              </div>
+              <div>
+                <div className="request">
+                  <p>Request</p>
+                  <div className="circle">3</div>
                 </div>
-                <div>
-                  <div className="request">
-                    <p>Request</p>
-                    <div className="circle">3</div>
-                  </div>
-                  <div className="request-card">
-                    <Request url="/images/dashboard/requestProfile1.svg" />
-                    <Request url="/images/dashboard/requestProfile2.svg" />
-                    <Request url="/images/dashboard/requestProfile3.svg" />
-                  </div>
+                <div className="request-card">
+                  <Request
+                    url="/images/dashboard/requestProfile1.svg"
+                    name="Kianna Rosser"
+                  />
+                  <Request
+                    url="/images/dashboard/requestProfile2.svg"
+                    name="Kaylynn Torff"
+                  />
+                  <Request
+                    url="/images/dashboard/requestProfile3.svg"
+                    name="Rajat Sharma"
+                  />
                 </div>
               </div>
             </div>

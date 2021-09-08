@@ -9,7 +9,7 @@ export default function Request(props) {
         </div>
         <div className="text">
           <p>
-            <span className="name">Kianna Rosser</span> Wants to add you to
+            <span className="name">{props.name}</span> Wants to add you to
             friends.
           </p>
         </div>

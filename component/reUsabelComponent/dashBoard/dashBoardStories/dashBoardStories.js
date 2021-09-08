@@ -7,7 +7,7 @@ export default function Card(props) {
         <Image src={props.url} alt="profile" width="40" height="40" />
       </div>
 
-      <div className="name">Erin Press</div>
+      <div className="name">{props.name}</div>
     </div>
   );
 }
