@@ -1,6 +1,9 @@
 @import "../../component/dashBoard/dashBoard.scss";
-@import "../../component/reUsabelComponent/dashBoard/dashBoardStories/dashBoardStories.scss";
-@import "../../component/reUsabelComponent/dashBoard/dashBoardPost/dashBoardPost.scss";
-@import "../../component/reUsabelComponent/dashBoard/dashBoardSponsored/dashboardSponsored.scss";
-@import "../../component/reUsabelComponent/dashBoard/dashBoardRequest/dashBoardRequest.scss";
-@import "../../component/reUsabelComponent/dashBoard/dashboardIcons/icons.scss";
+@import "../../component/nestedComponent/home/homeStories";
+@import "../../component/nestedComponent/home/homePost";
+@import "../../component/nestedComponent/home/homeSponsored";
+@import "../../component/nestedComponent/home/homeRequest";
+@import "../../component/nestedComponent/dashBoard/dashboardIcons/icons.scss";
+@import "../../component/home/index.scss";
+@import "../../component/setting.js";
+@import "../../component/nestedComponent/setting/accordion";

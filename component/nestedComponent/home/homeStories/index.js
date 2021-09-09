@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Card(props) {
+export default function Stories(props) {
   return (
     <div className="main">
       <div className="profile">

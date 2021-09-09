@@ -9,12 +9,14 @@ import Login from "../component/login/login";
 import ResetPassword from "../component/resetPassword/resetPassword";
 import ForgotPassword from "../component/forgotPassword/forgotPassword";
 import DashBoard from "../component/dashBoard/dashBoard";
+import Setting from "../component/setting.js";
 
 export default function Home() {
   return (
     //  <Signup/>
     // <Login />
     <DashBoard />
+    // <Setting />
     // <ResetPassword/>
     // <ForgotPassword/>
     // <ForgotPasswordChange/>

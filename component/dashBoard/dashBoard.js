@@ -3,20 +3,23 @@ import { Layout, Menu, Breadcrumb } from "antd";
 import React from "react";
 import Image from "next-images";
 import { useState } from "react";
-import Logo from "../reUsabelComponent/dashBoard/dashboardIcons/logoSvg";
-import Card from "../reUsabelComponent/dashBoard/dashBoardStories/dashBoardStories";
-import Post from "../reUsabelComponent/dashBoard/dashBoardPost/dashBoardPost";
-import Sponsored from "../reUsabelComponent/dashBoard/dashBoardSponsored/dashBoardSponsored";
-import Request from "../reUsabelComponent/dashBoard/dashBoardRequest/dashBoardRequest";
-import Searchicon from "../reUsabelComponent/dashBoard/dashboardIcons/search";
-import MessagesIcon from "../reUsabelComponent/dashBoard/dashboardIcons/messages";
-import GroupIcon from "../reUsabelComponent/dashBoard/dashboardIcons/groups";
-import LocationIcon from "../reUsabelComponent/dashBoard/dashboardIcons/location";
-import ProfileIcon from "../reUsabelComponent/dashBoard/dashboardIcons/profile";
-import NotificationIcon from "../reUsabelComponent/dashBoard/dashboardIcons/notification";
-import SettingIcon from "../reUsabelComponent/dashBoard/dashboardIcons/settings";
-import HomeIcon from "../reUsabelComponent/dashBoard/dashboardIcons/home";
-import Toggel from "../reUsabelComponent/dashBoard/dashboardIcons/toggel";
+import Logo from "../nestedComponent/dashBoard/dashboardIcons/logoSvg";
+import Card from "../nestedComponent/home/homeStories";
+
+import Sponsored from "../nestedComponent/home/homeSponsored";
+import Request from "../nestedComponent/home/homeRequest";
+import Searchicon from "../nestedComponent/dashBoard/dashboardIcons/search";
+import MessagesIcon from "../nestedComponent/dashBoard/dashboardIcons/messages";
+import GroupIcon from "../nestedComponent/dashBoard/dashboardIcons/groups";
+import LocationIcon from "../nestedComponent/dashBoard/dashboardIcons/location";
+import ProfileIcon from "../nestedComponent/dashBoard/dashboardIcons/profile";
+import NotificationIcon from "../nestedComponent/dashBoard/dashboardIcons/notification";
+import SettingIcon from "../nestedComponent/dashBoard/dashboardIcons/settings";
+import HomeIcon from "../nestedComponent/dashBoard/dashboardIcons/home";
+import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
+import Home from "../../pages";
+import HomeDashBoard from "../home/index";
+import Setting from "../setting.js";
 const { Header, Content, Footer, Sider } = Layout;
 
 export default function DashBoard() {
@@ -68,91 +71,8 @@ export default function DashBoard() {
       <Layout className="site-layout">
         <Content className="container">
           <div className="page">
-            <div className="left-side">
-              <div className="toggel">
-                <Toggel />
-              </div>
-              <div>
-                <div className="status">
-                  <Card
-                    url="/images/dashboard/profile1.svg"
-                    name="Erin Press"
-                  />
-                  <Card
-                    url="/images/dashboard/profile2.svg"
-                    name="Charlie Carder"
-                  />
-                  <Card
-                    url="/images/dashboard/profile3.svg"
-                    name="Alfredo Schleifer"
-                  />
-                  <Card
-                    url="/images/dashboard/profile1.svg"
-                    name="Tatiana Dortwart"
-                  />
-
-                  <img
-                    src="/images/dashboard/king.png"
-                    alt="king"
-                    width="100"
-                    height="140"
-                  />
-                </div>
-              </div>
-              <div className="post">
-                <Post
-                  url="/images/dashboard/ProfileImage.svg"
-                  time="10mins ago"
-                  profilecolor={true}
-                />
-              </div>
-              <div className="post">
-                <Post
-                  url="/images/dashboard/ProfileImage2.svg"
-                  time="1hour ago"
-                  profilecolor={false}
-                />
-              </div>
-              <div className="post">
-                <Post
-                  url="/images/dashboard/ProfileImage2.svg"
-                  time="1hour ago"
-                  profilecolor={false}
-                />
-              </div>
-              <div className="post">
-                <Post
-                  url="/images/dashboard/ProfileImage2.svg"
-                  time="1hour ago"
-                  profilecolor={false}
-                />
-              </div>
-            </div>
-            <div className="right-side">
-              <div>
-                <Sponsored />
-              </div>
-              <div>
-                <div className="request">
-                  <p>Request</p>
-                  <div className="circle">3</div>
-                </div>
-                <div className="request-card">
-                  <Request
-                    url="/images/dashboard/requestProfile1.svg"
-                    name="Kianna Rosser"
-                  />
-                  <Request
-                    url="/images/dashboard/requestProfile2.svg"
-                    name="Kaylynn Torff"
-                  />
-                  <Request
-                    url="/images/dashboard/requestProfile3.svg"
-                    name="Rajat Sharma"
-                  />
-                </div>
-              </div>
-            </div>
+            {/* <HomeDashBoard /> */}
+            <Setting />
           </div>
         </Content>
       </Layout>
