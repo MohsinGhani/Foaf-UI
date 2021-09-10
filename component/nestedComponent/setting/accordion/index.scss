@@ -1,3 +1,8 @@
 .accordion_main {
     width: 352px;
+    overflow: scroll;
+    height: 100vh;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

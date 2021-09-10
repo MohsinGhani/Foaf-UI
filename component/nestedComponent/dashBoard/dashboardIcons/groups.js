@@ -5,7 +5,7 @@ export default function GroupIcon() {
         width="22"
         height="18"
         viewBox="0 0 22 18"
-        fill="white"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

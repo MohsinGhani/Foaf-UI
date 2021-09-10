@@ -2,37 +2,37 @@ export default function MessagesIcon() {
   return (
     <div className="icon message">
       <svg
-        width="22"
-        height="22"
-        viewBox="0 0 22 22"
-        fill="white"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M18.0714 18.0699C15.0152 21.1263 10.4898 21.7867 6.78642 20.074C6.23971 19.8539 5.79148 19.676 5.36537 19.676C4.17849 19.683 2.70117 20.8339 1.93336 20.067C1.16555 19.2991 2.31726 17.8206 2.31726 16.6266C2.31726 16.2004 2.14642 15.7602 1.92632 15.2124C0.212831 11.5096 0.874109 6.98269 3.93026 3.92721C7.8316 0.0244319 14.17 0.0244322 18.0714 3.9262C21.9797 7.83501 21.9727 14.1681 18.0714 18.0699Z"
+          d="M27.0714 27.0699C24.0152 30.1263 19.4898 30.7867 15.7864 29.074C15.2397 28.8539 14.7915 28.676 14.3654 28.676C13.1785 28.683 11.7012 29.8339 10.9334 29.067C10.1656 28.2991 11.3173 26.8206 11.3173 25.6266C11.3173 25.2004 11.1464 24.7602 10.9263 24.2124C9.21283 20.5096 9.87411 15.9827 12.9303 12.9272C16.8316 9.02443 23.17 9.02443 27.0714 12.9262C30.9797 16.835 30.9727 23.1681 27.0714 27.0699Z"
           stroke="#BFBFBF"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M14.9393 11.4131H14.9483"
+          d="M23.9393 20.4131H23.9483"
           stroke="#BFBFBF"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M10.9306 11.4131H10.9396"
+          d="M19.9306 20.4131H19.9396"
           stroke="#BFBFBF"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M6.92128 11.4131H6.93028"
+          d="M15.9213 20.4131H15.9303"
           stroke="#BFBFBF"
           strokeWidth="2"
           strokeLinecap="round"

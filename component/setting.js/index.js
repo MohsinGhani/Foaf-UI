@@ -5,7 +5,9 @@ import SettingAccordion from "../nestedComponent/setting/accordion";
 export default function Setting() {
   return (
     <div className="setting_main">
-      <SettingAccordion />
+      <div className="left-side">
+        <SettingAccordion />
+      </div>
     </div>
   );
 }

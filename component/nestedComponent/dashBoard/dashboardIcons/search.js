@@ -1,6 +1,6 @@
 export default function Searchicon(props) {
   return (
-    <div className={props.condition ? " icon search" : "full"}>
+    <div className={props.condition ? "search" : "full"}>
       <svg
         width="21"
         height="21"

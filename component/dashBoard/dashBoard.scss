@@ -81,23 +81,66 @@
     .ant-menu-item-selected {
         // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
         background: none !important;
+        .toggelHome {
+            background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+
+            path {
+                fill: white;
+            }
+        }
+        .toggelSearch {
+            background: #f2bd6f;
+            svg {
+                fill: white;
+            }
+        }
+
         .home {
             background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+            path {
+                fill: white;
+                stroke: #f93d55;
+            }
         }
         .message {
             background: #6ec2ff;
+            path {
+                fill: white;
+                stroke: #6ec2ff;
+            }
         }
         .group {
             background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+            path {
+                fill: white;
+                stroke: #48c98b;
+                stroke-width: 0;
+            }
         }
         .location {
             background: #ffa2b9;
+            path {
+                fill: white;
+                stroke: #ffa2b9;
+            }
         }
         .notification {
             background: #c39eff;
+            path {
+                fill: white;
+                stroke: #c39eff;
+                stroke-width: 0;
+            }
         }
         .setting {
             background: #f2bd6f;
+            path {
+                fill: white;
+                stroke: #f2bd6f;
+            }
+            circle {
+                stroke: #f2bd6f;
+            }
         }
         .profile {
             img {

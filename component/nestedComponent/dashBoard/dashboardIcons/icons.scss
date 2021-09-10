@@ -7,19 +7,35 @@
 }
 
 .search {
+    text-align: center;
     width: 40px;
-    height: 48px;
+    // height: 100%;
     background: #ffffff;
     border-radius: 12px;
     input {
         display: none;
     }
 }
+.toggel_main {
+    button {
+        width: 162px;
+        height: 60px;
+        // position: fixed;
+        .ant-switch-handle::before {
+            // display: none;
+            background-color: red;
+            height: 35px;
+            // position: fixed;
+            top: 10px;
+        }
+    }
+}
 
 .full {
-    width: 130px !important;
+    width: 140px !important;
     background: #ffffff;
-    border-radius: 12px;
+    // background-color: black;
+    // border-radius: 12px;
     margin: 0px 10px;
     border-radius: 12px;
     padding: 0 0 0 5px;
@@ -28,7 +44,9 @@
     // overflow: hidden;
 
     input {
-        width: 125px !important;
+        width: 110px !important;
+        // border-radius: 12px;
+        // background-color: black;
         border: none;
         padding: 4px 0px 4px 10px !important;
         // width: 100% !important;

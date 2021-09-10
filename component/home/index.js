@@ -1,17 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
+
 import Post from "../nestedComponent/home/homePost";
 import Request from "../nestedComponent/home/homeRequest";
 import Sponsored from "../nestedComponent/home/homeSponsored";
 import Stories from "../nestedComponent/home/homeStories";
+// import Toggel from "../nestedComponent/home/homeToggel";
 
 export default function HomeDashBoard() {
   return (
     <div className="home_main">
       <div className="left-side">
-        <div className="toggel">
-          <Toggel />
-        </div>
         <div>
           <div className="status">
             <Stories url="/images/dashboard/profile1.svg" name="Erin Press" />
