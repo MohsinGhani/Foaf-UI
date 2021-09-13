@@ -8,7 +8,7 @@
     .profile-main {
         display: flex;
         .request-profile {
-            width: 45px;
+            max-width: 45px;
             height: 45px;
             margin: 0 10px 0 0;
         }
@@ -24,7 +24,7 @@
             background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
             color: rgba(255, 255, 255, 1);
             border-radius: 8px;
-            width: 140px;
+            max-width: 140px;
             height: 36px;
             font-size: 12px;
             font-weight: 600;
@@ -34,7 +34,7 @@
             background: none;
             color: rgba(1, 0, 16, 1);
             border-radius: 8px;
-            width: 140px;
+            max-width: 140px;
             height: 36px;
             font-size: 12px;
             font-weight: 600;

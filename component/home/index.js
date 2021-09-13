@@ -10,28 +10,42 @@ export default function HomeDashBoard() {
   return (
     <div className="home_main">
       <div className="left-side">
-        <div>
+        <div className="status_1">
           <div className="status">
-            <Stories url="/images/dashboard/profile1.svg" name="Erin Press" />
-            <Stories
-              url="/images/dashboard/profile2.svg"
-              name="Charlie Carder"
-            />
-            <Stories
-              url="/images/dashboard/profile3.svg"
-              name="Alfredo Schleifer"
-            />
-            <Stories
-              url="/images/dashboard/profile1.svg"
-              name="Tatiana Dortwart"
-            />
-
-            <img
-              src="/images/dashboard/king.png"
-              alt="king"
-              width="100"
-              height="140"
-            />
+            <div className="wow_1">
+              <div className="wow_2">
+                <Stories
+                  url="/images/dashboard/profile1.svg"
+                  name="Erin Press"
+                />
+              </div>
+              <div className="wow_2">
+                <Stories
+                  url="/images/dashboard/profile2.svg"
+                  name="Erin Press"
+                />
+              </div>
+              <div className="wow_2">
+                <Stories
+                  url="/images/dashboard/profile3.svg"
+                  name="Erin Press"
+                />
+              </div>
+              <div className="wow_2">
+                <Stories
+                  url="/images/dashboard/profile1.svg"
+                  name="Erin Press"
+                />
+              </div>
+              <div className="wow_2">
+                <img
+                  src="/images/dashboard/king.png"
+                  alt="king"
+                  width="100"
+                  height="140"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div className="post">
@@ -81,6 +95,20 @@ export default function HomeDashBoard() {
               url="/images/dashboard/requestProfile2.svg"
               name="Kaylynn Torff"
             />
+            <Request
+              url="/images/dashboard/requestProfile3.svg"
+              name="Rajat Sharma"
+            />
+            <Request
+              url="/images/dashboard/requestProfile3.svg"
+              name="Rajat Sharma"
+            />
+
+            <Request
+              url="/images/dashboard/requestProfile3.svg"
+              name="Rajat Sharma"
+            />
+
             <Request
               url="/images/dashboard/requestProfile3.svg"
               name="Rajat Sharma"

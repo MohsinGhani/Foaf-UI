@@ -1,5 +1,5 @@
 import "../styles/globals.scss";
-import "../styles/scss/idex.scss";
+import "../styles/scss/index.scss";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";

@@ -17,16 +17,33 @@
     }
 }
 .toggel_main {
-    button {
-        width: 162px;
-        height: 60px;
-        // position: fixed;
-        .ant-switch-handle::before {
-            // display: none;
-            background-color: red;
-            height: 35px;
-            // position: fixed;
-            top: 10px;
+    width: 162px;
+    border: 1px solid #bfbfbf;
+    border-radius: 30px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // transition: 0.5s !important;
+    .same {
+        transition: all 0.2s ease-in;
+        width: 76px;
+        height: 50px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .homewow {
+        background: #fe5e71;
+        svg {
+            fill: white;
+        }
+    }
+    .search {
+        background: #f2bd6f;
+        svg {
+            fill: white;
         }
     }
 }

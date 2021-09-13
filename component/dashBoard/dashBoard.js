@@ -15,12 +15,13 @@ import ToggelHome from "../nestedComponent/dashBoard/dashboardIcons/toggelhomje"
 
 import HomeDashBoard from "../home/index";
 import ToogelSearch from "../nestedComponent/dashBoard/dashboardIcons/toggelSearch";
-import Toggel from "../nestedComponent/dashBoard/toggel";
+import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 export default function DashBoard() {
   const [collapsed, setCollapsed] = useState(true);
+  const [selected, setSelected] = useState(true);
 
   return (
     <Layout className="layout">
@@ -43,7 +44,10 @@ export default function DashBoard() {
                 <Menu.Item key="2" icon={<ToogelSearch />}></Menu.Item>{" "}
               </>
             ) : (
-              <Menu.Item key="a" icon={<Toggel />}></Menu.Item>
+              <Menu.Item
+                key={selected ? "2" : "1"}
+                icon={<Toggel selected={selected} disSelected={setSelected} />}
+              ></Menu.Item>
             )}
             <Menu.Item
               key="3"
@@ -80,6 +84,31 @@ export default function DashBoard() {
             {/* <Setting /> */}
           </div>
         </Content>
+        {/* <Footer>
+          <Menu className="menu" mode="block">
+            <Menu.Item key="4" icon={<HomeIcon />}>
+              Home
+            </Menu.Item>
+            <Menu.Item key="10" icon={<ProfileIcon />}>
+              Profile
+            </Menu.Item>
+            <Menu.Item key="5" icon={<MessagesIcon />}>
+              Messages
+            </Menu.Item>
+            <Menu.Item key="6" icon={<GroupIcon />}>
+              Groups
+            </Menu.Item>
+            <Menu.Item key="7" icon={<LocationIcon />}>
+              Location
+            </Menu.Item>
+            <Menu.Item key="8" icon={<NotificationIcon />}>
+              Notification
+            </Menu.Item>
+            <Menu.Item key="9" icon={<SettingIcon />}>
+              Setting
+            </Menu.Item>
+          </Menu>
+        </Footer> */}
       </Layout>
     </Layout>
   );
