@@ -7,4 +7,6 @@
 @import "../../component/home/index.scss";
 @import "../../component/setting.js";
 @import "../../component/nestedComponent/setting/accordion";
-// @import "../tools/mixins";
+@import "../../component/nestedComponent/dashBoard/top-bar";
+@import "../../component/nestedComponent/home/homeMobileStories";
+@import "../../component/nestedComponent/home/toggelmobile";

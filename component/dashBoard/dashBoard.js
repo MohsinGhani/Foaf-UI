@@ -16,6 +16,7 @@ import ToggelHome from "../nestedComponent/dashBoard/dashboardIcons/toggelhomje"
 import HomeDashBoard from "../home/index";
 import ToogelSearch from "../nestedComponent/dashBoard/dashboardIcons/toggelSearch";
 import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
+import TopBar from "../nestedComponent/dashBoard/top-bar";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -80,35 +81,20 @@ export default function DashBoard() {
       <Layout className="site-layout">
         <Content className="container">
           <div className="page">
+            <TopBar />
             <HomeDashBoard />
             {/* <Setting /> */}
           </div>
         </Content>
-        {/* <Footer>
-          <Menu className="menu" mode="block">
-            <Menu.Item key="4" icon={<HomeIcon />}>
-              Home
-            </Menu.Item>
-            <Menu.Item key="10" icon={<ProfileIcon />}>
-              Profile
-            </Menu.Item>
-            <Menu.Item key="5" icon={<MessagesIcon />}>
-              Messages
-            </Menu.Item>
-            <Menu.Item key="6" icon={<GroupIcon />}>
-              Groups
-            </Menu.Item>
-            <Menu.Item key="7" icon={<LocationIcon />}>
-              Location
-            </Menu.Item>
-            <Menu.Item key="8" icon={<NotificationIcon />}>
-              Notification
-            </Menu.Item>
-            <Menu.Item key="9" icon={<SettingIcon />}>
-              Setting
-            </Menu.Item>
+        <Footer>
+          <Menu className="menu" mode="horizontal">
+            <Menu.Item key="1" icon={<HomeIcon />}></Menu.Item>
+            <Menu.Item key="2" icon={<GroupIcon />}></Menu.Item>
+            <Menu.Item key="3" icon={<LocationIcon />}></Menu.Item>
+            <Menu.Item key="4" icon={<NotificationIcon />}></Menu.Item>
+            <Menu.Item key="5" icon={<ProfileIcon />}></Menu.Item>
           </Menu>
-        </Footer> */}
+        </Footer>
       </Layout>
     </Layout>
   );

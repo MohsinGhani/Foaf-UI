@@ -1,15 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { Menu } from "antd";
+import MobileStories from "../nestedComponent/home/homeMobileStories";
 import Post from "../nestedComponent/home/homePost";
 import Request from "../nestedComponent/home/homeRequest";
 import Sponsored from "../nestedComponent/home/homeSponsored";
 import Stories from "../nestedComponent/home/homeStories";
+import ToggelMobile from "../nestedComponent/home/toggelmobile";
 // import Toggel from "../nestedComponent/home/homeToggel";
 
 export default function HomeDashBoard() {
   return (
     <div className="home_main">
       <div className="left-side">
+        <MobileStories />
+        <div className="seperator">
+          <svg
+            width="800"
+            height="2"
+            viewBox="0 0 376 2"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 1L376 1.00003" stroke="#FFE9EB" />
+          </svg>
+        </div>
+        <ToggelMobile />
+
         <div className="status_1">
           <div className="status">
             <div className="wow_1">

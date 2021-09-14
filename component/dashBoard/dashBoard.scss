@@ -28,179 +28,154 @@
         // align-items: center;
         // position: fixed;
         // overflow: scroll;
-    }
-    .slider {
-        background: none;
-        background: white;
-        // background: #fbfbfb;
-        margin-left: 30px;
-        // position: absolute;
-        // top: 30%;
-        // align-items: center;
-        // display: flex !important;
-        // align-items: center;
-        // justify-content: center;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // position: fixed;
-        // top: 266px;
-        // align-items: center;
-
-        // display: flex;
-        // flex-direction: column;
-        // .closed > :first-child {
-        //     height: auto;
-        // }
-        // .open > :first-child {
-        //     height: auto;
-        // }
-        ul > :first-child {
-            height: auto;
+        .ant-layout-sider-trigger {
+            display: none;
         }
-        .menu {
-            background: #fbfbfb !important;
-            border-radius: 16px;
+        .ant-layout-sider-has-trigger {
+            padding: 0px;
+        }
+        .slider {
+            background: none;
+            background: white;
+            // background: #fbfbfb;
+            margin-left: 30px;
+            // position: absolute;
+            // top: 30%;
+            // align-items: center;
+            // display: flex !important;
+            // align-items: center;
+            // justify-content: center;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            // position: fixed;
+            // top: 266px;
+            // align-items: center;
+
             // display: flex;
             // flex-direction: column;
-            // justify-content: space-evenly;
-            // text-align: center;
-            // margin-left: 30px;
-            // width: 100px !important;
-
-            // max-width: 202px;
-
-            // position: fixed;
-            // align-items: center;
-            // flex-direction: column;
-
-            // margin: 0 auto;
-            // align-items: center;
-            // .search {
-            // widows: 300px;
-            // height: 48px;
-            // background: #ffffff;
-            // border-radius: 12px;
-            // padding: 4px 0px;
+            // .closed > :first-child {
+            //     height: auto;
             // }
+            // .open > :first-child {
+            //     height: auto;
             // }
-            .profile {
-                img {
-                    // border: 1px solid #f7f7f7;
-                    border-radius: 8px;
+            ul > :first-child {
+                height: auto;
+            }
+            .menu {
+                background: #fbfbfb !important;
+                border-radius: 16px;
+
+                .ant-menu-item {
+                    // position: fixed !important;
+                    // display: flex;
+                    // flex-direction: column;
+                    padding: 0 0 0 20px !important;
+                    margin: 20px 0 20px 0px !important;
+                }
+                .ant-menu-item-selected {
+                    // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                    background: none !important;
+                    .toggelHome {
+                        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+
+                        path {
+                            fill: white;
+                        }
+                    }
+                    .toggelSearch {
+                        background: #f2bd6f;
+                        svg {
+                            fill: white;
+                        }
+                    }
+
+                    .home {
+                        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                        path {
+                            fill: white;
+                            stroke: #f93d55;
+                        }
+                    }
+                    .message {
+                        background: #6ec2ff;
+                        path {
+                            fill: white;
+                            stroke: #6ec2ff;
+                        }
+                    }
+                    .group {
+                        background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+                        path {
+                            fill: white;
+                            stroke: #48c98b;
+                            stroke-width: 0;
+                        }
+                    }
+                    .location {
+                        background: #ffa2b9;
+                        path {
+                            fill: white;
+                            stroke: #ffa2b9;
+                        }
+                    }
+                    .notification {
+                        background: #c39eff;
+                        path {
+                            fill: white;
+                            stroke: #c39eff;
+                            stroke-width: 0;
+                        }
+                    }
+                    .setting {
+                        background: #f2bd6f;
+                        path {
+                            fill: white;
+                            stroke: #f2bd6f;
+                        }
+                        circle {
+                            stroke: #f2bd6f;
+                        }
+                    }
+                    .profile {
+                        img {
+                            border: 2px solid #ed8439 !important;
+                            box-shadow: 0px 0px 4px #ed8439;
+                            border-radius: 8px;
+                        }
+                    }
+
+                    .ant-menu-title-content {
+                        color: #010010;
+                    }
+                }
+
+                .ant-menu-title-content {
+                    color: #bfbfbf;
                 }
             }
         }
-    }
-    .ant-menu-item-selected {
-        // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-        background: none !important;
-        .toggelHome {
-            background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
 
-            path {
-                fill: white;
-            }
-        }
-        .toggelSearch {
-            background: #f2bd6f;
-            svg {
-                fill: white;
-            }
-        }
-
-        .home {
-            background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-            path {
-                fill: white;
-                stroke: #f93d55;
-            }
-        }
-        .message {
-            background: #6ec2ff;
-            path {
-                fill: white;
-                stroke: #6ec2ff;
-            }
-        }
-        .group {
-            background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
-            path {
-                fill: white;
-                stroke: #48c98b;
-                stroke-width: 0;
-            }
-        }
-        .location {
-            background: #ffa2b9;
-            path {
-                fill: white;
-                stroke: #ffa2b9;
-            }
-        }
-        .notification {
-            background: #c39eff;
-            path {
-                fill: white;
-                stroke: #c39eff;
-                stroke-width: 0;
-            }
-        }
-        .setting {
-            background: #f2bd6f;
-            path {
-                fill: white;
-                stroke: #f2bd6f;
-            }
-            circle {
-                stroke: #f2bd6f;
-            }
-        }
-        .profile {
-            img {
-                border: 2px solid #ed8439 !important;
-                box-shadow: 0px 0px 4px #ed8439;
-                border-radius: 8px;
-            }
-        }
-
-        .ant-menu-title-content {
-            color: #010010;
-        }
-    }
-    .ant-menu-title-content {
-        color: #bfbfbf;
-    }
-    .ant-menu-item {
-        // position: fixed !important;
+        // ul > :first-child {
+        //     height: 60px !important;
+        // }
+        // .toggel {
+        //     height: 40px;
+        // }
+        // .ant-layout-sider-children {
         // display: flex;
+        // align-items: center;
+        // position: fixed;
+        // justify-content: center;
         // flex-direction: column;
-        padding: 0 0 0 20px !important;
-        margin: 20px 0 20px 0px !important;
+        // overflow: hidden;
+        // }
+
+        // .ant-menu {
+        //     background: rgba(251, 251, 251, 1);
+        // }
     }
-    // ul > :first-child {
-    //     height: 60px !important;
-    // }
-    // .toggel {
-    //     height: 40px;
-    // }
-    // .ant-layout-sider-children {
-    // display: flex;
-    // align-items: center;
-    // position: fixed;
-    // justify-content: center;
-    // flex-direction: column;
-    // overflow: hidden;
-    // }
-    .ant-layout-sider-trigger {
-        display: none;
-    }
-    .ant-layout-sider-has-trigger {
-        padding: 0px;
-    }
-    // .ant-menu {
-    //     background: rgba(251, 251, 251, 1);
-    // }
     .container {
         margin: 0 auto;
         max-width: 1158px;
@@ -213,6 +188,7 @@
 
         .page {
             width: 100wh;
+            // padding: 50px 0px;
             max-height: 100vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
@@ -228,14 +204,136 @@
         }
     }
     footer {
-        menu {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #ffffff;
+        height: 65px;
+        // margin: 0 auto;
+        // width: 100%;
+        box-shadow: 0px -6px 44px 4px rgba(0, 0, 0, 0.05);
+        z-index: 11111;
+        padding: 0px !important;
+        .ant-menu::before {
+            content: unset !important;
+        }
+        .ant-menu-horizontal::after {
+            content: unset !important;
+        }
+
+        .ant-menu-horizontal {
+            height: 65px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            // text-align: center;
+            line-height: 38px;
+            li::after {
+                border-bottom: none !important;
+            }
+            .ant-menu::before {
+                display: none !important    ;
+                content: unset !important;
+            }
+
+            .ant-menu-item {
+                padding: 0;
+            }
+            // text-align: center;
+            // .ant-menu-item {
+            //     // position: fixed !important;
+            //     // display: flex;
+            //     // flex-direction: column;
+            //     padding: 0 0 0 20px !important;
+            //     margin: 20px 0 20px 0px !important;
+            // }
+            .icon {
+                margin: 0 !important;
+            }
+            .ant-menu-item-selected {
+                // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                background: none !important;
+                .toggelHome {
+                    background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+
+                    path {
+                        fill: white;
+                    }
+                }
+                .toggelSearch {
+                    background: #f2bd6f;
+                    svg {
+                        fill: white;
+                    }
+                }
+
+                .home {
+                    background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                    path {
+                        fill: white;
+                        stroke: #f93d55;
+                    }
+                }
+                .message {
+                    background: #6ec2ff;
+                    path {
+                        fill: white;
+                        stroke: #6ec2ff;
+                    }
+                }
+                .group {
+                    background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+                    path {
+                        fill: white;
+                        stroke: #48c98b;
+                        stroke-width: 0;
+                    }
+                }
+                .location {
+                    background: #ffa2b9;
+                    path {
+                        fill: white;
+                        stroke: #ffa2b9;
+                    }
+                }
+                .notification {
+                    background: #c39eff;
+                    path {
+                        fill: white;
+                        stroke: #c39eff;
+                        stroke-width: 0;
+                    }
+                }
+                .setting {
+                    background: #f2bd6f;
+                    path {
+                        fill: white;
+                        stroke: #f2bd6f;
+                    }
+                    circle {
+                        stroke: #f2bd6f;
+                    }
+                }
+                .profile {
+                    img {
+                        border: 2px solid #ed8439 !important;
+                        box-shadow: 0px 0px 4px #ed8439;
+                        border-radius: 8px;
+                    }
+                }
+            }
         }
     }
 }
 
 @media screen and (max-width: 576px) {
+    .container {
+        padding: 0px !important;
+        .page {
+            border-radius: 0px !important;
+        }
+    }
     .logo {
         display: none;
     }
@@ -247,5 +345,9 @@
         // display: flex;
         // flex-direction: column;
         // z-index: 222;
+    }
+
+    footer {
+        display: block !important;
     }
 }

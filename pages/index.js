@@ -13,7 +13,7 @@ import Setting from "../component/setting.js";
 
 export default function Home() {
   return (
-    //  <Signup/>
+    // <Signup />
     // <Login />
     <DashBoard />
     // <Setting />
