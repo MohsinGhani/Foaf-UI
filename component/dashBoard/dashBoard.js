@@ -14,9 +14,10 @@ import HomeIcon from "../nestedComponent/dashBoard/dashboardIcons/home";
 import ToggelHome from "../nestedComponent/dashBoard/dashboardIcons/toggelhomje";
 
 import HomeDashBoard from "../home/index";
-import ToogelSearch from "../nestedComponent/dashBoard/dashboardIcons/toggelSearch";
+import ToggelSearch from "../nestedComponent/dashBoard/dashboardIcons/toggelSearch";
 import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
 import TopBar from "../nestedComponent/dashBoard/top-bar";
+import Setting from "../setting.js";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -38,11 +39,11 @@ export default function DashBoard() {
           onMouseLeave={() => setCollapsed(true)}
           reverseArrow={true}
         >
-          <Menu className="menu" mode="inline">
+          <Menu className="menu" mode="inline" defaultSelectedKeys={["1"]}>
             {collapsed ? (
               <>
                 <Menu.Item key="1" icon={<ToggelHome />}></Menu.Item>
-                <Menu.Item key="2" icon={<ToogelSearch />}></Menu.Item>{" "}
+                <Menu.Item key="2" icon={<ToggelSearch />}></Menu.Item>{" "}
               </>
             ) : (
               <Menu.Item
@@ -82,8 +83,8 @@ export default function DashBoard() {
         <Content className="container">
           <div className="page">
             <TopBar />
-            <HomeDashBoard />
-            {/* <Setting /> */}
+            {/* <HomeDashBoard /> */}
+            <Setting />
           </div>
         </Content>
         <Footer>

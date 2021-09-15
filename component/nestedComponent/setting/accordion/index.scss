@@ -1,7 +1,27 @@
 .accordion_main {
-    width: 352px;
+    width: 100%;
     overflow: scroll;
-    height: 100vh;
+    margin: 40px 24px 2px 24px;
+    // margin: ;
+    // height: calc(100vh - 80px);
+    .ant-collapse {
+        background-color: unset;
+        border: none;
+        .ant-collapse-header {
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .ant-collapse-content {
+            border: none;
+            .ant-collapse-content-box {
+                a {
+                    color: unset;
+                    line-height: 40px;
+                    display: flex;
+                }
+            }
+        }
+    }
     &::-webkit-scrollbar {
         display: none;
     }

@@ -1,6 +1,8 @@
 .mobile_toggel_wow {
     // display: none;
     // margin-top: 5px;
+    // width: 100%;
+    width: 100px;
     visibility: hidden;
     .ant-menu::before {
         content: unset !important;
@@ -17,6 +19,9 @@
         text-align: center;
         line-height: 38px;
         border-bottom: none;
+        li {
+            padding: 0px !important;
+        }
         li::after {
             border-bottom: none !important;
         }
@@ -42,6 +47,7 @@
         // }
         .icon {
             margin: 0 !important;
+            padding: 0px !important;
         }
         .ant-menu-item-selected {
             // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);

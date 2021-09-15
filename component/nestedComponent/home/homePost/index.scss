@@ -55,32 +55,34 @@
 
         .heart {
             display: flex;
+            align-items: center;
             .heartIcon {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                // justify-content: center;
+                // align-items: center;
                 max-width: 24px;
                 max-height: 24px;
             }
 
             p {
                 color: #bfbfbf;
-                margin: 0px 4px;
+                margin: 0px 5px;
             }
         }
         .views {
             display: flex;
+            align-items: center;
             margin-left: 24px;
             .viewsIcon {
                 display: flex;
-                justify-content: center;
+                // justify-content: center;
                 // align-items: center;
                 max-width: 24px;
                 max-height: 24px;
             }
             p {
                 color: #bfbfbf;
-                margin: 0px 4px;
+                margin: 0px 5px;
             }
         }
     }

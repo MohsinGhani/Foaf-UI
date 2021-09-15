@@ -1,4 +1,4 @@
-export default function ToogelSearch() {
+export default function ToggelSearch() {
   return (
     <div className="icon toggelSearch">
       <svg

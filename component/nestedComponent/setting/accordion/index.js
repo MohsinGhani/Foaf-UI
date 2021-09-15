@@ -1,28 +1,26 @@
 import { Collapse } from "antd";
+import Link from "next/link";
 const { Panel } = Collapse;
 export default function SettingAccordion() {
-  function callback(key) {
-    console.log(key);
-  }
+  // function callback(key) {
+  //   console.log(key);
+  // }
 
   return (
     <div className="accordion_main">
-      <Collapse onChange={callback}>
-        <Panel
-          className=""
-          header="This is panel header 1"
-          showArrow={false}
-          key="1"
-        >
-          <p>hello</p>
-          <p>hello</p>
-          <p>hello</p>
-          <p>hello</p>
-          <p>hello</p>
+      <Collapse>
+        <Panel header="Account Preferences" showArrow={false} key="1">
+          <Link href="/">Profile information</Link>
+
+          <Link href="/">site Preferences</Link>
+
+          <Link href="/">Syncing Options</Link>
+
+          <Link href="/">Subscriptions & Payments</Link>
+          <Link href="/">Monitise Option</Link>
+          <Link href="/">Account Management</Link>
         </Panel>
-        <Panel header="Profile Information" showArrow={false} key="2">
-          <p>hello</p>
-        </Panel>
+
         <Panel header="Sign in & Security" showArrow={false} key="3">
           <p>hello</p>
         </Panel>

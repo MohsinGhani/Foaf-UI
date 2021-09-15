@@ -1,9 +1,18 @@
 .setting_main {
     height: 100vh;
-    // display: flex;
+    display: flex;
     // justify-content: center;
-    .left-side {
+    .left_side {
         width: 30%;
+        // margin: 30px 20px 20px 20px;
+
         display: flex;
+        background: #ffffff;
+        box-shadow: 0px 0px 24px -10px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+    }
+    .right_side {
+        width: 80%;
+        margin: 35px 24px 2px 24px;
     }
 }

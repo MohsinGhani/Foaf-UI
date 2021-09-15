@@ -36,8 +36,10 @@
     }
     .homewow {
         background: #fe5e71;
-        svg {
+        path {
             fill: white;
+            stroke: #fe5e71;
+            stroke-width: 0px;
         }
     }
     .search {
