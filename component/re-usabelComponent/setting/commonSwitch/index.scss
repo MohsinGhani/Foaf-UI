@@ -1,0 +1,22 @@
+.main_commonSitch {
+    padding-left: 10px;
+    .text_main {
+        display: flex;
+        justify-content: space-between;
+        .text_one {
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .text_two {
+            color: #bfbfbf;
+            max-width: 672px;
+        }
+        .change {
+            font-size: 16px;
+        }
+    }
+    .colorfull_text {
+        color: #c39eff;
+        font-size: 12px;
+    }
+}

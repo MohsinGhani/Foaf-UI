@@ -1,6 +1,7 @@
 .setting_main {
     height: 100vh;
     display: flex;
+    // width: 100%;
     // justify-content: center;
     .left_side {
         width: 30%;
@@ -12,7 +13,11 @@
         border-radius: 12px;
     }
     .right_side {
+        overflow: scroll;
         width: 80%;
-        margin: 35px 24px 2px 24px;
+        margin: 0 24px 2px 24px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }

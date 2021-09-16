@@ -17,7 +17,8 @@ import HomeDashBoard from "../home/index";
 import ToggelSearch from "../nestedComponent/dashBoard/dashboardIcons/toggelSearch";
 import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
 import TopBar from "../nestedComponent/dashBoard/top-bar";
-import Setting from "../setting.js";
+import Setting from "../setting";
+import Link from "next/link";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -56,7 +57,7 @@ export default function DashBoard() {
               icon={<Searchicon condition={collapsed} />}
             ></Menu.Item>
             <Menu.Item key="4" icon={<HomeIcon />}>
-              Home
+              <Link href="/">Home</Link>
             </Menu.Item>
             <Menu.Item key="10" icon={<ProfileIcon />}>
               Profile
@@ -74,7 +75,7 @@ export default function DashBoard() {
               Notification
             </Menu.Item>
             <Menu.Item key="9" icon={<SettingIcon />}>
-              Setting
+              <Link href="/setting-page"> Setting</Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -84,7 +85,7 @@ export default function DashBoard() {
           <div className="page">
             <TopBar />
             {/* <HomeDashBoard /> */}
-            <Setting />
+            {/* <Setting /> */}
           </div>
         </Content>
         <Footer>
