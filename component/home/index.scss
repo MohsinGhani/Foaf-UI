@@ -108,7 +108,10 @@
         height: calc(100vh - 108px) !important;
         .left-side {
             .seperator {
+                // display: flex;
                 display: block;
+                // width: 100vw;
+                // justify-content: center;
             }
             .status {
                 display: none !important;

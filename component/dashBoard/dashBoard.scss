@@ -74,9 +74,13 @@
                     padding: 0 0 0 20px !important;
                     margin: 20px 0 20px 0px !important;
                 }
+                .ant-menu-item::after {
+                    border: unset;
+                }
                 .ant-menu-item-selected {
                     // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                     background: none !important;
+
                     .toggelHome {
                         background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
 
@@ -149,9 +153,15 @@
                     .ant-menu-title-content {
                         color: #010010;
                     }
+                    a {
+                        color: #010010;
+                    }
                 }
 
                 .ant-menu-title-content {
+                    color: #bfbfbf;
+                }
+                a {
                     color: #bfbfbf;
                 }
             }

@@ -1,3 +1,4 @@
+import { Switch } from "antd";
 export default function CommonSwitch({ heading, text, colorText }) {
   return (
     <div className="main_commonSitch">
@@ -8,7 +9,7 @@ export default function CommonSwitch({ heading, text, colorText }) {
         </div>
         <div>
           <p className="change">change</p>
-          <p>Switch</p>
+          <Switch />
         </div>
       </div>
       <div>

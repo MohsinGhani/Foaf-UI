@@ -16,7 +16,7 @@ export default function HomeDashBoard() {
         <MobileStories />
         <div className="seperator">
           <svg
-            width="800"
+            width="400"
             height="2"
             viewBox="0 0 376 2"
             fill="none"
