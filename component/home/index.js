@@ -14,17 +14,7 @@ export default function HomeDashBoard() {
     <div className="home_main">
       <div className="left-side">
         <MobileStories />
-        <div className="seperator">
-          <svg
-            width="400"
-            height="2"
-            viewBox="0 0 376 2"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M0 1L376 1.00003" stroke="#FFE9EB" />
-          </svg>
-        </div>
+        <div className="seperator"></div>
         <ToggelMobile />
 
         <div className="status_1">
@@ -32,25 +22,25 @@ export default function HomeDashBoard() {
             <div className="wow_1">
               <div className="wow_2">
                 <Stories
-                  url="/images/dashboard/profile1.svg"
+                  url="/images/dashboard/samesize.svg"
                   name="Erin Press"
                 />
               </div>
               <div className="wow_2">
                 <Stories
-                  url="/images/dashboard/profile2.svg"
+                  url="/images/dashboard/requestProfile1.svg"
                   name="Erin Press"
                 />
               </div>
               <div className="wow_2">
                 <Stories
-                  url="/images/dashboard/profile3.svg"
+                  url="/images/dashboard/requestProfile3.svg"
                   name="Erin Press"
                 />
               </div>
               <div className="wow_2">
                 <Stories
-                  url="/images/dashboard/profile1.svg"
+                  url="/images/dashboard/samesize.svg"
                   name="Erin Press"
                 />
               </div>
@@ -67,11 +57,12 @@ export default function HomeDashBoard() {
         </div>
         <div className="post">
           <Post
-            url="/images/dashboard/ProfileImage.svg"
+            url="/images/dashboard/samesize.svg"
             time="10mins ago"
             profilecolor={true}
           />
         </div>
+        <hr />
         <div className="post">
           <Post
             url="/images/dashboard/ProfileImage2.svg"

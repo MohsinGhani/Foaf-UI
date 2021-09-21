@@ -5,7 +5,7 @@ export default function Request(props) {
     <div className="request-main">
       <div className="profile-main">
         <div className="request-profile">
-          <Image src={props.url} alt="postProfile" width="45" height="45" />
+          <Image src={props.url} alt="postProfile" width="100%" height="100%" />
         </div>
         <div className="text">
           <p>
@@ -15,10 +15,10 @@ export default function Request(props) {
         </div>
       </div>
       <div className="buttons">
-        <div>
+        <div className="main_btn">
           <Button className="accept-button">Accept</Button>
         </div>
-        <div>
+        <div className="main_btn">
           <Button className="reject-button">Reject</Button>
         </div>
       </div>

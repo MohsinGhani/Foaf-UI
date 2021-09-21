@@ -2,6 +2,9 @@
     // display: flex;
     // width: 100%;
     max-width: 580px;
+    border-bottom: 0.001em solid #eaeaea;
+
+    padding-bottom: 42px;
     // height: 504px;
     // width: 100px;
     // height: 100px;
@@ -12,11 +15,12 @@
         justify-content: space-between;
         // justify-content: center;
         align-items: center;
+        padding-right: 22px;
         .profile-image {
             display: flex;
             .post-profile {
-                max-width: 60px;
-                max-height: 60px;
+                max-width: 45px;
+                max-height: 45px;
                 border: 3px solid #bfbfbf;
                 border-radius: 10px;
                 margin: 0px 10px;
@@ -24,8 +28,8 @@
                 justify-content: center;
             }
             .post-profile-color {
-                max-width: 60px;
-                max-height: 60px;
+                max-width: 45px;
+                max-height: 45px;
                 border: 3px solid #fe5e71;
 
                 border-radius: 10px;

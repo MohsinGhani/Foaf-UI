@@ -11,10 +11,10 @@ export default function Sponsored() {
           <div className="profile-image">
             <div className="post-profile">
               <Image
-                src="/images/dashboard/ProfileImage.svg"
+                src="/images/dashboard/samesize.svg"
                 alt="postProfile"
-                width="45"
-                height="45"
+                width="100%"
+                height="100%"
               />
             </div>
             <div className="name">

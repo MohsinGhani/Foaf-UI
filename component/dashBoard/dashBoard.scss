@@ -18,6 +18,7 @@
         // max-height: 100vh;
         // width: 100%;
         height: 100vh;
+        // margin-bottom: 50px;
         // display: block;
         display: flex;
         flex-direction: column;
@@ -27,7 +28,10 @@
         // position: relative;
         // align-items: center;
         // position: fixed;
-        // overflow: scroll;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .ant-layout-sider-trigger {
             display: none;
         }
@@ -39,6 +43,9 @@
             background: white;
             // background: #fbfbfb;
             margin-left: 30px;
+            // min-height: 50%;
+            // max-height: calc(100%-500px);
+            // min-height: 30%;
             // position: absolute;
             // top: 30%;
             // align-items: center;
@@ -63,17 +70,31 @@
             ul > :first-child {
                 height: auto;
             }
+            .ant-menu-inline-collapsed {
+                padding-right: 17px;
+            }
             .menu {
                 background: #fbfbfb !important;
                 border-radius: 16px;
+                // .ant-menu-submenu-selected {
+                //     color: #010010 !important;
+                // }
 
-                .ant-menu-item {
-                    // position: fixed !important;
-                    // display: flex;
-                    // flex-direction: column;
-                    padding: 0 0 0 20px !important;
-                    margin: 20px 0 20px 0px !important;
-                }
+                // padding-right: 12px;
+                // .ant-menu-submenu-selected .ant-menu-submenu-open .ant-menu-submenu-active {
+                //     .ant-menu-submenu-title {
+                //         .ant-menu-title-content {
+                //             color: #010010;
+                //         }
+                //     }
+                // }
+                // .ant-menu-submenu {
+                //     .ant-menu-title-content {
+                //         .ant-menu-title-content {
+                //             color: #bfbfbf;
+                //         }
+                //     }
+                // }
                 .ant-menu-item::after {
                     border: unset;
                 }
@@ -359,5 +380,19 @@
 
     footer {
         display: block !important;
+    }
+}
+.ant-menu-submenu-inline {
+    .ant-menu-submenu-title {
+        .ant-menu-title-content {
+            color: #bfbfbf;
+        }
+    }
+}
+.ant-menu-submenu-open {
+    .ant-menu-submenu-title {
+        .ant-menu-title-content {
+            color: #010010;
+        }
     }
 }

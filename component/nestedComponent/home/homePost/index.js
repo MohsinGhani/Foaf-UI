@@ -10,7 +10,12 @@ export default function Post(props) {
               props.profilecolor ? "post-profile" : "post-profile-color"
             }
           >
-            <Image src={props.url} alt="postProfile" width="50" height="50" />
+            <Image
+              src={props.url}
+              alt="postProfile"
+              width="100%"
+              height="100%"
+            />
           </div>
           <div className="name">
             <div>
@@ -30,8 +35,8 @@ export default function Post(props) {
           <Image
             src="/images/dashboard/dots.svg"
             alt="dot"
-            width="15"
-            height="25"
+            width="20"
+            height="30"
           />
         </div>
       </div>

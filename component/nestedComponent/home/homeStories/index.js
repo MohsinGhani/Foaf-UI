@@ -4,7 +4,7 @@ export default function Stories({ url, name }) {
   return (
     <div className="main">
       <div className="profile">
-        <Image src={url} alt="profile" width="40" height="40" />
+        <Image src={url} alt="profile" width="100%" height="100%" />
       </div>
 
       <div className="name">{name}</div>

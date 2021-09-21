@@ -25,8 +25,10 @@ import TopBar from "../component/nestedComponent/dashBoard/top-bar";
 // import Setting from "../setting";
 import Link from "next/link";
 import HomeDashBoard from "../component/home";
+import EventIcon from "../component/nestedComponent/dashBoard/dashboardIcons/events";
 
 const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
 function MyApp({ Component, pageProps }) {
   const [collapsed, setCollapsed] = useState(true);
@@ -46,7 +48,7 @@ function MyApp({ Component, pageProps }) {
           onMouseLeave={() => setCollapsed(true)}
           reverseArrow={true}
         >
-          <Menu className="menu" mode="inline" defaultSelectedKeys={["4"]}>
+          <Menu className="menu" mode="inline">
             {collapsed ? (
               <>
                 <Menu.Item key="1" icon={<ToggelHome />}></Menu.Item>
@@ -65,24 +67,44 @@ function MyApp({ Component, pageProps }) {
             <Menu.Item key="4" icon={<HomeIcon />}>
               <Link href="/">Home</Link>
             </Menu.Item>
-            <Menu.Item key="10" icon={<ProfileIcon />}>
+            {/* <Menu.Item key="10" icon={<ProfileIcon />}>
               Profile
-            </Menu.Item>
-            <Menu.Item key="5" icon={<MessagesIcon />}>
-              Messages
-            </Menu.Item>
-            <Menu.Item key="6" icon={<GroupIcon />}>
+            </Menu.Item> */}
+            <SubMenu key="sub1" icon={<ProfileIcon />} title="Profile">
+              <Menu.Item key="5">Friends List</Menu.Item>
+              <Menu.Item key="6">Favorites</Menu.Item>
+              <Menu.Item key="7">Recommendations</Menu.Item>
+              <SubMenu key="sub2" title="post">
+                <Menu.Item key="8">Video</Menu.Item>
+                <Menu.Item key="9">Audio</Menu.Item>
+                <Menu.Item key="10">Text</Menu.Item>
+                <Menu.Item key="11">Polls</Menu.Item>
+              </SubMenu>
+            </SubMenu>
+            <Menu.Item key="12" icon={<GroupIcon />}>
               Groups
             </Menu.Item>
-            <Menu.Item key="7" icon={<LocationIcon />}>
-              Location
+            <SubMenu key="sub3" icon={<EventIcon />} title="Events">
+              <Menu.Item key="14">Speed Dating</Menu.Item>
+              <Menu.Item key="15">Meetups</Menu.Item>
+            </SubMenu>
+            <Menu.Item key="13" icon={<MessagesIcon />}>
+              Messages
             </Menu.Item>
-            <Menu.Item key="8" icon={<NotificationIcon />}>
+
+            <Menu.Item key="16" icon={<NotificationIcon />}>
               Notification
             </Menu.Item>
-            <Menu.Item key="9" icon={<SettingIcon />}>
-              <Link href="/setting-page"> Setting</Link>
-            </Menu.Item>
+            <SubMenu key="sub4" icon={<SettingIcon />} title="Other Settings">
+              <SubMenu key="sub5" title="Settings">
+                <Menu.Item key="17">Friends</Menu.Item>
+                <Menu.Item key="18">
+                  <Link href="/setting-page">Profile</Link>
+                </Menu.Item>
+              </SubMenu>
+              <Menu.Item key="19">Ads</Menu.Item>
+              <Menu.Item key="20">Directory</Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
       </div>
