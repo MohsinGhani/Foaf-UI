@@ -2,9 +2,9 @@
     // display: flex;
     // width: 100%;
     max-width: 580px;
-    border-bottom: 0.001em solid #eaeaea;
+    border-top: 0.001em solid #eaeaea;
 
-    padding-bottom: 42px;
+    padding-top: 42px;
     // height: 504px;
     // width: 100px;
     // height: 100px;
@@ -52,6 +52,11 @@
         .dot {
             max-width: 30px;
             max-height: 30px;
+        }
+    }
+    .post {
+        p {
+            font-size: 17px;
         }
     }
     .bottom {

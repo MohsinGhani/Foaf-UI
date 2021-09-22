@@ -24,24 +24,28 @@ export default function HomeDashBoard() {
                 <Stories
                   url="/images/dashboard/samesize.svg"
                   name="Erin Press"
+                  bgurl="/images/dashboard/story1.png"
                 />
               </div>
               <div className="wow_2">
                 <Stories
                   url="/images/dashboard/requestProfile1.svg"
                   name="Erin Press"
+                  bgurl="/images/dashboard/story2.png"
                 />
               </div>
               <div className="wow_2">
                 <Stories
                   url="/images/dashboard/requestProfile3.svg"
                   name="Erin Press"
+                  bgurl="/images/dashboard/story3.png"
                 />
               </div>
               <div className="wow_2">
                 <Stories
                   url="/images/dashboard/samesize.svg"
                   name="Erin Press"
+                  bgurl="/images/dashboard/story4.png"
                 />
               </div>
               <div className="wow_2">
@@ -91,7 +95,7 @@ export default function HomeDashBoard() {
         </div>
         <div>
           <div className="request">
-            <p>Request</p>
+            <p>Requests</p>
             <div className="circle">3</div>
           </div>
           <div className="request-card">

@@ -26,13 +26,14 @@ import TopBar from "../component/nestedComponent/dashBoard/top-bar";
 import Link from "next/link";
 import HomeDashBoard from "../component/home";
 import EventIcon from "../component/nestedComponent/dashBoard/dashboardIcons/events";
-
+import { useRouter } from "next/router";
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 function MyApp({ Component, pageProps }) {
   const [collapsed, setCollapsed] = useState(true);
   const [selected, setSelected] = useState(true);
+  const router = useRouter();
 
   return (
     <Layout className="layout">
@@ -41,7 +42,7 @@ function MyApp({ Component, pageProps }) {
       </div>
       <div className="menu-scroll">
         <Sider
-          className="slider"
+          className={`slider ${collapsed ? "smallwidth" : "largewidth"}`}
           collapsible
           collapsed={collapsed}
           onMouseEnter={() => setCollapsed(false)}
@@ -49,21 +50,21 @@ function MyApp({ Component, pageProps }) {
           reverseArrow={true}
         >
           <Menu className="menu" mode="inline">
-            {collapsed ? (
+            {/* {collapsed ? (
               <>
                 <Menu.Item key="1" icon={<ToggelHome />}></Menu.Item>
-                <Menu.Item key="2" icon={<ToggelSearch />}></Menu.Item>{" "}
+                <Menu.Item key="2" icon={<ToggelSearch />}></Menu.Item>
               </>
             ) : (
               <Menu.Item
                 key={selected ? "2" : "1"}
                 icon={<Toggel selected={selected} disSelected={setSelected} />}
               ></Menu.Item>
-            )}
-            <Menu.Item
-              key="3"
-              icon={<Searchicon condition={collapsed} />}
-            ></Menu.Item>
+            )} */}
+
+            <Menu.Item key="3" icon={<Searchicon />}>
+              Search
+            </Menu.Item>
             <Menu.Item key="4" icon={<HomeIcon />}>
               <Link href="/">Home</Link>
             </Menu.Item>
@@ -71,13 +72,37 @@ function MyApp({ Component, pageProps }) {
               Profile
             </Menu.Item> */}
             <SubMenu key="sub1" icon={<ProfileIcon />} title="Profile">
-              <Menu.Item key="5">Friends List</Menu.Item>
-              <Menu.Item key="6">Favorites</Menu.Item>
-              <Menu.Item key="7">Recommendations</Menu.Item>
+              <Menu.Item key="5">
+                <ul>
+                  <li>Friends List</li>
+                </ul>
+              </Menu.Item>
+              <Menu.Item key="6">
+                <ul>
+                  <li>Favorites</li>
+                </ul>
+              </Menu.Item>
+              <Menu.Item key="7">
+                <ul>
+                  <li>Recommendations</li>
+                </ul>
+              </Menu.Item>
               <SubMenu key="sub2" title="post">
-                <Menu.Item key="8">Video</Menu.Item>
-                <Menu.Item key="9">Audio</Menu.Item>
-                <Menu.Item key="10">Text</Menu.Item>
+                <Menu.Item key="8">
+                  <ul>
+                    <li>Video</li>
+                  </ul>
+                </Menu.Item>
+                <Menu.Item key="9">
+                  <ul>
+                    <li>Audio</li>
+                  </ul>
+                </Menu.Item>
+                <Menu.Item key="10">
+                  <ul>
+                    <li>Text</li>
+                  </ul>
+                </Menu.Item>
                 <Menu.Item key="11">Polls</Menu.Item>
               </SubMenu>
             </SubMenu>
@@ -85,25 +110,49 @@ function MyApp({ Component, pageProps }) {
               Groups
             </Menu.Item>
             <SubMenu key="sub3" icon={<EventIcon />} title="Events">
-              <Menu.Item key="14">Speed Dating</Menu.Item>
-              <Menu.Item key="15">Meetups</Menu.Item>
+              <Menu.Item key="14">
+                <ul>
+                  <li>Speed Dating</li>
+                </ul>
+              </Menu.Item>
+              <Menu.Item key="15">
+                <ul>
+                  <li>Meetups</li>
+                </ul>
+              </Menu.Item>
             </SubMenu>
             <Menu.Item key="13" icon={<MessagesIcon />}>
               Messages
             </Menu.Item>
 
             <Menu.Item key="16" icon={<NotificationIcon />}>
-              Notification
+              Notifications
             </Menu.Item>
             <SubMenu key="sub4" icon={<SettingIcon />} title="Other Settings">
               <SubMenu key="sub5" title="Settings">
-                <Menu.Item key="17">Friends</Menu.Item>
+                <Menu.Item key="17">
+                  <ul>
+                    <li>Friends</li>
+                  </ul>
+                </Menu.Item>
                 <Menu.Item key="18">
-                  <Link href="/setting-page">Profile</Link>
+                  <Link href="/setting-page">
+                    <ul>
+                      <li>Profile</li>
+                    </ul>
+                  </Link>
                 </Menu.Item>
               </SubMenu>
-              <Menu.Item key="19">Ads</Menu.Item>
-              <Menu.Item key="20">Directory</Menu.Item>
+              <Menu.Item key="19">
+                <ul>
+                  <li>Ads</li>
+                </ul>
+              </Menu.Item>
+              <Menu.Item key="20">
+                <ul>
+                  <li>Directory</li>
+                </ul>
+              </Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>

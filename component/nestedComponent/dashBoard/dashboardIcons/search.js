@@ -1,16 +1,16 @@
-export default function Searchicon(props) {
+export default function Searchicon() {
   return (
-    <div className={props.condition ? "search" : "fullSearch"}>
+    <div className="icon search">
       <svg
-        width="21"
-        height="21"
-        viewBox="0 0 21 21"
-        fill="white"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <circle
-          cx="9.76639"
-          cy="9.76639"
+          cx="11.7669"
+          cy="11.7664"
           r="8.98856"
           stroke="#BFBFBF"
           strokeWidth="1.5"
@@ -18,14 +18,13 @@ export default function Searchicon(props) {
           strokeLinejoin="round"
         />
         <path
-          d="M16.0181 16.4849L19.5421 19.9997"
+          d="M18.0186 18.4849L21.5426 21.9997"
           stroke="#BFBFBF"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
-      <input type="text" />
     </div>
   );
 }

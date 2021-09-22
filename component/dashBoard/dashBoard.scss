@@ -28,21 +28,44 @@
         // position: relative;
         // align-items: center;
         // position: fixed;
-        overflow: scroll;
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        // overflow: scroll;
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
         .ant-layout-sider-trigger {
             display: none;
         }
         .ant-layout-sider-has-trigger {
             padding: 0px;
         }
+
+        // .ant-layout-sider-collapsed {
+        //     min-width: 80px !important;
+        // }
+
+        // .ant-layout-sider-has-trigger {
+        //     min-width: 240px !important;
+        // }
+        .largewidth {
+            min-width: 230px !important;
+            overflow: scroll;
+            overflow-x: hidden;
+            // min-height: 40% !important;
+        }
+        .smallwidth {
+            min-width: 80px !important;
+            // min-height: 40% !important;
+        }
         .slider {
             background: none;
             background: white;
             // background: #fbfbfb;
             margin-left: 30px;
+            // height: calc(100vh -200px);
+
+            // min-width: 270px !important;
+            min-height: 39%;
+
             // min-height: 50%;
             // max-height: calc(100%-500px);
             // min-height: 30%;
@@ -67,15 +90,27 @@
             // .open > :first-child {
             //     height: auto;
             // }
-            ul > :first-child {
-                height: auto;
-            }
+
+            // &::-webkit-scrollbar {
+            //     display: none;
+            // }
+            // ul > :first-child {
+            //     height: auto;
+            // }
+            // .ant-menu-inline {
+            //     .ant-menu-item-only-child {
+            //         padding-left: 0px !important;
+            //     }
+            // }
             .ant-menu-inline-collapsed {
                 padding-right: 17px;
             }
             .menu {
                 background: #fbfbfb !important;
                 border-radius: 16px;
+                .ant-menu-item {
+                    // margin-top: 15px;
+                }
                 // .ant-menu-submenu-selected {
                 //     color: #010010 !important;
                 // }
@@ -95,6 +130,23 @@
                 //         }
                 //     }
                 // }
+                // .ant-menu-inline {
+                //     .ant-menu-item {
+                //         padding-left: 50px !important;
+                //     }
+                // }
+                // .ant-menu-inline,
+                // .ant-menu-vertical,
+                // .ant-menu-vertical-left {
+                //     border: unset;
+                // }
+                .ant-menu ul {
+                    list-style: inherit;
+                }
+                .ant-menu-submenu-arrow::before,
+                .ant-menu-submenu-arrow::after {
+                    background: black;
+                }
                 .ant-menu-item::after {
                     border: unset;
                 }
@@ -102,17 +154,28 @@
                     // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                     background: none !important;
 
-                    .toggelHome {
-                        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                    // .toggelHome {
+                    //     background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
 
-                        path {
+                    //     path {
+                    //         fill: white;
+                    //     }
+                    // }
+                    // .toggelSearch {
+                    //     background: #f2bd6f;
+                    //     svg {
+                    //         fill: white;
+                    //     }
+                    // }
+                    .search {
+                        background: #c39eff;
+                        circle {
                             fill: white;
+                            stroke: #c39eff;
+                            stroke-width: 1;
                         }
-                    }
-                    .toggelSearch {
-                        background: #f2bd6f;
-                        svg {
-                            fill: white;
+                        path {
+                            stroke: white;
                         }
                     }
 
@@ -180,6 +243,7 @@
                 }
 
                 .ant-menu-title-content {
+                    overflow: visible;
                     color: #bfbfbf;
                 }
                 a {
