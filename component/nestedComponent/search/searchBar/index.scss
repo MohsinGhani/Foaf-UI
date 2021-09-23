@@ -1,0 +1,23 @@
+.searchBar {
+    .ant-input-affix-wrapper {
+        border-radius: 12px;
+        height: 40px;
+    }
+    // .ant-input-affix-wrapper:focus {
+    //     -webkit-box-shadow: 0 0 0 2px #f9445b !important;
+    //     box-shadow: 0 0 0 2px #f9445b !important;
+    //     border-color: #f9445b;
+    // }
+    .ant-input-affix-wrapper:focus,
+    .ant-input-affix-wrapper-focused {
+        -webkit-box-shadow: 0 0 0 2px #f9445b;
+        box-shadow: 0 0 0 2px #f9445b;
+        border-color: #f9445b;
+    }
+    .ant-input-affix-wrapper:hover {
+        border-color: #f9445b !important;
+    }
+    .ant-input-prefix {
+        width: 30px;
+    }
+}

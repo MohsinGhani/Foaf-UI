@@ -59,32 +59,36 @@ export default function HomeDashBoard() {
             </div>
           </div>
         </div>
-        <div className="post">
+        <div className="home_post">
           <Post
-            url="/images/dashboard/samesize.svg"
+            profile="/images/dashboard/samesize.svg"
             time="10mins ago"
+            Post="/images/dashboard/post.svg"
             profilecolor={true}
           />
         </div>
         <hr />
-        <div className="post">
+        <div className="home_post">
           <Post
-            url="/images/dashboard/ProfileImage2.svg"
+            profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
+            Post="/images/dashboard/post.svg"
             profilecolor={false}
           />
         </div>
-        <div className="post">
+        <div className="home_post">
           <Post
-            url="/images/dashboard/ProfileImage2.svg"
+            profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
+            Post="/images/dashboard/post.svg"
             profilecolor={false}
           />
         </div>
-        <div className="post">
+        <div className="home_post">
           <Post
-            url="/images/dashboard/ProfileImage2.svg"
+            profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
+            Post="/images/dashboard/post.svg"
             profilecolor={false}
           />
         </div>

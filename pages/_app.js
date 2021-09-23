@@ -32,7 +32,7 @@ const { SubMenu } = Menu;
 
 function MyApp({ Component, pageProps }) {
   const [collapsed, setCollapsed] = useState(true);
-  const [selected, setSelected] = useState(true);
+
   const router = useRouter();
 
   return (
@@ -63,14 +63,17 @@ function MyApp({ Component, pageProps }) {
             )} */}
 
             <Menu.Item key="3" icon={<Searchicon />}>
-              Search
+              <Link href="/search-page">Search</Link>
             </Menu.Item>
+
             <Menu.Item key="4" icon={<HomeIcon />}>
               <Link href="/">Home</Link>
             </Menu.Item>
+
             {/* <Menu.Item key="10" icon={<ProfileIcon />}>
               Profile
             </Menu.Item> */}
+
             <SubMenu key="sub1" icon={<ProfileIcon />} title="Profile">
               <Menu.Item key="5">
                 <ul>
@@ -87,6 +90,7 @@ function MyApp({ Component, pageProps }) {
                   <li>Recommendations</li>
                 </ul>
               </Menu.Item>
+
               <SubMenu key="sub2" title="post">
                 <Menu.Item key="8">
                   <ul>
@@ -103,9 +107,14 @@ function MyApp({ Component, pageProps }) {
                     <li>Text</li>
                   </ul>
                 </Menu.Item>
-                <Menu.Item key="11">Polls</Menu.Item>
+                <Menu.Item key="11">
+                  <ul>
+                    <li>Polls</li>
+                  </ul>
+                </Menu.Item>
               </SubMenu>
             </SubMenu>
+
             <Menu.Item key="12" icon={<GroupIcon />}>
               Groups
             </Menu.Item>

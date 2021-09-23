@@ -11,7 +11,7 @@ export default function Post(props) {
             }
           >
             <Image
-              src={props.url}
+              src={props.profile}
               alt="postProfile"
               width="100%"
               height="100%"
@@ -42,19 +42,14 @@ export default function Post(props) {
       </div>
 
       <div className="post">
-        <Image
-          src="/images/dashboard/post.svg"
-          alt="post"
-          width="580"
-          height="300"
-        />
+        <img src={props.Post} alt="post" width="100%" height="100%" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu, netus
           nunc, vulputate at tempus, sed aliquet non. Nulla libero a a orci
           placerat. Viverra vitae congue in duis.
         </p>
       </div>
-      <div className="bottom">
+      <div className={`bottom ${props.trend && "trend"}`}>
         <div className="heart">
           <div className="heartIcon">
             <Image
@@ -76,6 +71,9 @@ export default function Post(props) {
             />
           </div>
           <p>24,928 Views</p>
+        </div>
+        <div className="Trending">
+          <p>{props.trend}</p>
         </div>
       </div>
     </div>

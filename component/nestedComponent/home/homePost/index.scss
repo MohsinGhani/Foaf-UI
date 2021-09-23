@@ -2,9 +2,10 @@
     // display: flex;
     // width: 100%;
     max-width: 580px;
-    border-top: 0.001em solid #eaeaea;
+    // min-width: 100%;
+    border-bottom: 0.001em solid #eaeaea;
 
-    padding-top: 42px;
+    padding-bottom: 42px;
     // height: 504px;
     // width: 100px;
     // height: 100px;
@@ -16,6 +17,7 @@
         // justify-content: center;
         align-items: center;
         padding-right: 22px;
+        // margin-bottom: 10px;
         .profile-image {
             display: flex;
             .post-profile {
@@ -55,12 +57,26 @@
         }
     }
     .post {
+        margin-top: 30px;
         p {
+            margin-top: 10px;
             font-size: 17px;
         }
     }
-    .bottom {
+    .trend {
         display: flex;
+        // justify-content: space-between !important;
+
+        .views {
+            margin-right: 140px !important;
+        }
+    }
+    .bottom {
+        // max-width: 580px;
+        width: 100%;
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
 
         .heart {
             display: flex;
@@ -81,7 +97,7 @@
         .views {
             display: flex;
             align-items: center;
-            margin-left: 24px;
+            margin-left: 20px;
             .viewsIcon {
                 display: flex;
                 // justify-content: center;
@@ -93,6 +109,17 @@
                 color: #bfbfbf;
                 margin: 0px 5px;
             }
+        }
+        .Trending {
+            max-height: 24px;
+            p {
+                color: red;
+            }
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            // padding-top: 5px;
+            // text-align: center;
         }
     }
 }
