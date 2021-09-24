@@ -51,18 +51,24 @@
             overflow: auto;
             overflow-x: hidden;
             margin-top: 100px;
+            // max-height: calc(100% - 200px);
             flex: initial !important;
-            // min-height: 40% !important;
+            transition: all 0.6s !important;
         }
         .smallwidth {
             min-width: 80px !important;
-            // min-height: 40% !important;
+            margin-top: 100px !important;
+            transition: all 0.6s !important;
+            flex: initial !important;
+            // max-height: calc(100% - 200px);
         }
         .slider {
             background: none;
             background: white;
             // background: #fbfbfb;
+            // max-height: 100%;
             margin-left: 30px;
+            // margin-top: 100px;
             // height: calc(100vh -200px);
 
             // min-width: 270px !important;
@@ -104,12 +110,21 @@
             //         padding-left: 0px !important;
             //     }
             // }
+
             .ant-menu-inline-collapsed {
                 padding-right: 17px;
             }
+            // .ant-menu.ant-menu-inline-collapsed > .ant-menu-item {
+            //     // padding-left: 20px !important;
+            // }
+            // .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu {
+            //     // padding-right: 22px !important;
+            // }
+
             .menu {
                 background: #fbfbfb !important;
                 border-radius: 16px;
+
                 .ant-menu-item:active,
                 .ant-menu-submenu-title:active {
                     background: none;
@@ -119,55 +134,6 @@
                     box-shadow: none;
                 }
 
-                // .ant-menu-submenu:hover {
-                //     background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-
-                //     //     color: white;
-                //     // }
-                //     // a {
-                //     //     color: white;
-                //     // }
-
-                //     // svg {
-                //     //     fill: #f93d55;
-                //     // }
-                //     // .ant-menu-submenu-title {
-                //     //     > .sub_menu {
-                //     //         .ant-menu-title-content {
-                //     //             background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-                //     //             color: white;
-                //     // a {
-                //     //     color: white;
-                //     // }
-                //     // svg {
-                //     //     fill: #f93d55;
-                //     // }
-                //     //         }
-                //     //     }
-                //     // }
-
-                //     // .ant-menu-submenu-title {
-                //     //     .ant-menu-title-content {
-                //     //         color: white;
-                //     //         a {
-                //     //             color: white;
-                //     //         }
-                //     //         svg {
-                //     //             fill: #f93d55;
-                //     //         }
-                //     //     }
-                //     // }
-                //     .ant-menu .ant-menu-sub .ant-menu-inline {
-                //         .ant-menu-item .ant-menu-item-only-child {
-                //             .ant-menu-title-content {
-                //                 color: white;
-                //             }
-                //             a {
-                //                 color: white;
-                //             }
-                //         }
-                //     }
-                // }
                 .ant-menu-submenu:hover {
                     .profile {
                         img {
@@ -179,11 +145,18 @@
                     .setting {
                         background: #f2bd6f;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #f2bd6f;
                         }
                         circle {
                             stroke: #f2bd6f;
+                        }
+                    }
+                    .event {
+                        background: #ffa2b9;
+                        path {
+                            fill: white;
+                            stroke: #ffa2b9;
                         }
                     }
                 }
@@ -201,7 +174,7 @@
                     .search {
                         background: #c39eff;
                         circle {
-                            fill: white;
+                            // fill: white;
                             stroke: #c39eff;
                             stroke-width: 1;
                         }
@@ -213,7 +186,7 @@
                     .home {
                         background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #f93d55;
                         }
                     }
@@ -221,7 +194,7 @@
                     .group {
                         background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #48c98b;
                             stroke-width: 0;
                         }
@@ -230,17 +203,25 @@
                     .message {
                         background: #6ec2ff;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #6ec2ff;
                         }
                     }
                     .notification {
                         background: #c39eff;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #c39eff;
                             stroke-width: 0;
                         }
+                    }
+                    .ant-menu-title-content {
+                        // color: #010010 !important;
+                        font-weight: bold;
+                    }
+                    a {
+                        // color: #010010 !important;
+                        font-weight: bold;
                     }
                 }
 
@@ -307,7 +288,7 @@
                     .search {
                         background: #c39eff;
                         circle {
-                            fill: white;
+                            // fill: white;
                             stroke: #c39eff;
                             stroke-width: 1;
                         }
@@ -319,21 +300,21 @@
                     .home {
                         background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #f93d55;
                         }
                     }
                     .message {
                         background: #6ec2ff;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #6ec2ff;
                         }
                     }
                     .group {
                         background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #48c98b;
                             stroke-width: 0;
                         }
@@ -341,14 +322,14 @@
                     .location {
                         background: #ffa2b9;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #ffa2b9;
                         }
                     }
                     .notification {
                         background: #c39eff;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #c39eff;
                             stroke-width: 0;
                         }
@@ -356,7 +337,7 @@
                     .setting {
                         background: #f2bd6f;
                         path {
-                            fill: white;
+                            // fill: white;
                             stroke: #f2bd6f;
                         }
                         circle {
@@ -372,14 +353,25 @@
                     }
 
                     .ant-menu-title-content {
-                        color: #010010 !important;
+                        // color: #010010 !important;
+                        font-weight: bold;
                     }
                     a {
-                        color: #010010 !important;
+                        // color: #010010 !important;
+                        font-weight: bold;
                     }
                 }
 
-                .ant-menu-submenu-open {
+                .ant-menu-submenu-active {
+                    .ant-menu-submenu-title {
+                        .ant-menu-title-content {
+                            color: #010010;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .ant-menu-submenu .ant-menu-submenu-inline {
                     .ant-menu-submenu-title {
                         .ant-menu-title-content {
                             color: #010010 !important;
@@ -387,33 +379,23 @@
                     }
                 }
 
-                .ant-menu-submenu-open {
-                    .ant-menu-submenu-title {
-                        .ant-menu-title-content {
-                            color: #bfbfbf !important;
-                        }
-                    }
-                }
-                .ant-menu-submenu .ant-menu-submenu-inline {
-                    .ant-menu-submenu-title {
-                        .ant-menu-title-content {
-                            color: #bfbfbf;
-                        }
-                    }
-                }
-
                 .ant-menu-item {
                     .ant-menu-title-content {
                         overflow: visible;
-                        color: #bfbfbf;
+                        color: #010010;
                     }
                     a {
-                        color: #bfbfbf;
+                        color: #010010;
                     }
                 }
             }
         }
 
+        // .ant-tooltip .ant-menu-inline-collapsed-tooltip .ant-tooltip-placement-right .ant-tooltip-hidden {
+        //     .ant-tooltip-content {
+        //         display: none !important;
+        //     }
+        // }
         // ul > :first-child {
         //     height: 60px !important;
         // }
@@ -514,9 +496,9 @@
                 .toggelHome {
                     background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
 
-                    path {
-                        fill: white;
-                    }
+                    // path {
+                    // fill: white;
+                    // }
                 }
                 .toggelSearch {
                     background: #f2bd6f;
@@ -584,6 +566,13 @@
     }
 }
 
+.ant-tooltip {
+    display: none !important;
+}
+.ant-menu-submenu-popup {
+    display: none !important;
+}
+
 @media screen and (max-width: 576px) {
     .container {
         padding: 0px !important;
@@ -608,17 +597,17 @@
         display: block !important;
     }
 }
-.ant-menu-submenu-inline {
-    .ant-menu-submenu-title {
-        .ant-menu-title-content {
-            color: #bfbfbf;
-        }
-    }
-}
-.ant-menu-submenu-open {
-    .ant-menu-submenu-title {
-        .ant-menu-title-content {
-            color: #010010;
-        }
-    }
-}
+// .ant-menu-submenu-inline {
+//     .ant-menu-submenu-title {
+//         .ant-menu-title-content {
+//             color: #010010;
+//         }
+//     }
+// }
+// .ant-menu-submenu-open {
+//     .ant-menu-submenu-title {
+//         .ant-menu-title-content {
+//             color: #010010;
+//         }
+//     }
+// }

@@ -1,0 +1,19 @@
+.notification_main_page {
+    max-height: 100vh;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .main_notification {
+        margin: 30px 40px;
+
+        max-height: 100vh;
+
+        .heading_main {
+            margin-bottom: 40px;
+        }
+        .subNotification_main {
+            margin-top: 25px;
+        }
+    }
+}

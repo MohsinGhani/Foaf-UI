@@ -135,7 +135,7 @@ function MyApp({ Component, pageProps }) {
             </Menu.Item>
 
             <Menu.Item key="16" icon={<NotificationIcon />}>
-              Notifications
+              <Link href="/notification-page">Notifications</Link>
             </Menu.Item>
             <SubMenu key="sub4" icon={<SettingIcon />} title="Other Settings">
               <SubMenu key="sub5" title="Settings">

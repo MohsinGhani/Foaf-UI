@@ -1,11 +1,11 @@
 export default function EventIcon() {
   return (
-    <div className="icon ">
+    <div className="icon event">
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
-        fill="none"
+        fill="white"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

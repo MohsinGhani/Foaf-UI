@@ -1,0 +1,86 @@
+.subNotification {
+    width: 100%;
+    border-top: 0.5px solid #c39eff;
+    .main_noti {
+        display: flex;
+        padding: 24px 0 0px 0;
+
+        .image {
+            width: 10%;
+        }
+        .text {
+            width: 60%;
+            .request {
+                background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+                border-color: #53cd93;
+            }
+            .commit {
+                background: #6ec2ff;
+                border-color: #6ec2ff;
+            }
+            .message {
+                background: #f2bd6f;
+                border-color: #f2bd6f;
+            }
+            .button {
+                border-radius: 6px;
+
+                width: 62px;
+                height: 24px;
+                font-weight: 600;
+                font-size: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .time {
+                color: #bfbfbf;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .heading {
+                color: #010010;
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 15px;
+            }
+            .heading_two {
+                font-weight: 500;
+                font-size: 14px;
+                color: #010010;
+            }
+            .inner_text {
+                color: #010010;
+                font-size: 14px;
+                opacity: 0.6;
+                font-weight: normal;
+            }
+        }
+        .request {
+            display: flex;
+            width: 30%;
+            justify-content: flex-end;
+            .button {
+                border-radius: 8px;
+
+                width: 100px;
+                height: 36px;
+                font-weight: 600;
+                font-size: 12px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 10px;
+            }
+            .accept {
+                background: #c39eff;
+                border-color: #c39eff;
+            }
+            .Decline {
+                background: white;
+                border: 1px solid #bfbfbf;
+                color: black;
+            }
+        }
+    }
+}
