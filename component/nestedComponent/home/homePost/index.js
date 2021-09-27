@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 export default function Post(props) {
@@ -49,28 +50,31 @@ export default function Post(props) {
           placerat. Viverra vitae congue in duis.
         </p>
       </div>
-      <div className={`bottom ${props.trend && "trend"}`}>
-        <div className="heart">
-          <div className="heartIcon">
-            <Image
-              src="/images/dashboard/heartIcon.svg"
-              alt="heart"
-              width="18"
-              height="16"
-            />
+
+      <div className={"bottom"}>
+        <div className="icons">
+          <div className="heart">
+            <div className="heartIcon">
+              <Image
+                src="/images/dashboard/heartIcon.svg"
+                alt="heart"
+                width="18"
+                height="16"
+              />
+            </div>
+            <p>10,720 Reactions</p>
           </div>
-          <p>10,720 Reactions</p>
-        </div>
-        <div className="views">
-          <div className="viewsIcon">
-            <Image
-              src="/images/dashboard/show.svg"
-              alt="view"
-              width="20"
-              height="16"
-            />
+          <div className="views">
+            <div className="viewsIcon">
+              <Image
+                src="/images/dashboard/show.svg"
+                alt="view"
+                width="20"
+                height="16"
+              />
+            </div>
+            <p>24,928 Views</p>
           </div>
-          <p>24,928 Views</p>
         </div>
         <div className="Trending">
           <p>{props.trend}</p>

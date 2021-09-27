@@ -1,0 +1,81 @@
+.requestCard_main {
+    max-width: 236px;
+    max-height: 362px;
+    border: 1px solid #e9e8e8;
+    border-radius: 20px;
+    padding: 8px 8px 8px 8px;
+
+    .contant {
+        .name {
+            color: #010010;
+            font-weight: 600;
+            // margin-top: 5px;
+        }
+        .mutual_main {
+            width: 100%;
+
+            height: 30px;
+            // display: flex;
+
+            .mutual {
+                position: relative;
+                width: 100%;
+
+                // height: 100px;
+
+                .image1 {
+                    position: absolute;
+                    top: 0;
+                    left: -15px;
+                    z-index: 3;
+                }
+                .image2 {
+                    position: absolute;
+                    top: 0;
+                    left: 0px;
+                    z-index: 2;
+                }
+                .image3 {
+                    position: absolute;
+                    top: 0;
+                    left: 20px;
+                    z-index: 1;
+                }
+            }
+            .mutual_friends {
+                color: #bfbfbf;
+                font-weight: 500;
+                font-size: 12px;
+                // margin-left: 80px;
+                width: 100%;
+                position: absolute;
+                top: 20px;
+                left: 70px;
+            }
+        }
+    }
+    button {
+        border-radius: 12px;
+        width: 100%;
+        height: 36px;
+        font-weight: 600;
+        font-size: 12px;
+        // margin-top: 20px;
+    }
+    .confirm {
+        .btn-primary {
+            background: #c39eff;
+            color: #ffffff;
+            border-color: #c39eff;
+            margin-top: 20px;
+        }
+    }
+    .reject {
+        .btn-primary {
+            color: #010010;
+            background: white;
+            border-color: white;
+            margin-top: 5px;
+        }
+    }
+}

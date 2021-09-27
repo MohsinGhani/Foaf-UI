@@ -1,0 +1,21 @@
+.friend_request_main {
+    // margin: 40px 0 0 60px;
+    max-height: 100vh;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .request_topbar_main {
+        margin: 40px 0px 0px 40px;
+    }
+    .request_card_main {
+        // overflow: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-bottom: 30px;
+        .request_card {
+            margin: 40px 0px 0px 0px;
+        }
+    }
+}

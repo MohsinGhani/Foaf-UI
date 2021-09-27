@@ -1,0 +1,26 @@
+.request_topbar {
+    .heading {
+        font-weight: 600;
+        font-size: 24px;
+        color: #1e293b;
+    }
+    .top_bar {
+        .selected {
+            background: #c39eff !important;
+            color: #ffffff !important;
+        }
+        .btn-primary {
+            background: white;
+            border-radius: 12px;
+            color: #010010;
+            width: 190px;
+            height: 56px;
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            background: #c39eff;
+            color: #ffffff;
+        }
+    }
+}

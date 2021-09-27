@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import "../styles/globals.scss";
 import "../styles/scss/index.scss";
 import DashBoard from "../component/dashBoard/dashBoard";
@@ -27,6 +28,7 @@ import Link from "next/link";
 import HomeDashBoard from "../component/home";
 import EventIcon from "../component/nestedComponent/dashBoard/dashboardIcons/events";
 import { useRouter } from "next/router";
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -76,9 +78,11 @@ function MyApp({ Component, pageProps }) {
 
             <SubMenu key="sub1" icon={<ProfileIcon />} title="Profile">
               <Menu.Item key="5">
-                <ul>
-                  <li>Friends List</li>
-                </ul>
+                <Link href="/friendsList-page">
+                  <ul>
+                    <li>Friends List</li>
+                  </ul>
+                </Link>
               </Menu.Item>
               <Menu.Item key="6">
                 <ul>

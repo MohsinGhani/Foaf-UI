@@ -10,6 +10,14 @@ import ToggelMobile from "../nestedComponent/home/toggelmobile";
 // import Toggel from "../nestedComponent/home/homeToggel";
 
 export default function HomeDashBoard() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
+
   return (
     <div className="home_main">
       <div className="left-side">
@@ -17,46 +25,60 @@ export default function HomeDashBoard() {
         <div className="seperator"></div>
         <ToggelMobile />
 
-        <div className="status_1">
+        <div className="status_main">
           <div className="status">
-            <div className="wow_1">
-              <div className="wow_2">
-                <Stories
-                  url="/images/dashboard/samesize.svg"
-                  name="Erin Press"
-                  bgurl="/images/dashboard/story1.png"
-                />
-              </div>
-              <div className="wow_2">
-                <Stories
-                  url="/images/dashboard/requestProfile1.svg"
-                  name="Erin Press"
-                  bgurl="/images/dashboard/story2.png"
-                />
-              </div>
-              <div className="wow_2">
-                <Stories
-                  url="/images/dashboard/requestProfile3.svg"
-                  name="Erin Press"
-                  bgurl="/images/dashboard/story3.png"
-                />
-              </div>
-              <div className="wow_2">
-                <Stories
-                  url="/images/dashboard/samesize.svg"
-                  name="Erin Press"
-                  bgurl="/images/dashboard/story4.png"
-                />
-              </div>
-              <div className="wow_2">
-                <img
-                  src="/images/dashboard/king.png"
-                  alt="king"
-                  width="100"
-                  height="140"
-                />
-              </div>
+            {/* <div className="wow_1"> */}
+            <div className="wow_2">
+              <Stories
+                url="/images/dashboard/samesize.svg"
+                name="Erin Press"
+                bgurl="/images/dashboard/story1.png"
+              />
             </div>
+            <div className="wow_2">
+              <Stories
+                url="/images/dashboard/requestProfile1.svg"
+                name="Erin Press"
+                bgurl="/images/dashboard/story2.png"
+              />
+            </div>
+            <div className="wow_2">
+              <Stories
+                url="/images/dashboard/requestProfile3.svg"
+                name="Erin Press"
+                bgurl="/images/dashboard/story3.png"
+              />
+            </div>
+            <div className="wow_2">
+              <Stories
+                url="/images/dashboard/samesize.svg"
+                name="Erin Press"
+                bgurl="/images/dashboard/story4.png"
+              />
+            </div>
+            {/* <div className="wow_2">
+              <Stories
+                url="/images/dashboard/requestProfile3.svg"
+                name="Erin Press"
+                bgurl="/images/dashboard/story3.png"
+              />
+            </div> */}
+            {/* <div className="wow_2">
+              <Stories
+                url="/images/dashboard/requestProfile1.svg"
+                name="Erin Press"
+                bgurl="/images/dashboard/story2.png"
+              />
+            </div> */}
+            <div className="wow_2">
+              <img
+                src="/images/dashboard/king.png"
+                alt="king"
+                width="100"
+                height="140"
+              />
+            </div>
+            {/* </div> */}
           </div>
         </div>
         <div className="home_post">

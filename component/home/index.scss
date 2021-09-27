@@ -7,6 +7,8 @@
     .left-side {
         overflow: scroll;
         // position: fixed;
+        // left: 10px;
+        // position: fixed;
         // top: 20px;
         // height: 100vh;
         // left: 500px;
@@ -14,7 +16,7 @@
         // max-height: 100vh;
         flex-direction: column;
         align-items: center;
-        margin: 10px 20px 20px 20px;
+        margin: 10px 30px 30px 30px;
         // justify-content: center;
         // justify-content:space-between;
         // padding: 40px 80px 30px;
@@ -28,35 +30,46 @@
             width: 100%;
             border: 1px solid #ffe9eb;
         }
-        .status_1 {
-            max-width: 580px;
-        }
-        .status {
-            // overflow-x: scroll;
-            display: flex;
-            flex-direction: row;
-            // justify-content: unset;
+        .status_main {
+            // max-width: 580px;
+            width: 100%;
+            // margin-left: 40px;
 
-            max-width: 580px;
-            display: flex;
-            overflow: hidden;
-            height: 140px;
-
-            .wow_1 {
+            .status {
+                overflow: auto;
                 display: flex;
+                // width: 100%;
+                // overflow: visible;
+                // display: flex;
+                // flex-direction: row;
+                // justify-content: unset;
+                // min-width: 580px;
+                // width: 100%;
+                // width: 580px;
+
+                // margin: auto;
+                // padding-left: 20px;
+                // max-width: 580px;
+                // display: flex;
+                // overflow: hidden;
+                // height: 140px;
+
+                // .wow_1 {
+                // display: flex;
                 // max-width: 580px;
                 // max-height: 140px;
-            }
-            .wow_2 {
-                margin-left: 10px;
-            }
+                // }
+                .wow_2 {
+                    margin-right: 30px;
+                }
 
-            // .wow_2 {
-            //     display: flex;
-            // }
-            display: flex;
-            &::-webkit-scrollbar {
-                display: none;
+                // .wow_2 {
+                //     display: flex;
+                // }
+                // display: flex;
+                // &::-webkit-scrollbar {
+                //     display: none;
+                // }
             }
         }
         .home_post {
@@ -73,6 +86,8 @@
         // height: 100vh;
         overflow: scroll;
         margin: 0px 10px 10px 10px;
+        // position: fixed;
+        // right: -40px;
         // position: fixed;
         // right: 0px;
         // position: relative;
