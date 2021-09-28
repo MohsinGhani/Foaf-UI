@@ -54,19 +54,38 @@
             }
         }
     }
-    button {
-        border-radius: 12px;
-        width: 100%;
-        height: 36px;
-        font-weight: 600;
-        font-size: 12px;
-        // margin-top: 20px;
-    }
-    .confirm {
+
+    .freind_request {
         .btn-primary {
             background: #c39eff;
             color: #ffffff;
-            border-color: #c39eff;
+
+            margin-top: 20px;
+        }
+    }
+    .all_freinds {
+        .btn-primary {
+            background: linear-gradient(91.59deg, #ff8452 -0.78%, #ed8438 99.22%);
+
+            color: #ffffff;
+
+            margin-top: 20px;
+        }
+    }
+    .close_friends {
+        .btn-primary {
+            background: #6ec2ff;
+
+            color: #ffffff;
+
+            margin-top: 20px;
+        }
+    }
+    .family {
+        .btn-primary {
+            background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+            color: #ffffff;
+
             margin-top: 20px;
         }
     }
@@ -74,8 +93,21 @@
         .btn-primary {
             color: #010010;
             background: white;
-            border-color: white;
+
             margin-top: 5px;
+        }
+    }
+    button {
+        border-radius: 12px;
+        width: 100%;
+        height: 36px;
+        font-weight: 600;
+        font-size: 12px;
+        border: unset;
+
+        // margin-top: 20px;
+        p {
+            margin: unset;
         }
     }
 }

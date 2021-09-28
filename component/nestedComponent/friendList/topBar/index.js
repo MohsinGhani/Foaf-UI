@@ -1,24 +1,98 @@
 import { Button } from "react-bootstrap";
+import { Tabs } from "antd";
+import FriendsRequest from "../friendsRequest";
+import AllFriends from "../allFriends";
+import CloseFriends from "../closeFriends";
+import Family from "../family";
+import { useState } from "react";
 
 export default function Topbar() {
+  const [showButton, setShowButton] = useState(false);
+  const [text, setText] = useState(true);
+
+  const { TabPane } = Tabs;
+
+  const operations = (
+    <Button className="add_button">
+      <p>+ Add {text ? <>Close Friends</> : <>family</>}</p>
+    </Button>
+  );
+
+  function callback(key) {
+    console.log(key);
+  }
   return (
     <div className="request_topbar">
       <p className="heading">Friends List</p>
       <div className="top_bar">
-        <tr>
-          <td>
-            <Button className="selected">Friends request</Button>
-          </td>
-          <td>
-            <Button>All friends</Button>
-          </td>
-          <td>
-            <Button>Close friends</Button>
-          </td>
-          <td>
-            <Button>Family</Button>
-          </td>
-        </tr>
+        <Tabs
+          defaultActiveKey="1"
+          onChange={callback}
+          tabBarExtraContent={showButton ? operations : ""}
+        >
+          <TabPane
+            tab={
+              <Button
+                className="friends_request"
+                onClick={() => {
+                  setShowButton(false);
+                }}
+              >
+                Friends request
+              </Button>
+            }
+            key="1"
+          >
+            <FriendsRequest friendsRequest={true} />
+          </TabPane>
+          <TabPane
+            tab={
+              <Button
+                className="all_frineds"
+                onClick={() => {
+                  setShowButton(false);
+                }}
+              >
+                All friends
+              </Button>
+            }
+            key="2"
+          >
+            <AllFriends allFriends={true} />
+          </TabPane>
+          <TabPane
+            tab={
+              <Button
+                className="close_friends"
+                onClick={() => {
+                  setShowButton(true);
+                  setText(true);
+                }}
+              >
+                Close friends
+              </Button>
+            }
+            key="3"
+          >
+            <CloseFriends closeFriends={true} />
+          </TabPane>
+          <TabPane
+            tab={
+              <Button
+                className="family"
+                onClick={() => {
+                  setShowButton(true);
+                  setText(false);
+                }}
+              >
+                Family
+              </Button>
+            }
+            key="4"
+          >
+            <Family family={true} />
+          </TabPane>
+        </Tabs>
       </div>
     </div>
   );

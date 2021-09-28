@@ -41,12 +41,21 @@ export default function RequestCard(props) {
             </div>
           </div>
         </div>
-        <div className="confirm">
-          <Button>Confirm</Button>
+        <div
+          className={`${props.friendRequest ? "freind_request" : ""}  
+          ${props.allFriends ? "all_freinds" : ""}  ${
+            props.closeFriends ? "close_friends" : ""
+          }  ${props.family ? " family" : ""} `}
+        >
+          <Button>
+            {props.friendRequest ? <p>confirm</p> : <p>Remove</p>}
+          </Button>
         </div>
-        <div className="reject">
-          <Button>Reject</Button>
-        </div>
+        {props.friendRequest && (
+          <div className="reject">
+            <Button>Reject</Button>
+          </div>
+        )}
       </div>
     </div>
   );
