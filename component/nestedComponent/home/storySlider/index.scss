@@ -1,0 +1,18 @@
+.StorySlider_main {
+    // width: 100%;
+    // height: 100%;
+    .slick-slider .slick-initialized {
+        width: 580px;
+        height: 140px;
+        // .slick-arrow .slick-prev::before {
+        //     display: block !important;
+        // }
+        .slick-list {
+            .slick-track {
+                .slick-slide .slick-active .slick-cloned {
+                    min-width: 100px !important;
+                }
+            }
+        }
+    }
+}

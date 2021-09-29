@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/link-passhref */
+
 import "../styles/globals.scss";
 import "../styles/scss/index.scss";
-import DashBoard from "../component/dashBoard/dashBoard";
+// import DashBoard from "../component/dashBoard/dashBoard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 /* eslint-disable @next/next/no-img-element */
 import { Layout, Menu, Breadcrumb } from "antd";
 import React, { Component } from "react";
@@ -175,7 +178,6 @@ function MyApp({ Component, pageProps }) {
           <div className="page">
             <TopBar />
             <Component {...pageProps} />
-            {/* <Setting /> */}
           </div>
         </Content>
         <Footer>

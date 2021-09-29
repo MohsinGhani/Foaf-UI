@@ -133,7 +133,9 @@
                 .ant-menu-submenu-title:focus-visible {
                     box-shadow: none;
                 }
-
+                .ant-menu-submenu-selected {
+                    color: #010010;
+                }
                 .ant-menu-submenu:hover {
                     .profile {
                         img {
@@ -334,23 +336,23 @@
                             stroke-width: 0;
                         }
                     }
-                    .setting {
-                        background: #f2bd6f;
-                        path {
-                            // fill: white;
-                            stroke: #f2bd6f;
-                        }
-                        circle {
-                            stroke: #f2bd6f;
-                        }
-                    }
-                    .profile {
-                        img {
-                            border: 2px solid #ed8439 !important;
-                            box-shadow: 0px 0px 4px #ed8439;
-                            border-radius: 8px;
-                        }
-                    }
+                    // .setting {
+                    //     background: #f2bd6f;
+                    //     path {
+                    //         // fill: white;
+                    //         stroke: #f2bd6f;
+                    //     }
+                    //     circle {
+                    //         stroke: #f2bd6f;
+                    //     }
+                    // }
+                    // .profile {
+                    //     img {
+                    //         border: 2px solid #ed8439 !important;
+                    //         box-shadow: 0px 0px 4px #ed8439;
+                    //         border-radius: 8px;
+                    //     }
+                    // }
 
                     .ant-menu-title-content {
                         // color: #010010 !important;
