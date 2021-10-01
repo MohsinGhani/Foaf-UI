@@ -1,0 +1,15 @@
+.trending {
+    .heading {
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            color: #010010;
+
+            opacity: 0.5;
+        }
+    }
+    .trend_scroll {
+        overflow: auto;
+        height: 267px;
+    }
+}

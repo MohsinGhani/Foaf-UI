@@ -85,6 +85,21 @@ export default function StorySlider() {
               bgurl="/images/dashboard/story2.png"
             />
           </div>
+
+          <div>
+            <Stories
+              url="/images/dashboard/samesize.svg"
+              name="Erin Press"
+              bgurl="/images/dashboard/story4.png"
+            />
+          </div>
+          <div>
+            <Stories
+              url="/images/dashboard/requestProfile1.svg"
+              name="Erin Press"
+              bgurl="/images/dashboard/story2.png"
+            />
+          </div>
           <div>
             <img
               src="/images/dashboard/king.png"

@@ -94,7 +94,7 @@ export default function HomeDashBoard() {
             profilecolor={true}
           />
         </div>
-        <hr />
+
         <div className="home_post">
           <Post
             profile="/images/dashboard/ProfileImage2.svg"

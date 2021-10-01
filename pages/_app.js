@@ -71,7 +71,7 @@ function MyApp({ Component, pageProps }) {
             )} */}
 
             <Menu.Item key="3" icon={<Searchicon />}>
-              <Link href="/search-page">Search</Link>
+              <Link href="/search-page">Explore FOAF</Link>
             </Menu.Item>
 
             <Menu.Item key="4" icon={<HomeIcon />}>
