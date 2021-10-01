@@ -1,22 +1,16 @@
 .sponsored-main {
     // display: flex;
-
+    margin: 16px 0px;
     max-width: 360px;
     // height: 504px;
     // width: 100px;
     // height: 100px;
-    .text {
-        p {
-            margin: 44px 20px 0;
-            color: #010010;
-            font-weight: 500;
-            opacity: 0.5;
-        }
-    }
+    // .text {
+
     .sponsored-post {
         box-shadow: 0px 0px 24px -10px rgba(0, 0, 0, 0.15);
         border-radius: 12px;
-        margin: 16px 0px;
+
         display: flex;
         flex-direction: column;
         height: 281px;

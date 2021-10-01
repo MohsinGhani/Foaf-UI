@@ -3,7 +3,7 @@
     // margin-top: 5px;
     // width: 100%;
     width: 100px;
-    visibility: hidden;
+    display: none;
     .ant-menu::before {
         content: unset !important;
     }
@@ -71,6 +71,6 @@
 @media screen and (max-width: 576px) {
     .mobile_toggel_wow {
         // display: inline !important;
-        visibility: visible;
+        display: block;
     }
 }

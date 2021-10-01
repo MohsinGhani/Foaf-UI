@@ -1,0 +1,21 @@
+.CreateTextStory_main {
+    .start_typing {
+        p {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #010010;
+        }
+        .ant-input {
+            height: 48px;
+            background: #ffffff;
+            border: 1.5px solid #f0efef;
+            border-radius: 8px;
+        }
+        .ant-input:focus {
+            border-color: #f0efef;
+        }
+        .ant-input:hover {
+            border-color: #f0efef;
+        }
+    }
+}

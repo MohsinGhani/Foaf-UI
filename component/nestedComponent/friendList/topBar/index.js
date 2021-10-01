@@ -115,7 +115,9 @@ export default function Topbar() {
           </Tabs>
         </div>
       </div>
+
       <Modal
+        className="friendRequest_modal"
         title={text ? "< Add close Friends" : "< Add Family"}
         visible={isCloseModalVisible}
         // onOk={handleOk}

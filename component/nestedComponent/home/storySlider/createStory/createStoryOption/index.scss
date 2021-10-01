@@ -1,0 +1,11 @@
+.CreateStoryOption_main {
+    .create_story {
+        display: flex;
+        // justify-content: space-around;
+        // padding: 0 5px 0 5px;
+        .story {
+            margin: 0 15px 20px 15px;
+            cursor: pointer;
+        }
+    }
+}

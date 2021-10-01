@@ -3,9 +3,6 @@ import Image from "next/image";
 export default function Sponsored() {
   return (
     <div className="sponsored-main">
-      <div className="text">
-        <p> Sponsored</p>
-      </div>
       <div className="sponsored-post">
         <div className="profile-main">
           <div className="profile-image">

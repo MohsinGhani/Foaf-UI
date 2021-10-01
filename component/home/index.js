@@ -9,6 +9,7 @@ import Sponsored from "../nestedComponent/home/homeSponsored";
 import Stories from "../nestedComponent/home/storySlider/homeStories";
 import ToggelMobile from "../nestedComponent/home/toggelmobile";
 import StorySlider from "../nestedComponent/home/storySlider";
+import Trending from "../nestedComponent/home/trending";
 // import Toggel from "../nestedComponent/home/homeToggel";
 
 export default function HomeDashBoard() {
@@ -120,10 +121,21 @@ export default function HomeDashBoard() {
         </div>
       </div>
       <div className="right-side">
+        <div className="text">
+          <p> Sponsored</p>
+        </div>
         <div>
           <Sponsored />
         </div>
         <div>
+          <Sponsored />
+        </div>
+        <div>
+          <div>
+            <Trending />
+          </div>
+        </div>
+        {/* <div>
           <div className="request">
             <p>Requests</p>
             <div className="circle">3</div>
@@ -156,7 +168,7 @@ export default function HomeDashBoard() {
               name="Rajat Sharma"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

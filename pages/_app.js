@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import React, { Component } from "react";
 import { useState } from "react";
+import { Input } from "antd";
 import Logo from "../component/nestedComponent/dashBoard/dashboardIcons/logoSvg";
 import Searchicon from "../component/nestedComponent/dashBoard/dashboardIcons/search";
 import MessagesIcon from "../component/nestedComponent/dashBoard/dashboardIcons/messages";
@@ -43,7 +44,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout className="layout">
       <div className="logo">
-        <Logo />
+        <div className="logoChild">
+          <Logo />
+        </div>
       </div>
       <div className="menu-scroll">
         <Sider
@@ -174,6 +177,7 @@ function MyApp({ Component, pageProps }) {
         </Sider>
       </div>
       <Layout className="site-layout">
+        {/* <Input placeholder="Explore foaf" /> */}
         <Content className="container">
           <div className="page">
             <TopBar />

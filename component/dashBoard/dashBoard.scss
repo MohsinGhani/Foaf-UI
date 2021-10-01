@@ -13,6 +13,9 @@
         position: fixed;
         top: 32px;
         left: 49px;
+        .logoChild {
+            display: flex;
+        }
     }
     .menu-scroll {
         // max-height: 100vh;
@@ -417,6 +420,14 @@
         //     background: rgba(251, 251, 251, 1);
         // }
     }
+    // input {
+    // width: 193px;
+    // // height: 48px;
+    // top: 32px;
+    // border-radius: 16px;
+    // padding-left: 20px;
+    // background: #fbfbfb;
+    // }
     .container {
         margin: 0 auto;
         max-width: 1158px;
