@@ -41,8 +41,8 @@ export default function CreateStory() {
         <Image
           src="/images/dashboard/createStory.svg"
           alt="createStory"
-          width="100"
-          height="140"
+          width="89"
+          height="130"
         />
       </div>
 

@@ -32,8 +32,10 @@
         }
 
         .status {
-            width: 100%;
+            // width: 100%;
             margin-top: 40px;
+            max-width: 580px;
+            // margin-left: 40px;
         }
 
         .home_post {
@@ -47,27 +49,33 @@
     }
     .right-side {
         width: 40%;
+        overflow: auto;
         // height: 100vh;
         // overflow: scroll;
-        margin: 0px 10px 0px 10px;
+        margin: 0px 40px 0px 10px;
         // position: fixed;
         // right: -40px;
         // position: fixed;
         // right: 0px;
         // position: relative;
         // padding: 40px 80px 30px;
-        // &::-webkit-scrollbar {
-        //     display: none;
-        // }
-        .text {
-            p {
-                margin: 40px 0px 10px 20px;
-                color: #010010;
-                font-weight: 500;
-                opacity: 0.5;
-            }
+        &::-webkit-scrollbar {
+            display: none;
         }
-
+        // .text {
+        //     p {
+        //         margin: 40px 0px 10px 20px;
+        //         color: #010010;
+        //         font-weight: 500;
+        //         opacity: 0.5;
+        //     }
+        // }
+        .sponsoreds_main {
+            margin-top: 35px;
+        }
+        .trending_main {
+            margin-top: 30px;
+        }
         // .request {
         //     max-width: 360px;
         //     display: flex;

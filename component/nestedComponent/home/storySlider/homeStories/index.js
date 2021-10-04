@@ -1,13 +1,20 @@
 import Image from "next/image";
 
-export default function Stories({ url, name, bgurl }) {
+export default function Story({ url, name, bgurl }) {
   return (
-    <div className="main" style={{ backgroundImage: "url(" + bgurl + ")" }}>
+    <div
+      className="story_main"
+      style={{
+        backgroundImage: "url(" + bgurl + ")",
+      }}
+    >
       <div className="profile">
         <Image src={url} alt="profile" width="100%" height="100%" />
       </div>
 
-      <div className="name">{name}</div>
+      <div className="name">
+        <p>{name}</p>
+      </div>
     </div>
   );
 }

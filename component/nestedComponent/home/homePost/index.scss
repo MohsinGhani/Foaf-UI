@@ -1,8 +1,8 @@
 .post-main {
     // display: flex;
     // width: 100%;
-    // max-width: 580px;
-    width: 100%;
+    max-width: 580px;
+    // width: 100%;
     border-bottom: 0.001em solid #eaeaea;
 
     padding-bottom: 42px;
@@ -59,6 +59,9 @@
     }
     .post {
         margin-top: 30px;
+        img {
+            border-radius: 20px !important;
+        }
         p {
             margin-top: 10px;
             font-size: 17px;

@@ -1,0 +1,35 @@
+.stories_main {
+    display: flex;
+    .arrow {
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        .arrow_arrow {
+            display: flex;
+            justify-content: center;
+            background: #ffffff;
+            box-shadow: 0px 1.1111111640930176px 4.997684955596924px 0px #00000006;
+
+            box-shadow: 0px 4.888888835906982px 10.348148345947266px 0px #0000000a;
+
+            box-shadow: 0px 12px 20.637500762939453px 0px #0000000d;
+
+            box-shadow: 0px 23.11111068725586px 40.45185089111328px 0px #0000000f;
+
+            box-shadow: 0px 38.88888931274414px 74.37731170654297px 0px #00000013;
+
+            box-shadow: 0px 60px 127px 0px #0000001a;
+            position: absolute;
+            right: -15px;
+
+            width: 27px;
+            height: 27px;
+            background: #ffffff;
+            border-radius: 50%;
+            &:hover {
+                box-shadow: 2px 2px 1px grey;
+            }
+        }
+    }
+}

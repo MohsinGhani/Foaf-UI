@@ -9,6 +9,7 @@ import { Modal } from "antd";
 import { Input } from "antd";
 import SmallRequestcard from "../../../re-usabelComponent/friendsList/smallRequestCard";
 import Searchicon from "../../dashBoard/dashboardIcons/search";
+import { PlusCircleOutlined } from "@ant-design/icons";
 
 export default function Topbar() {
   const { TabPane } = Tabs;
@@ -30,10 +31,11 @@ export default function Topbar() {
 
   const operations = (
     <Button
-      className="add_button"
+      className={`add_button ${text ? "close" : "family"}`}
       onClick={text ? closeFriendsModel : familyModel}
     >
-      <p>+ Add {text ? "Close Friends" : "family"}</p>
+      <p>Add Freinds</p>
+      <PlusCircleOutlined />
     </Button>
   );
 

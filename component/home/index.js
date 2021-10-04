@@ -5,11 +5,13 @@ import CreateStory from "../nestedComponent/home/storySlider/createStory";
 import MobileStories from "../nestedComponent/home/homeMobileStories";
 import Post from "../nestedComponent/home/homePost";
 import Request from "../nestedComponent/home/homeRequest";
-import Sponsored from "../nestedComponent/home/homeSponsored";
-import Stories from "../nestedComponent/home/storySlider/homeStories";
+import Sponsored from "../nestedComponent/home/homeSponsored/sponsoredcode";
+// import Stories from "../nestedComponent/home/storySlider/homeStories";
 import ToggelMobile from "../nestedComponent/home/toggelmobile";
-import StorySlider from "../nestedComponent/home/storySlider";
+// import StorySlider from "../nestedComponent/home/storySlider";
 import Trending from "../nestedComponent/home/trending";
+import Stories from "../nestedComponent/home/storySlider/stories";
+import Sponsoreds from "../nestedComponent/home/homeSponsored/sponsoreds";
 // import Toggel from "../nestedComponent/home/homeToggel";
 
 export default function HomeDashBoard() {
@@ -28,7 +30,7 @@ export default function HomeDashBoard() {
         <div className="seperator"></div>
         <ToggelMobile />
         <div className="status">
-          <StorySlider />
+          <Stories />
         </div>
         {/* <div className="status_main"> */}
         {/* <div className="status"> */}
@@ -99,7 +101,15 @@ export default function HomeDashBoard() {
           <Post
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
-            Post="/images/dashboard/post.svg"
+            Post="/images/dashboard/post3.jpg"
+            profilecolor={false}
+          />
+        </div>
+        <div className="home_post">
+          <Post
+            profile="/images/dashboard/ProfileImage2.svg "
+            time="1hour ago"
+            Post="/images/dashboard/post4.jpg"
             profilecolor={false}
           />
         </div>
@@ -107,34 +117,28 @@ export default function HomeDashBoard() {
           <Post
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
-            Post="/images/dashboard/post.svg"
-            profilecolor={false}
-          />
-        </div>
-        <div className="home_post">
-          <Post
-            profile="/images/dashboard/ProfileImage2.svg"
-            time="1hour ago"
-            Post="/images/dashboard/post.svg"
+            Post="/images/dashboard/sponsored.svg"
             profilecolor={false}
           />
         </div>
       </div>
       <div className="right-side">
-        <div className="text">
+        {/* <div className="text">
           <p> Sponsored</p>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Sponsored />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Sponsored />
+        </div> */}
+        <div className="sponsoreds_main">
+          <Sponsoreds />
         </div>
-        <div>
-          <div>
-            <Trending />
-          </div>
+        <div className="trending_main">
+          <Trending />
         </div>
+
         {/* <div>
           <div className="request">
             <p>Requests</p>

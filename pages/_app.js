@@ -22,7 +22,7 @@ import NotificationIcon from "../component/nestedComponent/dashBoard/dashboardIc
 import SettingIcon from "../component/nestedComponent/dashBoard/dashboardIcons/settings";
 import HomeIcon from "../component/nestedComponent/dashBoard/dashboardIcons/home";
 import ToggelHome from "../component/nestedComponent/dashBoard/dashboardIcons/toggelhomje";
-
+import { useRouter } from "next/router";
 // import HomeDashBoard from "../home/index";
 import ToggelSearch from "../component/nestedComponent/dashBoard/dashboardIcons/toggelSearch";
 import Toggel from "../component/nestedComponent/dashBoard/dashboardIcons/toggel";
@@ -31,7 +31,7 @@ import TopBar from "../component/nestedComponent/dashBoard/top-bar";
 import Link from "next/link";
 import HomeDashBoard from "../component/home";
 import EventIcon from "../component/nestedComponent/dashBoard/dashboardIcons/events";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -44,7 +44,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout className="layout">
       <div className="logo">
-        <div className="logoChild">
+        <div
+          onClick={() => {
+            router.push("/");
+          }}
+          className="logoChild"
+        >
           <Logo />
         </div>
       </div>

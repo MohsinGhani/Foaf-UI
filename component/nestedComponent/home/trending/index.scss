@@ -1,7 +1,7 @@
 .trending {
     .heading {
         p {
-            font-weight: 500;
+            font-weight: 600;
             font-size: 16px;
             color: #010010;
 
@@ -10,6 +10,9 @@
     }
     .trend_scroll {
         overflow: auto;
-        height: 267px;
+        height: 418px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
