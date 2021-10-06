@@ -7,15 +7,41 @@
         }
         .ant-input {
             height: 48px;
-            background: #ffffff;
+            // color: rgba(107, 107, 107, 1);
             border: 1.5px solid #f0efef;
             border-radius: 8px;
+            margin-bottom: 20px;
         }
         .ant-input:focus {
             border-color: #f0efef;
         }
         .ant-input:hover {
             border-color: #f0efef;
+        }
+        .ant-select {
+            width: 100%;
+            margin-bottom: 20px;
+            .ant-select-open {
+                border: 1.5px solid #f0efef;
+            }
+            .ant-select-selector {
+                padding: 8px 0 0 13px;
+                height: 48px;
+                color: rgba(107, 107, 107, 1);
+
+                border: 1.5px solid #f0efef;
+                border-radius: 8px;
+                .ant-select-selection-search {
+                    padding: 10px;
+                }
+                &:hover {
+                    border-color: #f0efef !important;
+                    box-shadow: unset !important;
+                }
+                &:focus {
+                    border-color: #f0efef !important;
+                }
+            }
         }
     }
 }

@@ -23,6 +23,7 @@
                     padding: unset;
                     border-radius: 8px;
                     font-weight: 600;
+                    border: none;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -36,10 +37,12 @@
 
                 .close {
                     background: linear-gradient(93.15deg, #1a83cf -11.17%, #5fb5f4 48.61%, #2da6ff 96.45%);
+                    box-shadow: rgba(52, 113, 243, 0.45) 0px 5px 20px;
                 }
 
                 .family {
-                    background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+                    background: linear-gradient(90deg, #6dd7a4 0%, rgb(62, 198, 132) 100%);
+                    box-shadow: rgba(41, 148, 5, 0.45) 0px 5px 20px;
                 }
             }
             .ant-tabs-nav-more {
@@ -62,26 +65,39 @@
                 .friends_request {
                     background: linear-gradient(90deg, #c39eff 0%, #a576f3 100%);
                     color: #ffffff;
-                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                    box-shadow: rgba(75, 9, 232, 0.45) 0px 25px 20px -20px;
                     font-weight: 600;
+                    &:focus {
+                        box-shadow: rgba(75, 9, 232, 0.45) 0px 25px 20px -20px !important;
+                    }
                 }
                 .all_frineds {
                     background: linear-gradient(90deg, #ef843b 0%, #ffa567 100%);
-
+                    box-shadow: rgba(232, 154, 9, 0.45) 0px 25px 20px -20px;
+                    border: none;
                     color: #ffffff;
                     font-weight: 600;
+                    &:focus {
+                        box-shadow: rgba(232, 154, 9, 0.45) 0px 25px 20px -20px !important;
+                    }
                 }
                 .close_friends {
                     background: linear-gradient(93.15deg, #1a83cf -11.17%, #5fb5f4 48.61%, #2da6ff 96.45%);
                     color: #ffffff;
-
+                    box-shadow: rgba(52, 113, 243, 0.45) 0px 25px 20px -20px;
                     font-weight: 600;
+                    &:focus {
+                        box-shadow: rgba(52, 113, 243, 0.45) 0px 25px 20px -20px !important;
+                    }
                 }
                 .family {
                     background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
-
+                    box-shadow: rgba(41, 148, 5, 0.45) 0px 25px 20px -20px;
                     color: #ffffff;
                     font-weight: 600;
+                    &:focus {
+                        box-shadow: rgba(41, 148, 5, 0.45) 0px 25px 20px -20px !important;
+                    }
                 }
             }
 
@@ -92,7 +108,7 @@
                 width: 190px;
                 height: 56px;
 
-                border-color: white;
+                border: none;
             }
 
             .friends_request:hover {
@@ -101,7 +117,7 @@
             }
 
             .all_frineds:hover {
-                background: linear-gradient(91.59deg, #ff8452 -0.78%, #ed8438 99.22%);
+                background: linear-gradient(90deg, #ef843b 0%, #ffa567 100%);
 
                 color: #ffffff;
             }

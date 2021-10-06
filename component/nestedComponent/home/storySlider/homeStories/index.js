@@ -1,20 +1,33 @@
 import Image from "next/image";
 
-export default function Story({ url, name, bgurl }) {
-  return (
-    <div
-      className="story_main"
-      style={{
-        backgroundImage: "url(" + bgurl + ")",
-      }}
-    >
-      <div className="profile">
-        <Image src={url} alt="profile" width="100%" height="100%" />
-      </div>
+import { useState } from "react";
+import StoryModal from "../storyModal";
 
-      <div className="name">
-        <p>{name}</p>
+export default function Story({ url, name, bgurl }) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  return (
+    <>
+      <div
+        className="story_main"
+        onClick={showModal}
+        style={{
+          backgroundImage: "url(" + bgurl + ")",
+        }}
+      >
+        <div className="profile">
+          <Image src={url} alt="profile" width="100%" height="100%" />
+        </div>
+
+        <div className="name">
+          <p>{name}</p>
+        </div>
       </div>
-    </div>
+      <StoryModal visible={isModalVisible} unvisibel={setIsModalVisible} />
+    </>
   );
 }

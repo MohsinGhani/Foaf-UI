@@ -1,0 +1,36 @@
+.story_reply_main {
+    width: 100%;
+    display: flex;
+    margin-top: 64px;
+    justify-content: center;
+    .Story_reply {
+        width: 67%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .text {
+            width: 100%;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+
+            input {
+                background: rgba(0, 0, 0, 0.4);
+                border-radius: 10px;
+                opacity: 0.4;
+                font-size: 14px;
+                font-weight: 600;
+                height: 50px;
+                border: none;
+                color: white;
+                backdrop-filter: blur(20px);
+                &:hover {
+                    border: none;
+                }
+            }
+            .image {
+                margin-left: -35px;
+            }
+        }
+    }
+}
