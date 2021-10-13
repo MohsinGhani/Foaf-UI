@@ -9,30 +9,35 @@ export default function Stories() {
       <CreateStory />
 
       <Story
+        classname="hide1"
         url="/images/dashboard/samesize.svg"
         name="Erin Press"
-        bgurl="/images/dashboard/story1.png"
+        bgurl="/images/dashboard/post.svg"
       />
 
       <Story
+        classname="hide2"
         url="/images/dashboard/requestProfile1.svg"
         name="Charlie Carder"
         bgurl="/images/dashboard/story2.png"
       />
 
       <Story
+        classname="hide3"
         url="/images/dashboard/samesize.svg"
         name="Alfredo Schleifer"
         bgurl="/images/dashboard/story3.png"
       />
 
       <Story
+        classname="hide4"
         url="/images/dashboard/requestProfile3.svg"
         name="Tatiana Dorwart"
         bgurl="/images/dashboard/story4.png"
       />
 
       <Story
+        classname="hide5"
         url="/images/dashboard/requestProfile1.svg"
         name="Lincoln Carder"
         bgurl="/images/dashboard/story4.png"

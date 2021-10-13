@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { Modal } from "antd";
 import { useState } from "react";
@@ -38,11 +39,11 @@ export default function CreateStory() {
           showModal();
         }}
       >
-        <Image
+        <img
           src="/images/dashboard/createStory.svg"
           alt="createStory"
-          width="89"
-          height="130"
+          width="100%"
+          height="100%"
         />
       </div>
 

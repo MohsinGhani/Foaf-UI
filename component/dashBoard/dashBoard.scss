@@ -11,6 +11,7 @@
     }
     .logo {
         position: fixed;
+        display: flex;
         cursor: pointer;
         top: 32px;
         left: 49px;
@@ -22,6 +23,7 @@
         // max-height: 100vh;
         // width: 100%;
         height: 100vh;
+
         // margin-bottom: 50px;
         // display: block;
         display: flex;
@@ -53,18 +55,26 @@
         .largewidth {
             min-width: 230px !important;
             overflow: auto;
-            overflow-x: hidden;
+
             margin-top: 100px;
             // max-height: calc(100% - 200px);
             flex: initial !important;
             transition: all 0.6s !important;
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
         .smallwidth {
             min-width: 80px !important;
+            overflow: auto;
+
             margin-top: 100px !important;
             transition: all 0.6s !important;
             flex: initial !important;
             // max-height: calc(100% - 200px);
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
         .slider {
             background: none;
@@ -274,6 +284,37 @@
                 .ant-menu-item::after {
                     border: unset;
                 }
+                .show_search {
+                    display: none;
+                }
+                .active {
+                    .home {
+                        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                        path {
+                            // fill: white;
+                            stroke: #f93d55;
+                        }
+                    }
+                    .search {
+                        background: #c39eff;
+                        circle {
+                            // fill: white;
+                            stroke: #c39eff;
+                            stroke-width: 1;
+                        }
+                        path {
+                            stroke: white;
+                        }
+                    }
+                    .notification {
+                        background: #c39eff;
+                        path {
+                            // fill: white;
+                            stroke: #c39eff;
+                            stroke-width: 0;
+                        }
+                    }
+                }
                 .ant-menu-item-selected {
                     // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                     background: none !important;
@@ -291,25 +332,25 @@
                     //         fill: white;
                     //     }
                     // }
-                    .search {
-                        background: #c39eff;
-                        circle {
-                            // fill: white;
-                            stroke: #c39eff;
-                            stroke-width: 1;
-                        }
-                        path {
-                            stroke: white;
-                        }
-                    }
+                    // .search {
+                    //     background: #c39eff;
+                    //     circle {
+                    //         // fill: white;
+                    //         stroke: #c39eff;
+                    //         stroke-width: 1;
+                    //     }
+                    //     path {
+                    //         stroke: white;
+                    //     }
+                    // }
 
-                    .home {
-                        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-                        path {
-                            // fill: white;
-                            stroke: #f93d55;
-                        }
-                    }
+                    // .home {
+                    //     background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                    //     path {
+                    //         // fill: white;
+                    //         stroke: #f93d55;
+                    //     }
+                    // }
                     .message {
                         background: #6ec2ff;
                         path {
@@ -332,14 +373,14 @@
                             stroke: #ffa2b9;
                         }
                     }
-                    .notification {
-                        background: #c39eff;
-                        path {
-                            // fill: white;
-                            stroke: #c39eff;
-                            stroke-width: 0;
-                        }
-                    }
+                    // .notification {
+                    //     background: #c39eff;
+                    //     path {
+                    //         // fill: white;
+                    //         stroke: #c39eff;
+                    //         stroke-width: 0;
+                    //     }
+                    // }
                     // .setting {
                     //     background: #f2bd6f;
                     //     path {
@@ -504,6 +545,15 @@
             .icon {
                 margin: 0 !important;
             }
+            .active {
+                .home {
+                    background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+                    path {
+                        fill: white;
+                        stroke: #f93d55;
+                    }
+                }
+            }
             .ant-menu-item-selected {
                 // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                 background: none !important;
@@ -636,3 +686,8 @@
 //         }
 //     }
 // }
+@media screen and (max-width: 1671px) {
+    .show_search {
+        display: -webkit-box !important;
+    }
+}

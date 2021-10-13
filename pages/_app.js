@@ -31,6 +31,8 @@ import TopBar from "../component/nestedComponent/dashBoard/top-bar";
 import Link from "next/link";
 import HomeDashBoard from "../component/home";
 import EventIcon from "../component/nestedComponent/dashBoard/dashboardIcons/events";
+import SearchBarDashboard from "../component/nestedComponent/dashBoard/searchbar";
+import HamBurger from "../component/nestedComponent/dashBoard/dashboardIcons/hamBurger";
 // import { useRouter } from "next/router";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -52,14 +54,18 @@ function MyApp({ Component, pageProps }) {
         >
           <Logo />
         </div>
+        <div>
+          <SearchBarDashboard />
+        </div>
       </div>
+
       <div className="menu-scroll">
         <Sider
           className={`slider ${collapsed ? "smallwidth" : "largewidth"}`}
           collapsible
           collapsed={collapsed}
-          onMouseEnter={() => setCollapsed(false)}
-          onMouseLeave={() => setCollapsed(true)}
+          // onMouseEnter={() => setCollapsed(false)}
+          // onMouseLeave={() => setCollapsed(true)}
           reverseArrow={true}
         >
           <Menu className="menu" mode="inline">
@@ -74,12 +80,30 @@ function MyApp({ Component, pageProps }) {
                 icon={<Toggel selected={selected} disSelected={setSelected} />}
               ></Menu.Item>
             )} */}
-
-            <Menu.Item key="3" icon={<Searchicon />}>
+            <Menu.Item
+              key="1"
+              icon={<HamBurger />}
+              onClick={() => {
+                setCollapsed(!collapsed);
+              }}
+            >
+              <ul>
+                <li></li>
+              </ul>
+            </Menu.Item>
+            <Menu.Item
+              key="3"
+              className={`${"show_search"} router.pathname == "/search-page" ? "active" : ""`}
+              icon={<Searchicon />}
+            >
               <Link href="/search-page">Explore FOAF</Link>
             </Menu.Item>
 
-            <Menu.Item key="4" icon={<HomeIcon />}>
+            <Menu.Item
+              key="4"
+              className={router.pathname == "/" ? "active" : ""}
+              icon={<HomeIcon />}
+            >
               <Link href="/">Home</Link>
             </Menu.Item>
 
@@ -149,7 +173,13 @@ function MyApp({ Component, pageProps }) {
               Messages
             </Menu.Item>
 
-            <Menu.Item key="16" icon={<NotificationIcon />}>
+            <Menu.Item
+              key="16"
+              className={
+                router.pathname == "/notification-page" ? "active" : ""
+              }
+              icon={<NotificationIcon />}
+            >
               <Link href="/notification-page">Notifications</Link>
             </Menu.Item>
             <SubMenu key="sub4" icon={<SettingIcon />} title="Other Settings">

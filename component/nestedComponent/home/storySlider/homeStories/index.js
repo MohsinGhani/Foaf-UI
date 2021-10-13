@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import StoryModal from "../storyModal";
 
-export default function Story({ url, name, bgurl }) {
+export default function Story({ url, name, bgurl, classname }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -13,7 +13,7 @@ export default function Story({ url, name, bgurl }) {
   return (
     <>
       <div
-        className="story_main"
+        className={` ${classname} story_main`}
         onClick={showModal}
         style={{
           backgroundImage: "url(" + bgurl + ")",

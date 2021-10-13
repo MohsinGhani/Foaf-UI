@@ -1,0 +1,54 @@
+.searchBarHomeDashboard {
+    width: 220px;
+    padding-left: 16px;
+    display: flex;
+
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 16px;
+    margin-left: 16px;
+    p {
+        margin-top: 11px;
+        color: #4f4f4f;
+    }
+    .search {
+        circle {
+            stroke: #4f4f4f;
+        }
+        path {
+            stroke: #4f4f4f;
+        }
+    }
+    // .ant-input-affix-wrapper {
+    //     border-radius: 12px;
+    //     height: 40px;
+    //     background: rgba(244, 244, 244, 1);
+
+    //     .ant-input {
+    //         background: rgba(244, 244, 244, 1) !important;
+    //         cursor: pointer;
+    //     }
+    // }
+    // .ant-input-affix-wrapper:focus {
+    //     -webkit-box-shadow: 0 0 0 2px #f9445b !important;
+    //     box-shadow: 0 0 0 2px #f9445b !important;
+    //     border-color: #f9445b;
+    // }
+    // .ant-input-affix-wrapper:focus,
+    // .ant-input-affix-wrapper-focused {
+    //     -webkit-box-shadow: 0 0 0 1px rgba(244, 244, 244, 1);
+    //     box-shadow: 0 0 0 1px rgba(244, 244, 244, 1);
+    //     border-color: #f4f4f4;
+    // }
+    // .ant-input-affix-wrapper:hover {
+    //     border-color: #f4f4f4 !important;
+    // }
+    // .ant-input-prefix {
+    //     width: 40px;
+    // }
+}
+@media screen and (max-width: 1671px) {
+    .searchBarHomeDashboard {
+        display: none;
+    }
+}

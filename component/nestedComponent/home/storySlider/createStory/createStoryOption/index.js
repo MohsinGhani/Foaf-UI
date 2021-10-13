@@ -1,9 +1,9 @@
 import CreateStoryButton from "../../../../../re-usabelComponent/storySlider/createStory/button";
 import Image from "next/image";
 import Modal from "antd/lib/modal/Modal";
-export default function CreateStoryOption(props) {
-  const showModal = () => {
-    props.contantCondition("CreateTextOption");
+export default function CreateStoryOption({ contantCondition }) {
+  const showComponent = () => {
+    contantCondition("CreateTextOption");
   };
   return (
     <div className="CreateStoryOption_main">
@@ -19,7 +19,7 @@ export default function CreateStoryOption(props) {
         <div
           className="story"
           onClick={() => {
-            showModal();
+            showComponent();
           }}
         >
           <Image

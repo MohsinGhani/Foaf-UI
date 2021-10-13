@@ -101,7 +101,10 @@
     .selected {
         .btn-primary {
             background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
-
+            box-shadow: #c7539a 0px 5px 10px;
+            &:focus {
+                box-shadow: #c7539a 0px 5px 10px !important;
+            }
             // margin-top: 20px;
         }
     }
@@ -118,6 +121,7 @@
         font-size: 12px;
         border: unset;
         color: #ffffff;
+
         // margin-top: 20px;
         p {
             margin: unset;

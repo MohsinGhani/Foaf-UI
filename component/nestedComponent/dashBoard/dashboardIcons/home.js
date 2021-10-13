@@ -1,6 +1,6 @@
 export default function HomeIcon() {
   return (
-    <div className="icon home">
+    <div className={"icon home"}>
       <svg
         width="24"
         height="24"
