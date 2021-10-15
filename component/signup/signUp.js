@@ -33,6 +33,10 @@ export default function Signup() {
       .required("Email Address is Required"),
     password: yup
       .string()
+      // .matches(
+      //   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&.,]{8,}$/,
+      //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      // )
       .min(8, ({ min }) => `Password must be at least ${min} characters`)
       .required("Password is required"),
     passwordConfirmation: yup
@@ -51,6 +55,7 @@ export default function Signup() {
       username: value.fullName,
       password: value.password,
     };
+
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/create_user`,
       {
@@ -62,10 +67,13 @@ export default function Signup() {
       }
     );
 
+    console.log(response, "responce,,,");
+
     if (!response.ok) {
       setButton(false);
-      const message = `Error ${response.status}`;
-      throw new Error(message);
+      const error = await response.json();
+      console.log("error", error);
+      throw new Error(error);
     }
 
     return await response.json();
@@ -80,9 +88,16 @@ export default function Signup() {
           pathname: `/login-page`,
         });
       })
-      .catch((err) => {
+      .catch((error) => {
         setButton(false);
-        console.log("ERROR A GYA", err.message);
+        console.log("ERROR ya hai", error);
+        // if (error.response) {
+        //   console.log(error.response.data);
+        // } else if (error.request) {
+        //   console.log(error.request);
+        // } else {
+        //   console.log("Error", error.message);
+        // }
       });
   };
 

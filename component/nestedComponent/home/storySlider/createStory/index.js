@@ -39,11 +39,11 @@ export default function CreateStory() {
           showModal();
         }}
       >
-        <img
+        <Image
           src="/images/dashboard/createStory.svg"
           alt="createStory"
-          width="100%"
-          height="100%"
+          width="200"
+          height="290"
         />
       </div>
 

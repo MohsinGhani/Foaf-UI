@@ -1,4 +1,4 @@
-.trending {
+.ShowTrending {
     .heading {
         p {
             font-weight: 600;
@@ -10,7 +10,7 @@
     }
     .trend_scroll {
         overflow: auto;
-        height: 418px;
+        height: 450px;
         &::-webkit-scrollbar {
             display: none;
         }

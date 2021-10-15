@@ -7,8 +7,12 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import styles from "./login.module.scss";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import { useDispatch, useSelector } from "react-redux";
+import { userData } from "../features/user";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [checked, setChecked] = useState(false);
   const [passwordShow, setpasswordShow] = useState(false);
@@ -46,8 +50,9 @@ export default function Login() {
 
     if (!response.ok) {
       setButton(false);
-      const message = `Error ${response.status}`;
-      throw new Error(message);
+      const Error = await response.json();
+      console.log(Error, "error");
+      throw new Error(Error);
     }
     return await response.json();
   };
@@ -57,9 +62,12 @@ export default function Login() {
       .then((data) => {
         setButton(false);
         console.log("MERA DATA AYEGA", data);
-        router.push({
-          pathname: `/home-page`,
-        });
+        if (data === "User Cannot be logged in") {
+          alert("email OR password wrong");
+        } else {
+          Cookies.set("token", data.token);
+          dispatch(userData("user"));
+        }
       })
       .catch((err) => {
         setButton(false);

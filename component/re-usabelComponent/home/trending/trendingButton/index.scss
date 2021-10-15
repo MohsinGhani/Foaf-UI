@@ -1,5 +1,5 @@
 .trend_button {
-    button {
+    .button {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -27,6 +27,10 @@
         .post_ranking {
             font-size: 9px;
         }
+    }
+    .see_more {
+        display: flex;
+        justify-content: center;
     }
 
     // .button_one {

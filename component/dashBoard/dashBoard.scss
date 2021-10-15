@@ -60,6 +60,18 @@
             // max-height: calc(100% - 200px);
             flex: initial !important;
             transition: all 0.6s !important;
+            // .ant-menu-item:hover {
+            // background: lightgray !important;
+            // }
+            // .ant-menu-item-active:hover {
+            //     background: lightgray !important;
+            // }
+            // .ant-menu-item-selected:hover {
+            //     background: lightgray !important;
+            // }
+            // .ant-menu-submenu:hover {
+            // background: lightgray !important;
+            // }
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -317,7 +329,7 @@
                 }
                 .ant-menu-item-selected {
                     // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
-                    background: none !important;
+                    background: #fbfbfb;
 
                     // .toggelHome {
                     //     background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);

@@ -9,12 +9,22 @@ import Sponsored from "../nestedComponent/home/homeSponsored/sponsoredcode";
 // import Stories from "../nestedComponent/home/storySlider/homeStories";
 import ToggelMobile from "../nestedComponent/home/toggelmobile";
 // import StorySlider from "../nestedComponent/home/storySlider";
-import Trending from "../nestedComponent/home/trending";
+import Trending from "../nestedComponent/home/trending/showTrandings";
 import Stories from "../nestedComponent/home/storySlider/stories";
 import Sponsoreds from "../nestedComponent/home/homeSponsored/sponsoreds";
 // import Toggel from "../nestedComponent/home/homeToggel";
+import { useDispatch, useSelector } from "react-redux";
+import Cookies from "js-cookie";
+import { userData } from "../features/user";
 
 export default function HomeDashBoard() {
+  const dispatch = useDispatch();
+  const logout = () => {
+    console.log("logout");
+    Cookies.remove("token");
+    dispatch(userData(null));
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -138,6 +148,7 @@ export default function HomeDashBoard() {
         <div className="trending_main">
           <Trending />
         </div>
+        <button onClick={logout}>logout</button>
 
         {/* <div>
           <div className="request">
