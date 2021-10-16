@@ -22,43 +22,27 @@ import HomeDashBoard from "../home";
 import EventIcon from "../nestedComponent/dashBoard/dashboardIcons/events";
 import SearchBarDashboard from "../nestedComponent/dashBoard/searchbar";
 import HamBurger from "../nestedComponent/dashBoard/dashboardIcons/hamBurger";
-import Cookies from "js-cookie";
+
 import { userData } from "../features/user";
 import { useDispatch, useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default function Mainone(props) {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user);
   const [collapsed, setCollapsed] = useState(true);
   const router = useRouter();
-  console.log(user, "reducer se data araha hai");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () => {
-    var data = Cookies.get();
-    console.log(data.token, "token");
-    try {
-      let response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${data.token}`,
-          },
-        }
-      );
 
-      const getuser = await response.json();
-      console.log(getuser, "getuser");
-      dispatch(userData(getuser));
-      return userData;
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
+  // console.log(user, "reducer se data araha hai");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const logout = () => {
+    console.log("logout");
+    Cookies.remove("token");
+    dispatch(userData(null));
+  };
   // console.log(userReducer, "hello");
   return (
     <Layout className="layout">
@@ -225,6 +209,13 @@ export default function Mainone(props) {
                 </ul>
               </Menu.Item>
             </SubMenu>
+            <Menu.Item
+              key="21"
+              // className={router.pathname == "/" ? "active" : ""}
+              icon={<HomeIcon />}
+            >
+              <div onClick={logout}>logout</div>
+            </Menu.Item>
           </Menu>
         </Sider>
       </div>

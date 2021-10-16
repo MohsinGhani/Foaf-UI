@@ -12,30 +12,30 @@ export default function ShowTrending() {
         <TrendingButton
           class="button"
           text="#Comeback Super Kings"
-          postRank="20k Post"
+          postRank="20k Posts"
         />
-        <TrendingButton class="button" text="#IPL 2020" postRank="50K Post" />
+        <TrendingButton class="button" text="#IPL 2020" postRank="50K Posts" />
         <TrendingButton
           class="button"
           text="#Louis Tomlinson"
-          postRank="1496k Post"
+          postRank="1496k Posts"
         />
-        <TrendingButton class="button" text="#Covid-19" postRank="80K Post" />
+        <TrendingButton class="button" text="#Covid-19" postRank="80K Posts" />
 
         <TrendingButton
           class="button"
           text="#Comeback Super Kings"
-          postRank="80K Post"
+          postRank="80K Posts"
         />
         <TrendingButton
           class="button"
           text="#Comeback Super Kings"
-          postRank="80K Post"
+          postRank="80K Posts"
         />
         <TrendingButton
           class="button"
           text="#Comeback Super Kings"
-          postRank="80K Post"
+          postRank="80K Posts"
         />
         <div
           onClick={() => {

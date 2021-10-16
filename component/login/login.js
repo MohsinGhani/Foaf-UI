@@ -66,13 +66,15 @@ export default function Login() {
           alert("email OR password wrong");
         } else {
           Cookies.set("token", data.token);
-          dispatch(userData("user"));
+          console.log(data, "login ka data");
+          dispatch(userData(data));
         }
       })
       .catch((err) => {
         setButton(false);
         console.log("ERROR A GYA", err.message);
         console.log(err);
+        alert("email OR password wrong");
       });
   };
   const submit = (handleSubmit) => {
