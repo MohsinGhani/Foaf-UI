@@ -9,7 +9,7 @@ import styles from "./login.module.scss";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { userData } from "../features/user";
+import { loginData, userDetailes } from "../features/user";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -67,7 +67,7 @@ export default function Login() {
         } else {
           Cookies.set("token", data.token);
           console.log(data, "login ka data");
-          dispatch(userData(data));
+          dispatch(userDetailes(data));
         }
       })
       .catch((err) => {

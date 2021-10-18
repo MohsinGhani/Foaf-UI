@@ -1,7 +1,100 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { allFriends } from "../../../features/friends";
 
 export default function RequestCard(props) {
+  var data = Cookies.get();
+
+  const dispatch = useDispatch();
+
+  const accept = async () => {
+    let responseData = {
+      response: true,
+      connection_request_id: props.id,
+    };
+
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/response_connection_request`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            response: false,
+            connection_request_id: props.id,
+          }),
+        }
+      );
+
+      const requestResponse = await response.json();
+      console.log(requestResponse, "reject ka response");
+      // dispatch(freindRequest(getallfriendsrequest));
+      const friendData = getdata();
+      return friendData;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+
+  const reject = async () => {
+    let responseData = {
+      response: false,
+      connection_request_id: props.id,
+    };
+
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/response_connection_request`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            response: false,
+            connection_request_id: props.id,
+          }),
+        }
+      );
+
+      const requestResponse = await response.json();
+      console.log(requestResponse, "reject ka response");
+      // dispatch(freindRequest(getallfriendsrequest));
+      const friendData = getdata();
+      return friendData;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+  console.log(props.id, "idddddd arahiu hai ");
+  const getdata = async () => {
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${data.token}`,
+          },
+        }
+      );
+
+      const getallfriends = await response.json();
+      console.log(getallfriends, "getallfriends");
+      dispatch(allFriends(getallfriends));
+
+      return allFriends;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
   return (
     <div className="requestCard_main">
       <div className="request">
@@ -42,6 +135,7 @@ export default function RequestCard(props) {
         </div>
         {/* </div> */}
         <div
+          onClick={accept}
           className={`${props.friendRequest ? "freind_request" : ""}  
           ${props.allFriends ? "all_freinds" : ""}  ${
             props.closeFriends ? "close_friends" : ""
@@ -52,7 +146,7 @@ export default function RequestCard(props) {
           </Button>
         </div>
         {props.friendRequest && (
-          <div className="reject">
+          <div className="reject" onClick={reject}>
             <Button>Reject</Button>
           </div>
         )}

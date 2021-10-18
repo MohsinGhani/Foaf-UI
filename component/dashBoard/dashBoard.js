@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import { Layout, Menu, Breadcrumb } from "antd";
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
@@ -23,7 +24,7 @@ import EventIcon from "../nestedComponent/dashBoard/dashboardIcons/events";
 import SearchBarDashboard from "../nestedComponent/dashBoard/searchbar";
 import HamBurger from "../nestedComponent/dashBoard/dashboardIcons/hamBurger";
 
-import { userData } from "../features/user";
+import { loginData } from "../features/user";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
@@ -32,16 +33,17 @@ const { SubMenu } = Menu;
 
 export default function Mainone(props) {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const stateData = useSelector((state) => state);
   const [collapsed, setCollapsed] = useState(true);
   const router = useRouter();
 
-  // console.log(user, "reducer se data araha hai");
+  console.log(stateData, "deshboard se data araha hai");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const logout = () => {
     console.log("logout");
     Cookies.remove("token");
-    dispatch(userData(null));
+    window.location.reload();
+    // dispatch(loginData(null));
   };
   // console.log(userReducer, "hello");
   return (
@@ -113,12 +115,17 @@ export default function Mainone(props) {
             </Menu.Item> */}
 
             <SubMenu key="sub1" icon={<ProfileIcon />} title="Profile">
-              <Menu.Item key="5">
-                <Link href="/friendsList-page">
-                  <ul>
-                    <li>Friends List</li>
-                  </ul>
-                </Link>
+              <Menu.Item
+                key="5"
+                onClick={() => {
+                  router.push("/friendsList-page");
+                }}
+              >
+                {/* <Link href="/friendsList-page"> */}
+                <ul>
+                  <li>Friends List</li>
+                </ul>
+                {/* </Link> */}
               </Menu.Item>
               <Menu.Item key="6">
                 <ul>

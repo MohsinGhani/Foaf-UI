@@ -8,9 +8,9 @@ import Cookies from "js-cookie";
 export default function FriendsList() {
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
-  console.log(statedata, "full state");
+  // console.log(statedata, "full state 1");
   var data = Cookies.get();
-  console.log(data?.token, "token");
+  // console.log(data?.token, "token");
   useEffect(async () => {
     try {
       // debugger;
@@ -32,14 +32,11 @@ export default function FriendsList() {
 
       return allFriends;
     } catch (err) {
-      // debugger;
-
       console.log(err), "error araha hai";
     }
   }, []);
   useEffect(async () => {
     try {
-      // debugger;
       let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
         {
@@ -50,7 +47,6 @@ export default function FriendsList() {
           },
         }
       );
-      // debugger;
 
       const getallfriendsrequest = await response.json();
       console.log(getallfriendsrequest, "getallfriendsrequest");
@@ -58,8 +54,6 @@ export default function FriendsList() {
 
       return freindRequest;
     } catch (err) {
-      // debugger;
-
       console.log(err), "error araha hai";
     }
   }, []);

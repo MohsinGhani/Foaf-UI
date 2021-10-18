@@ -15,7 +15,7 @@ import Mainone from "../component/dashBoard/dashBoard";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
-import { userData } from "../component/features/user";
+import { userDetailes } from "../component/features/user";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -33,11 +33,11 @@ const AuthProvider = ({ children, pageComp }) => {
   const [auth] = useState(true);
   const dispatch = useDispatch();
   const router = useRouter();
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.userDetailes);
   const friends = useSelector((state) => state.freinds);
   const [isLoading, setLoading] = useState(false);
 
-  // console.log(user, "what is the value of user");
+  // console.log(user, "what is the value of login user");
 
   var data = Cookies.get();
   // console.log(data?.token, "token");
@@ -56,11 +56,11 @@ const AuthProvider = ({ children, pageComp }) => {
           }
         );
 
-        const getuser = await response.json();
-        console.log(getuser, "getuser");
-        dispatch(userData(getuser));
+        const getUserDetailes = await response.json();
+        console.log(getUserDetailes, "userdetailes");
+        dispatch(userDetailes(getUserDetailes));
         setLoading(false);
-        return userData;
+        return userDetailes;
       } catch (err) {
         setLoading(false);
         console.log(err);

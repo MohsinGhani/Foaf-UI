@@ -5,10 +5,10 @@ export const frinedsSlice = createSlice({
   initialState: { allfriend: null, freindRequest: null },
   reducers: {
     allFriends: (state, action) => {
-      state.user.friend = action.payload;
+      state.allfriend = action.payload;
     },
     freindRequest: (state, action) => {
-      state.user.freindRequest = action.payload;
+      state.freindRequest = action.payload;
     },
   },
 });
