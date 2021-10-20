@@ -14,6 +14,8 @@ export default function Signup() {
 
   const [passwordShow, setpasswordShow] = useState(false);
   const [conformPasswordShow, setConformPasswordshow] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [nameError, setNameError] = useState("");
   let [showInvalidInput, setShowInvalidInput] = useState(false);
 
   const signUpValidationSchema = yup.object().shape({
@@ -72,7 +74,9 @@ export default function Signup() {
     if (!response.ok) {
       setButton(false);
       const error = await response.json();
-      console.log("error", error);
+      console.log(error, "error");
+      setEmailError(error?.username[0]);
+      setNameError(error.email[0]);
       throw new Error(error);
     }
 
@@ -191,6 +195,9 @@ export default function Signup() {
                   {showInvalidInput && errors.fullName && (
                     <p className={styles.error}>{errors.fullName}</p>
                   )}
+                  {nameError && (
+                    <p style={{ color: "red" }}>This feild must be unique</p>
+                  )}
                   <Form.Group className="mb-3" controlId="formPhoneNumber">
                     <Form.Label className={styles.label}>
                       Phone Number*
@@ -219,6 +226,9 @@ export default function Signup() {
                   </Form.Group>
                   {showInvalidInput && errors.email && (
                     <p className={styles.error}>{errors.email}</p>
+                  )}
+                  {emailError && (
+                    <p style={{ color: "red" }}>This feild must be unique</p>
                   )}
                   <div className={styles.password}>
                     <Form.Group className="mb-3" controlId="formBasicPassword">

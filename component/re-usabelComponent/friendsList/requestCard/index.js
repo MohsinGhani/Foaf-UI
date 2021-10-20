@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import Cookies from "js-cookie";
-import { allFriends } from "../../../features/friends";
+
+import { allFriends, freindRequest } from "../../../features/friends";
 
 export default function RequestCard(props) {
-  var data = Cookies.get();
+  const statedata = useSelector((state) => state);
+
+  var data = statedata.user.userDetailes.user;
 
   const dispatch = useDispatch();
 
@@ -25,14 +27,14 @@ export default function RequestCard(props) {
             Authorization: `Token ${data.token}`,
           },
           body: new URLSearchParams({
-            response: false,
+            response: true,
             connection_request_id: props.id,
           }),
         }
       );
 
       const requestResponse = await response.json();
-      console.log(requestResponse, "reject ka response");
+      console.log(requestResponse, "accept ka response");
       // dispatch(freindRequest(getallfriendsrequest));
       const friendData = getdata();
       return friendData;
@@ -66,14 +68,34 @@ export default function RequestCard(props) {
       const requestResponse = await response.json();
       console.log(requestResponse, "reject ka response");
       // dispatch(freindRequest(getallfriendsrequest));
-      const friendData = getdata();
-      return friendData;
+      const friendDat = getdata();
+      return friendDat;
     } catch (err) {
       console.log(err), "error araha hai";
     }
   };
-  console.log(props.id, "idddddd arahiu hai ");
+
   const getdata = async () => {
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${data.token}`,
+          },
+        }
+      );
+
+      const getallfriendsrequest = await response.json();
+      console.log(getallfriendsrequest, "getallfriendsrequest");
+      dispatch(freindRequest(getallfriendsrequest));
+
+      return freindRequest;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
     try {
       let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
@@ -135,17 +157,22 @@ export default function RequestCard(props) {
         </div>
         {/* </div> */}
         <div
-          onClick={accept}
           className={`${props.friendRequest ? "freind_request" : ""}  
           ${props.allFriends ? "all_freinds" : ""}  ${
             props.closeFriends ? "close_friends" : ""
           }  ${props.family ? " family" : ""} `}
         >
-          <Button>
-            {props.friendRequest ? <p>confirm</p> : <p>Remove</p>}
-          </Button>
+          {props.allFriends ? (
+            <Button>
+              <p>Remove</p>
+            </Button>
+          ) : (
+            <Button onClick={accept}>
+              <p>confirm</p>
+            </Button>
+          )}
         </div>
-        {props.friendRequest && (
+        {props.allFriends && (
           <div className="reject" onClick={reject}>
             <Button>Reject</Button>
           </div>

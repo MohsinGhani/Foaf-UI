@@ -8,9 +8,10 @@ import Cookies from "js-cookie";
 export default function FriendsList() {
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
-  // console.log(statedata, "full state 1");
+
+  // var data = statedata?.user?.userDetailes?.user;
+  // console.log(data, "asdasd");
   var data = Cookies.get();
-  // console.log(data?.token, "token");
   useEffect(async () => {
     try {
       // debugger;

@@ -10,8 +10,13 @@ import { Input } from "antd";
 import SmallRequestcard from "../../../re-usabelComponent/friendsList/smallRequestCard";
 import Searchicon from "../../dashBoard/dashboardIcons/search";
 import { PlusCircleOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Topbar() {
+  const friendRequest = useSelector(
+    (state) => state?.freinds?.allfriend?.user_friends
+  );
+
   const { TabPane } = Tabs;
   const [showButton, setShowButton] = useState(false);
   const [text, setText] = useState(true);
@@ -39,9 +44,6 @@ export default function Topbar() {
     </Button>
   );
 
-  function callback(key) {
-    console.log(key);
-  }
   return (
     <>
       <div className="request_topbar">
@@ -49,7 +51,7 @@ export default function Topbar() {
         <div className="top_bar">
           <Tabs
             // defaultActiveKey="1"
-            onChange={callback}
+
             tabBarExtraContent={showButton ? operations : ""}
           >
             <TabPane
@@ -126,26 +128,18 @@ export default function Topbar() {
         onCancel={handleCancel}
       >
         <Input placeholder="search" suffix={<Searchicon />} />
-        <SmallRequestcard
-          url="/images/request/requestProfile2.svg"
-          name="Marcus Botosh"
-          closeFriends={true}
-        />
-        <SmallRequestcard
-          url="/images/request/requestProfile2.svg"
-          name="Marcus Botosh"
-          closeFriends={true}
-        />
-        <SmallRequestcard
-          url="/images/request/requestProfile2.svg"
-          name="Marcus Botosh"
-          closeFriends={true}
-        />
-        <SmallRequestcard
-          url="/images/request/requestProfile2.svg"
-          name="Marcus Botosh"
-          closeFriends={true}
-        />
+        {friendRequest?.map((t, i) => (
+          // console.log(t?.connection_creator.username, "bhai bhai");
+          // <div className="request_card" key={i}>
+          <SmallRequestcard
+            key={i}
+            id={t?.id}
+            closeFriends={true}
+            url="/images/request/requestProfile2.svg"
+            name={t?.friend.username}
+          />
+          // </div>
+        ))}
       </Modal>
     </>
   );

@@ -42,7 +42,7 @@ const AuthProvider = ({ children, pageComp }) => {
   var data = Cookies.get();
   // console.log(data?.token, "token");
   useEffect(async () => {
-    if (data.token) {
+    if (data?.token) {
       setLoading(true);
       try {
         let response = await fetch(
@@ -57,6 +57,7 @@ const AuthProvider = ({ children, pageComp }) => {
         );
 
         const getUserDetailes = await response.json();
+        getUserDetailes.user.token = data?.token;
         console.log(getUserDetailes, "userdetailes");
         dispatch(userDetailes(getUserDetailes));
         setLoading(false);
