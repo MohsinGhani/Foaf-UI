@@ -21,7 +21,9 @@ export default function Topbar() {
   const [showButton, setShowButton] = useState(false);
   const [text, setText] = useState(true);
   const [isCloseModalVisible, setIsCloseModalVisible] = useState(false);
-  const [isFamilyModalVisible, setIsFamilyCloseModalVisible] = useState(false);
+  // const [isFamilyModalVisible, setIsFamilyCloseModalVisible] = useState(false);
+
+  const [type, setType] = useState([]);
 
   const closeFriendsModel = () => {
     setIsCloseModalVisible(true);
@@ -31,7 +33,6 @@ export default function Topbar() {
   };
   const handleCancel = () => {
     setIsCloseModalVisible(false);
-    setIsFamilyCloseModalVisible(false);
   };
 
   const operations = (
@@ -129,11 +130,12 @@ export default function Topbar() {
       >
         <Input placeholder="search" suffix={<Searchicon />} />
         {friendRequest?.map((t, i) => (
-          // console.log(t?.connection_creator.username, "bhai bhai");
-          // <div className="request_card" key={i}>
           <SmallRequestcard
             key={i}
             id={t?.id}
+            setValue={setType}
+            getValue={type}
+            type={text ? "CF" : "F"}
             closeFriends={true}
             url="/images/request/requestProfile2.svg"
             name={t?.friend.username}

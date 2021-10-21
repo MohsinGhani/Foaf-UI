@@ -12,10 +12,10 @@ export default function RequestCard(props) {
   const dispatch = useDispatch();
 
   const accept = async () => {
-    let responseData = {
-      response: true,
-      connection_request_id: props.id,
-    };
+    // let responseData = {
+    //   response: true,
+    //   connection_request_id: props.id,
+    // };
 
     try {
       let response = await fetch(
@@ -44,10 +44,10 @@ export default function RequestCard(props) {
   };
 
   const reject = async () => {
-    let responseData = {
-      response: false,
-      connection_request_id: props.id,
-    };
+    // let responseData = {
+    //   response: false,
+    //   connection_request_id: props.id,
+    // };
 
     try {
       let response = await fetch(
@@ -78,6 +78,28 @@ export default function RequestCard(props) {
   const getdata = async () => {
     try {
       let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${data.token}`,
+          },
+        }
+      );
+
+      const getallfriends = await response.json();
+      console.log(getallfriends, "getallfriends");
+      dispatch(allFriends(getallfriends));
+      hellodata();
+      return allFriends;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+  const hellodata = async () => {
+    try {
+      let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
         {
           method: "POST",
@@ -93,26 +115,6 @@ export default function RequestCard(props) {
       dispatch(freindRequest(getallfriendsrequest));
 
       return freindRequest;
-    } catch (err) {
-      console.log(err), "error araha hai";
-    }
-    try {
-      let response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${data.token}`,
-          },
-        }
-      );
-
-      const getallfriends = await response.json();
-      console.log(getallfriends, "getallfriends");
-      dispatch(allFriends(getallfriends));
-
-      return allFriends;
     } catch (err) {
       console.log(err), "error araha hai";
     }
@@ -158,21 +160,21 @@ export default function RequestCard(props) {
         {/* </div> */}
         <div
           className={`${props.friendRequest ? "freind_request" : ""}  
-          ${props.allFriends ? "all_freinds" : ""}  ${
+          ${props.allFreinds ? "all_freinds" : ""}  ${
             props.closeFriends ? "close_friends" : ""
           }  ${props.family ? " family" : ""} `}
         >
-          {props.allFriends ? (
-            <Button>
-              <p>Remove</p>
-            </Button>
-          ) : (
+          {props.friendRequest ? (
             <Button onClick={accept}>
               <p>confirm</p>
             </Button>
+          ) : (
+            <Button>
+              <p>Remove</p>
+            </Button>
           )}
         </div>
-        {props.allFriends && (
+        {props.friendRequest && (
           <div className="reject" onClick={reject}>
             <Button>Reject</Button>
           </div>

@@ -1,11 +1,24 @@
 .request_card_main {
-    // overflow: scroll;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     margin: 0 20px 30px 20px;
+    .ant-row {
+        .ant-col {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    // overflow: scroll;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // margin: 0 20px 30px 20px;
 
-    .request_card {
-        margin: 40px 0px 0px 0px;
+    // .request_card {
+    // margin: 40px 0px 0px 0px;
+    // }
+}
+@media screen and (max-width: 576px) {
+    .ant-row {
+        display: flex;
+        justify-content: center;
     }
 }

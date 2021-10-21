@@ -1,5 +1,6 @@
 import RequestCard from "../../../re-usabelComponent/friendsList/requestCard";
 import { useDispatch, useSelector } from "react-redux";
+import { Row, Col, Divider } from "antd";
 export default function AllFriends(props) {
   const friendRequest = useSelector(
     (state) => state?.freinds?.allfriend?.user_friends
@@ -12,17 +13,21 @@ export default function AllFriends(props) {
   // console.log("fullState", fullState);
   return (
     <div className="request_card_main">
-      {friendRequest?.map((t, i) => (
-        // console.log(t?.connection_creator.username, "bhai bhai");
-        <div className="request_card" key={i}>
-          <RequestCard
-            id={t?.id}
-            friendRequest={props.allFriends}
-            url="/images/request/requestProfile1.svg"
-            name={t?.friend.username}
-          />
-        </div>
-      ))}
+      <Row gutter={16}>
+        {friendRequest?.map((t, i) => (
+          // console.log(t?.connection_creator.username, "bhai bhai");
+          <Col xs={16} sm={12} md={8} lg={6} key={i}>
+            <div className="request_card">
+              <RequestCard
+                id={t?.id}
+                allFreinds={props.allFriends}
+                url="/images/request/requestProfile1.svg"
+                name={t?.friend.username}
+              />
+            </div>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 }

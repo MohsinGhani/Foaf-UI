@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 export default function SmallRequestcard(props) {
-  const [selected, setselected] = useState(true);
+  const [seleted, setselected] = useState(true);
   return (
     <div className="small_requestCard_main">
       <div className="request">
@@ -42,20 +42,26 @@ export default function SmallRequestcard(props) {
           </div>
         </div>
         {/* </div> */}
-        <div className={selected ? "selected" : "unSelected"}>
+        <div
+          className={
+            props.getValue === `${props.id}:${props.type}`
+              ? "selected"
+              : "unSelected"
+          }
+        >
           <Button
             onClick={() => {
-              selected ? setselected(false) : setselected(true);
+              props.setValue(`${props.id}:${props.type}`);
             }}
           >
-            {selected ? <p>selected</p> : <p>select</p>}
+            {props.getValue ? <p>selected</p> : <p>select</p>}
           </Button>
         </div>
-        {props.friendRequest && (
+        {/* {props.friendRequest && (
           <div className="reject">
             <Button>Reject</Button>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

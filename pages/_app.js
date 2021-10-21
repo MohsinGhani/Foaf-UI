@@ -64,16 +64,17 @@ const AuthProvider = ({ children, pageComp }) => {
         return userDetailes;
       } catch (err) {
         setLoading(false);
+        Cookies.remove("token");
         console.log(err);
       }
     }
-  }, []);
-  if (isLoading) return <>Loading...</>;
+  }, [data?.token]);
+  if (isLoading) return <div>Loading...</div>;
   if (
     typeof window !== "undefined" &&
     router?.pathname !== "/login-page" &&
     router?.pathname !== "/signup-page" &&
-    !user
+    !data?.token
   ) {
     router.push("/login-page");
     return <></>;
@@ -81,7 +82,7 @@ const AuthProvider = ({ children, pageComp }) => {
     typeof window !== "undefined" &&
     (router?.pathname === "/login-page" ||
       router?.pathname === "/signup-page") &&
-    user
+    data?.token
   ) {
     router.push("/");
     return <></>;
