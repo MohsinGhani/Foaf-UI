@@ -40,7 +40,7 @@ const AuthProvider = ({ children, pageComp }) => {
   // console.log(user, "what is the value of login user");
 
   var data = Cookies.get();
-  // console.log(data?.token, "token");
+  console.log(data?.token, "token");
   useEffect(async () => {
     if (data?.token) {
       setLoading(true);
@@ -57,7 +57,7 @@ const AuthProvider = ({ children, pageComp }) => {
         );
 
         const getUserDetailes = await response.json();
-        getUserDetailes.user.token = data?.token;
+        getUserDetailes.result.user.token = data?.token;
         console.log(getUserDetailes, "userdetailes");
         dispatch(userDetailes(getUserDetailes));
         setLoading(false);
@@ -69,9 +69,8 @@ const AuthProvider = ({ children, pageComp }) => {
       }
     }
   }, [data?.token]);
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading || typeof window === "undefined") return <div>Loading...</div>;
   if (
-    typeof window !== "undefined" &&
     router?.pathname !== "/login-page" &&
     router?.pathname !== "/signup-page" &&
     !data?.token
@@ -79,7 +78,6 @@ const AuthProvider = ({ children, pageComp }) => {
     router.push("/login-page");
     return <></>;
   } else if (
-    typeof window !== "undefined" &&
     (router?.pathname === "/login-page" ||
       router?.pathname === "/signup-page") &&
     data?.token

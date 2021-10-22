@@ -4,7 +4,7 @@ import { Empty } from "antd";
 
 export default function FriendsRequest(props) {
   const friendRequest = useSelector(
-    (state) => state?.freinds?.freindRequest?.connection_requests
+    (state) => state?.freinds?.freindRequest?.result?.connection_requests
   );
   const fullState = useSelector(
     (state) => state?.freinds?.freindRequest?.connection_requests

@@ -15,6 +15,7 @@ import Sponsoreds from "../nestedComponent/home/homeSponsored/sponsoreds";
 // import Toggel from "../nestedComponent/home/homeToggel";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../features/user";
+import ShowTrending from "../nestedComponent/home/trending/showTrandings";
 
 export default function HomeDashBoard() {
   const dispatch = useDispatch();
@@ -139,8 +140,8 @@ export default function HomeDashBoard() {
         <div className="sponsoreds_main">
           <Sponsoreds />
         </div>
-        <div className="trending_main">
-          <Trending />
+        <div className="show_trending_main">
+          <ShowTrending />
         </div>
 
         {/* <div>

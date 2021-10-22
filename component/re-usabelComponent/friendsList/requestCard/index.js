@@ -7,7 +7,7 @@ import { allFriends, freindRequest } from "../../../features/friends";
 export default function RequestCard(props) {
   const statedata = useSelector((state) => state);
 
-  var data = statedata.user.userDetailes.user;
+  var data = statedata.user.userDetailes.result?.user;
 
   const dispatch = useDispatch();
 

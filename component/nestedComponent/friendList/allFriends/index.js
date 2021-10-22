@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Divider } from "antd";
 export default function AllFriends(props) {
   const friendRequest = useSelector(
-    (state) => state?.freinds?.allfriend?.user_friends
+    (state) => state?.freinds?.allfriend?.result.user_friends
   );
 
-  // const fullState = useSelector(
-  //   (state) => state?.freinds?.allfriend?.user_friends
-  // );
-  // console.log("friendRequestfriendRequest", friendRequest);
-  // console.log("fullState", fullState);
+  const fullState = useSelector(
+    (state) => state?.freinds?.allfriend?.user_friends
+  );
+  console.log("friendRequestfriendRequest", friendRequest);
+  console.log("fullState", fullState);
   return (
     <div className="request_card_main">
       <Row gutter={16}>

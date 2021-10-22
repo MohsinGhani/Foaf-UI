@@ -1,16 +1,20 @@
 import React from "react";
 import { Tabs } from "antd";
-import TrendingPost from "../../../re-usabelComponent/home/trending/trendingPost";
+import TrendingPost from "../../../re-usabelComponent/trending/trendingPost";
 
 export default function TrendingTabs() {
   const { TabPane } = Tabs;
   return (
-    <div>
-      <h1>Trending</h1>
+    <div className="trend_tabs">
+      <p className="heading">Trending</p>
       <div>
         <Tabs defaultActiveKey="1">
           <TabPane tab={<p>Trending</p>} key="1">
-            <TrendingPost />
+            <TrendingPost image="/images/trend/trend1.png" />
+            <TrendingPost image="/images/trend/trend5.png" />
+            <TrendingPost image="/images/trend/trend4.png" />
+            <TrendingPost image="/images/trend/trend3.png" />
+            <TrendingPost image="/images/trend/trend2.png" />
           </TabPane>
           <TabPane tab={<p>Sports</p>} key="2">
             Content of Tab Pane 2

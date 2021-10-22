@@ -9,8 +9,8 @@ export default function FriendsList() {
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
 
-  var data = statedata?.user?.userDetailes?.user;
-  // console.log(data, "asdasd");
+  var data = statedata?.user?.userDetailes?.result?.user;
+  console.log(data?.token, "asdasd");
   // var data = Cookies.get();
   useEffect(async () => {
     if (data?.token) {

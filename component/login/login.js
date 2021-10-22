@@ -65,9 +65,11 @@ export default function Login() {
         if (data === "User Cannot be logged in") {
           alert("email OR password wrong");
         } else {
-          Cookies.set("token", data.token);
+          Cookies.set("token", data.result.token);
+          console.log(data.result.token, "laogin ka token");
           console.log(data, "login ka data");
-          dispatch(userDetailes(data));
+          // dispatch(userDetailes(data));
+          router.push("/");
         }
       })
       .catch((err) => {

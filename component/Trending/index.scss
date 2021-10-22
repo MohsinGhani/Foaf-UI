@@ -1,0 +1,20 @@
+.trending_main {
+    display: flex;
+    .left_side {
+        width: 60%;
+        margin: 0px 50px 0px 40px;
+        .trend_tabs_main {
+            margin-top: 26px;
+        }
+    }
+    .right_side {
+        width: 40%;
+        margin: 0px 40px 0px 10px;
+        .sponsoreds_main {
+            margin-top: 35px;
+        }
+        .show_trending_main {
+            margin-top: 30px;
+        }
+    }
+}
