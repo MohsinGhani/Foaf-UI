@@ -1,8 +1,98 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  allFriends,
+  freindRequest,
+  closeFriendsRequest,
+} from "../../../features/friends";
+import AllFriends from "../../../nestedComponent/friendList/allFriends";
 export default function SmallRequestcard(props) {
   const [seleted, setselected] = useState(true);
+  const dispatch = useDispatch();
+  const statedata = useSelector((state) => state);
+  var data = statedata.user.userDetailes.result?.user;
+  var id = statedata.user.userDetailes.result?.user?.id;
+
+  const add = async () => {
+    console.log("hello");
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/create_rel_connection`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_creator: id,
+            connection_receiver: props.id,
+            connection_type: "Closefriend",
+          }),
+        }
+      );
+
+      const requestResponse = await response.json();
+      console.log(requestResponse, "add close friend");
+
+      const friendData = getdata();
+      return friendData;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+  const getdata = async () => {
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_type: "Closefriend",
+          }),
+        }
+      );
+
+      const getallfriends = await response.json();
+      console.log(getallfriends, "getallfriendsinclosefriend");
+
+      hellodata();
+      return allFriends;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+  const hellodata = async () => {
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_type: "Closefriend",
+          }),
+        }
+      );
+
+      const getallfriendsrequest = await response.json();
+      console.log(getallfriendsrequest, "getallfriendsrequestinclosefriend");
+      dispatch(closeFriendsRequest(getallfriendsrequest));
+
+      return freindRequest;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
   return (
     <div className="small_requestCard_main">
       <div className="request">
@@ -42,19 +132,14 @@ export default function SmallRequestcard(props) {
           </div>
         </div>
         {/* </div> */}
-        <div
-          className={
-            props.getValue === `${props.id}:${props.type}`
-              ? "selected"
-              : "unSelected"
-          }
-        >
+        <div className={seleted ? "selected" : "unSelected"}>
           <Button
             onClick={() => {
-              props.setValue(`${props.id}:${props.type}`);
+              seleted ? setselected(false) : setselected(true);
+              seleted && add();
             }}
           >
-            {props.getValue ? <p>selected</p> : <p>select</p>}
+            {seleted ? <p>selected</p> : <p>select</p>}
           </Button>
         </div>
         {/* {props.friendRequest && (

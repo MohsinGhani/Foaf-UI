@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Topbar() {
   const friendRequest = useSelector(
-    (state) => state?.freinds?.allfriend?.user_friends
+    (state) => state?.freinds?.allfriend?.result.user_friends
   );
 
   const { TabPane } = Tabs;
@@ -22,8 +22,6 @@ export default function Topbar() {
   const [text, setText] = useState(true);
   const [isCloseModalVisible, setIsCloseModalVisible] = useState(false);
   // const [isFamilyModalVisible, setIsFamilyCloseModalVisible] = useState(false);
-
-  const [type, setType] = useState([]);
 
   const closeFriendsModel = () => {
     setIsCloseModalVisible(true);
@@ -121,28 +119,27 @@ export default function Topbar() {
         </div>
       </div>
 
-      <Modal
-        className="friendRequest_modal"
-        title={text ? "< Add close Friends" : "< Add Family"}
-        visible={isCloseModalVisible}
-        // onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <Input placeholder="search" suffix={<Searchicon />} />
-        {friendRequest?.map((t, i) => (
-          <SmallRequestcard
-            key={i}
-            id={t?.id}
-            setValue={setType}
-            getValue={type}
-            type={text ? "CF" : "F"}
-            closeFriends={true}
-            url="/images/request/requestProfile2.svg"
-            name={t?.friend.username}
-          />
-          // </div>
-        ))}
-      </Modal>
+      {isCloseModalVisible && (
+        <Modal
+          className="friendRequest_modal"
+          title={text ? "< Add close Friends" : "< Add Family"}
+          visible={isCloseModalVisible}
+          // onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <Input placeholder="search" suffix={<Searchicon />} />
+          {friendRequest?.map((t, i) => (
+            <SmallRequestcard
+              key={i}
+              id={t?.id}
+              closeFriends={true}
+              url="/images/request/requestProfile2.svg"
+              name={t?.friend.username}
+            />
+            // </div>
+          ))}
+        </Modal>
+      )}
     </>
   );
 }

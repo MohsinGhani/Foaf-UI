@@ -6,11 +6,13 @@ export default function FriendsRequest(props) {
   const friendRequest = useSelector(
     (state) => state?.freinds?.freindRequest?.result?.connection_requests
   );
-  const fullState = useSelector(
-    (state) => state?.freinds?.freindRequest?.connection_requests
+  const closeFriendRequest = useSelector(
+    (state) => state?.freinds?.closeFriends
   );
-  console.log("friendRequestfriendRequest", friendRequest);
-  console.log("fullState", fullState);
+
+  console.log(closeFriendRequest, "closeeeee");
+  // console.log("friendRequestfriendRequest", friendRequest);
+  // console.log("fullState", fullState);
   return (
     <div className="request_card_main">
       {friendRequest ? (
