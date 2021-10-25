@@ -2,7 +2,12 @@ import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
-import { allFriends, freindRequest } from "../../../features/friends";
+import {
+  allFriends,
+  freindRequest,
+  closeFriendsRequest,
+  allCloseFriend,
+} from "../../../features/friends";
 
 export default function RequestCard(props) {
   const statedata = useSelector((state) => state);
@@ -82,15 +87,20 @@ export default function RequestCard(props) {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             Authorization: `Token ${data.token}`,
           },
+          body: new URLSearchParams({
+            connection_type: props.connection_type,
+          }),
         }
       );
 
       const getallfriends = await response.json();
       console.log(getallfriends, "getallfriends");
-      dispatch(allFriends(getallfriends));
+      props.connection_type === "Friend" && dispatch(allFriends(getallfriends));
+      props.connection_type === "Closefriend" &&
+        dispatch(allCloseFriend(getallfriends));
       hellodata();
       return allFriends;
     } catch (err) {
@@ -104,15 +114,22 @@ export default function RequestCard(props) {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
             Authorization: `Token ${data.token}`,
           },
+          body: new URLSearchParams({
+            connection_type: props.connection_type,
+          }),
         }
       );
 
       const getallfriendsrequest = await response.json();
       console.log(getallfriendsrequest, "getallfriendsrequest");
-      dispatch(freindRequest(getallfriendsrequest));
+
+      props.connection_type === "Friend" &&
+        dispatch(freindRequest(getallfriendsrequest));
+      props.connection_type === "Closefriend" &&
+        dispatch(closeFriendsRequest(getallfriendsrequest));
 
       return freindRequest;
     } catch (err) {

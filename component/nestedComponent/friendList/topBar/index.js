@@ -13,15 +13,26 @@ import { PlusCircleOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Topbar() {
-  const friendRequest = useSelector(
-    (state) => state?.freinds?.allfriend?.result.user_friends
+  const friend = useSelector(
+    (state) => state?.freinds?.allfriend?.result?.user_friends
   );
+  const closeFreind = useSelector(
+    (state) => state?.freinds.allCloseFriend?.result?.user_friends
+  );
+
+  console.log(friend, "freind");
+  console.log(closeFreind, "close");
+
+  var uncloseFriend = friend?.filter(
+    (data) => !closeFreind?.some((el) => el?.friend?.id === data?.friend?.id)
+  );
+
+  console.log(uncloseFriend, "uncloseFriend");
 
   const { TabPane } = Tabs;
   const [showButton, setShowButton] = useState(false);
   const [text, setText] = useState(true);
   const [isCloseModalVisible, setIsCloseModalVisible] = useState(false);
-  // const [isFamilyModalVisible, setIsFamilyCloseModalVisible] = useState(false);
 
   const closeFriendsModel = () => {
     setIsCloseModalVisible(true);
@@ -128,16 +139,20 @@ export default function Topbar() {
           onCancel={handleCancel}
         >
           <Input placeholder="search" suffix={<Searchicon />} />
-          {friendRequest?.map((t, i) => (
-            <SmallRequestcard
-              key={i}
-              id={t?.id}
-              closeFriends={true}
-              url="/images/request/requestProfile2.svg"
-              name={t?.friend.username}
-            />
-            // </div>
-          ))}
+          {uncloseFriend.length ? (
+            uncloseFriend?.map((t, i) => (
+              <SmallRequestcard
+                key={i}
+                id={t?.friend.id}
+                closeFriends={true}
+                url="/images/request/requestProfile2.svg"
+                name={t?.friend.username}
+              />
+              // </div>
+            ))
+          ) : (
+            <h1>Your all Freinds add in Close Friends</h1>
+          )}
         </Modal>
       )}
     </>

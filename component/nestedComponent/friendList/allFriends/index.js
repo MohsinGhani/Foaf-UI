@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Divider } from "antd";
 export default function AllFriends(props) {
   const allFriend = useSelector(
-    (state) => state?.freinds?.allfriend?.result.user_friends
+    (state) => state?.freinds?.allfriend?.result?.user_friends
   );
 
   const fullState = useSelector(

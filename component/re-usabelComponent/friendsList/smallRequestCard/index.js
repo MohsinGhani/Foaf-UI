@@ -7,15 +7,21 @@ import {
   freindRequest,
   closeFriendsRequest,
 } from "../../../features/friends";
-import AllFriends from "../../../nestedComponent/friendList/allFriends";
+
 export default function SmallRequestcard(props) {
-  const [seleted, setselected] = useState(true);
+  const [seleted, setselected] = useState(false);
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
   var data = statedata.user.userDetailes.result?.user;
   var id = statedata.user.userDetailes.result?.user?.id;
-
+  console.log(props.id, id);
   const add = async () => {
+    console.log(
+      new URLSearchParams({
+        connection_type: "Closefriend",
+      }),
+      "hellooooo 11111"
+    );
     console.log("hello");
     try {
       let response = await fetch(
@@ -46,6 +52,31 @@ export default function SmallRequestcard(props) {
   const getdata = async () => {
     try {
       let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_type: "Closefriend",
+          }),
+        }
+      );
+
+      const getallfriendsrequest = await response.json();
+      console.log(getallfriendsrequest, "getallfriendsrequestinclosefriend");
+      // dispatch(closeFriendsRequest(getallfriendsrequest));
+      hellodata();
+      return closeFriendsRequest;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+  const hellodata = async () => {
+    try {
+      let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
         {
           method: "POST",
@@ -62,33 +93,7 @@ export default function SmallRequestcard(props) {
       const getallfriends = await response.json();
       console.log(getallfriends, "getallfriendsinclosefriend");
 
-      hellodata();
-      return allFriends;
-    } catch (err) {
-      console.log(err), "error araha hai";
-    }
-  };
-  const hellodata = async () => {
-    try {
-      let response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Token ${data.token}`,
-          },
-          body: new URLSearchParams({
-            connection_type: "Closefriend",
-          }),
-        }
-      );
-
-      const getallfriendsrequest = await response.json();
-      console.log(getallfriendsrequest, "getallfriendsrequestinclosefriend");
-      dispatch(closeFriendsRequest(getallfriendsrequest));
-
-      return freindRequest;
+      return getallfriends;
     } catch (err) {
       console.log(err), "error araha hai";
     }
@@ -136,7 +141,7 @@ export default function SmallRequestcard(props) {
           <Button
             onClick={() => {
               seleted ? setselected(false) : setselected(true);
-              seleted && add();
+              !seleted && add();
             }}
           >
             {seleted ? <p>selected</p> : <p>select</p>}
