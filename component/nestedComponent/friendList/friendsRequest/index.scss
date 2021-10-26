@@ -1,5 +1,12 @@
 .request_card_main {
     margin: 0 20px 30px 20px;
+    h1 {
+        font-weight: 600;
+        font-size: 24px;
+        color: #1e293b;
+        margin-bottom: 40px;
+        margin-left: 20px;
+    }
     .ant-row {
         .ant-col {
             display: flex;

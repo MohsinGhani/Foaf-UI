@@ -35,7 +35,7 @@ export default function SmallRequestcard(props) {
           body: new URLSearchParams({
             connection_creator: id,
             connection_receiver: props.id,
-            connection_type: "Closefriend",
+            connection_type: props.connectionType,
           }),
         }
       );
@@ -60,7 +60,7 @@ export default function SmallRequestcard(props) {
             Authorization: `Token ${data.token}`,
           },
           body: new URLSearchParams({
-            connection_type: "Closefriend",
+            connection_type: props.connectionType,
           }),
         }
       );
@@ -69,7 +69,6 @@ export default function SmallRequestcard(props) {
       console.log(getallfriendsrequest, "getallfriendsrequestinclosefriend");
       // dispatch(closeFriendsRequest(getallfriendsrequest));
       hellodata();
-      return closeFriendsRequest;
     } catch (err) {
       console.log(err), "error araha hai";
     }
@@ -85,7 +84,7 @@ export default function SmallRequestcard(props) {
             Authorization: `Token ${data.token}`,
           },
           body: new URLSearchParams({
-            connection_type: "Closefriend",
+            connection_type: props.connectionType,
           }),
         }
       );

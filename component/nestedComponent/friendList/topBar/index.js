@@ -16,18 +16,21 @@ export default function Topbar() {
   const friend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
   );
-  const closeFreind = useSelector(
+  const closeFriend = useSelector(
     (state) => state?.freinds.allCloseFriend?.result?.user_friends
   );
-
-  console.log(friend, "freind");
-  console.log(closeFreind, "close");
-
-  var uncloseFriend = friend?.filter(
-    (data) => !closeFreind?.some((el) => el?.friend?.id === data?.friend?.id)
+  const familyFriend = useSelector(
+    (state) => state?.freinds.allFamilyFriend?.result?.user_friends
   );
+  console.log(friend, "freind");
+  console.log(closeFriend, "close");
 
-  console.log(uncloseFriend, "uncloseFriend");
+  var noncloseFriend = friend?.filter(
+    (data) => !closeFriend?.some((el) => el?.friend?.id === data?.friend?.id)
+  );
+  var nonFamilyFriend = friend?.filter(
+    (data) => !familyFriend?.some((el) => el?.friend?.id === data?.friend?.id)
+  );
 
   const { TabPane } = Tabs;
   const [showButton, setShowButton] = useState(false);
@@ -35,19 +38,35 @@ export default function Topbar() {
   const [isCloseModalVisible, setIsCloseModalVisible] = useState(false);
 
   const closeFriendsModel = () => {
-    setIsCloseModalVisible(true);
+    setIsCloseModalVisible("Closefriend");
   };
   const familyModel = () => {
-    setIsCloseModalVisible(true);
+    setIsCloseModalVisible("Family");
+  };
+  const allFriend = () => {
+    setIsCloseModalVisible("allFriend");
   };
   const handleCancel = () => {
     setIsCloseModalVisible(false);
   };
 
+  const addFreindData =
+    isCloseModalVisible === "Closefriend"
+      ? noncloseFriend
+      : isCloseModalVisible === "Family"
+      ? nonFamilyFriend
+      : [];
+
   const operations = (
     <Button
-      className={`add_button ${text ? "close" : "family"}`}
-      onClick={text ? closeFriendsModel : familyModel}
+      className={`add_button ${text === "closeFriend" && "close"} ${
+        text === "Family" && "family"
+      } ${text === "allFriend" && "allFriend"}`}
+      onClick={
+        (text === "closeFriend" && closeFriendsModel) ||
+        (text === "Family" && familyModel) ||
+        (text === "allFriend" && allFriend)
+      }
     >
       <p>Add Freinds</p>
       <PlusCircleOutlined />
@@ -84,7 +103,8 @@ export default function Topbar() {
                 <Button
                   className="all_frineds"
                   onClick={() => {
-                    setShowButton(false);
+                    setShowButton(true);
+                    setText("allFriend");
                   }}
                 >
                   All friends
@@ -100,7 +120,7 @@ export default function Topbar() {
                   className="close_friends"
                   onClick={() => {
                     setShowButton(true);
-                    setText(true);
+                    setText("closeFriend");
                   }}
                 >
                   Close friends
@@ -116,7 +136,7 @@ export default function Topbar() {
                   className="family"
                   onClick={() => {
                     setShowButton(true);
-                    setText(false);
+                    setText("Family");
                   }}
                 >
                   Family
@@ -133,17 +153,22 @@ export default function Topbar() {
       {isCloseModalVisible && (
         <Modal
           className="friendRequest_modal"
-          title={text ? "< Add close Friends" : "< Add Family"}
-          visible={isCloseModalVisible}
+          title={
+            (text === "closeFriend" && "< Add close Friends") ||
+            (text === "closeFriend" && "< Add Family") ||
+            (text === "closeFriend" && "< allFriend")
+          }
+          visible={!!isCloseModalVisible}
           // onOk={handleOk}
           onCancel={handleCancel}
         >
           <Input placeholder="search" suffix={<Searchicon />} />
-          {uncloseFriend.length ? (
-            uncloseFriend?.map((t, i) => (
+          {addFreindData.length ? (
+            addFreindData?.map((t, i) => (
               <SmallRequestcard
                 key={i}
                 id={t?.friend.id}
+                connectionType={isCloseModalVisible}
                 closeFriends={true}
                 url="/images/request/requestProfile2.svg"
                 name={t?.friend.username}

@@ -7,6 +7,8 @@ import {
   freindRequest,
   closeFriendsRequest,
   allCloseFriend,
+  allFamilyFriend,
+  familyFriendRequest,
 } from "../../../features/friends";
 
 export default function RequestCard(props) {
@@ -101,6 +103,9 @@ export default function RequestCard(props) {
       props.connection_type === "Friend" && dispatch(allFriends(getallfriends));
       props.connection_type === "Closefriend" &&
         dispatch(allCloseFriend(getallfriends));
+      props.connection_type === "Family" &&
+        dispatch(allFamilyFriend(getallfriends));
+
       hellodata();
       return allFriends;
     } catch (err) {
@@ -130,7 +135,8 @@ export default function RequestCard(props) {
         dispatch(freindRequest(getallfriendsrequest));
       props.connection_type === "Closefriend" &&
         dispatch(closeFriendsRequest(getallfriendsrequest));
-
+      props.connection_type === "Family" &&
+        dispatch(familyFriendRequest(getallfriendsrequest));
       return freindRequest;
     } catch (err) {
       console.log(err), "error araha hai";

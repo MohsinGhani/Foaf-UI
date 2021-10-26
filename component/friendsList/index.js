@@ -7,6 +7,8 @@ import {
   freindRequest,
   closeFriendsRequest,
   allCloseFriend,
+  allFamilyFriend,
+  familyFriendRequest,
 } from "../features/friends";
 import Cookies from "js-cookie";
 
@@ -60,6 +62,27 @@ export default function FriendsList() {
       } catch (err) {
         console.log(err), "error araha hai";
       }
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Token ${data.token}`,
+            },
+            body: new URLSearchParams({
+              connection_type: "Family",
+            }),
+          }
+        );
+
+        const getallFamilyFreind = await response.json();
+        console.log(getallFamilyFreind, "getallFamilyFreind");
+        dispatch(allFamilyFriend(getallFamilyFreind));
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
     }
   }, []);
   useEffect(async () => {
@@ -102,6 +125,27 @@ export default function FriendsList() {
         dispatch(closeFriendsRequest(getallClosefriendsrequest));
 
         // return closeFriendsRequest;
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Token ${data.token}`,
+            },
+            body: new URLSearchParams({
+              connection_type: "Family",
+            }),
+          }
+        );
+
+        const getallfamilyfriendsrequest = await response.json();
+        console.log(getallfamilyfriendsrequest, "getallfamilyfriendsrequest");
+        dispatch(familyFriendRequest(getallfamilyfriendsrequest));
       } catch (err) {
         console.log(err), "error araha hai";
       }
