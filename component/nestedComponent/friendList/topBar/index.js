@@ -11,8 +11,11 @@ import SmallRequestcard from "../../../re-usabelComponent/friendsList/smallReque
 import Searchicon from "../../dashBoard/dashboardIcons/search";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 
 export default function Topbar() {
+  const router = useRouter();
   const friend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
   );
@@ -22,8 +25,6 @@ export default function Topbar() {
   const familyFriend = useSelector(
     (state) => state?.freinds.allFamilyFriend?.result?.user_friends
   );
-  console.log(friend, "freind");
-  console.log(closeFriend, "close");
 
   var noncloseFriend = friend?.filter(
     (data) => !closeFriend?.some((el) => el?.friend?.id === data?.friend?.id)
@@ -79,8 +80,12 @@ export default function Topbar() {
         <p className="heading">Friends List</p>
         <div className="top_bar">
           <Tabs
-            // defaultActiveKey="1"
-
+            defaultActiveKey={
+              (router.query.connection === "friend-requests" && "1") ||
+              (router.query.connection === "All-friends" && "2") ||
+              (router.query.connection === "Close-friends" && "3") ||
+              (router.query.connection === "Family" && "4")
+            }
             tabBarExtraContent={showButton ? operations : ""}
           >
             <TabPane
@@ -89,6 +94,10 @@ export default function Topbar() {
                   className="friends_request"
                   onClick={() => {
                     setShowButton(false);
+                    router.push({
+                      pathname: ``,
+                      query: { connection: "friend-requests" },
+                    });
                   }}
                 >
                   Friends request
@@ -105,6 +114,10 @@ export default function Topbar() {
                   onClick={() => {
                     setShowButton(true);
                     setText("allFriend");
+                    router.push({
+                      pathname: ``,
+                      query: { connection: "All-friends" },
+                    });
                   }}
                 >
                   All friends
@@ -121,6 +134,10 @@ export default function Topbar() {
                   onClick={() => {
                     setShowButton(true);
                     setText("closeFriend");
+                    router.push({
+                      pathname: ``,
+                      query: { connection: "Close-friends" },
+                    });
                   }}
                 >
                   Close friends
@@ -137,6 +154,10 @@ export default function Topbar() {
                   onClick={() => {
                     setShowButton(true);
                     setText("Family");
+                    router.push({
+                      pathname: ``,
+                      query: { connection: "Family" },
+                    });
                   }}
                 >
                   Family
@@ -155,28 +176,28 @@ export default function Topbar() {
           className="friendRequest_modal"
           title={
             (text === "closeFriend" && "< Add close Friends") ||
-            (text === "closeFriend" && "< Add Family") ||
-            (text === "closeFriend" && "< allFriend")
+            (text === "Family" && "< Add Family") ||
+            (text === "allFriend" && "< allFriend")
           }
           visible={!!isCloseModalVisible}
           // onOk={handleOk}
           onCancel={handleCancel}
         >
           <Input placeholder="search" suffix={<Searchicon />} />
-          {addFreindData.length ? (
+          {addFreindData?.length ? (
             addFreindData?.map((t, i) => (
               <SmallRequestcard
                 key={i}
                 id={t?.friend.id}
                 connectionType={isCloseModalVisible}
                 closeFriends={true}
-                url="/images/request/requestProfile2.svg"
+                url="/images/request/requestProfile1.svg"
                 name={t?.friend.username}
               />
               // </div>
             ))
           ) : (
-            <h1>Your all Freinds add in Close Friends</h1>
+            <EmptyData text="already added all friends" />
           )}
         </Modal>
       )}

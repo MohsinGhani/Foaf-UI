@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
+import { Empty } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -10,6 +11,7 @@ import {
   allFamilyFriend,
   familyFriendRequest,
 } from "../../../features/friends";
+import { useState } from "react";
 
 export default function RequestCard(props) {
   const statedata = useSelector((state) => state);
@@ -23,7 +25,7 @@ export default function RequestCard(props) {
     //   response: true,
     //   connection_request_id: props.id,
     // };
-
+    props.setBut(true);
     try {
       let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/response_connection_request`,
@@ -140,6 +142,7 @@ export default function RequestCard(props) {
       return freindRequest;
     } catch (err) {
       console.log(err), "error araha hai";
+      setBut(true);
     }
   };
   return (
@@ -188,11 +191,11 @@ export default function RequestCard(props) {
           }  ${props.family ? " family" : ""} `}
         >
           {props.friendRequest ? (
-            <Button onClick={accept}>
+            <Button disabled={props.but} onClick={accept}>
               <p>confirm</p>
             </Button>
           ) : (
-            <Button>
+            <Button disabled={props.but}>
               <p>Remove</p>
             </Button>
           )}

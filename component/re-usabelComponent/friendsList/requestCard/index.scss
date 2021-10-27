@@ -95,7 +95,7 @@
             margin-top: 5px;
         }
     }
-    button {
+    .btn-primary {
         border-radius: 12px;
 
         width: 100%;
@@ -103,7 +103,9 @@
         font-weight: 600;
         font-size: 12px;
         border: unset;
-
+        &:hover {
+            font-size: 14px;
+        }
         // margin-top: 20px;
         p {
             margin: unset;

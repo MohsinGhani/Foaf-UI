@@ -10,19 +10,13 @@ import {
 
 export default function SmallRequestcard(props) {
   const [seleted, setselected] = useState(false);
+  const [but, setBut] = useState(false);
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
   var data = statedata.user.userDetailes.result?.user;
   var id = statedata.user.userDetailes.result?.user?.id;
   console.log(props.id, id);
   const add = async () => {
-    console.log(
-      new URLSearchParams({
-        connection_type: "Closefriend",
-      }),
-      "hellooooo 11111"
-    );
-    console.log("hello");
     try {
       let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/create_rel_connection`,
@@ -138,6 +132,7 @@ export default function SmallRequestcard(props) {
         {/* </div> */}
         <div className={seleted ? "selected" : "unSelected"}>
           <Button
+            disabled={but}
             onClick={() => {
               seleted ? setselected(false) : setselected(true);
               !seleted && add();

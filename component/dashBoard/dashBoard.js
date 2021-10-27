@@ -27,6 +27,7 @@ import HamBurger from "../nestedComponent/dashBoard/dashboardIcons/hamBurger";
 import { loginData } from "../features/user";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
+import Logout from "../nestedComponent/dashBoard/dashboardIcons/logout";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -118,7 +119,10 @@ export default function Mainone(props) {
               <Menu.Item
                 key="5"
                 onClick={() => {
-                  router.push("/friendsList-page");
+                  router.push({
+                    pathname: "/friendsList-page",
+                    query: { connection: "friend-requests" },
+                  });
                 }}
               >
                 {/* <Link href="/friendsList-page"> */}
@@ -219,7 +223,7 @@ export default function Mainone(props) {
             <Menu.Item
               key="21"
               // className={router.pathname == "/" ? "active" : ""}
-              icon={<HomeIcon />}
+              icon={<Logout />}
             >
               <div onClick={logout}>logout</div>
             </Menu.Item>

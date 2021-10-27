@@ -28,7 +28,7 @@ export default function Login() {
       .string()
       .min(8, ({ min }) => `Password must be at least ${min} characters`)
       .required("Password is required"),
-    checkbox: yup.bool().oneOf([true], "required"),
+    // checkbox: yup.bool().oneOf([true], "required"),
   });
 
   const signInRes = async (value) => {

@@ -210,7 +210,12 @@
                             stroke: white;
                         }
                     }
-
+                    .logout {
+                        background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+                        path {
+                            stroke: #bfbfbf;
+                        }
+                    }
                     .home {
                         background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
                         path {

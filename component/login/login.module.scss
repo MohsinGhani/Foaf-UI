@@ -116,13 +116,12 @@
           // border: 1px solid #949494;
           padding: 0 10px 0 10px;
           width: 50px;
-          height: 50px;
         }
         .bottomText {
           display: flex;
           justify-content: center;
           align-items: center;
-
+          margin-top: 16px;
           color: #949494;
           // max-width: 800px;
           // p {
@@ -273,11 +272,11 @@
   }
   @media screen and (max-width: 1035px) {
     // .formSide {
-    .seprator {
-      // border: 1px solid #949494;
+    // .seprator {
+    //   // border: 1px solid #949494;
 
-      height: 40px !important;
-    }
+    //   height: 40px !important;
+    // }
     .checkbox {
       font-size: 13px;
     }
@@ -292,12 +291,12 @@
 
     // width: 100% !important;
     // }
-    .bottomText {
-      p {
-        margin-top: 10px !important;
-        margin-bottom: 18px !important;
-      }
-    }
+    // .bottomText {
+    //   p {
+    //     margin-top: 10px !important;
+    //     margin-bottom: 18px !important;
+    //   }
+    // }
     .bottom {
       width: 100%;
       // .signin {
@@ -317,11 +316,11 @@
       // width: 50% !important;
       // margin-left: 15px;
       padding: 70px 30px 70px 30px;
-      .seprator {
-        // border: 1px solid #949494;
+      // .seprator {
+      //   // border: 1px solid #949494;
 
-        height: 40px !important;
-      }
+      //   height: 40px !important;
+      // }
 
       .password {
         .eyeButton {
@@ -374,12 +373,12 @@
     .formSide {
       // margin-right: 12px;
       // padding: 13px;
-      .bottomText {
-        p {
-          margin-top: 5px !important;
-          margin-bottom: 18px !important;
-        }
-      }
+      // .bottomText {
+      //   p {
+      //     margin-top: 5px !important;
+      //     margin-bottom: 18px !important;
+      //   }
+      // }
       .checkbox {
         font-size: 12px;
       }

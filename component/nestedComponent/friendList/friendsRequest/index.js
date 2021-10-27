@@ -1,7 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import RequestCard from "../../../re-usabelComponent/friendsList/requestCard";
 import { useDispatch, useSelector } from "react-redux";
-import { Empty } from "antd";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import {
+  freindRequest,
+  closeFriendsRequest,
+  familyFriendRequest,
+} from "../../../features/friends";
 import { Row, Col, Divider } from "antd";
+import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 
 export default function FriendsRequest(props) {
   const friendRequest = useSelector(
@@ -10,13 +18,97 @@ export default function FriendsRequest(props) {
   const closeFriendRequest = useSelector(
     (state) => state?.freinds?.closeFriendsRequest?.result?.connection_requests
   );
-  const familyFriendRequest = useSelector(
+  const familyFriendReq = useSelector(
     (state) => state?.freinds?.familyFriendRequest?.result?.connection_requests
   );
 
-  // console.log(closeFriendRequest, "closeeeee");
-  // console.log("friendRequestfriendRequest", friendRequest);
-  // console.log("fullState", fullState);
+  const [getAllFriendsRequest, setGetAllFriendsRequest] = useState({});
+  const [getAllCloseFriendsRequest, setGetAllCloseFriendsRequest] = useState(
+    {}
+  );
+  const [getAllFamilyFriendsRequest, setGetAllFamilyFriendsRequest] = useState(
+    {}
+  );
+  const [but, setBut] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const statedata = useSelector((state) => state);
+
+  var data = statedata?.user?.userDetailes?.result?.user;
+
+  useEffect(async () => {
+    if (router.query.connection === "friend-requests") {
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${data.token}`,
+            },
+          }
+        );
+
+        const getallfriendsrequest = await response.json();
+        console.log(getallfriendsrequest, "getallfriendsrequest");
+        setGetAllFriendsRequest(getallfriendsrequest);
+        dispatch(freindRequest(getallfriendsrequest));
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Token ${data.token}`,
+            },
+            body: new URLSearchParams({
+              connection_type: "Closefriend",
+            }),
+          }
+        );
+
+        const getallClosefriendsrequest = await response.json();
+        setGetAllCloseFriendsRequest(getallClosefriendsrequest);
+        console.log(getallClosefriendsrequest, "getallClosefriendsrequest");
+        dispatch(closeFriendsRequest(getallClosefriendsrequest));
+
+        // return closeFriendsRequest;
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Token ${data.token}`,
+            },
+            body: new URLSearchParams({
+              connection_type: "Family",
+            }),
+          }
+        );
+
+        const getallfamilyfriendsrequest = await response.json();
+        console.log(getallfamilyfriendsrequest, "getallfamilyfriendsrequest");
+        setGetAllFamilyFriendsRequest(getallfamilyfriendsrequest);
+        dispatch(familyFriendRequest(getallfamilyfriendsrequest));
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
+    }
+  }, [router]);
+  console.log(getAllFriendsRequest, "getAllFriendsRequest kagslks");
+  console.log(getAllCloseFriendsRequest, "getAllCloseFriendsRequest kagslks");
+  console.log(getAllFamilyFriendsRequest, "getAllFamilyFriendsRequest kagslks");
+
   return (
     <>
       <div className="request_card_main">
@@ -28,6 +120,8 @@ export default function FriendsRequest(props) {
                 <div className="request_card" key={i}>
                   <RequestCard
                     id={t?.id}
+                    setBut={setBut}
+                    but={but}
                     connection_type="Friend"
                     friendRequest={props.friendsRequest}
                     url="/images/request/requestProfile1.svg"
@@ -37,9 +131,7 @@ export default function FriendsRequest(props) {
               </Col>
             ))
           ) : (
-            <div className="empty">
-              <Empty description="No Friends Request" />
-            </div>
+            <EmptyData text="No Friend Requests" />
           )}
         </Row>
       </div>
@@ -55,6 +147,8 @@ export default function FriendsRequest(props) {
               <div className="request_card" key={i}>
                 <RequestCard
                   type="close"
+                  setBut={setBut}
+                  but={but}
                   connection_type="Closefriend"
                   id={t?.id}
                   friendRequest={props.friendsRequest}
@@ -68,18 +162,20 @@ export default function FriendsRequest(props) {
       </div>
 
       <div className="request_card_main">
-        {familyFriendRequest && (
+        {familyFriendReq && (
           <>
             <hr /> <h1>Family Friend Request</h1>
           </>
         )}
         <Row gutter={16}>
-          {familyFriendRequest?.map((t, i) => (
+          {familyFriendReq?.map((t, i) => (
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
               <div className="request_card" key={i}>
                 <RequestCard
                   type="close"
                   connection_type="Family"
+                  setBut={setBut}
+                  but={but}
                   id={t?.id}
                   friendRequest={props.friendsRequest}
                   url="/images/request/requestProfile2.svg"
