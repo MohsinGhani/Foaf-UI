@@ -10,12 +10,17 @@ import { useEffect, useState } from "react";
 export default function Family(props) {
   const dispatch = useDispatch();
   const router = useRouter();
+  const [getAllFamily, setgetAllFamily] = useState({});
+  const [loader, setloader] = useState(false);
   const allfamilyFriend = useSelector(
     (state) => state?.freinds?.allFamilyFriend?.result?.user_friends
   );
-  const [getAllFamily, setgetAllFamily] = useState({});
+
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
   useEffect(async () => {
     if (router.query.connection === "Family") {
+      setloader(true);
       try {
         let response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
@@ -35,16 +40,21 @@ export default function Family(props) {
         setgetAllFamily(getallFamilyFreind);
         console.log(getallFamilyFreind, "getallFamilyFreind");
         dispatch(allFamilyFriend(getallFamilyFreind));
+        setloader(false);
       } catch (err) {
         console.log(err), "error araha hai";
+        setloader(false);
       }
     }
-  }, [route]);
+  }, [router]);
   console.log("get All Family", getAllFamily);
+  console.log("loader", loader);
   return (
     <div className="request_card_main">
       <Row gutter={16}>
-        {getAllFamily?.result?.user_friends ? (
+        {loader ? (
+          <h2>Loading....</h2>
+        ) : getAllFamily?.result?.user_friends ? (
           getAllFamily?.result?.user_friends?.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>

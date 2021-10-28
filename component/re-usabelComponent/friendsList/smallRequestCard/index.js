@@ -15,7 +15,6 @@ export default function SmallRequestcard(props) {
   const statedata = useSelector((state) => state);
   var data = statedata.user.userDetailes.result?.user;
   var id = statedata.user.userDetailes.result?.user?.id;
-  console.log(props.id, id);
   const add = async () => {
     try {
       let response = await fetch(
@@ -130,7 +129,15 @@ export default function SmallRequestcard(props) {
           </div>
         </div>
         {/* </div> */}
-        <div className={seleted ? "selected" : "unSelected"}>
+        <div
+          className={
+            seleted
+              ? ` ${props.connectionType === "Closefriend" && "closeFriend"} ${
+                  props.connectionType === "Family" && "family"
+                } ${props.connectionType === "Friend" && "alluser"}`
+              : "unSelected"
+          }
+        >
           <Button
             disabled={but}
             onClick={() => {

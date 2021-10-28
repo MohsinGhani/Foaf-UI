@@ -40,7 +40,7 @@ const AuthProvider = ({ children, pageComp }) => {
   // console.log(user, "what is the value of login user");
 
   var data = Cookies.get();
-  console.log(data?.token, "token");
+
   useEffect(async () => {
     if (data?.token) {
       setLoading(true);

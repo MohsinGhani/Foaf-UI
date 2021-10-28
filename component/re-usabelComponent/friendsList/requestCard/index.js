@@ -15,6 +15,7 @@ import { useState } from "react";
 
 export default function RequestCard(props) {
   const statedata = useSelector((state) => state);
+  const [selected, setSelected] = useState(0);
 
   var data = statedata.user.userDetailes.result?.user;
 
@@ -191,7 +192,13 @@ export default function RequestCard(props) {
           }  ${props.family ? " family" : ""} `}
         >
           {props.friendRequest ? (
-            <Button disabled={props.but} onClick={accept}>
+            <Button
+              disabled={selected === props.id ? props.but : false}
+              onClick={() => {
+                setSelected(props.id);
+                accept();
+              }}
+            >
               <p>confirm</p>
             </Button>
           ) : (
@@ -201,8 +208,16 @@ export default function RequestCard(props) {
           )}
         </div>
         {props.friendRequest && (
-          <div className="reject" onClick={reject}>
-            <Button>Reject</Button>
+          <div
+            className="reject"
+            onClick={() => {
+              setSelected(props.id);
+              reject();
+            }}
+          >
+            <Button disabled={selected === props.id ? props.but : false}>
+              Reject
+            </Button>
           </div>
         )}
       </div>

@@ -144,8 +144,6 @@
     .ant-modal-content {
         // width: 100%;
         height: 740px;
-        overflow: auto;
-        // width: 100%;
 
         .ant-modal-close {
             color: #010010;
@@ -164,7 +162,11 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-
+            overflow: auto;
+            max-height: 675px;
+            &::-webkit-scrollbar {
+                display: none;
+            }
             .ant-input-affix-wrapper {
                 border-radius: 30px;
                 height: 50px;

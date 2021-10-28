@@ -25,6 +25,7 @@ export default function Topbar() {
   const familyFriend = useSelector(
     (state) => state?.freinds.allFamilyFriend?.result?.user_friends
   );
+  const allUser = useSelector((state) => state?.freinds.allUser?.result?.users);
 
   var noncloseFriend = friend?.filter(
     (data) => !closeFriend?.some((el) => el?.friend?.id === data?.friend?.id)
@@ -44,8 +45,8 @@ export default function Topbar() {
   const familyModel = () => {
     setIsCloseModalVisible("Family");
   };
-  const allFriend = () => {
-    setIsCloseModalVisible("allFriend");
+  const allFriendModal = () => {
+    setIsCloseModalVisible("Friend");
   };
   const handleCancel = () => {
     setIsCloseModalVisible(false);
@@ -56,17 +57,21 @@ export default function Topbar() {
       ? noncloseFriend
       : isCloseModalVisible === "Family"
       ? nonFamilyFriend
+      : isCloseModalVisible === "Friend"
+      ? allUser
       : [];
 
   const operations = (
     <Button
-      className={`add_button ${text === "closeFriend" && "close"} ${
-        text === "Family" && "family"
-      } ${text === "allFriend" && "allFriend"}`}
+      className={`add_button ${
+        router.query.connection === "Close-friends" && "close"
+      } ${router.query.connection === "Family" && "family"} ${
+        router.query.connection === "All-friends" && "allFriend"
+      }`}
       onClick={
-        (text === "closeFriend" && closeFriendsModel) ||
-        (text === "Family" && familyModel) ||
-        (text === "allFriend" && allFriend)
+        (router.query.connection === "Close-friends" && closeFriendsModel) ||
+        (router.query.connection === "Family" && familyModel) ||
+        (router.query.connection === "All-friends" && allFriendModal)
       }
     >
       <p>Add Freinds</p>
@@ -86,7 +91,9 @@ export default function Topbar() {
               (router.query.connection === "Close-friends" && "3") ||
               (router.query.connection === "Family" && "4")
             }
-            tabBarExtraContent={showButton ? operations : ""}
+            tabBarExtraContent={
+              router.query.connection === "friend-requests" ? "" : operations
+            }
           >
             <TabPane
               tab={
@@ -175,12 +182,12 @@ export default function Topbar() {
         <Modal
           className="friendRequest_modal"
           title={
-            (text === "closeFriend" && "< Add close Friends") ||
-            (text === "Family" && "< Add Family") ||
-            (text === "allFriend" && "< allFriend")
+            (router.query.connection === "Close-friends" &&
+              "< Add close Friends") ||
+            (router.query.connection === "Family" && "< Add Family") ||
+            (router.query.connection === "All-friends" && "< Users")
           }
           visible={!!isCloseModalVisible}
-          // onOk={handleOk}
           onCancel={handleCancel}
         >
           <Input placeholder="search" suffix={<Searchicon />} />
@@ -188,11 +195,13 @@ export default function Topbar() {
             addFreindData?.map((t, i) => (
               <SmallRequestcard
                 key={i}
-                id={t?.friend.id}
+                id={(text === "allFriend" && t?.id) || t?.friend?.id}
                 connectionType={isCloseModalVisible}
                 closeFriends={true}
                 url="/images/request/requestProfile1.svg"
-                name={t?.friend.username}
+                name={
+                  (text === "allFriend" && t?.username) || t?.friend?.username
+                }
               />
               // </div>
             ))

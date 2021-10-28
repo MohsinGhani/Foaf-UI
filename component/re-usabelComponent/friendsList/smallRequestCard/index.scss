@@ -1,6 +1,7 @@
 .small_requestCard_main {
     max-width: 140px;
     max-height: 254px;
+    margin-bottom: 20px;
     // border: 1px solid #e9e8e8;
     // border-radius: 20px;
     // padding: 8px 8px 8px 8px;
@@ -98,12 +99,32 @@
     //         margin-top: 5px;
     //     }
     // }
-    .selected {
+    .closeFriend {
         .btn-primary {
-            background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
-            box-shadow: #c7539a 0px 5px 10px;
+            background: linear-gradient(93.15deg, #1a83cf -11.17%, #5fb5f4 48.61%, #2da6ff 96.45%);
+            box-shadow: rgba(52, 113, 243, 0.45) 0px 5px 20px;
             &:focus {
-                box-shadow: #c7539a 0px 5px 10px !important;
+                box-shadow: rgba(52, 113, 243, 0.45) 0px 5px 20px !important;
+            }
+            // margin-top: 20px;
+        }
+    }
+    .family {
+        .btn-primary {
+            background: linear-gradient(90deg, #6dd7a4 0%, rgb(62, 198, 132) 100%);
+            box-shadow: rgba(41, 148, 5, 0.45) 0px 5px 20px;
+            &:focus {
+                box-shadow: rgba(41, 148, 5, 0.45) 0px 5px 20px !important;
+            }
+            // margin-top: 20px;
+        }
+    }
+    .alluser {
+        .btn-primary {
+            background: linear-gradient(90deg, #ef843b 0%, #ffa567 100%);
+            box-shadow: rgba(232, 154, 9, 0.45) 0px 25px 20px -20px;
+            &:focus {
+                box-shadow: rgba(232, 154, 9, 0.45) 0px 25px 20px -20px !important;
             }
             // margin-top: 20px;
         }

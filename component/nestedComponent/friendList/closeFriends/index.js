@@ -10,6 +10,7 @@ export default function CloseFriends(props) {
   const dispatch = useDispatch();
   const router = useRouter();
   const [getAllColseFriends, setgetAllCloseFriends] = useState({});
+  const [loader, setloader] = useState(false);
   // const allFriend = useSelector((state) => state?.freinds?.allfriend);
   // const allCloseFrien = useSelector(
   //   (state) => state?.freinds?.allCloseFriend?.result?.user_friends
@@ -21,6 +22,7 @@ export default function CloseFriends(props) {
 
   useEffect(async () => {
     if (router.query.connection === "Close-friends") {
+      setloader(true);
       try {
         let response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user_connections`,
@@ -40,8 +42,10 @@ export default function CloseFriends(props) {
         setgetAllCloseFriends(getallCloseFreind);
         console.log(getallCloseFreind, "getallclosefriend");
         dispatch(allCloseFriend(getallCloseFreind));
+        setloader(false);
       } catch (err) {
         console.log(err), "error araha hai";
+        setloader(false);
       }
     }
   }, [router]);
@@ -49,7 +53,9 @@ export default function CloseFriends(props) {
   return (
     <div className="request_card_main">
       <Row gutter={16}>
-        {getAllColseFriends.result?.user_friends ? (
+        {loader ? (
+          <h2>Loading....</h2>
+        ) : getAllColseFriends.result?.user_friends ? (
           getAllColseFriends?.result?.user_friends.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
