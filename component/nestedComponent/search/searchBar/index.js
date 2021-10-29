@@ -3,10 +3,7 @@ import Searchicon from "../../dashBoard/dashboardIcons/search";
 export default function SearchBar() {
   return (
     <div className="searchBar">
-      <Input
-        placeholder="Search Recomandation, Location, Hashtag, Users"
-        prefix={<Searchicon />}
-      />
+      <Input placeholder="Search FOAF" suffix={<Searchicon />} />
     </div>
   );
 }

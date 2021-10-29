@@ -1,13 +1,24 @@
-.searchBarHome {
+.searchBar {
+    display: flex;
+    justify-content: center;
     .ant-input-affix-wrapper {
+        width: 30%;
         border-radius: 12px;
         height: 40px;
+        background: #f4f4f4;
     }
     // .ant-input-affix-wrapper:focus {
     //     -webkit-box-shadow: 0 0 0 2px #f9445b !important;
     //     box-shadow: 0 0 0 2px #f9445b !important;
     //     border-color: #f9445b;
     // }
+
+    .ant-input {
+        background: #f4f4f4;
+        &::placeholder {
+            color: #4f4f4f;
+        }
+    }
     .ant-input-affix-wrapper:focus,
     .ant-input-affix-wrapper-focused {
         -webkit-box-shadow: 0 0 0 1px #f9445b;
