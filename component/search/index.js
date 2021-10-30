@@ -3,6 +3,7 @@ import React from "react";
 import SearchBar from "../nestedComponent/search/searchBar";
 import { Tabs } from "antd";
 import Image from "next/image";
+import Profile from "../re-usabelComponent/profile";
 export default function Search() {
   const { TabPane } = Tabs;
   return (
@@ -25,11 +26,14 @@ export default function Search() {
                     src="/images/explore/Rectangle2.png"
                     alt="image"
                   />
-                  <img
-                    className="profile_image"
-                    src="/images/explore/profile.png"
-                    alt="image"
-                  />
+                  <div className="position">
+                    <Profile
+                      classMain="image_profile"
+                      profile="/images/explore/profile.png"
+                      class="image"
+                      time="10mins ago"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="small_site">

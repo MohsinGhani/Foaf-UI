@@ -1,0 +1,63 @@
+.pop_main {
+    .profile_site {
+        display: flex;
+        justify-content: space-between;
+        .buttononer {
+            color: #ffffff;
+            width: 100px;
+            height: 27px;
+            padding: unset;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(93.15deg, rgb(199, 83, 154) -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+
+            p {
+                margin: 0;
+                font-size: 10px;
+                margin-right: 6px;
+            }
+        }
+    }
+    .image_site {
+        margin-top: 10px;
+        img {
+            padding: 5px;
+        }
+    }
+    .bottom {
+        .icons {
+            display: flex;
+            .heart {
+                display: flex;
+                align-items: center;
+                .heartIcon {
+                    display: flex;
+                }
+
+                p {
+                    color: #bfbfbf;
+                    font-size: 12px;
+                    margin: 0px 5px;
+                }
+            }
+            .views {
+                display: flex;
+                align-items: center;
+                margin-left: 5px;
+                .viewsIcon {
+                    display: flex;
+                }
+                p {
+                    color: #bfbfbf;
+                    font-size: 12px;
+                    margin: 0px 5px;
+                }
+            }
+        }
+    }
+}
