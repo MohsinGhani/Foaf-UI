@@ -7,7 +7,7 @@ export default function SearchBarDashboard() {
     <div
       className="searchBarHomeDashboard"
       onClick={() => {
-        router.push("/search-page");
+        router.push("/explore-page");
       }}
     >
       <Searchicon />

@@ -1,5 +1,5 @@
 import { Input } from "antd";
-import Searchicon from "../../dashBoard/dashboardIcons/search";
+import Searchicon from "../../nestedComponent/dashBoard/dashboardIcons/search";
 export default function SearchBar() {
   return (
     <div className="searchBar">

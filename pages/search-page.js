@@ -1,3 +1,2 @@
-import Searchicon from "../component/nestedComponent/dashBoard/dashboardIcons/search";
-import Search from "../component/search";
-export default Search;
+import search from "../component/search";
+export default search;

@@ -52,7 +52,7 @@ export default function Mainone(props) {
       <div className="logo">
         <div
           onClick={() => {
-            router.push("/");
+            router.push("/search-page");
           }}
           className="logoChild"
         >
