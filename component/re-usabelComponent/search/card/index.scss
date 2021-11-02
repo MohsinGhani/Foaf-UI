@@ -35,8 +35,25 @@
         }
     }
     .selected {
-        circle {
-            fill: url(#paint0_linear_2563:28981);
+        .people_icon {
+            circle {
+                fill: url(#paint0_linear_2563:28981);
+            }
+        }
+
+        .place_icon {
+            background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+
+            path {
+                fill: #ffffff;
+            }
+        }
+        .event_icon {
+            background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+
+            path {
+                fill: #ffffff;
+            }
         }
     }
 }

@@ -20,13 +20,7 @@ module.exports = withCSS(
 );
 
 const withImage = require("next-images");
-module.exports = withImage();
-module.exports = {
-  images: {
-    loader: "imgix",
-    path: "https://foaf-ui.web.app/",
-  },
-};
+
 module.exports = {
   webpack(config) {
     config.module.rules.push({
@@ -35,5 +29,12 @@ module.exports = {
     });
 
     return config;
+  },
+};
+module.exports = withImage();
+module.exports = {
+  images: {
+    loader: "imgix",
+    path: "https://foaf-ui.web.app/",
   },
 };

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Tabs } from "antd";
-import SearchCard from "../../re-usabelComponent/search/card";
-import SeeAllButton from "../../re-usabelComponent/search/button";
+import SearchCard from "../../../re-usabelComponent/search/card";
+import SeeAllButton from "../../../re-usabelComponent/search/button";
+import { useRouter } from "next/router";
+import EventOption from "./eventOption";
+import DropDown from "../../../re-usabelComponent/search/dropDown";
+
 export default function SearchTabs() {
+  const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
   const people = [
@@ -104,14 +109,42 @@ export default function SearchTabs() {
   ];
 
   return (
-    <div className="Search_tabs_main">
-      <Tabs defaultActiveKey="1">
-        <TabPane tab={<Button className="first">People</Button>} key="1">
+    <div
+      className={`Search_tabs_main ${
+        router.query.search === "Events" && "Event"
+      }`}
+    >
+      <Tabs
+        defaultActiveKey={
+          (router.query.search === "people" && "1") ||
+          (router.query.search === "places" && "2") ||
+          (router.query.search === "Video" && "3") ||
+          (router.query.search === "Recomand" && "4") ||
+          (router.query.search === "Groups" && "5") ||
+          (router.query.search === "Events" && "6")
+        }
+      >
+        <TabPane
+          tab={
+            <Button
+              className="first"
+              onClick={() => {
+                router.push({
+                  pathname: "",
+                  query: { search: "people" },
+                });
+              }}
+            >
+              People
+            </Button>
+          }
+          key="1"
+        >
           {people &&
             people.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard
-                  id={Date.now()}
+                  id={i}
                   setSelected={setSelected}
                   selected={selected}
                   profile={data.profile}
@@ -123,12 +156,27 @@ export default function SearchTabs() {
               </div>
             ))}
         </TabPane>
-        <TabPane tab={<Button className="but">Places</Button>} key="2">
+        <TabPane
+          tab={
+            <Button
+              className="but"
+              onClick={() => {
+                router.push({
+                  pathname: "",
+                  query: { search: "places" },
+                });
+              }}
+            >
+              Places
+            </Button>
+          }
+          key="2"
+        >
           {places &&
             places.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard
-                  id={Date.now()}
+                  id={i}
                   profile={data.profile}
                   text1={data.text1}
                   setSelected={setSelected}
@@ -141,21 +189,82 @@ export default function SearchTabs() {
             ))}
           <SeeAllButton />
         </TabPane>
-        <TabPane tab={<Button className="but">Video</Button>} key="3">
+        <TabPane
+          tab={
+            <Button
+              className="but"
+              onClick={() => {
+                router.push({
+                  pathname: "",
+                  query: { search: "Video" },
+                });
+              }}
+            >
+              Video
+            </Button>
+          }
+          key="3"
+        >
           Content of Tab Pane 3
         </TabPane>
-        <TabPane tab={<Button className="but">Recomand</Button>} key="4">
+        <TabPane
+          tab={
+            <Button
+              className="but"
+              onClick={() => {
+                router.push({
+                  pathname: "",
+                  query: { search: "Recomand" },
+                });
+              }}
+            >
+              Recomand
+            </Button>
+          }
+          key="4"
+        >
           Content of Tab Pane 4
         </TabPane>
-        <TabPane tab={<Button className="but">Groups</Button>} key="5">
+        <TabPane
+          tab={
+            <Button
+              className="but"
+              onClick={() => {
+                router.push({
+                  pathname: "",
+                  query: { search: "Groups" },
+                });
+              }}
+            >
+              Groups
+            </Button>
+          }
+          key="5"
+        >
           Content of Tab Pane 5
         </TabPane>
-        <TabPane tab={<Button className="last">Events</Button>} key="6">
+        <TabPane
+          tab={
+            <Button
+              className="last"
+              onClick={() => {
+                router.push({
+                  pathname: "",
+                  query: { search: "Events" },
+                });
+              }}
+            >
+              Events
+            </Button>
+          }
+          key="6"
+        >
+          <EventOption />
           {events &&
             events.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard
-                  id={Date.now()}
+                  id={i}
                   profile={data.profile}
                   text1={data.text1}
                   text2={data.text2}
@@ -168,6 +277,7 @@ export default function SearchTabs() {
             ))}
           <SeeAllButton />
         </TabPane>
+        <TabPane tab={<DropDown text="Filter" type="filter" />}></TabPane>
       </Tabs>
     </div>
   );

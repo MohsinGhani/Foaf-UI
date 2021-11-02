@@ -1,12 +1,12 @@
 import React from "react";
-import SearchTabs from "../nestedComponent/search";
-import SearchBar from "../re-usabelComponent/searchBar";
+import AutoSearch from "../nestedComponent/search/autoComplete";
+import SearchTabs from "../nestedComponent/search/tabs";
 
 export default function Search() {
   return (
     <div className="Search_main">
       <div className="searchBar_main">
-        <SearchBar />
+        <AutoSearch />
       </div>
       <div>
         <SearchTabs />

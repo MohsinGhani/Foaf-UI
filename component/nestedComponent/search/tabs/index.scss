@@ -21,6 +21,7 @@
             }
             .ant-tabs-nav-wrap {
                 justify-content: center;
+                padding-bottom: 20px;
                 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
                     color: unset;
                 }
@@ -85,6 +86,16 @@
                 font-size: 12px;
                 box-shadow: rgba(199, 83, 154, 0.45) 0px 25px 20px -20px !important;
             }
+        }
+    }
+}
+.Event {
+    .ant-tabs-nav {
+        &::before {
+            border: none !important;
+        }
+        .ant-tabs-tab {
+            padding-bottom: 0px !important;
         }
     }
 }
