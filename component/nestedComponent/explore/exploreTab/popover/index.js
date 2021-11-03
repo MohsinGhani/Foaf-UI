@@ -3,7 +3,7 @@
 import { Button } from "react-bootstrap";
 
 import React from "react";
-import Profile from "../../../re-usabelComponent/profile";
+import Profile from "../../../../re-usabelComponent/profile";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import { Space } from "antd";

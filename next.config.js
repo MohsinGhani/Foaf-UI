@@ -18,7 +18,6 @@ module.exports = withCSS(
     )
   )
 );
-
 const withImage = require("next-images");
 
 module.exports = {
@@ -31,6 +30,7 @@ module.exports = {
     return config;
   },
 };
+
 module.exports = withImage();
 module.exports = {
   images: {

@@ -1,0 +1,169 @@
+{
+  "people": [
+    {
+      "profile": "/images/search/people1.png",
+      "text1": "Lydia",
+      "text2": "Freind",
+      "text3": "29 Mutual Friend",
+      "text4": "Senior Design and marketing engineer at IT TECHNOLOGY"
+    },
+    {
+      "profile": "/images/search/people2.png",
+      "text1": "Corey Siphron",
+      "text2": "Freind",
+      "text3": "29 Mutual Friend",
+      "text4": "Senior Design and marketing engineer at IT TECHNOLOGY"
+    },
+    {
+      "profile": "/images/search/people3.png",
+      "text1": "Dulce Stanton",
+      "text2": "Freind",
+      "text3": "29 Mutual Friend",
+      "text4": "Senior Design and marketing engineer at IT TECHNOLOGY"
+    },
+    {
+      "profile": "/images/search/people4.png",
+      "text1": "Carla Saris",
+      "text2": "Freind",
+      "text3": "29 Mutual Friend",
+      "text4": "Senior Design and marketing engineer at IT TECHNOLOGY"
+    },
+    {
+      "profile": "/images/search/people5.png",
+      "text1": "Desirae Aminoff",
+      "text2": "Freind",
+      "text3": "29 Mutual Friend",
+      "text4": "Senior Design and marketing engineer at IT TECHNOLOGY"
+    }
+  ],
+  "places": [
+    {
+      "profile": "/images/search/place1.png",
+      "text1": "National Stock Exchange of India Ltd",
+      "text2": "Place - Stock",
+      "text3": "2330 Doe Meadow Drive, Germantown, Maryland,  United States",
+      "text4": "S5001 People like this"
+    },
+    {
+      "profile": "/images/search/place2.png",
+      "text1": "Peris",
+      "text2": "Place - Capital of France",
+      "text3": "238 Lamberts Branch Road,  Stone Mountain, Georgia, United States",
+      "text4": "5464 People like this"
+    },
+    {
+      "profile": "/images/search/place3.png",
+      "text1": "Marriott International",
+      "text2": "Place - Hotel",
+      "text3": "1206 Freshour Circle, Hopkinsville, Kentucky  United States",
+      "text4": "564 People like this"
+    },
+    {
+      "profile": "/images/search/place4.png",
+      "text1": "Marriott International",
+      "text2": "Place - Alliance",
+      "text3": "4873 Penn Street, Flat River, Missouri  United States",
+      "text4": "46583 People like this"
+    }
+  ],
+
+  "events": [
+    {
+      "profile": "/images/search/event1.png",
+      "text1": "Pantsula trend",
+      "text2": "MON, 4 OCT",
+      "text3": "Event | 2 People went",
+      "text4": "Mumbai - The City of Dreams in Mumbai, Maharashtra"
+    },
+    {
+      "profile": "/images/search/event2.png",
+      "text1": "Trend alert: Cotton shackets",
+      "text2": "MON, 8 OCT",
+      "text3": "Online Event | 47 People Intersted"
+    },
+    {
+      "profile": "/images/search/event3.png",
+      "text1": "Bar Trend Halloween Party",
+      "text2": "Event"
+    },
+    {
+      "profile": "/images/search/event4.png",
+      "text3": "World Investor Week 2021: Get Green - Sustainable Investing - The New",
+      "text4": "SAT, 30 OCT AT 08:00 UTC+05:30",
+      "text5": "4873 Penn Street, Flat River, Missouri  United States"
+    }
+  ],
+  "video": [
+    {
+      "profile": "/images/search/vedio1.png",
+      "text1": "United State Grand Prix 2021 (Race) Live Stream Online | US GP Formula",
+      "text2": "US GP Formula 1 Live online | F1 live stream — US Grand Prix 2021 | United State Prix Live EN vivo | United State Prix En Direct Watch",
+      "text3": "Zain Siphron",
+      "views": "15k Views",
+      "time": "19 Min",
+      "likes": "14 Likes"
+    },
+    {
+      "profile": "/images/search/vedio2.png",
+      "text1": "United State",
+      "text2": "In six hours, Victoria will become a united state once more, when travel restrictions are lifted. But masks are here to stay - the premier refusing to relax the rule.",
+      "text3": "Livia Geidt",
+
+      "time": "21 Min",
+      "likes": "15 Likes"
+    },
+
+    {
+      "profile": "/images/search/vedio3.png",
+      "text1": "Youngkin shapes template for post-Trump GOP: The Note",
+      "text2": "The stakes for Democrats in the race for governor in Virginia are clear enough -- and Terry McAuliffe is laying them out himself, with a few hedges that speak volumes.",
+      "text3": "Zain Siphron",
+      "time": "15 Min",
+      "likes": "52 Likes"
+    },
+    {
+      "profile": "/images/search/vedio4.png",
+      "text1": "Disney Delays ‘Doctor Strange 2,’ ‘Thor 4,’ ‘Black Panther’ Sequel and ‘Indiana’",
+      "text2": "US GP Formula 1 Live online | F1 live stream — US Grand Prix 2021 | United State Prix Live EN vivo | United State Prix En Direct Watch",
+      "text3": "Zain Siphron",
+      "views": "350k Views",
+      "time": "25 Min",
+      "likes": "60 Likes"
+    }
+  ],
+  "group": [
+    {
+      "profile": "/images/search/group1.png",
+      "text1": "ABP NEWS"
+    },
+    {
+      "profile": "/images/search/group2.png",
+      "text1": "GULISTAN NEWS"
+    },
+
+    {
+      "profile": "/images/search/group3.png",
+      "text1": "NTD NEWS "
+    },
+    {
+      "profile": "/images/search/group4.png",
+      "text1": "breaking NEWS"
+    },
+    {
+      "profile": "/images/search/group5.png",
+      "text1": "Geo News Live"
+    },
+    {
+      "profile": "/images/search/group6.png",
+      "text1": "Geo News Live"
+    },
+    {
+      "profile": "/images/search/group7.png",
+      "text1": "breaking NEWS"
+    },
+    {
+      "profile": "/images/search/group8.png",
+      "text1": "IPL 2021 News"
+    }
+  ]
+}

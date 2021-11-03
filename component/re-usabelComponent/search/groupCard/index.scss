@@ -1,0 +1,25 @@
+.group_card {
+    min-width: 232px;
+    margin-left: 10px;
+    .image {
+        border: 3.5px solid #bfbfbf;
+        border-radius: 10px;
+        padding: 5px;
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    .heading {
+        font-weight: 600;
+        font-size: 15px;
+    }
+    .color_text {
+        font-size: 12px;
+        color: #4f4f4f;
+    }
+    .rigth {
+        border-right: 1px solid #000000;
+        padding-right: 10px;
+        line-height: 12px;
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Popover } from "antd";
-import PopOver from "../../nestedComponent/explore/popover";
+import PopOver from "../../nestedComponent/explore/exploreTab/popover";
 
 export default function Profile(props) {
   return (

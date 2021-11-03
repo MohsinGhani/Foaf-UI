@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-export default function SeeAllButton() {
+export default function SeeAllButton({ text, className }) {
   return (
-    <div className="see_button">
-      <Button>See All</Button>
+    <div className={className}>
+      <Button>{text}</Button>
     </div>
   );
 }

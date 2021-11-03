@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { AutoComplete } from "antd";
 import Recent from "./recentIcon";
 import { Space } from "antd";
 import Popular from "./popularicon";
+import { useRouter } from "next/router";
 
-export default function AutoSearch() {
+export default function AutoSearch({ condition }) {
+  const router = useRouter();
+  const [back, setback] = useState(true);
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -16,42 +19,57 @@ export default function AutoSearch() {
       </div>
     ),
   });
-  //   const hello = (data, inputValue) => {
-  //     console.log(inputValue, "input value");
-  //     return data.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1;
-  //   };
+  console.log(renderItem(), "hhh");
   const options = [
     {
-      label: "Recent Search",
       options: [
         renderItem("tradingView", <Recent />),
         renderItem("pinterest", <Recent />),
         renderItem("movies", <Recent />),
         renderItem("cricket live score", <Recent />),
       ],
+      label: "Recent Search",
     },
     {
-      label: "Popular Search",
       options: [
         renderItem("Dune: Part 2", <Popular />),
         renderItem("Kyrsten Sinema", <Popular />),
         renderItem("Lakers vs Spurs", <Popular />),
         renderItem("Miami Heat", <Popular />),
       ],
+      label: "Popular Search",
     },
   ];
-  console.log(options, "hello");
+  // const options = [
+  //   {
+  //     value: "Recent Search",
+  //   },
+  //   {
+  //     value: "Popular Search",
+  //   },
+  //   {
+  //     value: "hello",
+  //   },
+  //   {
+  //     value: "movies",
+  //   },
+  //   {
+  //     value: "cricket",
+  //   },
+  // ];
+
+  const changeComponent = () => {
+    condition(false);
+  };
   return (
     <div className="auto">
       <AutoComplete
+        onSelect={changeComponent}
         options={options}
         placeholder="FOAF"
-        filterOption={(inputValue, option) =>
-          option?.options?.map(
-            (data) =>
-              data.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-          )
-        }
+        // filterOption={(inputValue, option) =>
+        //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+        // }
       />
     </div>
   );

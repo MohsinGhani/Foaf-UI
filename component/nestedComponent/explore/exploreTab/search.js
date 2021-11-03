@@ -1,7 +1,7 @@
-import Post from "../nestedComponent/home/homePost";
+import Post from "../../home/homePost";
 import SearchBar from "../nestedComponent/search/searchBar";
 import { Row, Col } from "antd";
-import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
+import Toggel from "../../dashBoard/dashboardIcons/toggel";
 import { useState } from "react";
 export default function Search() {
   const [selected, setSelected] = useState(true);
