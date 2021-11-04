@@ -45,10 +45,33 @@ export default function Family(props) {
         console.log(err), "error araha hai";
         setloader(false);
       }
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/not_friend_users`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Token ${data.token}`,
+            },
+            body: new URLSearchParams({
+              connection_type: "Family",
+            }),
+          }
+        );
+
+        const getallFamilyConnection = await response.json();
+        // setgetAllCloseFriends(allcloseConnection);
+        console.log(getallFamilyConnection, "getallFamilyConnection");
+        dispatch(familyConnection(getallFamilyConnection));
+        setloader(false);
+      } catch (err) {
+        console.log(err), "error araha hai";
+        setloader(false);
+      }
     }
   }, [router]);
-  console.log("get All Family", getAllFamily);
-  console.log("loader", loader);
+
   return (
     <div className="request_card_main">
       <Row gutter={16}>

@@ -21,19 +21,26 @@
             }
             .ant-tabs-nav-wrap {
                 justify-content: center;
+
                 padding-bottom: 20px;
                 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
                     color: unset;
                 }
                 .ant-tabs-tab {
-                    padding-bottom: 20px;
                     margin: 0;
+
                     &:hover {
                         color: unset;
                     }
                 }
                 .ant-tabs-ink-bar {
                     display: none;
+                }
+                .ant-tabs-nav-list {
+                    height: 31px;
+                    background: #f0eff0;
+                    padding: 0 5px 0 5px;
+                    border-radius: 8px;
                 }
             }
             .ant-tabs-tab {
@@ -50,32 +57,13 @@
                     color: #ffffff;
                     box-shadow: rgba(199, 83, 154, 0.45) 0px 25px 20px -20px;
                     border-radius: 0;
+                    border-radius: 8px;
                     &:focus {
                         box-shadow: rgba(251, 62, 120, 0.45) 0px 25px 20px -20px !important;
                     }
                 }
-                .first {
-                    border-radius: 8px 0px 0px 8px !important;
-                }
-                .last {
-                    border-radius: 0px 8px 8px 0px !important;
-                }
             }
 
-            .first {
-                border-radius: 8px 0px 0px 8px;
-            }
-            .last {
-                border-radius: 0px 8px 8px 0px;
-            }
-            .btn:hover {
-                background: linear-gradient(93.15deg, #c7539a -11.17%, rgb(251, 62, 120) 48.61%, #ff5369 96.45%);
-                color: #ffffff;
-            }
-            .but {
-                border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
-                border-radius: 0;
-            }
             .btn {
                 background: #f0eff0;
                 color: rgba(79, 79, 79, 1);
@@ -85,6 +73,10 @@
                 // border-radius: 0;
                 font-size: 12px;
                 box-shadow: rgba(199, 83, 154, 0.45) 0px 25px 20px -20px !important;
+                &:hover {
+                    background: linear-gradient(93.15deg, #c7539a -11.17%, rgb(251, 62, 120) 48.61%, #ff5369 96.45%);
+                    color: #ffffff;
+                }
             }
         }
     }

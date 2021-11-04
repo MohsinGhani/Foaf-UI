@@ -189,7 +189,10 @@ export default function SearchTabs() {
             ))}
           <SeeAllButton text="See All" className="see_button" />
         </TabPane>
-        <TabPane tab={<DropDown text="Filter" type="filter" />}></TabPane>
+        <TabPane
+          className="hello"
+          tab={<DropDown text="Filter" type="filter" />}
+        ></TabPane>
       </Tabs>
     </div>
   );

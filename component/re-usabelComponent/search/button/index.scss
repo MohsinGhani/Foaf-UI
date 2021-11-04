@@ -7,6 +7,10 @@
         border-radius: 12px;
         border: none;
         font-weight: 600;
+        margin-bottom: 20px;
+        &:hover {
+            font-size: 14px;
+        }
     }
 }
 .group {
@@ -16,5 +20,8 @@
         height: 36px;
         border-radius: 7px;
         font-size: 14px;
+        &:hover {
+            font-size: 12px !important;
+        }
     }
 }

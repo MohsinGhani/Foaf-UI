@@ -3,7 +3,7 @@ import RequestCard from "../../../re-usabelComponent/friendsList/requestCard";
 import { Row, Col, Divider } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
-import { allCloseFriend } from "../../../features/friends";
+import { allCloseFriend, closeConnection } from "../../../features/friends";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 export default function CloseFriends(props) {
@@ -40,13 +40,37 @@ export default function CloseFriends(props) {
 
         const getallCloseFreind = await response.json();
         setgetAllCloseFriends(getallCloseFreind);
-        console.log(getallCloseFreind, "getallclosefriend");
+        console.log(getallCloseFreind, "getallclosefriend helllo");
         dispatch(allCloseFriend(getallCloseFreind));
         setloader(false);
       } catch (err) {
         console.log(err), "error araha hai";
         setloader(false);
       }
+    }
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/not_friend_users`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_type: "Closefriend",
+          }),
+        }
+      );
+
+      const getallcloseConnection = await response.json();
+      // setgetAllCloseFriends(allcloseConnection);
+      console.log(getallcloseConnection, "getallcloseConnection");
+      dispatch(closeConnection(getallcloseConnection));
+      setloader(false);
+    } catch (err) {
+      console.log(err), "error araha hai";
+      setloader(false);
     }
   }, [router]);
   console.log("get All Close Friend", getAllColseFriends);

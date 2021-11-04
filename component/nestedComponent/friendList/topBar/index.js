@@ -16,6 +16,7 @@ import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 
 export default function Topbar() {
   const router = useRouter();
+  const fullstate = useSelector((state) => state);
   const friend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
   );
@@ -23,9 +24,17 @@ export default function Topbar() {
     (state) => state?.freinds.allCloseFriend?.result?.user_friends
   );
   const familyFriend = useSelector(
-    (state) => state?.freinds.allFamilyFriend?.result?.user_friends
+    (state) => state?.freinds?.allFamilyFriend?.result?.user_friends
   );
-  const allUser = useSelector((state) => state?.freinds.allUser?.result?.users);
+  const allUser = useSelector(
+    (state) => state?.freinds?.allUser?.result?.users
+  );
+  const closeCon = useSelector(
+    (state) => state?.freinds?.closeConnection?.result?.user_list
+  );
+  const familyCon = useSelector(
+    (state) => state?.freinds?.closeConnection?.result?.user_list
+  );
 
   var noncloseFriend = friend?.filter(
     (data) => !closeFriend?.some((el) => el?.friend?.id === data?.friend?.id)
@@ -33,6 +42,15 @@ export default function Topbar() {
   var nonFamilyFriend = friend?.filter(
     (data) => !familyFriend?.some((el) => el?.friend?.id === data?.friend?.id)
   );
+
+  var closeConnection = closeCon?.filter((data) =>
+    noncloseFriend?.some((el) => el.friend?.id === data.user_id)
+  );
+  var familyConnection = familyCon?.filter((data) =>
+    nonFamilyFriend?.some((el) => el.friend?.id === data.user_id)
+  );
+
+  console.log(closeConnection, "connection");
 
   const { TabPane } = Tabs;
   const [showButton, setShowButton] = useState(false);
@@ -60,7 +78,7 @@ export default function Topbar() {
       : isCloseModalVisible === "Friend"
       ? allUser
       : [];
-
+  console.log(noncloseFriend, "nonCloseFriend");
   const operations = (
     <Button
       className={`add_button ${
@@ -201,6 +219,10 @@ export default function Topbar() {
                 url="/images/request/requestProfile1.svg"
                 name={
                   (text === "allFriend" && t?.username) || t?.friend?.username
+                }
+                connection={
+                  (isCloseModalVisible === "Closefriend" && closeConnection) ||
+                  (isCloseModalVisible === "Family" && familyConnection)
                 }
               />
               // </div>

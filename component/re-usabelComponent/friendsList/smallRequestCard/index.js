@@ -13,8 +13,10 @@ export default function SmallRequestcard(props) {
   const [but, setBut] = useState(false);
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
+
   var data = statedata.user.userDetailes.result?.user;
   var id = statedata.user.userDetailes.result?.user?.id;
+
   const add = async () => {
     try {
       let response = await fetch(
@@ -131,7 +133,11 @@ export default function SmallRequestcard(props) {
         {/* </div> */}
         <div
           className={
-            seleted
+            seleted ||
+            (props.connection &&
+              props.connection
+                ?.filter((data) => data?.user_id === props.id)
+                .every((item) => item.request_sent))
               ? ` ${props.connectionType === "Closefriend" && "closeFriend"} ${
                   props.connectionType === "Family" && "family"
                 } ${props.connectionType === "Friend" && "alluser"}`

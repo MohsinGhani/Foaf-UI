@@ -9,6 +9,8 @@ export const frinedsSlice = createSlice({
     closeFriendsRequest: null,
     allFamilyFriend: null,
     familyFriendRequest: null,
+    closeConnection: null,
+    familyConnection: null,
     allUser: null,
   },
   reducers: {
@@ -30,6 +32,13 @@ export const frinedsSlice = createSlice({
     familyFriendRequest: (state, action) => {
       state.familyFriendRequest = action.payload;
     },
+    closeConnection: (state, action) => {
+      state.closeConnection = action.payload;
+    },
+    familyConnection: (state, action) => {
+      state.familyConnection = action.payload;
+    },
+
     allUser: (state, action) => {
       state.allUser = action.payload;
     },
@@ -43,6 +52,8 @@ export const {
   closeFriendsRequest,
   allFamilyFriend,
   familyFriendRequest,
+  closeConnection,
+  familyConnection,
   allUser,
 } = frinedsSlice.actions;
 
