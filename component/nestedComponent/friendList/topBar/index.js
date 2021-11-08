@@ -27,7 +27,7 @@ export default function Topbar() {
     (state) => state?.freinds?.allFamilyFriend?.result?.user_friends
   );
   const allUser = useSelector(
-    (state) => state?.freinds?.allUser?.result?.users
+    (state) => state?.freinds?.allUser?.result?.user_list
   );
   const closeCon = useSelector(
     (state) => state?.freinds?.closeConnection?.result?.user_list
@@ -50,7 +50,7 @@ export default function Topbar() {
     nonFamilyFriend?.some((el) => el.friend?.id === data.user_id)
   );
 
-  console.log(closeConnection, "connection");
+  console.log(allUser, "alluser alluser");
 
   const { TabPane } = Tabs;
   const [showButton, setShowButton] = useState(false);
@@ -78,7 +78,7 @@ export default function Topbar() {
       : isCloseModalVisible === "Friend"
       ? allUser
       : [];
-  console.log(noncloseFriend, "nonCloseFriend");
+
   const operations = (
     <Button
       className={`add_button ${
@@ -213,16 +213,18 @@ export default function Topbar() {
             addFreindData?.map((t, i) => (
               <SmallRequestcard
                 key={i}
-                id={(text === "allFriend" && t?.id) || t?.friend?.id}
+                id={(text === "allFriend" && t?.user_id) || t?.friend?.id}
                 connectionType={isCloseModalVisible}
                 closeFriends={true}
                 url="/images/request/requestProfile1.svg"
                 name={
-                  (text === "allFriend" && t?.username) || t?.friend?.username
+                  (text === "allFriend" && t?.user_username) ||
+                  t?.friend?.username
                 }
                 connection={
                   (isCloseModalVisible === "Closefriend" && closeConnection) ||
-                  (isCloseModalVisible === "Family" && familyConnection)
+                  (isCloseModalVisible === "Family" && familyConnection) ||
+                  (isCloseModalVisible === "Friend" && allUser)
                 }
               />
               // </div>

@@ -13,7 +13,7 @@ export default function SearchTabs() {
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
-
+  const operations = <DropDown text="Filter" type="filter" />;
   return (
     <div
       className={`Search_tabs_main ${
@@ -21,6 +21,7 @@ export default function SearchTabs() {
       }`}
     >
       <Tabs
+        tabBarExtraContent={operations}
         defaultActiveKey={
           (router.query.search === "people" && "1") ||
           (router.query.search === "places" && "2") ||
@@ -189,10 +190,6 @@ export default function SearchTabs() {
             ))}
           <SeeAllButton text="See All" className="see_button" />
         </TabPane>
-        <TabPane
-          className="hello"
-          tab={<DropDown text="Filter" type="filter" />}
-        ></TabPane>
       </Tabs>
     </div>
   );

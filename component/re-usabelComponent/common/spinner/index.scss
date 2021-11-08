@@ -1,0 +1,13 @@
+.spin {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ant-spin-dot-item {
+        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+    }
+}
+.load {
+    min-height: 100vh;
+}

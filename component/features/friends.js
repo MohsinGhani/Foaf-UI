@@ -26,14 +26,14 @@ export const frinedsSlice = createSlice({
     closeFriendsRequest: (state, action) => {
       state.closeFriendsRequest = action.payload;
     },
+    closeConnection: (state, action) => {
+      state.closeConnection = action.payload;
+    },
     allFamilyFriend: (state, action) => {
       state.allFamilyFriend = action.payload;
     },
     familyFriendRequest: (state, action) => {
       state.familyFriendRequest = action.payload;
-    },
-    closeConnection: (state, action) => {
-      state.closeConnection = action.payload;
     },
     familyConnection: (state, action) => {
       state.familyConnection = action.payload;

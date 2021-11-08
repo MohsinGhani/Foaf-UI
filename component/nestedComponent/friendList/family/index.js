@@ -7,6 +7,7 @@ import { route } from "next/dist/server/router";
 import { allFamilyFriend } from "../../../features/friends";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Spinner from "../../../re-usabelComponent/common/spinner";
 export default function Family(props) {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -76,7 +77,7 @@ export default function Family(props) {
     <div className="request_card_main">
       <Row gutter={16}>
         {loader ? (
-          <h2>Loading....</h2>
+          <Spinner />
         ) : getAllFamily?.result?.user_friends ? (
           getAllFamily?.result?.user_friends?.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");

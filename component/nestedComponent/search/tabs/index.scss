@@ -2,7 +2,7 @@
     .ant-tabs {
         .ant-tabs-content-holder {
             overflow: auto;
-            max-height: 795px;
+            max-height: 81vh;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -16,13 +16,18 @@
             }
         }
         .ant-tabs-nav {
+            .ant-tabs-extra-content {
+                margin-right: 30px;
+                margin-bottom: 30px;
+            }
             &::before {
                 border-color: rgba(0, 0, 0, 0.19);
             }
             .ant-tabs-nav-wrap {
                 justify-content: center;
 
-                padding-bottom: 20px;
+                padding-bottom: 30px;
+
                 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
                     color: unset;
                 }
@@ -39,8 +44,14 @@
                 .ant-tabs-nav-list {
                     height: 31px;
                     background: #f0eff0;
-                    padding: 0 5px 0 5px;
-                    border-radius: 8px;
+                    // padding: 0 5px 0 5px;
+                    border-radius: 9px;
+                }
+                .first {
+                    border-radius: 9px;
+                }
+                .last {
+                    border-radius: 9px;
                 }
             }
             .ant-tabs-tab {
@@ -55,12 +66,15 @@
                         #ff5369 96.45%
                     );
                     color: #ffffff;
-                    box-shadow: rgba(199, 83, 154, 0.45) 0px 25px 20px -20px;
+
                     border-radius: 0;
-                    border-radius: 8px;
+                    border-radius: 9px;
                     &:focus {
                         box-shadow: rgba(251, 62, 120, 0.45) 0px 25px 20px -20px !important;
                     }
+                }
+                .ant-tabs-tab-btn {
+                    box-shadow: rgba(199, 83, 154, 0.45) 0px 22px 28px -9px;
                 }
             }
 
@@ -76,6 +90,7 @@
                 &:hover {
                     background: linear-gradient(93.15deg, #c7539a -11.17%, rgb(251, 62, 120) 48.61%, #ff5369 96.45%);
                     color: #ffffff;
+                    border-radius: 9px;
                 }
             }
         }
@@ -86,9 +101,9 @@
         &::before {
             border: none !important;
         }
-        .ant-tabs-tab {
-            padding-bottom: 0px !important;
-        }
+        // .ant-tabs-tab {
+        // padding-bottom: 0px !important;
+        // }
     }
 }
 

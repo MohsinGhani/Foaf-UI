@@ -6,6 +6,7 @@ import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 import { allCloseFriend, closeConnection } from "../../../features/friends";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Spinner from "../../../re-usabelComponent/common/spinner";
 export default function CloseFriends(props) {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -78,7 +79,7 @@ export default function CloseFriends(props) {
     <div className="request_card_main">
       <Row gutter={16}>
         {loader ? (
-          <h2>Loading....</h2>
+          <Spinner />
         ) : getAllColseFriends.result?.user_friends ? (
           getAllColseFriends?.result?.user_friends.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");

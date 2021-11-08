@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 import { allFriends, allUser } from "../../../features/friends";
 import { useRouter } from "next/router";
+import Spinner from "../../../re-usabelComponent/common/spinner";
 export default function AllFriends(props) {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -49,13 +50,16 @@ export default function AllFriends(props) {
 
       try {
         let response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/chat/user/search`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/not_friend_users`,
           {
-            method: "GEt",
+            method: "POST",
             headers: {
-              "Content-Type": "application/json",
+              "Content-Type": "application/x-www-form-urlencoded",
               Authorization: `Token ${data.token}`,
             },
+            body: new URLSearchParams({
+              connection_type: "Friend",
+            }),
           }
         );
 
@@ -77,7 +81,7 @@ export default function AllFriends(props) {
     <div className="request_card_main">
       <Row gutter={16}>
         {loader ? (
-          <h2>Loading....</h2>
+          <Spinner />
         ) : getallFriends?.result?.user_friends ? (
           getallFriends?.result?.user_friends.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");

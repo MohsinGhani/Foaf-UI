@@ -10,6 +10,7 @@ import {
 } from "../../../features/friends";
 import { Row, Col, Divider } from "antd";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
+import Spinner from "../../../re-usabelComponent/common/spinner";
 
 export default function FriendsRequest(props) {
   const friendRequest = useSelector(
@@ -125,7 +126,7 @@ export default function FriendsRequest(props) {
       <div className="request_card_main">
         <Row gutter={16}>
           {loader1 ? (
-            <h2>Loading....</h2>
+            <Spinner />
           ) : friendRequest ? (
             friendRequest?.map((t, i) => (
               // console.log(t?.connection_creator.username, "bhai bhai");

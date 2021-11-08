@@ -10,8 +10,8 @@ export default function DropDown({ text, type }) {
     </Menu>
   );
   return (
-    <div className={`Drop ${type && "filter"}`}>
-      <Dropdown overlay={menu}>
+    <div className={`Drop ${type}`}>
+      <Dropdown overlay={menu} trigger={["click"]}>
         <p>
           {text}{" "}
           <span>

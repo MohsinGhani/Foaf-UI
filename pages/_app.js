@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { userDetailes } from "../component/features/user";
+import Spinner from "../component/re-usabelComponent/common/spinner";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -69,7 +70,8 @@ const AuthProvider = ({ children, pageComp }) => {
       }
     }
   }, [data?.token]);
-  if (isLoading || typeof window === "undefined") return <div>Loading...</div>;
+  if (isLoading || typeof window === "undefined")
+    return <Spinner name="load" />;
   if (
     router?.pathname !== "/login-page" &&
     router?.pathname !== "/signup-page" &&
