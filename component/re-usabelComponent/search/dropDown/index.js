@@ -4,7 +4,7 @@ export default function DropDown({ text, type }) {
   const menu = (
     <Menu>
       <Menu.Item>1st menu item</Menu.Item>
-      <Menu.Item>2nd menu item </Menu.Item>
+      <Menu.Item>2nd menu item..... </Menu.Item>
       <Menu.Item>3rd menu item </Menu.Item>
       <Menu.Item>a danger item</Menu.Item>
     </Menu>
