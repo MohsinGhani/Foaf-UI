@@ -83,6 +83,7 @@ export default function SearchTabs() {
             places.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard
+                  class="placeOutline"
                   id={i}
                   profile={data.profile}
                   text1={data.text1}

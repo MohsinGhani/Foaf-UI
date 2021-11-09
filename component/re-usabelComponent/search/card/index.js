@@ -15,7 +15,7 @@ export default function SearchCard(props) {
   return (
     <div className="Search_card">
       <div className="Search_text">
-        <div className="image">
+        <div className={`image ${props.class}`}>
           <Image src={props.profile} alt="pic" width="60px" height="60px" />
         </div>
         <div className="text">

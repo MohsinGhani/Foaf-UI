@@ -40,6 +40,11 @@ export default function Mainone(props) {
 
   console.log(stateData, "deshboard se data araha hai");
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (router.pathname === "/explore-page") {
+      setCollapsed(true);
+    }
+  }, [router]);
   const logout = () => {
     console.log("logout");
     Cookies.remove("token");
@@ -231,7 +236,11 @@ export default function Mainone(props) {
         </Sider>
       </div>
       <Layout className="site-layout">
-        <Content className="container">
+        <Content
+          className={`container ${
+            router.pathname === "/explore-page" && "widdeContainer"
+          }`}
+        >
           <div className="page">
             <TopBar />
             {props.component}

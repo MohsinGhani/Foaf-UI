@@ -1,16 +1,15 @@
 .explore-main_page {
-    max-height: 100vh;
+    // max-height: 100vh;
     // min-height: 100vh;
     // width: 100%;
-    overflow: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    .searchBar_main {
-        margin: 20px 0 40px 0;
-    }
+    display: flex;
+    justify-content: center;
+    // overflow: scroll;
+    // &::-webkit-scrollbar {
+    //     display: none;
+    // }
+
     .explore_tab {
-        margin: 0 40px 0 40px;
         .ant-tabs {
             .ant-tabs-nav {
                 &::before {
@@ -34,6 +33,12 @@
             }
             .ant-tabs-content-holder {
                 margin-top: 10px;
+                overflow: auto;
+                max-height: 83.8vh;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
                 .explore_image {
                     img {
                         padding: 5px;

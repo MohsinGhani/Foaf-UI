@@ -5,7 +5,9 @@ export default function SearchBarDashboard() {
   const router = useRouter();
   return (
     <div
-      className="searchBarHomeDashboard"
+      className={`searchBarHomeDashboard ${
+        router.pathname === "/explore-page" && "hidethis"
+      }`}
       onClick={() => {
         router.push("/explore-page");
       }}

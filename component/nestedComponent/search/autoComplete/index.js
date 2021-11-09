@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import { AutoComplete } from "antd";
 import Recent from "./recentIcon";
 import { Space } from "antd";
 import Popular from "./popularicon";
 import { useRouter } from "next/router";
+import { useRef } from "react";
 
 export default function AutoSearch({ condition }) {
   const router = useRouter();
-  const [back, setback] = useState(true);
+  const [background, setBackground] = useState(true);
+
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -61,16 +64,41 @@ export default function AutoSearch({ condition }) {
   const changeComponent = () => {
     condition(false);
   };
+  const classChange = () => {
+    setBackground(false);
+  };
+  const stateChange = (e) => {
+    if (!e.path.includes(search) && !background) {
+      setBackground(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!background) {
+      window.addEventListener("click", stateChange);
+    } else {
+      window.removeEventListener("click", stateChange);
+    }
+  }, [background]);
+
   return (
-    <div className="auto">
-      <AutoComplete
-        onSelect={changeComponent}
-        options={options}
-        placeholder="FOAF"
-        // filterOption={(inputValue, option) =>
-        //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-        // }
-      />
-    </div>
+    <>
+      <div className="auto">
+        <AutoComplete
+          onBlur={() => {
+            setBackground(true);
+          }}
+          id="search"
+          onClick={classChange}
+          onSelect={changeComponent}
+          options={options}
+          placeholder="Search FOAF"
+          // filterOption={(inputValue, option) =>
+          //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+          // }
+        />
+      </div>
+      <div className={background ? "hide" : "show"}></div>
+    </>
   );
 }
