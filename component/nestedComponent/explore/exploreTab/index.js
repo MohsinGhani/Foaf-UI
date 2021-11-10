@@ -28,10 +28,12 @@ export default function ExploreTabs() {
                   />
                   <div className="position">
                     <Profile
-                      classMain="image_profile"
-                      profile="/images/explore/profile.png"
-                      class="image"
+                      profile="/images/dashboard/samesize.svg"
                       time="10mins ago"
+                      className="pink"
+                      nameColor="storyText"
+                      name="Lydia Workman"
+                      class="image"
                     />
                   </div>
                 </div>

@@ -15,15 +15,15 @@
             align-items: center;
 
             input {
-                background: rgba(0, 0, 0, 0.4);
+                background-color: rgba(0, 0, 0, 0.4);
                 border-radius: 10px;
-                opacity: 0.4;
+                padding-right: 45px;
                 font-size: 14px;
                 font-weight: 600;
                 height: 50px;
                 border: none;
                 color: white;
-                backdrop-filter: blur(20px);
+                // backdrop-filter: blur(20px);
                 &:hover {
                     border: none;
                 }

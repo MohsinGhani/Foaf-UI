@@ -98,7 +98,8 @@ export default function HomeDashBoard() {
             profile="/images/dashboard/samesize.svg"
             time="10mins ago"
             Post="/images/dashboard/post.svg"
-            profilecolor={true}
+            profilecolor="grey"
+            name="Lydia Workman"
           />
         </div>
 
@@ -107,7 +108,8 @@ export default function HomeDashBoard() {
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
             Post="/images/dashboard/post3.jpg"
-            profilecolor={false}
+            profilecolor="pink"
+            name="Talan Bator"
           />
         </div>
         <div className="home_post">
@@ -115,7 +117,8 @@ export default function HomeDashBoard() {
             profile="/images/dashboard/ProfileImage2.svg "
             time="1hour ago"
             Post="/images/dashboard/post4.jpg"
-            profilecolor={false}
+            profilecolor="grey"
+            name="Lydia Workman"
           />
         </div>
         <div className="home_post">
@@ -123,7 +126,8 @@ export default function HomeDashBoard() {
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
             Post="/images/dashboard/sponsored.svg"
-            profilecolor={false}
+            profilecolor="grey "
+            name="Cristofer Westervelt"
           />
         </div>
       </div>

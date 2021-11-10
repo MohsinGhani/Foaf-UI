@@ -4,6 +4,7 @@ import SilkSlider from "../silkSlider";
 import StoryProfile from "../storyProfile";
 import StoryReply from "../storyReply";
 import StoryTimer from "../storyTimer";
+import Profile from "../../../../re-usabelComponent/profile";
 export default function StoryModal(Props) {
   const handleOk = () => {
     Props.unvisibel(false);
@@ -28,6 +29,7 @@ export default function StoryModal(Props) {
         onCancel={handleCancel}
       >
         <StoryProfile />
+
         <SilkSlider />
         {/* <StoryTimer /> */}
         <StoryReply />

@@ -1,43 +1,62 @@
-.image_profile {
-    .profile-main {
+.profile_main {
+    display: flex;
+    // width: 90%;
+    // max-width: 580px;
+    max-height: 60px;
+    justify-content: space-between;
+    // justify-content: center;
+    align-items: center;
+    padding-right: 22px;
+    // margin-bottom: 10px;
+    .profile-image {
         display: flex;
-        width: 100%;
-        // max-width: 580px;
-        // max-height: 60px;
-        justify-content: space-between;
-        // justify-content: center;
-        align-items: center;
-        padding-right: 22px;
-        // margin-bottom: 10px;
-        .profile-image {
+        .name {
             display: flex;
-            .profile {
-                width: 75px;
-                height: 75px;
-                margin: 0px 10px;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 10px;
+            .user_name {
+                img {
+                    margin-left: 2px !important;
+                }
             }
+            p {
+                margin: 0px;
+            }
+        }
 
-            .name {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                .display {
-                    display: flex;
-                    width: 200%;
-                    .text {
-                        color: #ffffff;
-                        font-size: 14px;
-                    }
-                }
-                p {
-                    color: #ffffff;
-                    font-weight: 400;
-                    font-size: 12px;
-                }
+        .storyText {
+            .user_name {
+                color: #ffffff;
+                font-weight: 600;
+                font-size: 16px;
+            }
+            p {
+                color: #ffffff;
+                font-size: 12px;
+            }
+        }
+
+        .homePostText {
+            .user_name {
+                color: #1e293b;
+                font-weight: 600;
+                font-size: 14px;
+            }
+            p {
+                color: #bfbfbf;
+                font-weight: 400;
+                font-size: 12px;
             }
         }
     }
+    .dot {
+        max-width: 30px;
+
+        max-height: 30px;
+    }
 }
+
 .ant-popover {
     .ant-popover-title {
         display: none;

@@ -1,26 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import { Popover } from "antd";
+import { Popover, Space } from "antd";
 import PopOver from "../../nestedComponent/explore/exploreTab/popover";
+import { Avatar } from "../common/avatar";
 
 export default function Profile(props) {
   return (
-    <div className={props.classMain}>
-      <div className="profile-main">
-        <div className="profile-image">
-          <Popover placement="bottom" content={<PopOver />} title="Title">
-            <div className="profile">
-              <Image
-                src={props.profile}
-                alt="postProfile"
-                width="100%"
-                height="100%"
-              />
-            </div>
-          </Popover>
-          <div className="name">
-            <div className="display">
-              <div className="text">Lydia Workman</div>
+    <div className="profile_main">
+      <div className="profile-image">
+        <Avatar profile={props.profile} classtext={props.className} />
+        <div className={` name  ${props.nameColor}`}>
+          <Space size={1} direction="vertical">
+            <div className="user_name">
+              {props.name}
               <Image
                 src="/images/dashboard/Badge.svg"
                 alt="Badge"
@@ -29,9 +21,20 @@ export default function Profile(props) {
               />
             </div>
             <p>{props.time}</p>
-          </div>
+          </Space>
         </div>
       </div>
+
+      {props.nameColor === "homePostText" && (
+        <div className="dot">
+          <Image
+            src="/images/dashboard/dots.svg"
+            alt="dot"
+            width="20"
+            height="30"
+          />
+        </div>
+      )}
     </div>
   );
 }

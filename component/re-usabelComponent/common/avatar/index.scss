@@ -1,0 +1,35 @@
+.grey {
+    min-width: 55px;
+    min-height: 55px;
+    border: 3px solid #bfbfbf;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+.pink {
+    min-width: 55px;
+    min-height: 55px;
+    border: 3px solid #fe5e71;
+
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+}
+.story {
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+.storyProfile {
+    img {
+        width: 60px;
+        height: 60px;
+    }
+}
+.img {
+    border: 2px solid #ffffff;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
+}
