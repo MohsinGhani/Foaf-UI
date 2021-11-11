@@ -70,8 +70,7 @@ const AuthProvider = ({ children, pageComp }) => {
       }
     }
   }, [data?.token]);
-  if (isLoading || typeof window === "undefined")
-    return <Spinner name="load" />;
+  if (isLoading) return <Spinner name="load" />;
   if (
     router?.pathname !== "/login-page" &&
     router?.pathname !== "/signup-page" &&
