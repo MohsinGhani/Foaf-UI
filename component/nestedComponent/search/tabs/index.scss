@@ -19,6 +19,26 @@
             .ant-tabs-extra-content {
                 margin-right: 30px;
                 margin-bottom: 30px;
+                .btn {
+                    background-color: unset;
+                    color: #4f4f4f;
+                    font-weight: 500;
+                    font-size: 15px;
+                    display: flex;
+                    align-items: center;
+                    span {
+                        svg {
+                            width: 12px;
+                            height: 15px;
+                            margin-left: 5px;
+                        }
+                    }
+
+                    &:hover {
+                        background: unset !important;
+                        color: #4f4f4f;
+                    }
+                }
             }
             &::before {
                 border-color: rgba(0, 0, 0, 0.19);

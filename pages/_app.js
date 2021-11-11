@@ -70,29 +70,28 @@ const AuthProvider = ({ children, pageComp }) => {
       }
     }
   }, [data?.token]);
-  if (process.browser) {
-    if (isLoading) return <Spinner name="load" />;
-    if (
-      router?.pathname !== "/login-page" &&
-      router?.pathname !== "/signup-page" &&
-      !data?.token
-    ) {
-      router.push("/login-page");
-      return <></>;
-    } else if (
-      (router?.pathname === "/login-page" ||
-        router?.pathname === "/signup-page") &&
-      data?.token
-    ) {
-      router.push("/");
-      return <></>;
-    } else if (
-      router?.pathname === "/login-page" ||
-      router?.pathname === "/signup-page"
-    )
-      return pageComp;
-  } else {
+
+  if (isLoading || typeof window === "undefined")
     return <Spinner name="load" />;
-  }
+  if (
+    router?.pathname !== "/login-page" &&
+    router?.pathname !== "/signup-page" &&
+    !data?.token
+  ) {
+    router.push("/login-page");
+    return <></>;
+  } else if (
+    (router?.pathname === "/login-page" ||
+      router?.pathname === "/signup-page") &&
+    data?.token
+  ) {
+    router.push("/");
+    return <></>;
+  } else if (
+    router?.pathname === "/login-page" ||
+    router?.pathname === "/signup-page"
+  )
+    return pageComp;
+
   return children;
 };

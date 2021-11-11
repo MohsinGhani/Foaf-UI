@@ -68,8 +68,12 @@ export default function AutoSearch({ condition }) {
     setBackground(false);
   };
   const stateChange = (e) => {
-    if (!e.path.includes(search) && !background) {
-      setBackground(true);
+    let search = document?.getElementById("search");
+    console.log(e.path, "path path");
+    if (condition) {
+      if (search && !e.path.includes(search) && !background) {
+        setBackground(true);
+      }
     }
   };
 

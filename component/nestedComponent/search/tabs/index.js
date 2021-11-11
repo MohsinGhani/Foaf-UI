@@ -9,17 +9,20 @@ import DropDown from "../../../re-usabelComponent/search/dropDown";
 import VedioCard from "../../../re-usabelComponent/search/vedioCard";
 import { people, places, events, video, group } from "../../../../shared/json";
 import GroupCard from "../../../re-usabelComponent/search/groupCard";
+import { UpOutlined, DownOutlined } from "@ant-design/icons";
+// import { Button } from "antd";
 export default function SearchTabs() {
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
-  const operations = <DropDown text="Filter" type="filter" />;
+  const [filter, setFilter] = useState(false);
+  const operations = (
+    <Button onClick={() => setFilter(!filter)}>
+      Filter {filter ? <UpOutlined /> : <DownOutlined />}
+    </Button>
+  );
   return (
-    <div
-      className={`Search_tabs_main ${
-        router.query.search === "Events" && "Event"
-      }`}
-    >
+    <div className={`Search_tabs_main ${filter && "Event"}`}>
       <Tabs
         tabBarExtraContent={operations}
         defaultActiveKey={
@@ -47,6 +50,7 @@ export default function SearchTabs() {
           }
           key="1"
         >
+          {filter && <EventOption />}
           {people &&
             people.map((data, i) => (
               <div className="map_card" key={i}>
@@ -79,6 +83,7 @@ export default function SearchTabs() {
           }
           key="2"
         >
+          {filter && <EventOption />}
           {places &&
             places.map((data, i) => (
               <div className="map_card" key={i}>
@@ -113,6 +118,7 @@ export default function SearchTabs() {
           }
           key="3"
         >
+          {filter && <EventOption />}
           {video &&
             video.map((data, i) => (
               <div className="map_card" key={i}>
@@ -147,6 +153,7 @@ export default function SearchTabs() {
           }
           key="5"
         >
+          {filter && <EventOption />}
           <div className="group_main">
             {group &&
               group.map((data, i) => (
@@ -173,7 +180,7 @@ export default function SearchTabs() {
           }
           key="6"
         >
-          <EventOption />
+          {filter && <EventOption />}
           {events &&
             events.map((data, i) => (
               <div className="map_card" key={i}>

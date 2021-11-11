@@ -19,15 +19,18 @@
                     justify-content: center;
                     .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
                         color: unset;
+                        font-weight: 600;
                     }
                     .ant-tabs-tab {
-                        padding: unset;
+                        padding: 0 0 3px 0;
+
                         &:hover {
                             color: unset;
                         }
                     }
                     .ant-tabs-ink-bar {
                         background: black;
+                        height: 1px;
                     }
                 }
             }

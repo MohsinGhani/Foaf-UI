@@ -666,6 +666,9 @@
     }
     .logo {
         display: none;
+        .logoChild {
+            display: none !important;
+        }
     }
     .menu-scroll {
         display: none !important;
