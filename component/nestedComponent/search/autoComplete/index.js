@@ -22,7 +22,7 @@ export default function AutoSearch({ condition }) {
       </div>
     ),
   });
-  console.log(renderItem(), "hhh");
+
   const options = [
     {
       options: [
@@ -63,22 +63,22 @@ export default function AutoSearch({ condition }) {
 
   const changeComponent = () => {
     condition(false);
-  };
-  const classChange = () => {
-    setBackground(false);
+    setBackground(true);
+    console.log("hello");
   };
   const stateChange = (e) => {
-    let search = document?.getElementById("search");
     console.log(e.path, "path path");
+    let search = document?.getElementById("search");
+
     if (condition) {
-      if (search && !e.path.includes(search) && !background) {
-        setBackground(true);
+      if (search && e.path.includes(search) && background) {
+        setBackground(false);
       }
     }
   };
 
   useEffect(() => {
-    if (!background) {
+    if (background) {
       window.addEventListener("click", stateChange);
     } else {
       window.removeEventListener("click", stateChange);
@@ -93,8 +93,8 @@ export default function AutoSearch({ condition }) {
             setBackground(true);
           }}
           id="search"
-          onClick={classChange}
-          onSelect={changeComponent}
+          dropdownClassName="hanadhakslflallasbjlabdgjlba"
+          onSelect={() => changeComponent()}
           options={options}
           placeholder="Search FOAF"
           // filterOption={(inputValue, option) =>
