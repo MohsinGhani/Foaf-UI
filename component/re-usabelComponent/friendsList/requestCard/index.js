@@ -12,6 +12,7 @@ import {
   familyFriendRequest,
 } from "../../../features/friends";
 import { useState } from "react";
+import { remove } from "js-cookie";
 
 export default function RequestCard(props) {
   const statedata = useSelector((state) => state);
@@ -85,6 +86,31 @@ export default function RequestCard(props) {
     }
   };
 
+  const remove = async () => {
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/remove_connection`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_request_id: props.id,
+          }),
+        }
+      );
+
+      const removeResponse = await response.json();
+      console.log(removeResponse, "remove ka response");
+      // dispatch(freindRequest(getallfriendsrequest));
+      const friendDat = getdata();
+      return friendDat;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
   const getdata = async () => {
     try {
       let response = await fetch(
@@ -202,7 +228,12 @@ export default function RequestCard(props) {
               <p>confirm</p>
             </Button>
           ) : (
-            <Button disabled={props.but}>
+            <Button
+              disabled={props.but}
+              onClick={() => {
+                remove();
+              }}
+            >
               <p>Remove</p>
             </Button>
           )}

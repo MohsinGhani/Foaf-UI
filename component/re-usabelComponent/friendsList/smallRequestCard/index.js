@@ -148,10 +148,23 @@ export default function SmallRequestcard(props) {
             disabled={but}
             onClick={() => {
               seleted ? setselected(false) : setselected(true);
-              !seleted && add();
+              !seleted ||
+                (props.connection &&
+                  !props.connection
+                    ?.filter((data) => data?.user_id === props.id)
+                    .every((item) => item.request_sent) &&
+                  add());
             }}
           >
-            {seleted ? <p>selected</p> : <p>select</p>}
+            {seleted ||
+            (props.connection &&
+              props.connection
+                ?.filter((data) => data?.user_id === props.id)
+                .every((item) => item.request_sent)) ? (
+              <p>selected</p>
+            ) : (
+              <p>select</p>
+            )}
           </Button>
         </div>
         {/* {props.friendRequest && (

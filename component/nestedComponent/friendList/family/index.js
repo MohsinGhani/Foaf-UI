@@ -4,7 +4,7 @@ import { Row, Col, Divider } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 import { route } from "next/dist/server/router";
-import { allFamilyFriend } from "../../../features/friends";
+import { allFamilyFriend, familyConnection } from "../../../features/friends";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Spinner from "../../../re-usabelComponent/common/spinner";

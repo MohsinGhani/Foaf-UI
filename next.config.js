@@ -37,3 +37,9 @@ module.exports = {
   },
 };
 module.exports = withImage();
+module.exports = {
+  images: {
+    loader: "imgix",
+    path: "https://foaf-ui.web.app/",
+  },
+};

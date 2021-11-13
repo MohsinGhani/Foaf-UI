@@ -33,7 +33,7 @@ export default function Topbar() {
     (state) => state?.freinds?.closeConnection?.result?.user_list
   );
   const familyCon = useSelector(
-    (state) => state?.freinds?.closeConnection?.result?.user_list
+    (state) => state?.freinds?.familyConnection?.result?.user_list
   );
 
   var noncloseFriend = friend?.filter(
