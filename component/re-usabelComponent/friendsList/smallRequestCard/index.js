@@ -148,7 +148,7 @@ export default function SmallRequestcard(props) {
             disabled={but}
             onClick={() => {
               seleted ? setselected(false) : setselected(true);
-              !seleted ||
+              seleted ||
                 (props.connection &&
                   !props.connection
                     ?.filter((data) => data?.user_id === props.id)

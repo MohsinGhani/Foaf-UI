@@ -12,6 +12,7 @@ export default function AllFriends(props) {
   const dispatch = useDispatch();
   const [getallFriends, setgetAllFriends] = useState({});
   const [loader, setloader] = useState(false);
+  const [but, setBut] = useState(false);
   const allFriend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
   );
@@ -82,14 +83,17 @@ export default function AllFriends(props) {
       <Row gutter={16}>
         {loader ? (
           <Spinner />
-        ) : getallFriends?.result?.user_friends ? (
-          getallFriends?.result?.user_friends.map((t, i) => (
+        ) : allFriend ? (
+          allFriend.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
               <div className="request_card">
                 <RequestCard
                   id={t?.id}
                   allFreinds={props.allFriends}
+                  setBut={setBut}
+                  but={but}
+                  connection_type="Friend"
                   url="/images/request/requestProfile1.svg"
                   name={t?.friend.username}
                 />

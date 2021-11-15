@@ -51,6 +51,7 @@ export default function RequestCard(props) {
       return friendData;
     } catch (err) {
       console.log(err), "error araha hai";
+      props.setBut(false);
     }
   };
 
@@ -59,7 +60,7 @@ export default function RequestCard(props) {
     //   response: false,
     //   connection_request_id: props.id,
     // };
-
+    props.setBut(true);
     try {
       let response = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/response_connection_request`,
@@ -83,6 +84,7 @@ export default function RequestCard(props) {
       return friendDat;
     } catch (err) {
       console.log(err), "error araha hai";
+      props.setBut(false);
     }
   };
 
@@ -128,15 +130,18 @@ export default function RequestCard(props) {
       );
 
       const getallfriends = await response.json();
-      console.log(getallfriends, "getallfriends");
-      props.connection_type === "Friend" && dispatch(allFriends(getallfriends));
-      props.connection_type === "Closefriend" &&
-        dispatch(allCloseFriend(getallfriends));
-      props.connection_type === "Family" &&
-        dispatch(allFamilyFriend(getallfriends));
 
-      hellodata();
-      return allFriends;
+      props.connection_type === "Friend" &&
+        dispatch(allFriends(getallfriends)) &&
+        console.log(getallfriends, "getallfriends ssss");
+      props.connection_type === "Closefriend" &&
+        dispatch(allCloseFriend(getallfriends)) &&
+        console.log(getallfriends, "getallClosefriends sssss");
+      props.connection_type === "Family" &&
+        dispatch(allFamilyFriend(getallfriends)) &&
+        console.log(getallfriends, "getallFamilyfriends  ssssss");
+
+      return hellodata();
     } catch (err) {
       console.log(err), "error araha hai";
     }
@@ -158,15 +163,17 @@ export default function RequestCard(props) {
       );
 
       const getallfriendsrequest = await response.json();
-      console.log(getallfriendsrequest, "getallfriendsrequest");
 
       props.connection_type === "Friend" &&
-        dispatch(freindRequest(getallfriendsrequest));
+        dispatch(freindRequest(getallfriendsrequest)) &&
+        console.log(getallfriendsrequest, "getallfriendsrequest");
       props.connection_type === "Closefriend" &&
-        dispatch(closeFriendsRequest(getallfriendsrequest));
+        dispatch(closeFriendsRequest(getallfriendsrequest)) &&
+        console.log(getallfriendsrequest, "getallClosefriendsrequest");
       props.connection_type === "Family" &&
-        dispatch(familyFriendRequest(getallfriendsrequest));
-      return freindRequest;
+        dispatch(familyFriendRequest(getallfriendsrequest)) &&
+        console.log(getallfriendsrequest, "getallFamilyfriendsrequest");
+      // return freindRequest;
     } catch (err) {
       console.log(err), "error araha hai";
       setBut(true);
@@ -229,8 +236,10 @@ export default function RequestCard(props) {
             </Button>
           ) : (
             <Button
-              disabled={props.but}
+              disabled={selected === props.id ? props.but : false}
+              // disabled={props.but}
               onClick={() => {
+                setSelected(props.id);
                 remove();
               }}
             >

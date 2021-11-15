@@ -12,11 +12,14 @@ export default function CloseFriends(props) {
   const router = useRouter();
   const [getAllColseFriends, setgetAllCloseFriends] = useState({});
   const [loader, setloader] = useState(false);
+  const [but, setBut] = useState(false);
   // const allFriend = useSelector((state) => state?.freinds?.allfriend);
   // const allCloseFrien = useSelector(
   //   (state) => state?.freinds?.allCloseFriend?.result?.user_friends
   // );
-  // const allClose = useSelector((state) => state?.freinds?.allCloseFriend);
+  const allClose = useSelector(
+    (state) => state?.freinds?.allCloseFriend?.result?.user_friends
+  );
 
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
@@ -74,20 +77,23 @@ export default function CloseFriends(props) {
       setloader(false);
     }
   }, [router]);
-  console.log("get All Close Friend", getAllColseFriends);
+
   return (
     <div className="request_card_main">
       <Row gutter={16}>
         {loader ? (
           <Spinner />
-        ) : getAllColseFriends.result?.user_friends ? (
-          getAllColseFriends?.result?.user_friends.map((t, i) => (
+        ) : allClose ? (
+          allClose.map((t, i) => (
             // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
               <div className="request_card">
                 <RequestCard
                   id={t?.id}
                   closeFriends={props.closeFriends}
+                  setBut={setBut}
+                  but={but}
+                  connection_type="Closefriend"
                   url="/images/request/requestProfile1.svg"
                   name={t?.friend.username}
                 />
