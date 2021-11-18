@@ -128,9 +128,16 @@
 }
 
 .group_main {
+    display: grid;
     width: 100%;
-    padding: 0 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    // padding: 0 200px;
+
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: flex-start;
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(100px, 232px));
+    // grid-template-columns: repeat(4, 232px);
+    // grid-auto-rows: 1fr;
+    grid-gap: 1rem;
 }

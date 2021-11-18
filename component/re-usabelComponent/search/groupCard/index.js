@@ -6,7 +6,13 @@ export default function GroupCard({ profile, text1 }) {
   return (
     <div className="group_card">
       <div className="image">
-        <Image src={profile} alt="image" width="214px" height="214px" />
+        <Image
+          src={profile}
+          alt="image"
+          width="214px"
+          height="214px"
+          layout="responsive"
+        />
       </div>
       <div className="bottom">
         <Space direction="vertical" size={0}>
