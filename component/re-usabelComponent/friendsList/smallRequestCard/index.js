@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   allFriends,
   freindRequest,
   closeFriendsRequest,
 } from "../../../features/friends";
+import { remove } from "js-cookie";
 
 export default function SmallRequestcard(props) {
   const [seleted, setselected] = useState(false);
@@ -16,6 +17,13 @@ export default function SmallRequestcard(props) {
 
   var data = statedata.user.userDetailes.result?.user;
   var id = statedata.user.userDetailes.result?.user?.id;
+  useEffect(() => {
+    props.connection &&
+      props.connection
+        ?.filter((data) => data?.user_id === props.id)
+        .every((item) => item.request_sent) &&
+      setselected(true);
+  }, [props]);
 
   const add = async () => {
     try {
@@ -44,6 +52,32 @@ export default function SmallRequestcard(props) {
       console.log(err), "error araha hai";
     }
   };
+  const remove = async () => {
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/remove_connection`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_request_id: "hello",
+          }),
+        }
+      );
+
+      const removeResponse = await response.json();
+      console.log(removeResponse, "remove ka response");
+      // dispatch(freindRequest(getallfriendsrequest));
+      const friendDat = getdata();
+      return friendDat;
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+
   const getdata = async () => {
     try {
       let response = await fetch(
@@ -92,6 +126,9 @@ export default function SmallRequestcard(props) {
       console.log(err), "error araha hai";
     }
   };
+
+  console.log(seleted, "value of selected");
+  console.log(props.connection, "priop.connection");
   return (
     <div className="small_requestCard_main">
       <div className="request">
@@ -133,11 +170,7 @@ export default function SmallRequestcard(props) {
         {/* </div> */}
         <div
           className={
-            seleted ||
-            (props.connection &&
-              props.connection
-                ?.filter((data) => data?.user_id === props.id)
-                .every((item) => item.request_sent))
+            seleted
               ? ` ${props.connectionType === "Closefriend" && "closeFriend"} ${
                   props.connectionType === "Family" && "family"
                 } ${props.connectionType === "Friend" && "alluser"}`
@@ -148,23 +181,10 @@ export default function SmallRequestcard(props) {
             disabled={but}
             onClick={() => {
               seleted ? setselected(false) : setselected(true);
-              seleted ||
-                (props.connection &&
-                  !props.connection
-                    ?.filter((data) => data?.user_id === props.id)
-                    .every((item) => item.request_sent) &&
-                  add());
+              seleted ? remove() : add();
             }}
           >
-            {seleted ||
-            (props.connection &&
-              props.connection
-                ?.filter((data) => data?.user_id === props.id)
-                .every((item) => item.request_sent)) ? (
-              <p>selected</p>
-            ) : (
-              <p>select</p>
-            )}
+            {seleted ? <p>selected</p> : <p>select</p>}
           </Button>
         </div>
         {/* {props.friendRequest && (
