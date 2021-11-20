@@ -25,6 +25,7 @@ export default function AllFriends(props) {
   var data = statedata?.user?.userDetailes?.result?.user;
 
   useEffect(async () => {
+    console.log("hello hello hello hello");
     if (router.query.connection === "All-friends") {
       setloader(true);
       try {
@@ -76,7 +77,7 @@ export default function AllFriends(props) {
 
   // console.log("get All Friend", allFriends);
   // console.log("fullState", fullState);
-  console.log("loader", loader);
+  // console.log("loader", loader);
 
   return (
     <div className="request_card_main">

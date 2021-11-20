@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
@@ -6,25 +7,35 @@ import {
   allFriends,
   freindRequest,
   closeFriendsRequest,
+  familyConnection,
+  closeConnection,
+  allUser,
 } from "../../../features/friends";
 import { remove } from "js-cookie";
 
 export default function SmallRequestcard(props) {
   const [seleted, setselected] = useState(false);
   const [but, setBut] = useState(false);
+  const [connectionid, setConnectionId] = useState(null);
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
 
   var data = statedata.user.userDetailes.result?.user;
   var id = statedata.user.userDetailes.result?.user?.id;
+
   useEffect(() => {
     props.connection &&
       props.connection
         ?.filter((data) => data?.user_id === props.id)
         .every((item) => item.request_sent) &&
       setselected(true);
-  }, [props]);
 
+    let connectionId =
+      props.connection &&
+      props.connection?.filter((data) => data?.user_id === props.id)[0]
+        ?.connection_id;
+    setConnectionId(connectionId);
+  }, [props]);
   const add = async () => {
     try {
       let response = await fetch(
@@ -53,28 +64,30 @@ export default function SmallRequestcard(props) {
     }
   };
   const remove = async () => {
-    try {
-      let response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/remove_connection`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Token ${data.token}`,
-          },
-          body: new URLSearchParams({
-            connection_request_id: "hello",
-          }),
-        }
-      );
+    if (connectionid) {
+      console.log(connectionid, "connectionid");
+      try {
+        let response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/remove_connection`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Token ${data.token}`,
+            },
+            body: new URLSearchParams({
+              connection_request_id: connectionid,
+            }),
+          }
+        );
 
-      const removeResponse = await response.json();
-      console.log(removeResponse, "remove ka response");
-      // dispatch(freindRequest(getallfriendsrequest));
-      const friendDat = getdata();
-      return friendDat;
-    } catch (err) {
-      console.log(err), "error araha hai";
+        const removeResponse = await response.json();
+        console.log(removeResponse, "remove ka response");
+        const friendDat = getdata();
+        return friendDat;
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
     }
   };
 
@@ -96,8 +109,35 @@ export default function SmallRequestcard(props) {
 
       const getallfriendsrequest = await response.json();
       console.log(getallfriendsrequest, "getallfriendsrequestinclosefriend");
-      // dispatch(closeFriendsRequest(getallfriendsrequest));
       hellodata();
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+
+    try {
+      let response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/not_friend_users`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            connection_type: props.connectionType,
+          }),
+        }
+      );
+
+      const getallFamilyConnection = await response.json();
+
+      console.log(getallFamilyConnection, props.connectionType);
+      (props.connectionType === "Closefriend" &&
+        dispatch(closeConnection(getallFamilyConnection))) ||
+        (props.connectionType === "Family" &&
+          dispatch(familyConnection(getallFamilyConnection))) ||
+        (props.connectionType === "Friend" &&
+          dispatch(allUser(getallFamilyConnection)));
     } catch (err) {
       console.log(err), "error araha hai";
     }
@@ -127,8 +167,8 @@ export default function SmallRequestcard(props) {
     }
   };
 
-  console.log(seleted, "value of selected");
-  console.log(props.connection, "priop.connection");
+  // console.log(seleted, "value of selected");
+  // console.log(props.connection, "priop.connection");
   return (
     <div className="small_requestCard_main">
       <div className="request">
