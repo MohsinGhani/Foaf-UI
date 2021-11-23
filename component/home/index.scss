@@ -1,5 +1,7 @@
 .home_main {
-    max-height: 100vh;
+    // max-height: 100vh;
+    // height: calc(100vh - 1px);
+    height: 100%;
     display: flex;
     // @include sm {
     //     border: 1px solid #000;

@@ -5,7 +5,7 @@ import TrendingPost from "../../../re-usabelComponent/trending/trendingPost";
 export default function TrendingTabs() {
   const { TabPane } = Tabs;
   return (
-    <div className="trend_tabs">
+    <div className="trend_tabs fade-in">
       <p className="heading">Trending</p>
       <div>
         <Tabs defaultActiveKey="1">

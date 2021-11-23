@@ -8,7 +8,7 @@ export default function Explor() {
   const [show, setShow] = useState(true);
 
   return (
-    <div>
+    <div className="explore">
       <AutoSearch condition={setShow} />
       {show ? <ExploreTabs /> : <SearchTabs />}
     </div>

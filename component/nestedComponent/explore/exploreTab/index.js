@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import SearchBar from "../../../re-usabelComponent/searchBar";
-import { Tabs } from "antd";
+import { Popover, Tabs } from "antd";
 import Image from "next/image";
 import Profile from "../../../re-usabelComponent/profile";
+import PopOver from "./popover";
 export default function ExploreTabs() {
   const { TabPane } = Tabs;
   return (
@@ -34,6 +35,8 @@ export default function ExploreTabs() {
                       nameColor="storyText"
                       name="Lydia Workman"
                       class="image"
+                      Popover={true}
+                      component={<PopOver />}
                     />
                   </div>
                 </div>

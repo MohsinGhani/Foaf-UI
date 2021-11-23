@@ -37,7 +37,8 @@
             .ant-tabs-content-holder {
                 margin-top: 10px;
                 overflow: auto;
-                max-height: 83.8vh;
+                // max-height: 80vh;
+                max-height: calc(100vh - 195px);
 
                 &::-webkit-scrollbar {
                     display: none;

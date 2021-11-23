@@ -1,4 +1,4 @@
-.layout {
+.layout_main {
     max-height: 100vh !important;
     // background: #ffffff !important;
     // margin-top: 30px;
@@ -212,8 +212,10 @@
                     }
                     .logout {
                         background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
-                        path {
-                            stroke: #bfbfbf;
+                        svg {
+                            path {
+                                fill: white;
+                            }
                         }
                     }
                     .home {
@@ -489,10 +491,15 @@
     // }
     .widdeContainer {
         max-width: 1558px !important;
+        display: block !important;
+        // margin-top: 15px !important;
     }
     .container {
         margin: 0 auto;
         max-width: 1158px;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
         // min-height: 964px;
         // padding-top: 30px;
         // overflow: hidden;
@@ -501,9 +508,9 @@
         // min-width: 1280px;
 
         .page {
-            width: 100wh;
+            // width: 100wh;
             // padding: 50px 0px;
-            height: 100vh;
+            height: 97vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
             // margin-top: 30px;

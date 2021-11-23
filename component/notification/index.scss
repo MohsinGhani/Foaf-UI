@@ -1,5 +1,7 @@
 .notification_main_page {
-    max-height: 100vh;
+    // max-height: 100vh;
+    // height: calc(100vh - 1px);
+    height: 100%;
     overflow: scroll;
     &::-webkit-scrollbar {
         display: none;

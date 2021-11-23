@@ -13,10 +13,12 @@ export default function PopOver() {
     <div className="pop_main">
       <div className="profile_site">
         <Profile
-          classMain="over"
-          profile="/images/explore/profile.png"
-          class="image"
+          profile="/images/dashboard/samesize.svg"
           time="10mins ago"
+          className="popOverAvater"
+          nameColor="popOver"
+          name="Lydia Workman"
+          class="image"
         />
         <Button className="buttononer">
           <p>Add Friends</p> <PlusCircleOutlined />

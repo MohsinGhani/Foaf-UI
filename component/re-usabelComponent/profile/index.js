@@ -8,7 +8,13 @@ export default function Profile(props) {
   return (
     <div className="profile_main">
       <div className="profile-image">
-        <Avatar profile={props.profile} classtext={props.className} />
+        <Avatar
+          profile={props.profile}
+          classtext={props.className}
+          Popover={props.Popover}
+          component={props.component}
+        />
+
         <div className={` name  ${props.nameColor}`}>
           <Space size={1} direction="vertical">
             <div className="user_name">
