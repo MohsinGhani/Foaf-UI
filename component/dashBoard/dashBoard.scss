@@ -99,7 +99,8 @@
 
             // min-width: 270px !important;
             min-height: 38%;
-
+            position: absolute;
+            left: 0px;
             // min-height: 50%;
             // max-height: calc(100%-500px);
             // min-height: 30%;
@@ -719,5 +720,13 @@
 @media screen and (max-width: 1671px) {
     .show_search {
         display: -webkit-box !important;
+    }
+}
+@media screen and (max-width: 1678px) {
+    .menu-scroll {
+        .slider {
+            position: unset !important;
+            // left: 0;
+        }
     }
 }

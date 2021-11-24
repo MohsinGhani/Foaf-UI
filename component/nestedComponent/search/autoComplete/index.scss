@@ -64,3 +64,10 @@
 .rc-virtual-list {
     margin: 4px;
 }
+#AutoSearchIcon {
+    display: flex;
+    align-items: center;
+    margin-left: -40px;
+    z-index: 1111111;
+    cursor: pointer;
+}

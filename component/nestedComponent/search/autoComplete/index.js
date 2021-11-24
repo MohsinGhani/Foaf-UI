@@ -6,11 +6,16 @@ import { Space } from "antd";
 import Popular from "./popularicon";
 import { useRouter } from "next/router";
 import { useRef } from "react";
+import SearchBar from "../../../re-usabelComponent/searchBar";
+import Searchicon from "../../dashBoard/dashboardIcons/search";
+import AutoSearchS from "./autoCompleteSearchIcon";
+import AutoSearchIcon from "./autoCompleteSearchIcon";
 
 export default function AutoSearch({ condition }) {
   const router = useRouter();
   const [background, setBackground] = useState(true);
-
+  const [searchValue, setSearchValue] = useState("");
+  console.log(background, "hellooooooo");
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -60,16 +65,16 @@ export default function AutoSearch({ condition }) {
   //     value: "cricket",
   //   },
   // ];
-
+  const onChange = (data) => {
+    setSearchValue(data);
+  };
   const changeComponent = () => {
     condition(false);
     setBackground(true);
-    console.log("hello");
   };
   const stateChange = (e) => {
-    console.log(e.path, "path path");
     let search = document?.getElementById("search");
-
+    // console.log(e.path, "key ya rahi bhai");
     if (condition) {
       if (search && e.path.includes(search) && background) {
         setBackground(false);
@@ -97,10 +102,19 @@ export default function AutoSearch({ condition }) {
           onSelect={() => changeComponent()}
           options={options}
           placeholder="Search FOAF"
+          onChange={onChange}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setBackground(true);
+              console.log(e, "key");
+            }
+          }}
+          value={searchValue}
           // filterOption={(inputValue, option) =>
           //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
           // }
         />
+        <AutoSearchIcon text={searchValue} />
       </div>
       <div className={background ? "hide" : "show"}></div>
     </>

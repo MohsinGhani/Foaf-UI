@@ -105,7 +105,7 @@ export default function Mainone(props) {
               className={`${"show_search"} router.pathname == "/search-page" ? "active" : ""`}
               icon={<Searchicon />}
             >
-              <Link href="/search-page">Explore FOAF</Link>
+              <Link href="/explore-page">Explore FOAF</Link>
             </Menu.Item>
 
             <Menu.Item
