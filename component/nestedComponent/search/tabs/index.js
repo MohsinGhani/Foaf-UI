@@ -10,12 +10,29 @@ import VedioCard from "../../../re-usabelComponent/search/vedioCard";
 import { people, places, events, video, group } from "../../../../shared/json";
 import GroupCard from "../../../re-usabelComponent/search/groupCard";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
+import { useSelector } from "react-redux";
+import Spinner from "../../../re-usabelComponent/common/spinner";
 // import { Button } from "antd";
 export default function SearchTabs() {
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
   const [filter, setFilter] = useState(false);
+  const statedata = useSelector((state) => state?.search?.allSearch?.result);
+  const loader = useSelector((state) => state?.search?.loader);
+  const users = statedata?.users;
+  const groups = statedata?.groups;
+  const pages = statedata?.pages;
+  // console.log(users, "all user data is here");
+  // console.log(people, "all people data is here");
+
+  // const joinData = users.map((data, i) =>
+  //   { let hello = data[i]
+  //     hello = people.map((data, i) => data[i]
+  //   })
+  // );
+  // console.log(joinData, "join data is here");
+
   const operations = (
     <Button onClick={() => setFilter(!filter)}>
       Filter {filter ? <UpOutlined /> : <DownOutlined />}
@@ -51,21 +68,24 @@ export default function SearchTabs() {
           key="1"
         >
           {filter && <EventOption />}
-          {people &&
-            people.map((data, i) => (
+          {loader ? (
+            users?.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard
                   id={i}
                   setSelected={setSelected}
                   selected={selected}
                   profile={data.profile}
-                  text1={data.text1}
-                  text2={data.text2}
-                  text3={data.text3}
-                  text4={data.text4}
+                  text1={data.username}
+                  // text2={data.text2}
+                  // text3={data.text3}
+                  // text4={data.text4}
                 />
               </div>
-            ))}
+            ))
+          ) : (
+            <Spinner />
+          )}
         </TabPane>
         <TabPane
           tab={

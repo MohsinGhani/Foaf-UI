@@ -16,7 +16,12 @@ export default function SearchCard(props) {
     <div className="Search_card">
       <div className="Search_text">
         <div className={`image ${props.class}`}>
-          <Image src={props.profile} alt="pic" width="60px" height="60px" />
+          <Image
+            src="/images/search/people2.png"
+            alt="pic"
+            width="60px"
+            height="60px"
+          />
         </div>
         <div className="text">
           <Space size={5}>
@@ -41,9 +46,11 @@ export default function SearchCard(props) {
             </div>
             <div className="freind_btn">Friends</div>
           </Space>
-          <div className="color_text">{props.text2}</div>
-          <div className="color_text">{props.text3}</div>
-          <div className="color_text">{props.text4}</div>
+          <div className="color_text">Freind</div>
+          <div className="color_text">29 Mutual Friend</div>
+          <div className="color_text">
+            Senior Design and marketing engineer at IT TECHNOLOGY
+          </div>
         </div>
       </div>
       <div

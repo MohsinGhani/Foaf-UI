@@ -1,35 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { API } from "../../../../../pages/api/search";
+import { allSearch, loader } from "../../../../features/search";
 
-export default function AutoSearchIcon({ text }) {
-  const searchData = async () => {
+export default function AutoSearchIcon({ text, condition }) {
+  // const [loader, setLoader] = useState("");
+  const dispatch = useDispatch();
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
+
+  const search = async () => {
     console.log(text, "hello");
-    // try {
-    //   let response = await fetch(`${API.SEARCH_ALL}`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/x-www-form-urlencoded",
-    //       Authorization: `Token ${data.token}`,
-    //     },
-    //     body: new URLSearchParams({
-    //       search_name: { text },
-    //     }),
-    //   });
+    dispatch(loader(false));
+    condition(false);
+    if (text) {
+      try {
+        let response = await fetch(`${API.SEARCH_ALL}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Token ${data.token}`,
+          },
+          body: new URLSearchParams({
+            search_name: text,
+            search_by: ["Users", "Groups", "Pages"],
+          }),
+        });
 
-    //   const allSearc = await response.json();
-    //   // setgetAllFriends(getallfriends);
-    //   console.log(allSearc, "getalluser");
-    //   // dispatch(allUser(getalluser));
-    // } catch (err) {
-    //   console.log(err), "error araha hai";
-    // }
+        const SearchData = await response.json();
+        // setgetAllFriends(getallfriends);
+        console.log(SearchData, "getalluser");
+        dispatch(allSearch(SearchData));
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
+    }
   };
 
   return (
     <div
       id="AutoSearchIcon"
       onClick={() => {
-        searchData();
+        search();
       }}
     >
       <svg

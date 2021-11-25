@@ -67,6 +67,7 @@ export default function AutoSearch({ condition }) {
   // ];
   const onChange = (data) => {
     setSearchValue(data);
+    setBackground(false);
   };
   const changeComponent = () => {
     condition(false);
@@ -114,7 +115,7 @@ export default function AutoSearch({ condition }) {
           //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
           // }
         />
-        <AutoSearchIcon text={searchValue} />
+        <AutoSearchIcon text={searchValue} condition={condition} />
       </div>
       <div className={background ? "hide" : "show"}></div>
     </>
