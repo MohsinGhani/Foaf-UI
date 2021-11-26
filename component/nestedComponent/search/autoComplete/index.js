@@ -15,6 +15,7 @@ export default function AutoSearch({ condition }) {
   const router = useRouter();
   const [background, setBackground] = useState(true);
   const [searchValue, setSearchValue] = useState("");
+  const [enterSearch, setEnterSearch] = useState(false);
   console.log(background, "hellooooooo");
   const renderItem = (title, icon) => ({
     value: title,
@@ -107,7 +108,8 @@ export default function AutoSearch({ condition }) {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               setBackground(true);
-              console.log(e, "key");
+              setEnterSearch(true);
+              condition(false);
             }
           }}
           value={searchValue}
@@ -115,7 +117,13 @@ export default function AutoSearch({ condition }) {
           //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
           // }
         />
-        <AutoSearchIcon text={searchValue} condition={condition} />
+        <AutoSearchIcon
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          condition={condition}
+          enterSearch={enterSearch}
+          setEnterSearch={setEnterSearch}
+        />
       </div>
       <div className={background ? "hide" : "show"}></div>
     </>

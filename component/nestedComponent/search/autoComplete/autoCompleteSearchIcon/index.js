@@ -3,17 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { API } from "../../../../../pages/api/search";
 import { allSearch, loader } from "../../../../features/search";
 
-export default function AutoSearchIcon({ text, condition }) {
+export default function AutoSearchIcon({
+  searchValue,
+  condition,
+  enterSearch,
+  setEnterSearch,
+}) {
   // const [loader, setLoader] = useState("");
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
-
+  // console.log(condition, "condition me kiya araha hai");
   const search = async () => {
-    console.log(text, "hello");
-    dispatch(loader(false));
     condition(false);
-    if (text) {
+    dispatch(loader(false));
+    if (searchValue) {
       try {
         let response = await fetch(`${API.SEARCH_ALL}`, {
           method: "POST",
@@ -22,7 +26,7 @@ export default function AutoSearchIcon({ text, condition }) {
             Authorization: `Token ${data.token}`,
           },
           body: new URLSearchParams({
-            search_name: text,
+            search_name: searchValue,
             search_by: ["Users", "Groups", "Pages"],
           }),
         });
@@ -35,8 +39,9 @@ export default function AutoSearchIcon({ text, condition }) {
         console.log(err), "error araha hai";
       }
     }
+    setEnterSearch(false);
   };
-
+  enterSearch && searchValue && search();
   return (
     <div
       id="AutoSearchIcon"

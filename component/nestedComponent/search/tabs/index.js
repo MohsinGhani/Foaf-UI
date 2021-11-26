@@ -58,7 +58,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { search: "people" },
+                  query: { tab: "people" },
                 });
               }}
             >
@@ -76,7 +76,7 @@ export default function SearchTabs() {
                   setSelected={setSelected}
                   selected={selected}
                   profile={data.profile}
-                  text1={data.username}
+                  text1={data.user_username}
                   // text2={data.text2}
                   // text3={data.text3}
                   // text4={data.text4}
@@ -94,7 +94,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { search: "places" },
+                  query: { tab: "places" },
                 });
               }}
             >
@@ -129,7 +129,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { search: "Video" },
+                  query: { tab: "Video" },
                 });
               }}
             >
@@ -164,7 +164,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { search: "Groups" },
+                  query: { tab: "Groups" },
                 });
               }}
             >
@@ -191,7 +191,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { search: "Events" },
+                  query: { tab: "Events" },
                 });
               }}
             >
