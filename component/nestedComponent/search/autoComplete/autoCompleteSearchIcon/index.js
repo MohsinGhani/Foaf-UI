@@ -1,22 +1,37 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { API } from "../../../../../pages/api/search";
 import { allSearch, loader } from "../../../../features/search";
 
 export default function AutoSearchIcon({
   searchValue,
+  setSearchValue,
   condition,
   enterSearch,
   setEnterSearch,
+  setRefresh,
+  refresh,
 }) {
   // const [loader, setLoader] = useState("");
+  const router = useRouter();
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
   // console.log(condition, "condition me kiya araha hai");
   const search = async () => {
+    // console.log(!router.query.tab, "han bhai tab me kiya arha hai jalid batao");
     condition(false);
     dispatch(loader(false));
+    {
+      !router.query.tab &&
+        router.push({
+          pathname: "",
+          query: { tab: "people", search: searchValue },
+        });
+    }
     if (searchValue) {
       try {
         let response = await fetch(`${API.SEARCH_ALL}`, {
@@ -40,8 +55,28 @@ export default function AutoSearchIcon({
       }
     }
     setEnterSearch(false);
+    setRefresh(false);
   };
-  enterSearch && searchValue && search();
+  useEffect(() => {
+    refresh || enterSearch ? searchValue && search() : "";
+    //  && searchValue && search();
+  }, [enterSearch, refresh]);
+
+  // useEffect(() => {
+
+  // }, [refresh]);
+  // if (router.query.search) {
+  //   setEnterSearch(true);
+  // }
+  // useEffect(() => {
+  //   console.log("hello2, hello2 ");
+  //   router.query.search && setSearchValue(router.query.search);
+  // }, [router.query.search]);
+  // useEffect(() => {
+  //   console.log("hello, hello ");
+  //   router.query.search && searchValue && search();
+  // }, [router.query.search]);
+
   return (
     <div
       id="AutoSearchIcon"

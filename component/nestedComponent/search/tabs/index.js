@@ -38,17 +38,21 @@ export default function SearchTabs() {
       Filter {filter ? <UpOutlined /> : <DownOutlined />}
     </Button>
   );
+  function callback(key) {
+    console.log(key, "key ya rahi bhai");
+  }
   return (
     <div className={`Search_tabs_main ${filter && "Event"}`}>
       <Tabs
         tabBarExtraContent={operations}
+        onChange={callback}
         defaultActiveKey={
-          (router.query.search === "people" && "1") ||
-          (router.query.search === "places" && "2") ||
-          (router.query.search === "Video" && "3") ||
-          (router.query.search === "Recomand" && "4") ||
-          (router.query.search === "Groups" && "5") ||
-          (router.query.search === "Events" && "6")
+          (router.query.tab === "people" && "1") ||
+          (router.query.tab === "places" && "2") ||
+          (router.query.tab === "Video" && "3") ||
+          (router.query.tab === "Recomand" && "4") ||
+          (router.query.tab === "Groups" && "5") ||
+          (router.query.tab === "Events" && "6")
         }
       >
         <TabPane
@@ -58,7 +62,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { tab: "people" },
+                  query: { tab: "people", search: router.query.search },
                 });
               }}
             >
@@ -77,6 +81,7 @@ export default function SearchTabs() {
                   selected={selected}
                   profile={data.profile}
                   text1={data.user_username}
+                  mutualFriend={data.mutual_friends}
                   // text2={data.text2}
                   // text3={data.text3}
                   // text4={data.text4}
@@ -94,7 +99,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { tab: "places" },
+                  query: { tab: "places", search: router.query.search },
                 });
               }}
             >
@@ -129,7 +134,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { tab: "Video" },
+                  query: { tab: "Video", search: router.query.search },
                 });
               }}
             >
@@ -164,7 +169,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { tab: "Groups" },
+                  query: { tab: "Groups", search: router.query.search },
                 });
               }}
             >
@@ -191,7 +196,7 @@ export default function SearchTabs() {
               onClick={() => {
                 router.push({
                   pathname: "",
-                  query: { tab: "Events" },
+                  query: { tab: "Events", search: router.query.search },
                 });
               }}
             >

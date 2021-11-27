@@ -15,8 +15,10 @@ export default function AutoSearch({ condition }) {
   const router = useRouter();
   const [background, setBackground] = useState(true);
   const [searchValue, setSearchValue] = useState("");
+  const [refresh, setRefresh] = useState(false);
   const [enterSearch, setEnterSearch] = useState(false);
-  console.log(background, "hellooooooo");
+  // console.log(background, "hellooooooo");
+  const recentSearch = () => {};
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -92,10 +94,17 @@ export default function AutoSearch({ condition }) {
     }
   }, [background]);
 
+  useEffect(() => {
+    console.log(router.query.search, "hello2hello, hello2hello ");
+    router.query.search && setSearchValue(router.query.search);
+    setRefresh(true);
+  }, [router.query.search]);
+
   return (
     <>
       <div className="auto">
         <AutoComplete
+          onClick={recentSearch}
           onBlur={() => {
             setBackground(true);
           }}
@@ -109,7 +118,7 @@ export default function AutoSearch({ condition }) {
             if (e.key === "Enter") {
               setBackground(true);
               setEnterSearch(true);
-              condition(false);
+              // condition(false);
             }
           }}
           value={searchValue}
@@ -123,6 +132,8 @@ export default function AutoSearch({ condition }) {
           condition={condition}
           enterSearch={enterSearch}
           setEnterSearch={setEnterSearch}
+          setRefresh={setRefresh}
+          refresh={refresh}
         />
       </div>
       <div className={background ? "hide" : "show"}></div>

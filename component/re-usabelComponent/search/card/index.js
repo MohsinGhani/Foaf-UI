@@ -47,7 +47,11 @@ export default function SearchCard(props) {
             <div className="freind_btn">Friends</div>
           </Space>
           <div className="color_text">Freind</div>
-          <div className="color_text">29 Mutual Friend</div>
+          <div className="color_text">
+            {props.mutualFriend
+              ? `${props.mutualFriend} Mutual Friend`
+              : "29 Mutual Friend"}
+          </div>
           <div className="color_text">
             Senior Design and marketing engineer at IT TECHNOLOGY
           </div>
