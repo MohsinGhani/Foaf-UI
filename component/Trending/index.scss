@@ -1,8 +1,13 @@
 .trending_main {
     display: flex;
+    height: 100%;
     .left_side {
+        overflow: auto;
         width: 60%;
         margin: 0px 50px 0px 40px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .trend_tabs_main {
             margin-top: 26px;
         }
@@ -10,6 +15,10 @@
     .right_side {
         width: 40%;
         margin: 0px 40px 0px 10px;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .sponsoreds_main {
             margin-top: 35px;
         }

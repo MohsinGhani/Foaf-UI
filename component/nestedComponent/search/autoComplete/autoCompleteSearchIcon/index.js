@@ -26,12 +26,17 @@ export default function AutoSearchIcon({
     condition(false);
     dispatch(loader(false));
     {
-      !router.query.tab &&
-        router.push({
-          pathname: "",
-          query: { tab: "people", search: searchValue },
-        });
+      !router.query.tab
+        ? router.push({
+            pathname: "",
+            query: { tab: "people", search: searchValue },
+          })
+        : router.push({
+            pathname: "",
+            query: { tab: router.query.tab, search: searchValue },
+          });
     }
+
     if (searchValue) {
       try {
         let response = await fetch(`${API.SEARCH_ALL}`, {

@@ -88,6 +88,9 @@
                 display: none;
             }
         }
+        .wide {
+            position: unset !important;
+        }
         .slider {
             background: none;
             background: white;
@@ -98,7 +101,7 @@
             // height: calc(100vh -200px);
 
             // min-width: 270px !important;
-            min-height: 38%;
+            max-height: 90%;
             position: absolute;
             left: 0px;
             // min-height: 50%;
@@ -717,7 +720,7 @@
 //         }
 //     }
 // }
-@media screen and (max-width: 1671px) {
+@media screen and (max-width: 1812px) {
     .show_search {
         display: -webkit-box !important;
     }

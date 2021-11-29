@@ -12,8 +12,9 @@ export default function CreateStoryOption({ contantCondition }) {
           <Image
             src="/images/dashboard/photoStory.svg"
             alt="photoStory"
-            width="300"
-            height="390"
+            width="300px"
+            height="390px"
+            layout="fixed"
           />
         </div>
         <div
@@ -25,8 +26,9 @@ export default function CreateStoryOption({ contantCondition }) {
           <Image
             src="/images/dashboard/textStory.svg"
             alt="textStory"
-            width="300"
-            height="390"
+            width="300px"
+            height="390px"
+            layout="fixed"
           />
         </div>
       </div>

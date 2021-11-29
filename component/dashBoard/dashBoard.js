@@ -28,6 +28,7 @@ import { loginData } from "../features/user";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import Logout from "../nestedComponent/dashBoard/dashboardIcons/logout";
+import SearchBarExplore from "../nestedComponent/dashBoard/searchbar";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -64,13 +65,15 @@ export default function Mainone(props) {
           <Logo />
         </div>
         <div>
-          <SearchBarDashboard />
+          <SearchBarExplore />
         </div>
       </div>
 
       <div className="menu-scroll">
         <Sider
-          className={`slider ${collapsed ? "smallwidth" : "largewidth"}`}
+          className={`slider ${collapsed ? "smallwidth" : "largewidth"} ${
+            router.pathname === "/explore-page" && "wide"
+          }`}
           collapsible
           collapsed={collapsed}
           // onMouseEnter={() => setCollapsed(false)}
@@ -225,12 +228,14 @@ export default function Mainone(props) {
                 </ul>
               </Menu.Item>
             </SubMenu>
+
             <Menu.Item
+              onClick={logout}
               key="21"
               // className={router.pathname == "/" ? "active" : ""}
               icon={<Logout />}
             >
-              <div onClick={logout}>logout</div>
+              <div>logout</div>
             </Menu.Item>
           </Menu>
         </Sider>

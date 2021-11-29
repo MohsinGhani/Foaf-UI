@@ -17,7 +17,7 @@ export default function AutoSearch({ condition }) {
   const [searchValue, setSearchValue] = useState("");
   const [refresh, setRefresh] = useState(false);
   const [enterSearch, setEnterSearch] = useState(false);
-  // console.log(background, "hellooooooo");
+
   const recentSearch = () => {};
   const renderItem = (title, icon) => ({
     value: title,

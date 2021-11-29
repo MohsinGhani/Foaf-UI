@@ -9,6 +9,13 @@
         border: none;
     }
     .ant-tabs {
+        // .ant-tabs-content-holder {
+        // overflow: auto;
+        // max-height: calc(100vh - 168px);
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
+        // }
         .ant-tabs-nav {
             .ant-tabs-nav-wrap {
                 .ant-tabs-nav-list {
