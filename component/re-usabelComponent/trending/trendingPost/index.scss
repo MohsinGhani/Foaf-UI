@@ -3,8 +3,9 @@
     margin-bottom: 20px;
     padding: 10px 10px 10px 10px;
     &:hover {
-        background: #e6e6e6;
+        background: #f2f2f2;
         border-radius: 20px;
+        transition: 0.5s;
     }
     .small_head {
         font-weight: bold;
