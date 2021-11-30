@@ -54,14 +54,25 @@
                     color: unset;
                 }
                 .ant-tabs-tab {
+                    z-index: 11111;
                     margin: 0;
 
                     &:hover {
                         color: unset;
                     }
                 }
+                .ant-tabs-ink-bar-animated {
+                    transition: width 0.4s, height 0.4s, left 0.4s, right 0.4s;
+                }
                 .ant-tabs-ink-bar {
-                    display: none;
+                    background: linear-gradient(
+                        93.15deg,
+                        rgb(199, 83, 154) -11.17%,
+                        rgb(251, 62, 120) 48.61%,
+                        #ff5369 96.45%
+                    );
+                    height: 100%;
+                    border-radius: 9px;
                 }
                 .ant-tabs-nav-list {
                     height: 31px;
@@ -80,33 +91,34 @@
                 margin-bottom: 10px;
             }
             .ant-tabs-tab-active {
-                .btn {
-                    background: linear-gradient(
-                        93.15deg,
-                        rgb(199, 83, 154) -11.17%,
-                        rgb(251, 62, 120) 48.61%,
-                        #ff5369 96.45%
-                    );
-                    color: #ffffff;
-
-                    border-radius: 0;
-                    border-radius: 9px;
-                    &:focus {
-                        box-shadow: rgba(251, 62, 120, 0.45) 0px 25px 20px -20px !important;
-                    }
-                }
                 .ant-tabs-tab-btn {
                     box-shadow: rgba(199, 83, 154, 0.45) 0px 22px 28px -9px;
+                    .btn {
+                        color: #ffffff;
+
+                        // transition-delay: 1s;
+                        // transition-property: color;
+                        // transition: color 0.5s ease;
+                        // animation: colorchange 0.6s;
+                        // @keyframes colorchange {
+                        //     50% {
+                        //         color: rgba(79, 79, 79, 1);
+                        //     }
+
+                        //     100% {
+                        //         color: #ffffff;
+                        //     }
+                        // }
+                    }
                 }
             }
 
             .btn {
-                background: #f0eff0;
+                background: unset;
                 color: rgba(79, 79, 79, 1);
                 width: 119px;
                 height: 31px;
                 border: none;
-                // border-radius: 0;
                 font-size: 12px;
                 box-shadow: rgba(199, 83, 154, 0.45) 0px 25px 20px -20px !important;
                 &:hover {

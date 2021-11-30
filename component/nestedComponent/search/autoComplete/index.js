@@ -6,10 +6,12 @@ import { Space } from "antd";
 import Popular from "./popularicon";
 import { useRouter } from "next/router";
 import { useRef } from "react";
+import { API } from "../../../../pages/api/search";
 import SearchBar from "../../../re-usabelComponent/searchBar";
 import Searchicon from "../../dashBoard/dashboardIcons/search";
 import AutoSearchS from "./autoCompleteSearchIcon";
 import AutoSearchIcon from "./autoCompleteSearchIcon";
+import { useSelector } from "react-redux";
 
 export default function AutoSearch({ condition }) {
   const router = useRouter();
@@ -17,8 +19,31 @@ export default function AutoSearch({ condition }) {
   const [searchValue, setSearchValue] = useState("");
   const [refresh, setRefresh] = useState(false);
   const [enterSearch, setEnterSearch] = useState(false);
+  const [recentHistory, setRecentHistory] = useState("");
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
+  const recentSearch = async () => {
+    try {
+      let response = await fetch(`${API.RECENT_POPULAR_SEARCH}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Token ${data.token}`,
+        },
+        body: new URLSearchParams({
+          tag: "recent",
+        }),
+      });
+      const recentSearchData = await response.json();
+      // setgetAllFriends(getallfriends);
+      console.log(recentSearchData, "recentSearchData");
+      setRecentHistory(recentSearchData);
+      // dispatch(allSearch(SearchData));
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
 
-  const recentSearch = () => {};
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -33,13 +58,13 @@ export default function AutoSearch({ condition }) {
 
   const options = [
     {
-      options: [
-        renderItem("tradingView", <Recent />),
-        renderItem("pinterest", <Recent />),
-        renderItem("movies", <Recent />),
-        renderItem("cricket live score", <Recent />),
-      ],
-      label: "Recent Search",
+      // options: [
+      //   recentHistory?.result?.recent?.map((data) => {
+      //     const hello = data.searched_phrase;
+      //     renderItem({ hello }, <Recent />);
+      //   }),
+      // ],
+      // label: "Recent Search",
     },
     {
       options: [
@@ -95,11 +120,12 @@ export default function AutoSearch({ condition }) {
   }, [background]);
 
   useEffect(() => {
-    console.log(router.query.search, "hello2hello, hello2hello ");
+    console.log(router.query.search, "me router me hon ");
     router.query.search && setSearchValue(router.query.search);
-    setRefresh(true);
+    // setRefresh(true);
+    // console.log(typeof window, "window ader hai bhai");
+    // console.log(searchValue, "search value ya hai");
   }, [router.query.search]);
-
   return (
     <>
       <div className="auto">

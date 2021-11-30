@@ -23,6 +23,8 @@ export default function AutoSearchIcon({
   // console.log(condition, "condition me kiya araha hai");
   const search = async () => {
     // console.log(!router.query.tab, "han bhai tab me kiya arha hai jalid batao");
+    setRefresh(false);
+    setEnterSearch(false);
     condition(false);
     dispatch(loader(false));
     {
@@ -35,9 +37,11 @@ export default function AutoSearchIcon({
             pathname: "",
             query: { tab: router.query.tab, search: searchValue },
           });
+      console.log(" query change");
     }
 
     if (searchValue) {
+      console.log("han bhai search ki api chal gaye hai");
       try {
         let response = await fetch(`${API.SEARCH_ALL}`, {
           method: "POST",
@@ -50,7 +54,6 @@ export default function AutoSearchIcon({
             search_by: ["Users", "Groups", "Pages"],
           }),
         });
-
         const SearchData = await response.json();
         // setgetAllFriends(getallfriends);
         console.log(SearchData, "getalluser");
@@ -59,14 +62,14 @@ export default function AutoSearchIcon({
         console.log(err), "error araha hai";
       }
     }
-    setEnterSearch(false);
-    setRefresh(false);
   };
   useEffect(() => {
+    console.log(enterSearch, refresh, "me refresh me hon");
     refresh || enterSearch ? searchValue && search() : "";
     //  && searchValue && search();
   }, [enterSearch, refresh]);
 
+  // console.log(enterSearch, refresh, "entersearch is here");
   // useEffect(() => {
 
   // }, [refresh]);
