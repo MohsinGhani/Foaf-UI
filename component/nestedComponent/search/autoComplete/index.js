@@ -22,6 +22,10 @@ export default function AutoSearch({ condition }) {
   const [recentHistory, setRecentHistory] = useState("");
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
+  useEffect(() => {
+    recentSearch();
+  }, []);
+
   const recentSearch = async () => {
     try {
       let response = await fetch(`${API.RECENT_POPULAR_SEARCH}`, {
@@ -36,14 +40,18 @@ export default function AutoSearch({ condition }) {
       });
       const recentSearchData = await response.json();
       // setgetAllFriends(getallfriends);
+
       console.log(recentSearchData, "recentSearchData");
+
       setRecentHistory(recentSearchData);
+      // lol();
       // dispatch(allSearch(SearchData));
     } catch (err) {
       console.log(err), "error araha hai";
     }
   };
 
+  console.log(recentHistory, "hello");
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -56,15 +64,29 @@ export default function AutoSearch({ condition }) {
     ),
   });
 
+  const recentData = () => {
+    let arr = [];
+    recentHistory?.result?.recent
+      // .filter((x, i) => {
+      //   if (i < 3) {
+      //     console.log("hello sssx", x);
+      //     return x;
+      //   }
+      // })
+      .map((data, i) => {
+        if (i < 4) {
+          const hello = data?.searched_phrase;
+          console.log(hello, "hello222");
+          arr.push(renderItem(hello, <Recent />));
+        }
+      });
+    return arr;
+  };
+
   const options = [
     {
-      // options: [
-      //   recentHistory?.result?.recent?.map((data) => {
-      //     const hello = data.searched_phrase;
-      //     renderItem({ hello }, <Recent />);
-      //   }),
-      // ],
-      // label: "Recent Search",
+      options: recentData(),
+      label: "Recent Search",
     },
     {
       options: [
@@ -130,12 +152,13 @@ export default function AutoSearch({ condition }) {
     <>
       <div className="auto">
         <AutoComplete
-          onClick={recentSearch}
+          // onClick={recentSearch}
           onBlur={() => {
             setBackground(true);
           }}
           id="search"
-          dropdownClassName="hanadhakslflallasbjlabdgjlba"
+          // dropdownClassName="hanadhakslflallasbjlabdgjlba"
+          // dropdownMatchSelectWidth="true/100"
           onSelect={() => changeComponent()}
           options={options}
           placeholder="Search FOAF"
@@ -148,6 +171,9 @@ export default function AutoSearch({ condition }) {
             }
           }}
           value={searchValue}
+          // onFocus={() => {
+          //   setBackground(false);
+          // }}
           // filterOption={(inputValue, option) =>
           //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
           // }
@@ -160,6 +186,7 @@ export default function AutoSearch({ condition }) {
           setEnterSearch={setEnterSearch}
           setRefresh={setRefresh}
           refresh={refresh}
+          recentSearch={recentSearch}
         />
       </div>
       <div className={background ? "hide" : "show"}></div>

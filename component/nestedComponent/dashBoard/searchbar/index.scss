@@ -1,5 +1,6 @@
 .searchBarHomeDashboard {
     width: 220px;
+    // width: 100%;
     padding-left: 16px;
     display: flex;
 
@@ -51,6 +52,29 @@
     display: none;
 }
 @media screen and (max-width: 1812px) {
+    .searchBarHomeDashboard {
+        // display: none;
+        padding-left: 10px;
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 1723px) {
+    .searchBarHomeDashboard {
+        // display: none;
+        padding-left: 10px;
+        width: 155px;
+    }
+}
+@media screen and (max-width: 1678px) {
+    .searchBarHomeDashboard {
+        // display: none;
+        margin-left: 10px;
+        padding-left: 10px;
+        width: 170px;
+    }
+}
+@media screen and (max-width: 1584px) {
     .searchBarHomeDashboard {
         display: none;
     }

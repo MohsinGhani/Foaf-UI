@@ -720,15 +720,18 @@
 //         }
 //     }
 // }
-@media screen and (max-width: 1812px) {
+@media screen and (max-width: 1584px) {
     .show_search {
         display: -webkit-box !important;
     }
+    // .container {
+    // margin: 0px !important;
+    // }
 }
 @media screen and (max-width: 1678px) {
     .menu-scroll {
         .slider {
-            position: unset !important;
+            position: initial !important;
             // left: 0;
         }
     }

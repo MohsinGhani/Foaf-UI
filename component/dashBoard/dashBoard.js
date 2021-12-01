@@ -64,9 +64,8 @@ export default function Mainone(props) {
         >
           <Logo />
         </div>
-        <div>
-          <SearchBarExplore />
-        </div>
+
+        <SearchBarExplore />
       </div>
 
       <div className="menu-scroll">

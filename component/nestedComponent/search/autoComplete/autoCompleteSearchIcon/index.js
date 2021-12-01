@@ -14,6 +14,7 @@ export default function AutoSearchIcon({
   setEnterSearch,
   setRefresh,
   refresh,
+  recentSearch,
 }) {
   // const [loader, setLoader] = useState("");
   const router = useRouter();
@@ -58,6 +59,7 @@ export default function AutoSearchIcon({
         // setgetAllFriends(getallfriends);
         console.log(SearchData, "getalluser");
         dispatch(allSearch(SearchData));
+        recentSearch();
       } catch (err) {
         console.log(err), "error araha hai";
       }
