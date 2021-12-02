@@ -48,8 +48,10 @@ export default function SearchCard(props) {
           </Space>
           <div className="color_text">Freind</div>
           <div className="color_text">
-            {props.mutualFriend
-              ? `${props.mutualFriend} Mutual Friend`
+            {props.mutualFriend || props.mutualFriend === 0
+              ? props.mutualFriend === 0
+                ? ""
+                : `${props.mutualFriend} Mutual Friend`
               : "29 Mutual Friend"}
           </div>
           <div className="color_text">

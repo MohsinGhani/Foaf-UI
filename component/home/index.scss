@@ -2,6 +2,7 @@
     // max-height: 100vh;
     // height: calc(100vh - 1px);
     height: 100%;
+    position: relative;
     display: flex;
     // @include sm {
     //     border: 1px solid #000;
@@ -100,6 +101,16 @@
         //         color: white;
         //     }
         // }
+    }
+    .button_flot {
+        position: absolute;
+        bottom: 20px;
+        right: 40%;
+    }
+    .option_float {
+        position: absolute;
+        bottom: 20px;
+        right: 50%;
     }
 }
 @media screen and (max-width: 576px) {

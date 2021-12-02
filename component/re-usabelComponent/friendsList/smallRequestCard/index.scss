@@ -7,6 +7,14 @@
     // padding: 8px 8px 8px 8px;
 
     .contant {
+        .text_ellips {
+            height: 17px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
         .name {
             color: #010010;
 
@@ -49,7 +57,7 @@
             font-weight: 500;
             font-size: 8px;
             // margin-left: 80px;
-            width: 100%;
+            // width: 100%;
             position: absolute;
             top: 22px;
             left: 65px;

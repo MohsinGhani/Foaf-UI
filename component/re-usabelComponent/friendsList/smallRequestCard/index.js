@@ -175,7 +175,9 @@ export default function SmallRequestcard(props) {
         <Image src={props.url} alt="request" width="140" height="140" />
       </div>
       <div className="contant">
-        <p className="name">{props.name}</p>
+        <div className="text_ellips">
+          <p className="name">{props?.name}</p>
+        </div>
         {/* <div className="mutual_main"> */}
         <div className="mutual">
           <div className="image1">
