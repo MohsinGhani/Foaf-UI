@@ -74,7 +74,7 @@ export default function AutoSearch({ condition }) {
       //   }
       // })
       .map((data, i) => {
-        if (i < 4) {
+        if (i < 3) {
           const hello = data?.searched_phrase;
           console.log(hello, "hello222");
           arr.push(renderItem(hello, <Recent />));
@@ -144,10 +144,10 @@ export default function AutoSearch({ condition }) {
   useEffect(() => {
     console.log(router.query.search, "me router me hon ");
     router.query.search && setSearchValue(router.query.search);
-    // setRefresh(true);
+    setRefresh(true);
     // console.log(typeof window, "window ader hai bhai");
     // console.log(searchValue, "search value ya hai");
-  }, [router.query.search]);
+  }, []);
   return (
     <>
       <div className="auto">
