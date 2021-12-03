@@ -6,6 +6,7 @@ export default function Switchs({ text }) {
     <div className="switch">
       <Space size={10}>
         <p>{text}</p>
+
         <Switch />
       </Space>
     </div>

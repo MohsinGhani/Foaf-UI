@@ -188,12 +188,12 @@ export default function HomeDashBoard() {
           </div>
         </div> */}
       </div>
-      <div className="button_flot">
-        <FloatingBut state={state} setState={setState} />
-      </div>
-      <div className="option_float">
-        <FloatingOption state={state} />
-      </div>
+      {/* <div className="button_flot"> */}
+      {/* <FloatingBut state={state} setState={setState} /> */}
+      {/* </div> */}
+      {/* <div className="option_float"> */}
+      {/* <FloatingOption state={state} /> */}
+      {/* </div> */}
     </div>
   );
 }

@@ -3,16 +3,18 @@ import React from "react";
 function FloatingOption({ state }) {
   return (
     <>
-      {state && (
-        <div className="displaye slide-in-right">
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-        </div>
-      )}
+      <div
+        className={`displaye ${
+          state ? `scale-in-hor-right` : `scale-in-hor-right-reverse`
+        }`}
+      >
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+      </div>
     </>
   );
 }

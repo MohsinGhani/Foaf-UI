@@ -65,9 +65,9 @@ export default function SearchCard(props) {
           show !== props.id ? setShow(props.id) : setShow(null);
         }}
       >
-        {router.query.search === "people" && <PeopleIcon />}
-        {router.query.search === "places" && <PlaceIcon />}
-        {router.query.search === "Events" && <EventsIcon />}
+        {router.query.tab === "people" && <PeopleIcon />}
+        {router.query.tab === "places" && <PlaceIcon />}
+        {router.query.tab === "Events" && <EventsIcon />}
       </div>
     </div>
   );
