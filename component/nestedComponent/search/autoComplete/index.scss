@@ -33,8 +33,7 @@
         }
     }
 }
-
-.ant-select-dropdown {
+.autocomplete_search {
     border: 1px solid red !important;
     border-radius: 16px !important;
     // border-image: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%) 1 !important;
@@ -46,6 +45,7 @@
         -webkit-text-fill-color: transparent;
     }
 }
+
 .hide {
     display: none;
 }

@@ -152,6 +152,7 @@ export default function AutoSearch({ condition }) {
     <>
       <div className="auto">
         <AutoComplete
+          dropdownClassName="autocomplete_search"
           // onClick={recentSearch}
           onBlur={() => {
             setBackground(true);

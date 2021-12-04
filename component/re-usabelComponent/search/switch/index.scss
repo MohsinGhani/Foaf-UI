@@ -19,3 +19,12 @@
         background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%) !important;
     }
 }
+
+.ant-switch-checked {
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+[aria-hidden="true"] {
+    box-shadow: none !important;
+}

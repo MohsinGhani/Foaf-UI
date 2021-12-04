@@ -1,7 +1,8 @@
 import React from "react";
 import DropDown from "../../../../re-usabelComponent/search/dropDown";
 import Switchs from "../../../../re-usabelComponent/search/switch";
-import { DatePicker, Space } from "antd";
+import { DatePicker, Select, Space } from "antd";
+import SelectDropDown from "../../../../re-usabelComponent/search/select";
 export default function EventOption() {
   return (
     <div className="event_option fade-in">
@@ -10,9 +11,9 @@ export default function EventOption() {
         <Switchs text="Paid Events" />
         <Switchs text="Popular with friends" />
         <Switchs text="Family-Friendly" />
-        <DropDown text="Location" />
+        <SelectDropDown text="Location" />
         <DatePicker />
-        <DropDown text="Categories" />
+        <SelectDropDown text="Categories" />
       </Space>
     </div>
   );
