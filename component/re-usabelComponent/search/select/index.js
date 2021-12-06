@@ -1,19 +1,21 @@
 import { Select } from "antd";
 import React from "react";
 
-export default function SelectDropDown({ text }) {
+export default function SelectDropDown({ text, select }) {
   const { Option } = Select;
   return (
-    <div>
+    <div className="main_select">
       <Select
         dropdownClassName="hello"
         placeholder={text}
         style={{ width: 120 }}
         allowClear="true"
       >
-        <Option value="Pakistan">Pakistan</Option>
-        <Option value="India">India</Option>
-        <Option value="USA">USA</Option>
+        {select?.map((data, key) => (
+          <Option key value={data}>
+            {data}
+          </Option>
+        ))}
       </Select>
     </div>
   );

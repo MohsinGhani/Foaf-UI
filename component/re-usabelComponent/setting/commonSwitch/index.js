@@ -7,7 +7,7 @@ export default function CommonSwitch({ heading, text, colorText }) {
           <p className="text_one">{heading}</p>
           <p className="text_two">{text}</p>
         </div>
-        <div>
+        <div className="setting_switch">
           <p className="change">change</p>
           <Switch />
         </div>

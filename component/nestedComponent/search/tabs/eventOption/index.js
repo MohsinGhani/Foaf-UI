@@ -2,6 +2,7 @@ import React from "react";
 import DropDown from "../../../../re-usabelComponent/search/dropDown";
 import Switchs from "../../../../re-usabelComponent/search/switch";
 import { DatePicker, Select, Space } from "antd";
+import { select, date } from "../../../../../shared/json/index.json";
 import SelectDropDown from "../../../../re-usabelComponent/search/select";
 export default function EventOption() {
   return (
@@ -11,9 +12,10 @@ export default function EventOption() {
         <Switchs text="Paid Events" />
         <Switchs text="Popular with friends" />
         <Switchs text="Family-Friendly" />
-        <SelectDropDown text="Location" />
-        <DatePicker />
-        <SelectDropDown text="Categories" />
+        <SelectDropDown text="Location" select={select} />
+        {/* <DatePicker /> */}
+        <SelectDropDown text="date" select={date} />
+        <SelectDropDown text="Categories" select={select} />
       </Space>
     </div>
   );

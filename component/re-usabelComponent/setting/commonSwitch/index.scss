@@ -4,6 +4,7 @@
         display: flex;
         justify-content: space-between;
         .text_one {
+            color: #000;
             font-weight: 500;
             font-size: 16px;
         }
@@ -11,8 +12,14 @@
             color: #bfbfbf;
             max-width: 672px;
         }
-        .change {
-            font-size: 16px;
+        .setting_switch {
+            .change {
+                font-size: 16px;
+            }
+            .ant-switch {
+                display: flex;
+                margin: auto;
+            }
         }
         .ant-switch-checked {
             background-color: #c39eff !important;
