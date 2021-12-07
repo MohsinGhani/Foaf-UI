@@ -1,0 +1,139 @@
+.bottom {
+    // max-width: 580px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // justify-content: space-between;
+    // align-items: center;
+    .icons {
+        display: flex;
+        justify-content: space-between;
+        // width: 50%;
+        // justify-content: space-evenly;
+        // width: 100%;
+        // justify-content: space-between;
+        .heart {
+            display: flex;
+            align-items: center;
+            .heartIcon {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+            }
+
+            p {
+                color: #bfbfbf;
+                margin: 0px 5px;
+                font-size: 12px;
+            }
+        }
+        .views {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            .viewsIcon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+            }
+            p {
+                color: #bfbfbf;
+                margin: 0px 5px;
+                font-size: 12px;
+            }
+        }
+        .event_but {
+            .ant-btn {
+                background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+                color: #ffffff;
+                margin-left: 10px;
+                width: 119px;
+                height: 31px;
+                border-radius: 9px;
+                border: none;
+                font-size: 12px;
+            }
+        }
+    }
+    // .Trending {
+    //     // width: 100%;
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     max-height: 24px;
+    //     p {
+    //         color: red;
+    //     }
+    //     // display: flex;
+    //     // justify-content: center;
+    //     // align-items: center;
+    //     // padding-top: 5px;
+    //     // text-align: center;
+    // }
+}
+
+.ant-popover-placement-topLeft {
+    .ant-popover-content {
+        .ant-popover-arrow {
+            display: none;
+        }
+        .ant-popover-inner {
+            border: 1px solid #f9445b;
+            box-shadow: 0px 36px 411px rgba(0, 0, 0, 0.11), 0px 21.1968px 214.378px rgba(0, 0, 0, 0.079552),
+                0px 10.8864px 100.613px rgba(0, 0, 0, 0.061776), 0px 4.3776px 44.0592px rgba(0, 0, 0, 0.048224),
+                0px 0.9792px 19.0704px rgba(0, 0, 0, 0.030448);
+            border-radius: 22px;
+            .ant-popover-inner-content {
+                width: 300px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                .icon_parent {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    .celebration {
+                        background: #fff1e8;
+                    }
+                    .clap {
+                        background: #e9f6ff;
+                    }
+                    .love {
+                        background: #ffe9f3;
+                    }
+                    .sorry {
+                        background: #f5efff;
+                    }
+                    .sick {
+                        background: #e9fff4;
+                    }
+                    .dead {
+                        background: #ffe9e9;
+                    }
+                    .like {
+                        background: #fff8ee;
+                    }
+                    .disLike {
+                        background: #ffedef;
+                    }
+
+                    .reaction_icon {
+                        cursor: pointer;
+                        display: flex;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50px;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -40,7 +40,7 @@ export default function CreateStory() {
         }}
       >
         <Image
-          src="/images/dashboard/createStory.svg"
+          src="/images/dashboard/createStory.png"
           alt="createStory"
           width="200"
           height="290"

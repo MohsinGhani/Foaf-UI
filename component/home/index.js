@@ -20,6 +20,7 @@ import FloatingButOption from "../nestedComponent/home/floatingButton";
 import FloatingBut from "../nestedComponent/home/floatingButton";
 import FloatingOption from "../nestedComponent/home/floatingOption";
 import { useState } from "react";
+import { Event } from "../re-usabelComponent/home/homeEventPost";
 
 export default function HomeDashBoard() {
   const dispatch = useDispatch();
@@ -109,12 +110,13 @@ export default function HomeDashBoard() {
         </div>
 
         <div className="home_post">
-          <Post
+          <Event
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
             Post="/images/dashboard/post3.jpg"
             profilecolor="pink"
             name="Talan Bator"
+            event={true}
           />
         </div>
         <div className="home_post">
