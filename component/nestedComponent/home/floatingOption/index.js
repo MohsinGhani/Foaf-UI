@@ -1,6 +1,14 @@
-import React from "react";
+import Image from "next/image";
+import React, { useState } from "react";
+import CommonModal from "../../../re-usabelComponent/common/modal";
 
 function FloatingOption({ state }) {
+  const url = ["createPost", "recomand", "review", "celebrationpost", "other"];
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
   return (
     <>
       <div
@@ -8,13 +16,28 @@ function FloatingOption({ state }) {
           state ? `scale-in-hor-right` : `scale-in-hor-right-reverse`
         }`}
       >
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
-        <div>hello</div>
+        {url.map((data, i) => (
+          <div
+            onClick={() => {
+              showModal();
+            }}
+            key={i}
+            className={`creates_icons ${data === "other" && "other_icon"}`}
+          >
+            <Image
+              src={`/images/dashboard/${data}.svg`}
+              alt="Badge"
+              width={data === "other" ? "35" : "72"}
+              height={data === "other" ? "38" : "44"}
+            />
+          </div>
+        ))}
       </div>
+      <CommonModal
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        title="Create"
+      />
     </>
   );
 }

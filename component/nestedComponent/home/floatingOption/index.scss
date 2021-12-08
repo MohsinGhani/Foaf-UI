@@ -1,16 +1,22 @@
 .displaye {
-    width: 230px;
-    height: 50px;
+    width: 450px;
+    height: 66px;
     background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
     border-radius: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    transition: width 2s;
-    -moz-transition: width 2s; /* Firefox 4 */
-    -webkit-transition: width 2s; /* Safari and Chrome */
-    -o-transition: width 2s; /* Opera */
+    justify-content: space-around;
+    .creates_icons {
+        cursor: pointer;
+        width: 72px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .other_icon {
+        margin-top: 6px;
+    }
 }
 .hide {
     width: 0;

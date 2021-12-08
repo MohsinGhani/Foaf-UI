@@ -13,7 +13,7 @@ import { UpOutlined, DownOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import Spinner from "../../../re-usabelComponent/common/spinner";
 // import { Button } from "antd";
-export default function SearchTabs() {
+export default function SearchTabs({ search }) {
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
@@ -66,7 +66,7 @@ export default function SearchTabs() {
                 });
               }}
             >
-              People
+              {search && "People"}
             </Button>
           }
           key="1"
@@ -103,7 +103,7 @@ export default function SearchTabs() {
                 });
               }}
             >
-              Places
+              {search && "Places"}
             </Button>
           }
           key="2"
@@ -138,7 +138,7 @@ export default function SearchTabs() {
                 });
               }}
             >
-              Video
+              {search && "Video"}
             </Button>
           }
           key="3"
@@ -173,7 +173,7 @@ export default function SearchTabs() {
                 });
               }}
             >
-              Groups
+              {search && "Groups"}
             </Button>
           }
           key="5"
@@ -200,7 +200,7 @@ export default function SearchTabs() {
                 });
               }}
             >
-              Events
+              {search && "Events"}
             </Button>
           }
           key="6"

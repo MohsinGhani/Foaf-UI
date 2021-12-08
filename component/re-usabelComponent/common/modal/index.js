@@ -1,29 +1,20 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
 
-export default function CommonModal() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+export default function CommonModal({
+  isModalVisible,
+  setIsModalVisible,
+  title,
+}) {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
+  console.log(isModalVisible, "isModalVisibleisModalVisibleisModalVisible");
   return (
     <div>
-      <div
-        className="CreateStory_main"
-        onClick={() => {
-          showModal();
-        }}
-      >
-        open the modal
-      </div>
-
       <Modal
         className="common_modal"
-        title="common"
+        title={title}
         visible={isModalVisible}
         onCancel={handleCancel}
       >

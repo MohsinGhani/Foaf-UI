@@ -12,7 +12,11 @@ export default function Explor() {
   return (
     <div className="explore">
       <AutoSearch condition={setShow} />
-      {show && !router.query.search ? <ExploreTabs /> : <SearchTabs />}
+      {show && !router.query.search ? (
+        <ExploreTabs />
+      ) : (
+        <SearchTabs search={true} />
+      )}
     </div>
   );
 }
