@@ -11,9 +11,10 @@ import { people, places, events, video, group } from "../../../../shared/json";
 import GroupCard from "../../../re-usabelComponent/search/groupCard";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
+import CommonCreatePost from "../../../re-usabelComponent/home/commonCreatePost";
 import Spinner from "../../../re-usabelComponent/common/spinner";
 // import { Button } from "antd";
-export default function SearchTabs({ search }) {
+export default function SearchTabs({ search, create }) {
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
@@ -42,9 +43,13 @@ export default function SearchTabs({ search }) {
     console.log(key, "key ya rahi bhai");
   }
   return (
-    <div className={`Search_tabs_main ${filter && "Event"}`}>
+    <div
+      className={`Search_tabs_main ${create && "Search_tabs_main"} ${
+        filter && "Event"
+      }`}
+    >
       <Tabs
-        tabBarExtraContent={operations}
+        tabBarExtraContent={search && operations}
         onChange={callback}
         defaultActiveKey={
           (router.query.tab === "people" && "1") ||
@@ -67,30 +72,34 @@ export default function SearchTabs({ search }) {
               }}
             >
               {search && "People"}
+              {create && "Status Update"}
             </Button>
           }
           key="1"
         >
           {filter && <EventOption />}
-          {loader ? (
-            users?.map((data, i) => (
-              <div className="map_card" key={i}>
-                <SearchCard
-                  id={i}
-                  setSelected={setSelected}
-                  selected={selected}
-                  profile={data.profile}
-                  text1={data.user_username}
-                  mutualFriend={data.mutual_friends}
-                  // text2={data.text2}
-                  // text3={data.text3}
-                  // text4={data.text4}
-                />
-              </div>
-            ))
-          ) : (
-            <Spinner />
-          )}
+          {create && <CommonCreatePost />}
+          {search &&
+            (loader ? (
+              users?.map((data, i) => (
+                <div className="map_card" key={i}>
+                  <SearchCard
+                    id={i}
+                    setSelected={setSelected}
+                    selected={selected}
+                    profile={data.profile}
+                    text1={data.user_username}
+                    mutualFriend={data.mutual_friends}
+                    // text2={data.text2}
+                    // text3={data.text3}
+                    // text4={data.text4}
+                  />
+                </div>
+              ))
+            ) : (
+              <Spinner />
+            ))}
+          {create && <SeeAllButton text="See All" className="see_button" />}
         </TabPane>
         <TabPane
           tab={
@@ -104,12 +113,15 @@ export default function SearchTabs({ search }) {
               }}
             >
               {search && "Places"}
+              {create && "Video"}
             </Button>
           }
           key="2"
         >
           {filter && <EventOption />}
-          {places &&
+          {create && <CommonCreatePost />}
+          {search &&
+            places &&
             places.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard
@@ -139,12 +151,15 @@ export default function SearchTabs({ search }) {
               }}
             >
               {search && "Video"}
+              {create && "Audio"}
             </Button>
           }
           key="3"
         >
           {filter && <EventOption />}
-          {video &&
+          {create && <CommonCreatePost />}
+          {search &&
+            video &&
             video.map((data, i) => (
               <div className="map_card" key={i}>
                 <VedioCard
@@ -174,13 +189,16 @@ export default function SearchTabs({ search }) {
               }}
             >
               {search && "Groups"}
+              {create && "Article"}
             </Button>
           }
           key="5"
         >
           {filter && <EventOption />}
           <div className="group_main">
-            {group &&
+            {create && <CommonCreatePost />}
+            {search &&
+              group &&
               group.map((data, i) => (
                 <div className="map_card" key={i}>
                   <GroupCard id={i} profile={data.profile} text1={data.text1} />
@@ -201,12 +219,15 @@ export default function SearchTabs({ search }) {
               }}
             >
               {search && "Events"}
+              {create && "Event"}
             </Button>
           }
           key="6"
         >
           {filter && <EventOption />}
-          {events &&
+          {create && <CommonCreatePost />}
+          {search &&
+            events &&
             events.map((data, i) => (
               <div className="map_card" key={i}>
                 <SearchCard

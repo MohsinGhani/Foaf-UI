@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Image from "next/image";
 import { Popover, Space } from "antd";
@@ -27,6 +29,9 @@ export default function Profile(props) {
               />
             </div>
             <p>{props.time}</p>
+            <div>
+              {props.privacy && <img src="/images/CreatePost/PublicPost.png" />}
+            </div>
           </Space>
         </div>
       </div>

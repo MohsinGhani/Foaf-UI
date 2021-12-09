@@ -1,5 +1,6 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
+import { PostTabs } from "../../../nestedComponent/home/createPostTabs";
 
 export default function CommonModal({
   isModalVisible,
@@ -15,10 +16,10 @@ export default function CommonModal({
       <Modal
         className="common_modal"
         title={title}
-        visible={isModalVisible}
+        visible={!!isModalVisible}
         onCancel={handleCancel}
       >
-        hello
+        {isModalVisible === "createPost" && <PostTabs />}
       </Modal>
     </div>
   );

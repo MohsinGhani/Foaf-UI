@@ -7,7 +7,7 @@ function FloatingOption({ state }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
-    setIsModalVisible(true);
+    setIsModalVisible("createPost");
   };
   return (
     <>

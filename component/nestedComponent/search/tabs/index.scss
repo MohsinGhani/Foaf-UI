@@ -131,6 +131,13 @@
         }
     }
 }
+
+.Search_tabs_main {
+    .ant-tabs-nav::before {
+        border-bottom: none !important;
+    }
+}
+
 .Event {
     .ant-tabs-nav {
         &::before {
