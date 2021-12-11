@@ -3,11 +3,15 @@ import React from "react";
 import Profile from "../../profile";
 import Slider from "react-slick";
 import { useState } from "react";
+import { Input, Space } from "antd";
 
 export default function CreatePostContent() {
+  const { TextArea } = Input;
   const url = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7];
-  const [backgroundimage, setBackgroundImage] = useState("");
+  const [backgroundimage, setBackgroundImage] = useState(false);
   const [image, setimage] = useState("");
+  const [text, setText] = useState("");
+
   const settings = {
     dots: false,
     infinite: false,
@@ -26,13 +30,23 @@ export default function CreatePostContent() {
         class="image"
         privacy={true}
       />
-      <div
-        className="background"
-        style={{
-          backgroundImage: "url(" + image + ")",
-        }}
-      >
-        <p>whats up?</p>
+      <div className="text_background">
+        <div className="background">
+          {image && <Image src={image} alt="background" layout="fill" />}
+        </div>
+        <div
+          className={`text_area ${
+            !image ? "text_color_grey" : "text_color_white"
+          }`}
+        >
+          {true && (
+            <TextArea
+              // placeholder="whats on you Mind?"
+              autoSize={{ minRows: 2, maxRows: 7 }}
+              defaultValue="whats on you Mind?"
+            />
+          )}
+        </div>
       </div>
       {backgroundimage ? (
         <div
@@ -74,14 +88,36 @@ export default function CreatePostContent() {
           />
         </div>
       )}
-      <div className="POst_image_i">
-        <Image
-          src="/images/CreatePost/Post.png"
-          alt="post"
-          width="950"
-          height="60"
-          layout="fixed"
-        />
+      <div className="add_post">
+        <div className="text">Add to your post</div>
+        <div>
+          <Space>
+            <Image
+              src="/images/CreatePost/add1.png"
+              width="30"
+              height="30"
+              alt="color"
+            />
+            <Image
+              src="/images/CreatePost/add2.png"
+              width="30"
+              height="30"
+              alt="color"
+            />
+            <Image
+              src="/images/CreatePost/add3.png"
+              width="30"
+              height="30"
+              alt="color"
+            />
+            <Image
+              src="/images/CreatePost/dots.png"
+              width="20"
+              height="4"
+              alt="color"
+            />
+          </Space>
+        </div>
       </div>
     </div>
   );
