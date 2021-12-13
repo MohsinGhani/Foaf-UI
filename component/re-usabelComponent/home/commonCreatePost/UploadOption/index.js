@@ -26,20 +26,16 @@ export const UplodOption = () => {
   return (
     <div className="upload_data">
       <Dragger {...props}>
-        <p className="ant-upload-drag-icon">
+        <div className="upload_image">
           <Image
             src="/images/CreatePost/upload.png"
             alt="background"
-            layout="fill"
+            width="90"
+            height="90"
           />
-        </p>
-        <p className="ant-upload-text">
-          Click or drag file to this area to upload
-        </p>
-        <p className="ant-upload-hint">
-          Support for a single or bulk upload. Strictly prohibit from uploading
-          company data or other band files
-        </p>
+        </div>
+        <p className="text1">Upload Video</p>
+        <p className="text2">or Drag and drop</p>
       </Dragger>
     </div>
   );

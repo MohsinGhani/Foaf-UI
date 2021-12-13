@@ -36,7 +36,16 @@ export default function CreatePostContent({ status, video }) {
         <>
           <div className="text_background">
             <div className="background">
-              {image && <Image src={image} alt="background" layout="fill" />}
+              {image && (
+                <Image
+                  src={
+                    (image === 1 && "/images/CreatePost/back1.png") ||
+                    (image === 2 && "/images/CreatePost/back2.png")
+                  }
+                  alt="background"
+                  layout="fill"
+                />
+              )}
             </div>
             <div
               className={`text_area ${
@@ -60,10 +69,8 @@ export default function CreatePostContent({ status, video }) {
                     key={i}
                     className="back_image"
                     onClick={() => {
-                      (data === 1 &&
-                        setimage("/images/CreatePost/back1.png")) ||
-                        (data === 2 &&
-                          setimage("/images/CreatePost/back2.png"));
+                      (data === 1 && setimage(1)) ||
+                        (data === 2 && setimage(2));
                       setBackgroundImage(!backgroundimage);
                     }}
                   >
