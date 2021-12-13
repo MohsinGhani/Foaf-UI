@@ -78,7 +78,7 @@ export default function SearchTabs({ search, create }) {
           key="1"
         >
           {filter && <EventOption />}
-          {create && <CommonCreatePost />}
+          {create && <CommonCreatePost status={true} />}
           {search &&
             (loader ? (
               users?.map((data, i) => (
@@ -119,7 +119,7 @@ export default function SearchTabs({ search, create }) {
           key="2"
         >
           {filter && <EventOption />}
-          {create && <CommonCreatePost />}
+          {create && <CommonCreatePost video={true} />}
           {search &&
             places &&
             places.map((data, i) => (

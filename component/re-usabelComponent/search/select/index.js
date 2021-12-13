@@ -12,7 +12,7 @@ export default function SelectDropDown({ text, select }) {
         allowClear="true"
       >
         {select?.map((data, key) => (
-          <Option key value={data}>
+          <Option key={key} value={data}>
             {data}
           </Option>
         ))}

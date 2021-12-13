@@ -16,6 +16,7 @@ import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 
 export default function Topbar() {
   const router = useRouter();
+  const [filterSearch, setFilterSearch] = useState("");
   const fullstate = useSelector((state) => state);
   const friend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
@@ -211,30 +212,50 @@ export default function Topbar() {
           visible={!!isCloseModalVisible}
           onCancel={handleCancel}
         >
-          <Input placeholder="search" suffix={<Searchicon />} />
-          {addFreindData?.length ? (
-            addFreindData?.map((t, i) => (
-              <SmallRequestcard
-                key={i}
-                id={(text === "allFriend" && t?.user_id) || t?.friend?.id}
-                connectionType={isCloseModalVisible}
-                closeFriends={true}
-                url="/images/request/requestProfile1.svg"
-                name={
-                  (text === "allFriend" && t?.user_username) ||
-                  t?.friend?.username
-                }
-                connection={
-                  (isCloseModalVisible === "Closefriend" && closeConnection) ||
-                  (isCloseModalVisible === "Family" && familyConnection) ||
-                  (isCloseModalVisible === "Friend" && allUser)
-                }
-              />
-              // </div>
-            ))
-          ) : (
-            <EmptyData text="already added all friends" />
-          )}
+          <Input
+            placeholder="search"
+            onChange={(e) => {
+              setFilterSearch(e.target.value);
+            }}
+            suffix={<Searchicon />}
+          />
+          <div className="scroll_div">
+            {addFreindData?.length ? (
+              addFreindData
+                ?.filter((x) => {
+                  if (filterSearch) {
+                    var name =
+                      (text === "allFriend" && x?.user_username) ||
+                      x?.friend?.username;
+                    return name?.includes(filterSearch);
+                  } else {
+                    return addFreindData;
+                  }
+                })
+                .map((t, i) => (
+                  <SmallRequestcard
+                    key={i}
+                    id={(text === "allFriend" && t?.user_id) || t?.friend?.id}
+                    connectionType={isCloseModalVisible}
+                    closeFriends={true}
+                    url="/images/request/requestProfile1.svg"
+                    name={
+                      (text === "allFriend" && t?.user_username) ||
+                      t?.friend?.username
+                    }
+                    connection={
+                      (isCloseModalVisible === "Closefriend" &&
+                        closeConnection) ||
+                      (isCloseModalVisible === "Family" && familyConnection) ||
+                      (isCloseModalVisible === "Friend" && allUser)
+                    }
+                  />
+                  // </div>
+                ))
+            ) : (
+              <EmptyData text="already added all friends" />
+            )}
+          </div>
         </Modal>
       )}
     </>

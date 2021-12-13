@@ -54,10 +54,11 @@
 
     .slick-slide {
         width: 100px !important;
+        .back_image {
+            cursor: pointer;
+        }
     }
-    .back_image {
-        cursor: pointer;
-    }
+
     .add_post {
         height: 60px;
         border: 1px solid #bfbfbf;

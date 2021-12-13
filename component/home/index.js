@@ -16,7 +16,6 @@ import Sponsoreds from "../nestedComponent/home/homeSponsored/sponsoreds";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../features/user";
 import ShowTrending from "../nestedComponent/home/trending/showTrandings";
-import FloatingButOption from "../nestedComponent/home/floatingButton";
 import FloatingBut from "../nestedComponent/home/floatingButton";
 import FloatingOption from "../nestedComponent/home/floatingOption";
 import { useState } from "react";
@@ -190,7 +189,7 @@ export default function HomeDashBoard() {
           </div>
         </div> */}
       </div>
-      <div className="button_flot">
+      <div className="button_float">
         <FloatingBut state={state} setState={setState} />
       </div>
       <div className="option_float">

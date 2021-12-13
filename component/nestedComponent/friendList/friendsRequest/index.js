@@ -127,7 +127,7 @@ export default function FriendsRequest(props) {
         <Row gutter={16}>
           {loader1 ? (
             <Spinner />
-          ) : friendRequest ? (
+          ) : friendRequest || closeFriendRequest || familyFriendReq ? (
             friendRequest?.map((t, i) => (
               // console.log(t?.connection_creator.username, "bhai bhai");
               <Col xs={16} sm={12} md={8} lg={6} key={i}>
