@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Input, Space } from "antd";
 import { UplodOption } from "./UploadOption";
 
-export default function CreatePostContent({ status, video }) {
+export default function CreatePostContent({ status, video, audio }) {
   const { TextArea } = Input;
   const url = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7];
   const [backgroundimage, setBackgroundImage] = useState(false);
@@ -100,7 +100,8 @@ export default function CreatePostContent({ status, video }) {
           )}
         </>
       )}
-      {video && <UplodOption />}
+      {video && <UplodOption video />}
+      {audio && <UplodOption audio />}
 
       <div className="add_post">
         <div className="text">Add to your post</div>

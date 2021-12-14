@@ -157,7 +157,7 @@ export default function SearchTabs({ search, create }) {
           key="3"
         >
           {filter && <EventOption />}
-          {create && <CommonCreatePost />}
+          {create && <CommonCreatePost audio={true} />}
           {search &&
             video &&
             video.map((data, i) => (

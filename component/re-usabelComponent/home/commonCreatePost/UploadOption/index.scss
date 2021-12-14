@@ -1,6 +1,45 @@
-.upload_data {
-    .ant-upload {
-        border: unset !important;
-        background: unset !important;
+.uplaod_data_main {
+    .text_area_upload {
+        margin: 25px 0 20px 0;
+        .ant-input {
+            background: none;
+            border: none;
+            box-shadow: none;
+            // padding: 10px;
+            font-size: 22px;
+            &::placeholder {
+                color: #94a3b8;
+            }
+        }
+    }
+    .size_change {
+        .ant-input {
+            font-size: 20px !important;
+            &::placeholder {
+                color: #686868;
+            }
+        }
+    }
+    .upload_data {
+        .ant-upload {
+            border: unset !important;
+            background: unset !important;
+            height: 266px;
+            .text1 {
+                color: #383838;
+                font-weight: 600;
+                font-size: 25px;
+            }
+            .text2 {
+                color: #383838;
+                font-size: 16px;
+            }
+        }
+        .react-player {
+            margin-bottom: 20px;
+            video {
+                border-radius: 15px;
+            }
+        }
     }
 }
