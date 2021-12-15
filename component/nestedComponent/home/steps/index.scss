@@ -1,0 +1,29 @@
+.steps_main {
+    display: flex;
+    justify-content: center;
+    .stepOne {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .round {
+            width: 39px;
+            height: 39px;
+            border: 1px solid red;
+            border-radius: 9px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .vector {
+            width: 84px;
+            height: 1px;
+            background-color: #bfbfbf;
+        }
+    }
+    .title {
+        text-align: end;
+    }
+    .titletwo {
+        text-align: left;
+    }
+}

@@ -36,10 +36,16 @@
             }
         }
         .react-player {
+            // width: 100%;
             margin-bottom: 20px;
+            border-radius: 25px;
             video {
-                border-radius: 15px;
+                border-radius: 25px;
+                outline: none;
             }
+        }
+        .react-audio-player {
+            outline: none;
         }
     }
 }

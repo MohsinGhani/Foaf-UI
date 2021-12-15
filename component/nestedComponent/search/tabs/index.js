@@ -225,7 +225,7 @@ export default function SearchTabs({ search, create }) {
           key="6"
         >
           {filter && <EventOption />}
-          {create && <CommonCreatePost />}
+          {create && <CommonCreatePost event={true} />}
           {search &&
             events &&
             events.map((data, i) => (
