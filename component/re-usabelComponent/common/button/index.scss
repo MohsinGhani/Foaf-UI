@@ -1,0 +1,34 @@
+.next {
+    .ant-btn {
+        border-radius: 8px;
+        background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+        color: #ffffff;
+        width: 100px;
+        border: none;
+        &:hover {
+            background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+            color: #ffffff;
+        }
+        &:active {
+            background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+            color: #ffffff;
+        }
+    }
+}
+.back {
+    .ant-btn {
+        border-radius: 8px;
+        background: #e8e8e8;
+        color: #575757;
+        width: 100px;
+        border: none;
+        &:hover {
+            background: #e8e8e8;
+            color: #575757;
+        }
+        &:active {
+            background: #e8e8e8;
+            color: #575757;
+        }
+    }
+}

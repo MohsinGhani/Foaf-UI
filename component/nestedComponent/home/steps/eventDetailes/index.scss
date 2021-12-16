@@ -1,0 +1,15 @@
+.event_details {
+    p {
+        margin: unset;
+    }
+    .ant-input {
+        height: 45px;
+        border-radius: 8px;
+        &:hover {
+            border-color: #f9445b;
+        }
+        &:focus {
+            border-color: #f9445b;
+        }
+    }
+}
