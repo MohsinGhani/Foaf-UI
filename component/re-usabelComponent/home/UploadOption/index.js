@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Upload, message, Input } from "antd";
 import Image from "next/image";
 import ReactPlayer from "react-player";
-import ReactAudioPlayer from "react-audio-player";
+import AudioPlayer from "react-h5-audio-player";
 
 export const UplodOption = ({ video, audio }) => {
   const { Dragger } = Upload;
@@ -79,7 +79,22 @@ export const UplodOption = ({ video, audio }) => {
               width="100%"
             />
           )) ||
-          (audio && <ReactAudioPlayer src={image} autoPlay controls />)
+          (audio && (
+            <div
+              className="hello"
+              style={{
+                backgroundImage: "url(/images/CreatePost/audioBackground.png)",
+              }}
+            >
+              <Image
+                src="/images/dashboard/samesize.svg"
+                alt="image"
+                width="120px"
+                height="120px"
+              />
+              <AudioPlayer src={image} controls customAdditionalControls={[]} />
+            </div>
+          ))
         )}
       </div>
     </div>

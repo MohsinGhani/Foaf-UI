@@ -1,5 +1,5 @@
-import { Button } from "antd";
 import React from "react";
+import { Button } from "react-bootstrap";
 
 export const CommonButton = ({ butText, className }) => {
   return (
