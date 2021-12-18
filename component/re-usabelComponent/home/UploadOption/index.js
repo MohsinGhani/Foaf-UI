@@ -81,7 +81,7 @@ export const UplodOption = ({ video, audio }) => {
           )) ||
           (audio && (
             <div
-              className="hello"
+              className="backImage"
               style={{
                 backgroundImage: "url(/images/CreatePost/audioBackground.png)",
               }}

@@ -47,13 +47,14 @@
         // .react-audio-player {
         //     outline: none;
         // }
-        .hello {
+        .backImage {
             width: 100%;
             height: 300px;
             display: flex;
             flex-direction: column;
             background-size: cover;
             justify-content: flex-end;
+            margin-bottom: 40px;
         }
     }
 }

@@ -1,14 +1,42 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { useState } from "react";
 import { Input } from "antd";
 import Image from "next/image";
+import { API } from "../../../../pages/api/create";
+import { useSelector } from "react-redux";
 export const StatusUpdate = () => {
   const { TextArea } = Input;
+
   const url = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7];
   const [backgroundimage, setBackgroundImage] = useState(false);
   const [image, setimage] = useState("");
   const [text, setText] = useState("");
+  const [backImage, setBackImage] = useState("");
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
+  console.log("hello hello", backImage?.result?.background_image);
+  useEffect(() => {
+    getBackgroundImage();
+  }, []);
+  const getBackgroundImage = async () => {
+    try {
+      let response = await fetch(`${API.BACKGROUND_IMAGE}`, {
+        method: "GEt",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${data.token}`,
+        },
+      });
+      const backgroundImage = await response.json();
+      // setgetAllFriends(getallfriends);
+      setBackImage(backgroundImage);
+      console.log(backgroundImage, "get all backgroundImage");
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
 
   const settings = {
     dots: false,
@@ -50,7 +78,7 @@ export const StatusUpdate = () => {
       {backgroundimage ? (
         <div>
           <Slider {...settings}>
-            {url.map((data, i) => (
+            {backImage?.result?.map((data, i) => (
               <div
                 key={i}
                 className="back_image"
@@ -60,7 +88,7 @@ export const StatusUpdate = () => {
                 }}
               >
                 <Image
-                  src={`/images/CreatePost/background${data}.png`}
+                  src={`${data.background_image}`}
                   alt="background"
                   width="80"
                   height="80"

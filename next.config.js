@@ -38,3 +38,9 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = {
+  images: {
+    domains: ["foaf-backend.app"],
+  },
+};
