@@ -1,15 +1,59 @@
 .event_details {
-    p {
-        margin: unset;
-    }
-    .ant-input {
-        height: 45px;
-        border-radius: 8px;
-        &:hover {
-            border-color: #f9445b;
+    height: 300px;
+    .ant-space {
+        width: 100%;
+        .active {
+            p {
+                color: rgba(0, 0, 0, 0.89) !important;
+            }
         }
-        &:focus {
-            border-color: #f9445b;
+        .event_name {
+            margin-top: 25px;
+            p {
+                margin: unset;
+                color: rgba(79, 79, 79, 0.43);
+            }
+            .ant-input {
+                height: 45px;
+                border-radius: 8px;
+
+                &:hover {
+                    border-color: #f9445b;
+                }
+                &:focus {
+                    border-color: #f9445b;
+                }
+            }
+        }
+        .select {
+            display: flex;
+            .date {
+                margin-left: 40px;
+            }
+            .text {
+                color: rgba(79, 79, 79, 0.43);
+                margin: 2px;
+            }
+            .ant-picker {
+                height: 45px;
+                border-radius: 8px;
+                width: 214px;
+                box-shadow: unset;
+                &:hover {
+                    border-color: #f9445b;
+                }
+            }
+            .ant-picker-focused {
+                border-color: #f9445b;
+            }
+            .add_picker {
+                background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 5px;
+            }
         }
     }
 }

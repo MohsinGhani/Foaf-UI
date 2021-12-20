@@ -43,23 +43,32 @@ export default function Steps() {
       </div>
       <div className="event_data">
         <div>
-          <EventData Details={true} />
+          <EventData setNumber={setNumber} number={number} />
         </div>
         <div className="bottom_next">
           <Space>
             <div
               onClick={() => {
-                setNumber(number - 1);
+                number === 1 ? "" : setNumber(number - 1);
               }}
             >
-              <CommonButton butText="back" className="back" />
+              <CommonButton
+                butText="back"
+                className="back"
+                number={number === 1 && true}
+              />
             </div>
             <div
               onClick={() => {
-                setNumber(number + 1);
+                number === 5 ? "" : setNumber(number + 1);
               }}
             >
-              <CommonButton butText="Next" className="next" />
+              <CommonButton
+                butText={
+                  number === 4 ? "Preview" : number === 5 ? "Publish" : "next"
+                }
+                className="next"
+              />
             </div>
           </Space>
         </div>

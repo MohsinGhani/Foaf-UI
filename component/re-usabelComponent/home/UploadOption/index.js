@@ -3,8 +3,8 @@ import { Upload, message, Input } from "antd";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import AudioPlayer from "react-h5-audio-player";
-
-export const UplodOption = ({ video, audio }) => {
+import "react-h5-audio-player/lib/styles.css";
+export const UplodOption = ({ video, audio, picture }) => {
   const { Dragger } = Upload;
   const [image, setimage] = useState(null);
 
@@ -86,12 +86,20 @@ export const UplodOption = ({ video, audio }) => {
                 backgroundImage: "url(/images/CreatePost/audioBackground.png)",
               }}
             >
-              <Image
-                src="/images/dashboard/samesize.svg"
-                alt="image"
-                width="120px"
-                height="120px"
-              />
+              <div className="border__1">
+                <div className="border__2">
+                  <div className="border__3">
+                    <Image
+                      src="/images/CreatePost/hello12.png"
+                      alt="image"
+                      width="120px"
+                      height="120px"
+                      layout="fixed"
+                    />
+                  </div>
+                </div>
+              </div>
+
               <AudioPlayer src={image} controls customAdditionalControls={[]} />
             </div>
           ))
