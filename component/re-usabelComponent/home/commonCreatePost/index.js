@@ -1,15 +1,65 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Profile from "../../profile";
-import { Space } from "antd";
+import { Space, Form } from "antd";
 
 import { CreateEvent } from "../../../nestedComponent/home/createEvent";
 import { StatusUpdate } from "../../../nestedComponent/home/statusUpdate";
 import { UplodOption } from "../UploadOption";
 import Steps from "../../../nestedComponent/home/steps";
+import { CommonButton } from "../../common/button";
+import { useSelector } from "react-redux";
+import { API } from "../../../../pages/api/create";
 export default function CreatePostContent({ status, video, audio, event }) {
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
   const [steps, setSteps] = useState(false);
-  console.log("step is here", steps);
+  const [description, setDiscription] = useState("");
+  const [form] = Form.useForm();
+  const post = () => {
+    form
+      .validateFields()
+      .then(async (values) => {
+        console.log(values, "valuesss");
+        const statusData = {
+          description: values.discription,
+        };
+        // try {
+        //   let response = await fetch(`${API.CREATE_STATUS}`, {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       Authorization: `Token ${data.token}`,
+        //     },
+        //     body: JSON.stringify(statusData),
+        //   });
+        //   const createStatus = await response.json();
+
+        //   console.log(createStatus, "createStatus");
+        // } catch (err) {
+        //   console.log(err), "error araha hai";
+        // }
+        try {
+          let response = await fetch(`${API.CREATE_VIDEO_STATUS}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${data.token}`,
+            },
+            body: JSON.stringify(statusData),
+          });
+          const createVideo = await response.json();
+          // setgetAllFriends(getallfriends);
+
+          console.log(createVideo, "createStatus");
+        } catch (err) {
+          console.log(err), "error araha hai";
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       {!steps && (
@@ -23,8 +73,8 @@ export default function CreatePostContent({ status, video, audio, event }) {
             privacy={true}
           />
 
-          {status && <StatusUpdate />}
-          {video && <UplodOption video />}
+          {status && <StatusUpdate form={form} />}
+          {video && <UplodOption video form={form} />}
           {audio && <UplodOption audio />}
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
 
@@ -59,6 +109,8 @@ export default function CreatePostContent({ status, video, audio, event }) {
               </Space>
             </div>
           </div>
+
+          <CommonButton className="post" butText="Post" onclick={post} />
         </div>
       )}
       {steps && <Steps />}

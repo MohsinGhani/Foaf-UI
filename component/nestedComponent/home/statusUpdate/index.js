@@ -2,11 +2,11 @@
 import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { useState } from "react";
-import { Input } from "antd";
+import { Input, Form } from "antd";
 import Image from "next/image";
 import { API } from "../../../../pages/api/create";
 import { useSelector } from "react-redux";
-export const StatusUpdate = () => {
+export const StatusUpdate = ({ form }) => {
   const { TextArea } = Input;
 
   const url = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7];
@@ -66,13 +66,23 @@ export const StatusUpdate = () => {
             !image ? "text_color_grey" : "text_color_white"
           }`}
         >
-          {true && (
-            <TextArea
-              // placeholder="whats on you Mind?"
-              autoSize={{ minRows: 1, maxRows: 7 }}
-              defaultValue="whats on you Mind?"
-            />
-          )}
+          <Form name="basic" form={form}>
+            <Form.Item
+              name="discription"
+              // rules={[
+              //   {
+              //     required: true,
+              //     message: "Please input text!",
+              //   },
+              // ]}
+            >
+              <TextArea
+                // placeholder="whats on you Mind?"
+                autoSize={{ minRows: 1, maxRows: 7 }}
+                defaultValue="whats on you Mind?"
+              />
+            </Form.Item>
+          </Form>
         </div>
       </div>
       {backgroundimage ? (

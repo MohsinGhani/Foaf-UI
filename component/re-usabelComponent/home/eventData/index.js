@@ -8,6 +8,7 @@ import { UplodOption } from "../UploadOption";
 
 export const EventData = ({ Details, number }) => {
   const component = () => {
+    console.log("hello i am here");
     const data = number;
     switch (data) {
       case 1:
@@ -17,7 +18,7 @@ export const EventData = ({ Details, number }) => {
       case 3:
         return <Description />;
       case 4:
-        return <UplodOption audio />;
+        return <UplodOption picture />;
       default:
         console.log(`Sorry, we are out of `);
     }

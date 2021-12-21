@@ -1,24 +1,31 @@
 import React, { useState } from "react";
-import { Upload, message, Input } from "antd";
+import { Upload, Form, Input } from "antd";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-export const UplodOption = ({ video, audio, picture }) => {
+export const UplodOption = ({ video, audio, picture, form }) => {
   const { Dragger } = Upload;
   const [image, setimage] = useState(null);
 
-  // function getBase64(file) {
-  //   return new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result);
-  //     reader.onerror = (error) => reject(error);
-  //   });
-  // }
-  const uploadData = (info) => {
+  function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  }
+  const uploadData = async (info) => {
     console.log("info ya hai bhai", info);
-    setimage(URL.createObjectURL(info.file.originFileObj));
+
+    if (picture) {
+      const data = await getBase64(info.file.originFileObj);
+      console.log(data, "datainfo.file.originFileObj");
+      setimage(data);
+    } else {
+      setimage(URL.createObjectURL(info.file.originFileObj));
+    }
   };
   const props = {
     name: "file",
@@ -32,18 +39,32 @@ export const UplodOption = ({ video, audio, picture }) => {
   return (
     <div className="uplaod_data_main">
       <div className={`text_area_upload ${image && "size_change"}`}>
-        <TextArea
-          placeholder={
-            image
-              ? (video &&
-                  "“The play button is the most compelling call to action on the web.”") ||
-                (audio &&
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique dictum consectetur aliquam feugiat posuere eget enim.")
-              : "What’s up?"
-          }
-          autoSize={{ minRows: 2, maxRows: 7 }}
-          // defaultValue={}
-        />
+        {!picture && (
+          <Form name="basic" form={form}>
+            <Form.Item
+              name="discription"
+              // rules={[
+              //   {
+              //     required: true,
+              //     message: "Please input text!",
+              //   },
+              // ]}
+            >
+              <TextArea
+                placeholder={
+                  image
+                    ? (video &&
+                        "“The play button is the most compelling call to action on the web.”") ||
+                      (audio &&
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique dictum consectetur aliquam feugiat posuere eget enim.")
+                    : "What’s up?"
+                }
+                autoSize={{ minRows: 1, maxRows: 7 }}
+                // defaultValue={}
+              />
+            </Form.Item>
+          </Form>
+        )}
       </div>
 
       <div className="upload_data">
@@ -58,7 +79,7 @@ export const UplodOption = ({ video, audio, picture }) => {
               <Image
                 src={
                   (video && "/images/CreatePost/upload.png") ||
-                  (audio && "/images/CreatePost/audioUpload.png")
+                  ((audio || picture) && "/images/CreatePost/audioUpload.png")
                 }
                 alt="background"
                 width="90"
@@ -66,7 +87,10 @@ export const UplodOption = ({ video, audio, picture }) => {
               />
             </div>
             <p className="text1">
-              Upload {(video && "Video") || (audio && "Audio")}
+              Upload{" "}
+              {(video && "Video") ||
+                (audio && "Audio") ||
+                (picture && "Picture")}
             </p>
             <p className="text2">or Drag and drop</p>
           </Dragger>
@@ -102,6 +126,15 @@ export const UplodOption = ({ video, audio, picture }) => {
 
               <AudioPlayer src={image} controls customAdditionalControls={[]} />
             </div>
+          )) ||
+          (picture && image && (
+            <Image
+              src={image}
+              width="780"
+              height="350"
+              alt="image"
+              layout="fixed"
+            />
           ))
         )}
       </div>
