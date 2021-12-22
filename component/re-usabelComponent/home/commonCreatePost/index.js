@@ -10,50 +10,49 @@ import Steps from "../../../nestedComponent/home/steps";
 import { CommonButton } from "../../common/button";
 import { useSelector } from "react-redux";
 import { API } from "../../../../pages/api/create";
+import { array } from "yup";
 export default function CreatePostContent({ status, video, audio, event }) {
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
+  const [image, setimage] = useState(null);
   const [steps, setSteps] = useState(false);
-  const [description, setDiscription] = useState("");
+  const [fullVideo, setfullVideo] = useState(null);
   const [form] = Form.useForm();
   const post = () => {
+    console.log(fullVideo, "fullVideofullVideofullVideo");
+    console.log(data.token, "data token");
     form
       .validateFields()
-      .then(async (values) => {
+      .then((values) => {
         console.log(values, "valuesss");
-        const statusData = {
-          description: values.discription,
+        console.log(fullVideo, "fullVideofullVideo");
+        console.log("file", fullVideo);
+        const uploadData = async (url, type) => {
+          let formData = new FormData();
+          formData.append(type, fullVideo?.originFileObj);
+          try {
+            let response = await fetch(`${url}`, {
+              method: "POST",
+              headers: {
+                // "Content-Type": "multipart/form-data",
+                // "Content-Type": "multipart/form-data",
+                Authorization: `Token ${data.token}`,
+              },
+              body: formData,
+            });
+            const createVideo = await response.json();
+
+            console.log(createVideo, "createStatus");
+          } catch (err) {
+            console.log(err), "error araha hai";
+          }
         };
-        // try {
-        //   let response = await fetch(`${API.CREATE_STATUS}`, {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       Authorization: `Token ${data.token}`,
-        //     },
-        //     body: JSON.stringify(statusData),
-        //   });
-        //   const createStatus = await response.json();
 
-        //   console.log(createStatus, "createStatus");
-        // } catch (err) {
-        //   console.log(err), "error araha hai";
-        // }
-        try {
-          let response = await fetch(`${API.CREATE_VIDEO_STATUS}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Token ${data.token}`,
-            },
-            body: JSON.stringify(statusData),
-          });
-          const createVideo = await response.json();
-          // setgetAllFriends(getallfriends);
-
-          console.log(createVideo, "createStatus");
-        } catch (err) {
-          console.log(err), "error araha hai";
+        {
+          video && uploadData(API.CREATE_VIDEO_STATUS, "video");
+        }
+        {
+          audio && uploadData(API.CREATE_AUDIO_STATUS, "audio");
         }
       })
       .catch((err) => {
@@ -74,8 +73,25 @@ export default function CreatePostContent({ status, video, audio, event }) {
           />
 
           {status && <StatusUpdate form={form} />}
-          {video && <UplodOption video form={form} />}
-          {audio && <UplodOption audio />}
+          {video && (
+            <UplodOption
+              video
+              form={form}
+              setimage={setimage}
+              image={image}
+              fullVideo={fullVideo}
+              setfullVideo={setfullVideo}
+            />
+          )}
+          {audio && (
+            <UplodOption
+              audio
+              setimage={setimage}
+              image={image}
+              fullVideo={fullVideo}
+              setfullVideo={setfullVideo}
+            />
+          )}
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
 
           <div className="add_post">

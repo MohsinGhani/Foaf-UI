@@ -4,9 +4,16 @@ import Image from "next/image";
 import ReactPlayer from "react-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-export const UplodOption = ({ video, audio, picture, form }) => {
+export const UplodOption = ({
+  video,
+  audio,
+  picture,
+  form,
+  setimage,
+  image,
+  setfullVideo,
+}) => {
   const { Dragger } = Upload;
-  const [image, setimage] = useState(null);
 
   function getBase64(file) {
     return new Promise((resolve, reject) => {
@@ -25,6 +32,7 @@ export const UplodOption = ({ video, audio, picture, form }) => {
       setimage(data);
     } else {
       setimage(URL.createObjectURL(info.file.originFileObj));
+      setfullVideo(info.file);
     }
   };
   const props = {
