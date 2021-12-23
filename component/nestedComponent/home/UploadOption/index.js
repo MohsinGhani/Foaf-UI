@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Upload, Form, Input } from "antd";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 export const UplodOption = ({
+  heading,
+  setHeading,
   video,
   audio,
   picture,
@@ -14,7 +16,11 @@ export const UplodOption = ({
   setfullVideo,
 }) => {
   const { Dragger } = Upload;
-
+  useEffect(() => {
+    {
+      picture && setHeading(heading);
+    }
+  }, [picture, setHeading, heading]);
   function getBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();

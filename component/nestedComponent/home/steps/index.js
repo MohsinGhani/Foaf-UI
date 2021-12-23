@@ -1,7 +1,7 @@
 import { Space } from "antd";
 import React, { useState } from "react";
 import { CommonButton } from "../../../re-usabelComponent/common/button";
-import { EventData } from "../../../re-usabelComponent/home/eventData";
+import { EventData } from "../eventData";
 
 export default function Steps() {
   const [number, setNumber] = useState(1);

@@ -1,10 +1,13 @@
 import { DatePicker, Input, Space, TimePicker } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export const EventDetails = () => {
+export const EventDetails = ({ heading, setHeading }) => {
   const [classChange, setClassChange] = useState(false);
   const [endDate, setEndDate] = useState(false);
   const [endTime, setEndTime] = useState(false);
+  useEffect(() => {
+    setHeading(heading);
+  }, [heading, setHeading]);
   return (
     <div className="event_details">
       <Space direction="vertical" size={25}>

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import Profile from "../../profile";
+import Profile from "../../../re-usabelComponent/profile";
 import { Space, Form } from "antd";
 
-import { CreateEvent } from "../../../nestedComponent/home/createEvent";
-import { StatusUpdate } from "../../../nestedComponent/home/statusUpdate";
+import { CreateEvent } from "../createEvent";
+import { StatusUpdate } from "../statusUpdate";
 import { UplodOption } from "../UploadOption";
-import Steps from "../../../nestedComponent/home/steps";
-import { CommonButton } from "../../common/button";
+import Steps from "../steps";
+import { CommonButton } from "../../../re-usabelComponent/common/button";
 import { useSelector } from "react-redux";
 import { API } from "../../../../pages/api/create";
 import { array } from "yup";

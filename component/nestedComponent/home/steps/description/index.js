@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-export const Description = () => {
+export const Description = ({ heading, setHeading }) => {
+  useEffect(() => {
+    setHeading(heading);
+  }, [heading, setHeading]);
   return (
     <div className="description">
       <p>

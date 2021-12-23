@@ -5,13 +5,13 @@ import SearchCard from "../../../re-usabelComponent/search/card";
 import SeeAllButton from "../../../re-usabelComponent/search/button";
 import { useRouter } from "next/router";
 import EventOption from "./eventOption";
-import DropDown from "../../../re-usabelComponent/search/dropDown";
 import VedioCard from "../../../re-usabelComponent/search/vedioCard";
+import CommonCreatePost from "../../home/commonCreatePost";
 import { people, places, events, video, group } from "../../../../shared/json";
 import GroupCard from "../../../re-usabelComponent/search/groupCard";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import CommonCreatePost from "../../../re-usabelComponent/home/commonCreatePost";
+
 import Spinner from "../../../re-usabelComponent/common/spinner";
 // import { Button } from "antd";
 export default function SearchTabs({ search, create }) {
