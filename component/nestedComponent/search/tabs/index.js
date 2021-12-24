@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 import Spinner from "../../../re-usabelComponent/common/spinner";
 // import { Button } from "antd";
-export default function SearchTabs({ search, create }) {
+export default function SearchTabs({ search, create, className }) {
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
@@ -43,11 +43,7 @@ export default function SearchTabs({ search, create }) {
     console.log(key, "key ya rahi bhai");
   }
   return (
-    <div
-      className={`Search_tabs_main ${create && "Search_tabs_main"} ${
-        filter && "Event"
-      }`}
-    >
+    <div className={`Search_tabs_main  ${className}  ${filter && "Event"}`}>
       <Tabs
         tabBarExtraContent={search && operations}
         onChange={callback}

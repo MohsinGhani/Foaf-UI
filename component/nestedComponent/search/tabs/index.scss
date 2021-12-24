@@ -131,10 +131,14 @@
         }
     }
 }
-
-.Search_tabs_main {
-    .ant-tabs-nav::before {
-        border-bottom: none !important;
+.create_tabs_main {
+    .ant-tabs {
+        .ant-tabs-content-holder {
+            max-height: calc(100vh - 325px) !important;
+        }
+        .ant-tabs-nav::before {
+            border-bottom: none !important;
+        }
     }
 }
 
