@@ -2,4 +2,34 @@
     color: #585858;
     font-size: 17px;
     margin-top: 25px;
+    .description_text_main {
+        .discription_text {
+            color: rgba(0, 0, 0, 0.89) !important;
+        }
+        .text {
+            margin: 5px;
+            color: rgba(79, 79, 79, 0.43);
+            font-size: 14px;
+        }
+        .description_text {
+            position: relative;
+            .text_image {
+                position: absolute;
+                top: 0;
+                padding: 5px;
+            }
+
+            .ant-input {
+                border-radius: 8px;
+                padding-left: 35px;
+                &:hover {
+                    border-color: #f9445b;
+                }
+                &:focus {
+                    border-color: #f9445b;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
 }

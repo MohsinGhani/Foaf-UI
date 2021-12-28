@@ -2,7 +2,7 @@
     height: 300px;
     .ant-space {
         width: 100%;
-        .active {
+        .active_text {
             p {
                 color: rgba(0, 0, 0, 0.89) !important;
             }
@@ -12,6 +12,7 @@
             p {
                 margin: unset;
                 color: rgba(79, 79, 79, 0.43);
+                font-size: 14px;
             }
             .ant-input {
                 height: 45px;
@@ -27,13 +28,12 @@
         }
         .select {
             display: flex;
-            .date {
-                margin-left: 40px;
-            }
+
             .text {
                 color: rgba(79, 79, 79, 0.43);
                 margin: 2px;
             }
+
             .ant-picker {
                 height: 45px;
                 border-radius: 8px;
@@ -53,6 +53,9 @@
                 font-weight: 600;
                 cursor: pointer;
                 margin-top: 5px;
+            }
+            .time {
+                margin-left: 40px;
             }
         }
     }

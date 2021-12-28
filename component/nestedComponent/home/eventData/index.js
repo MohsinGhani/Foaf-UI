@@ -10,7 +10,7 @@ import Preview from "../steps/preview";
 
 export const EventData = ({ Details, number }) => {
   const [heading, setHeading] = useState("");
-
+  const [image, setimage] = useState(null);
   const component = () => {
     const data = number;
     switch (data) {
@@ -23,7 +23,13 @@ export const EventData = ({ Details, number }) => {
         return <Description setHeading={setHeading} heading="Description" />;
       case 4:
         return (
-          <UplodOption picture setHeading={setHeading} heading="Cover Photo" />
+          <UplodOption
+            picture
+            setimage={setimage}
+            image={image}
+            setHeading={setHeading}
+            heading="Cover Photo"
+          />
         );
       case 5:
         return <Preview setHeading={setHeading} heading="Preview" />;

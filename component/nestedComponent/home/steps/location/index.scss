@@ -4,4 +4,37 @@
         color: #585858;
         margin-top: 25px;
     }
+    .auto_location {
+        .location_text {
+            color: rgba(0, 0, 0, 0.89) !important;
+        }
+        .text {
+            margin: 5px;
+            color: rgba(79, 79, 79, 0.43);
+            font-size: 14px;
+        }
+        .ant-select {
+            margin-bottom: 50px;
+            .ant-select-selector {
+                border-radius: 8px;
+            }
+            &:hover {
+                .ant-select-selector {
+                    border-color: #f9445b !important;
+                }
+            }
+        }
+        .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+            border-color: #f9445b;
+            box-shadow: unset;
+        }
+    }
+}
+
+.autocomplete_location {
+    border-radius: 8px !important;
+    margin-top: 30px !important;
+    .ant-select-item {
+        padding: unset;
+    }
 }
