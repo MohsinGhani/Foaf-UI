@@ -42,18 +42,36 @@ export default function SearchTabs({ search, create, className }) {
   function callback(key) {
     console.log(key, "key ya rahi bhai");
   }
+  const SearchTabsRoute = (tab) => {
+    router.push({
+      pathname: "",
+      query: { tab: tab, search: router.query.search },
+    });
+  };
+  const CreateTabsRoute = (tab) => {
+    router.push({
+      pathname: "",
+      query: { tab: tab },
+    });
+  };
+
   return (
     <div className={`Search_tabs_main  ${className}  ${filter && "Event"}`}>
       <Tabs
         tabBarExtraContent={search && operations}
         onChange={callback}
         defaultActiveKey={
-          (router.query.tab === "people" && "1") ||
-          (router.query.tab === "places" && "2") ||
-          (router.query.tab === "Video" && "3") ||
-          (router.query.tab === "Recomand" && "4") ||
-          (router.query.tab === "Groups" && "5") ||
-          (router.query.tab === "Events" && "6")
+          ((router.query.tab === "people" ||
+            router.query.tab === "statusUpdate") &&
+            "1") ||
+          ((router.query.tab === "places" || router.query.tab === "video") &&
+            "2") ||
+          ((router.query.tab === "Video" || router.query.tab === "audio") &&
+            "3") ||
+          ((router.query.tab === "Groups" || router.query.tab === "artical") &&
+            "4") ||
+          ((router.query.tab === "Events" || router.query.tab === "event") &&
+            "5")
         }
       >
         <TabPane
@@ -61,14 +79,16 @@ export default function SearchTabs({ search, create, className }) {
             <Button
               className="first"
               onClick={() => {
-                router.push({
-                  pathname: "",
-                  query: { tab: "people", search: router.query.search },
-                });
+                {
+                  search && SearchTabsRoute("people");
+                }
+                {
+                  create && CreateTabsRoute("statusUpdate");
+                }
               }}
             >
               {search && "People"}
-              {create && "Status Update"}
+              {create && "status_update"}
             </Button>
           }
           key="1"
@@ -105,10 +125,12 @@ export default function SearchTabs({ search, create, className }) {
             <Button
               className="but"
               onClick={() => {
-                router.push({
-                  pathname: "",
-                  query: { tab: "places", search: router.query.search },
-                });
+                {
+                  search && SearchTabsRoute("places");
+                }
+                {
+                  create && CreateTabsRoute("video");
+                }
               }}
             >
               {search && "Places"}
@@ -145,10 +167,12 @@ export default function SearchTabs({ search, create, className }) {
             <Button
               className="but"
               onClick={() => {
-                router.push({
-                  pathname: "",
-                  query: { tab: "Video", search: router.query.search },
-                });
+                {
+                  search && SearchTabsRoute("Video");
+                }
+                {
+                  create && CreateTabsRoute("audio");
+                }
               }}
             >
               {search && "Video"}
@@ -185,10 +209,12 @@ export default function SearchTabs({ search, create, className }) {
             <Button
               className="but"
               onClick={() => {
-                router.push({
-                  pathname: "",
-                  query: { tab: "Groups", search: router.query.search },
-                });
+                {
+                  search && SearchTabsRoute("Groups");
+                }
+                {
+                  create && CreateTabsRoute("artical");
+                }
               }}
             >
               {search && "Groups"}
@@ -223,10 +249,12 @@ export default function SearchTabs({ search, create, className }) {
             <Button
               className="last"
               onClick={() => {
-                router.push({
-                  pathname: "",
-                  query: { tab: "Events", search: router.query.search },
-                });
+                {
+                  search && SearchTabsRoute("Events");
+                }
+                {
+                  create && CreateTabsRoute("event");
+                }
               }}
             >
               {search && "Events"}

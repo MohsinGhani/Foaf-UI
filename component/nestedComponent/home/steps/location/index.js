@@ -46,10 +46,12 @@ export const Location = ({ heading, setHeading }) => {
 
   const options = [
     {
-      options: [renderItem("Diamond city")],
-    },
-    {
-      options: [renderItem("Diamond city")],
+      options: [
+        renderItem("Diamond city"),
+        renderItem("Diamond city"),
+        renderItem("Diamond city"),
+        renderItem("Diamond city"),
+      ],
     },
   ];
   return (
@@ -57,26 +59,34 @@ export const Location = ({ heading, setHeading }) => {
       <p>Add a physical lo cation for people to join your event. </p>
       <div className="auto_location">
         <p className={`text ${classChange}`}>Location</p>
-        <AutoComplete
-          size="large"
-          dropdownClassName="autocomplete_location"
-          style={{
-            width: 250,
-          }}
-          options={options}
-          placeholder={select && "Include a place or address"}
-          onFocus={() => {
-            setSelect(true);
-            setClassChange("location_text");
-          }}
-          onBlur={() => {
-            setSelect(false);
-            setClassChange("");
-          }}
-          // filterOption={(inputValue, option) =>
-          //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-          // }
-        />
+        <div className="loacation_field">
+          <AutoComplete
+            size="large"
+            dropdownClassName="autocomplete_location"
+            style={{
+              width: 250,
+            }}
+            options={options}
+            placeholder={select && "Include a place or address"}
+            onFocus={() => {
+              setSelect(true);
+              setClassChange("location_text");
+            }}
+            onBlur={() => {
+              setSelect(false);
+              setClassChange("");
+            }}
+          />
+          <div className="location_image">
+            <Image
+              src="/images/CreatePost/location.png"
+              width="24"
+              height="24"
+              alt="pic"
+              layout="fixed"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

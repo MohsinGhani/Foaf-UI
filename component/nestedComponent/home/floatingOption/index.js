@@ -1,13 +1,19 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import CommonModal from "../../../re-usabelComponent/common/modal";
 
 function FloatingOption({ state }) {
+  const router = useRouter();
   const url = ["createPost", "recomand", "review", "celebrationpost", "other"];
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
     setIsModalVisible("createPost");
+    router.push({
+      pathname: "",
+      query: { tab: router.query.tab || "statusUpdate" },
+    });
   };
   return (
     <>
@@ -19,7 +25,9 @@ function FloatingOption({ state }) {
         {url.map((data, i) => (
           <div
             onClick={() => {
-              showModal();
+              {
+                i == 0 && showModal();
+              }
             }}
             key={i}
             className={`creates_icons ${data === "other" && "other_icon"}`}

@@ -31,9 +31,21 @@ const Preview = ({ heading, setHeading }) => {
             </div>
           </div>
           <div className="button_site">
-            <CommonButton butText="Intrested" className="event_button" />
-            <CommonButton butText="Going" className="event_button" />
-            <CommonButton butText="invite" className="event_button" />
+            <CommonButton
+              icon="interested"
+              butText="Intrested"
+              className="event_button"
+            />
+            <CommonButton
+              icon="going"
+              butText="Going"
+              className="event_button"
+            />
+            <CommonButton
+              icon="invite"
+              butText="invite"
+              className="event_button"
+            />
           </div>
         </div>
       </div>
