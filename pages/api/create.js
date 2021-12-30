@@ -5,6 +5,7 @@ const API = {
   CREATE_STATUS: `${mediaBaseUrl}/post/api/create_status`,
   CREATE_VIDEO_STATUS: `${mediaBaseUrl}/post/api/create_video_status`,
   CREATE_AUDIO_STATUS: `${mediaBaseUrl}/post/api/create_audio_status`,
+  GET_VIDEO_STATUS: `${mediaBaseUrl}/post/api/get_video_status`,
 };
 module.exports = {
   API,

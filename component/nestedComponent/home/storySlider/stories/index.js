@@ -1,19 +1,54 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Image from "next/image";
 import CreateStory from "../createStory";
 import { useRouter } from "next/router";
 import Story from "../homeStories";
+import { API } from "../../../../../pages/api/create";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 export default function Stories() {
+  const [videoStatus, setvideoStatus] = useState();
   const router = useRouter();
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
+
+  const getVideoStatus = async () => {
+    try {
+      let response = await fetch(`${API.GET_VIDEO_STATUS}`, {
+        method: "GEt",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${data.token}`,
+        },
+      });
+      const Status = await response.json();
+      setvideoStatus(Status);
+      console.log(Status, "get all videoStatus");
+    } catch (err) {
+      console.log(err), "error araha hai";
+    }
+  };
+
+  useEffect(() => {
+    getVideoStatus();
+  }, []);
+  console.log(videoStatus?.result?.friends, "freindVedio");
   return (
     <div className="stories_main">
       <CreateStory />
 
-      <Story
-        classname="hide1"
-        url="/images/dashboard/samesize.svg"
-        name="Erin Press"
-        bgurl="/images/dashboard/post.svg"
-      />
+      {videoStatus?.result?.friends?.map((data, index) => {
+        if (index < 1) {
+          return (
+            <Story
+              classname="hide1"
+              url="/images/dashboard/samesize.svg"
+              name="Erin Press"
+              bgurl="/images/dashboard/post.svg"
+            />
+          );
+        }
+      })}
 
       <Story
         classname="hide2"

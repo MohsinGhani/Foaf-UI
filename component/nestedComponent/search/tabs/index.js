@@ -51,7 +51,7 @@ export default function SearchTabs({ search, create, className }) {
   const CreateTabsRoute = (tab) => {
     router.push({
       pathname: "",
-      query: { tab: tab },
+      query: { tabs: tab },
     });
   };
 
@@ -62,16 +62,16 @@ export default function SearchTabs({ search, create, className }) {
         onChange={callback}
         defaultActiveKey={
           ((router.query.tab === "people" ||
-            router.query.tab === "statusUpdate") &&
+            router.query.tabs === "statusUpdate") &&
             "1") ||
-          ((router.query.tab === "places" || router.query.tab === "video") &&
+          ((router.query.tab === "places" || router.query.tabs === "video") &&
             "2") ||
-          ((router.query.tab === "Video" || router.query.tab === "audio") &&
+          ((router.query.tab === "Video" || router.query.tabs === "audio") &&
             "3") ||
-          ((router.query.tab === "Groups" || router.query.tab === "artical") &&
-            "4") ||
-          ((router.query.tab === "Events" || router.query.tab === "event") &&
-            "5")
+          ((router.query.tab === "Groups" || router.query.tabs === "article") &&
+            "5") ||
+          ((router.query.tab === "Events" || router.query.tabs === "event") &&
+            "6")
         }
       >
         <TabPane
@@ -213,7 +213,7 @@ export default function SearchTabs({ search, create, className }) {
                   search && SearchTabsRoute("Groups");
                 }
                 {
-                  create && CreateTabsRoute("artical");
+                  create && CreateTabsRoute("article");
                 }
               }}
             >
@@ -221,7 +221,7 @@ export default function SearchTabs({ search, create, className }) {
               {create && "Article"}
             </Button>
           }
-          key="5"
+          key="4"
         >
           {filter && <EventOption />}
           {/* <div className="group_main"> */}
@@ -261,7 +261,7 @@ export default function SearchTabs({ search, create, className }) {
               {create && "Event"}
             </Button>
           }
-          key="6"
+          key="5"
         >
           {filter && <EventOption />}
           {create && <CommonCreatePost event={true} />}

@@ -12,9 +12,10 @@ function FloatingOption({ state }) {
     setIsModalVisible("createPost");
     router.push({
       pathname: "",
-      query: { tab: router.query.tab || "statusUpdate" },
+      query: { tabs: router.query.tabs || "statusUpdate" },
     });
   };
+  console.log(router.query.tabs, "query");
   return (
     <>
       <div
