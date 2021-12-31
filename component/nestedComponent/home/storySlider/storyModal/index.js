@@ -30,7 +30,7 @@ export default function StoryModal(Props) {
       >
         <StoryProfile />
 
-        <SilkSlider />
+        <SilkSlider status={Props.status} />
         {/* <StoryTimer /> */}
         <StoryReply />
       </Modal>

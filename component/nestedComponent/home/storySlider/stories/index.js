@@ -5,46 +5,52 @@ import { useRouter } from "next/router";
 import Story from "../homeStories";
 import { API } from "../../../../../pages/api/create";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { videoStatus } from "../../../../features/Create";
 export default function Stories() {
-  const [videoStatus, setvideoStatus] = useState();
+  const [alliVideoStatus, setallvideoStatus] = useState();
   const router = useRouter();
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
-
+  const dispatch = useDispatch();
   const getVideoStatus = async () => {
-    try {
-      let response = await fetch(`${API.GET_VIDEO_STATUS}`, {
-        method: "GEt",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${data.token}`,
-        },
-      });
-      const Status = await response.json();
-      setvideoStatus(Status);
-      console.log(Status, "get all videoStatus");
-    } catch (err) {
-      console.log(err), "error araha hai";
+    if (data?.token) {
+      try {
+        let response = await fetch(`${API.GET_VIDEO_STATUS}`, {
+          method: "GEt",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${data?.token}`,
+          },
+        });
+        const Status = await response.json();
+        setallvideoStatus(Status);
+        dispatch(videoStatus(Status));
+        console.log(Status, "get all videoStatus");
+      } catch (err) {
+        console.log(err), "error araha hai";
+      }
     }
   };
 
   useEffect(() => {
     getVideoStatus();
   }, []);
-  console.log(videoStatus?.result?.friends, "freindVedio");
+  console.log(videoStatus?.result?.friends, "friendVedio");
   return (
     <div className="stories_main">
       <CreateStory />
 
-      {videoStatus?.result?.friends?.map((data, index) => {
+      {alliVideoStatus?.result?.friends?.map((data, index) => {
         if (index < 1) {
           return (
             <Story
+              key={index}
               classname="hide1"
               url="/images/dashboard/samesize.svg"
-              name="Erin Press"
+              name={data.username}
               bgurl="/images/dashboard/post.svg"
+              status={data.status}
             />
           );
         }

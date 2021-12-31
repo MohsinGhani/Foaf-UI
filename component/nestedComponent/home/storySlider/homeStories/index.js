@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Avatar } from "../../../../re-usabelComponent/common/avatar";
 import StoryModal from "../storyModal";
 
-export default function Story({ url, name, bgurl, classname }) {
+export default function Story({ url, name, bgurl, classname, status }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -28,7 +28,11 @@ export default function Story({ url, name, bgurl, classname }) {
           <p>{name}</p>
         </div>
       </div>
-      <StoryModal visible={isModalVisible} unvisibel={setIsModalVisible} />
+      <StoryModal
+        visible={isModalVisible}
+        unvisibel={setIsModalVisible}
+        status={status}
+      />
     </>
   );
 }

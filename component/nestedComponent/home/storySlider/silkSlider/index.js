@@ -2,6 +2,9 @@
 import Slider from "react-slick";
 import { Progress } from "antd";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import ReactPlayer from "react-player";
+
 // import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
 // function SampleNextArrow(props) {
 //   const { className, style, onClick } = props;
@@ -26,6 +29,9 @@ import Image from "next/image";
 // }
 
 export default function SilkSlider() {
+  const statedata = useSelector((state) => state);
+  var data = statedata;
+  console.log(data.create.video.result.friends, "vedioStataus123");
   const settings = {
     customPaging: function (i) {
       return <Progress percent={20} size="medium" />;
@@ -56,20 +62,27 @@ export default function SilkSlider() {
           </div>
           <div className="story_image">
             <Image
-              src="/images/dashboard/post3.jpg"
-              width="1100"
-              height="560"
-              alt="story"
-            />
-          </div>
-          <div className="story_image">
-            <Image
               src="/images/dashboard/post4.jpg"
               width="1100"
               height="560"
               alt="story"
             />
           </div>
+
+          {/* <div className="story_image">
+            <Image
+              src="/images/dashboard/post4.jpg"
+              width="1100"
+              height="560"
+              alt="story"
+            />
+          </div> */}
+          <ReactPlayer
+            controls
+            className="react-player"
+            url="blob:http://localhost:3000/3744e4a2-60ee-4189-88aa-f5924c11fb6d"
+            width="100%"
+          />
           <div className="story_image">
             <Image
               src="/images/dashboard/post3.jpg"
