@@ -11,7 +11,14 @@ import { CommonButton } from "../../../re-usabelComponent/common/button";
 import { useSelector } from "react-redux";
 import { API } from "../../../../pages/api/create";
 import { array } from "yup";
-export default function CreatePostContent({ status, video, audio, event }) {
+import Article from "../artical";
+export default function CreatePostContent({
+  status,
+  video,
+  audio,
+  event,
+  article,
+}) {
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
   const [image, setimage] = useState(null);
@@ -92,6 +99,7 @@ export default function CreatePostContent({ status, video, audio, event }) {
               setfullVideo={setfullVideo}
             />
           )}
+          {article && <Article />}
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
 
           <div className="add_post">

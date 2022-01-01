@@ -69,9 +69,9 @@ export default function SearchTabs({ search, create, className }) {
           ((router.query.tab === "Video" || router.query.tabs === "audio") &&
             "3") ||
           ((router.query.tab === "Groups" || router.query.tabs === "article") &&
-            "5") ||
+            "4") ||
           ((router.query.tab === "Events" || router.query.tabs === "event") &&
-            "6")
+            "5")
         }
       >
         <TabPane
@@ -88,7 +88,7 @@ export default function SearchTabs({ search, create, className }) {
               }}
             >
               {search && "People"}
-              {create && "status_update"}
+              {create && "status Update"}
             </Button>
           }
           key="1"
@@ -225,7 +225,7 @@ export default function SearchTabs({ search, create, className }) {
         >
           {filter && <EventOption />}
           {/* <div className="group_main"> */}
-          {create && <CommonCreatePost />}
+          {create && <CommonCreatePost article={true} />}
           {search && (
             <>
               <div className="group_main">
