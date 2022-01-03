@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { videoStatus } from "../../../../features/Create";
 export default function Stories() {
-  const [alliVideoStatus, setallvideoStatus] = useState();
+  const [allVideoStatus, setallvideoStatus] = useState();
   const router = useRouter();
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
@@ -41,7 +41,7 @@ export default function Stories() {
     <div className="stories_main">
       <CreateStory />
 
-      {alliVideoStatus?.result?.friends?.map((data, index) => {
+      {allVideoStatus?.result?.friends?.map((data, index) => {
         if (index < 1) {
           return (
             <Story

@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-// import { Editor, createEditorState } from "medium-draft";
-// import "medium-draft/lib/index.css";
+import React from "react";
+import { createReactEditorJS } from "react-editor-js";
+import { EDITOR_JS_TOOLS } from "./tools";
 
 const Article = () => {
-  let [state, setState] = useState();
+  const ReactEditorJS = createReactEditorJS();
   return (
     <div>
-      {/* <Editor editorState={state} onChange={setState} /> */}
-
-      <p>hello</p>
+      <ReactEditorJS tools={EDITOR_JS_TOOLS} />
     </div>
   );
 };
