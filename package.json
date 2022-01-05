@@ -11,9 +11,8 @@
   },
   "dependencies": {
     "@editorjs/editorjs": "^2.22.2",
-    "@editorjs/embed": "^2.5.0",
-    "@editorjs/image": "^2.6.2",
-    "@reduxjs/toolkit": "^1.6.2",
+    "@editorjs/paragraph": "^2.8.0",
+    "@reduxjs/toolkit": "^1.7.1",
     "@svgr/webpack": "^5.5.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
@@ -36,10 +35,13 @@
     "sass": "^1.37.5",
     "slick-carousel": "^1.8.1",
     "webpack": "^4.46.0",
-    "yarn": "^1.22.11",
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@editorjs/code": "^2.7.0",
+    "@editorjs/delimiter": "^1.2.0",
+    "@editorjs/image": "^2.6.2",
+    "@editorjs/link": "^2.4.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0"
   }

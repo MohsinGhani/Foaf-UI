@@ -1,14 +1,11 @@
 import React from "react";
-import { createReactEditorJS } from "react-editor-js";
-import { EDITOR_JS_TOOLS } from "./tools";
-
+import dynamic from "next/dynamic";
 const Article = () => {
-  const ReactEditorJS = createReactEditorJS();
-  return (
-    <div>
-      <ReactEditorJS tools={EDITOR_JS_TOOLS} />
-    </div>
-  );
+  let CustomEditor;
+  if (typeof window !== "undefined") {
+    CustomEditor = dynamic(() => import("./customEditor"));
+  }
+  return <>{CustomEditor && <CustomEditor />}</>;
 };
 
 export default Article;
