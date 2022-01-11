@@ -1,5 +1,5 @@
 import { createReactEditorJS } from "react-editor-js";
-import EditorJS from "@editorjs/editorjs";
+// import EditorJS from "@editorjs/editorjs";
 
 import Code from "@editorjs/code";
 import LinkTool from "@editorjs/link";
@@ -8,10 +8,11 @@ import Delimiter from "@editorjs/delimiter";
 import Image from "@editorjs/image";
 import { API } from "../../../../pages/api/create";
 import { useSelector } from "react-redux";
+import SimpleImage from "@editorjs/simple-image";
 // import SimpleImage from "./iconChange";
 
 // const ImageTool = window.ImageTool;
-
+// const mediaBaseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const EDITOR_JS_TOOLS = {
   paragraph: {
     class: Paragraph,
@@ -22,68 +23,94 @@ const EDITOR_JS_TOOLS = {
   },
   image: {
     class: Image,
+
     config: {
-      endpoints: {
-        byFile: `${API.CREATE_VIDEO_STATUS}`, // Your backend file uploader endpoint
-        // byUrl: "http://localhost:3000", // Your endpoint that provides uploading by Url
+      uploader: {
+        uploadByFile(file) {
+          function getBase64(file) {
+            return new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = () => resolve(reader.result);
+              reader.onerror = (error) => reject(error);
+            });
+          }
+
+          // your own uploading logic here
+          return getBase64(file).then((res) => {
+            return {
+              success: 1,
+              file: {
+                url: res,
+                // any other image data you want to store, such as width, height, color, extension, etc
+              },
+            };
+          });
+        },
       },
-      // field: "image",
-      // types: "image/*",
-      // accept: "image/*",
-      // additionalRequestHeaders: {
-      //   Authorization: `Token ${data.token}`,
+      // endpoints: {
+      // byFile: `https://codex.so/editor/transport/{}`, // Your backend file uploader endpoint
+      // byUrl: "https://codex.so/editor/transport", // Your endpoint that provides uploading by Url
       // },
+      //   // field: "image",
+      //   // types: "image/*",
+      //   // accept: "image/*",
+      //   // additionalRequestHeaders: {
+      //   //   Authorization: `Token ${data.token}`,
+      //   // },
     },
   },
   linkTool: LinkTool,
   code: Code,
   delimiter: Delimiter,
-  // simpleImage: SimpleImage,
+  simpleImage: SimpleImage,
 };
-// const ReactEditorJS = createReactEditorJS();
+const ReactEditorJS = createReactEditorJS();
 
-// const CustomEditor = () => {
-//   return (
-//     <div className="article_editor">
-//       <ReactEditorJS tools={EDITOR_JS_TOOLS} />
-//     </div>
-//   );
+const CustomEditor = () => {
+  return (
+    <div className="article_editor">
+      <ReactEditorJS tools={EDITOR_JS_TOOLS} holder="custom">
+        <div id="custom" />
+      </ReactEditorJS>
+    </div>
+  );
+};
+
+// const Hello = () => {
+//   const statedata = useSelector((state) => state);
+//   var data = statedata?.user?.userDetailes?.result?.user;
+//   const id = document.getElementById("editorjs");
+//   const editor = new EditorJS({
+//     holderId: id,
+//     tools: {
+//       paragraph: {
+//         class: Paragraph,
+//         inlineToolbar: true,
+//         config: {
+//           placeholder: "Tell your story....",
+//         },
+//       },
+//       image: {
+//         class: Image,
+//         config: {
+//           endpoints: {
+//             byFile: "", // Your backend file uploader endpoint
+//             byUrl: "", // Your endpoint that provides uploading by Url
+//           },
+//           // field: "image",
+//           // types: "image/*",
+//           // accept: "image/*",
+//         },
+//       },
+//       linkTool: LinkTool,
+//       code: Code,
+//       delimiter: Delimiter,
+//       // simpleImage: SimpleImage,
+//     },
+//   });
+//   console.log("editor", editor);
+//   return <div id="editorjs"></div>;
 // };
 
-const Hello = () => {
-  const statedata = useSelector((state) => state);
-  var data = statedata?.user?.userDetailes?.result?.user;
-  const id = document.getElementById("editorjs");
-  const editor = new EditorJS({
-    holderId: id,
-    tools: {
-      paragraph: {
-        class: Paragraph,
-        inlineToolbar: true,
-        config: {
-          placeholder: "Tell your story....",
-        },
-      },
-      image: {
-        class: Image,
-        config: {
-          endpoints: {
-            byFile: "", // Your backend file uploader endpoint
-            byUrl: "", // Your endpoint that provides uploading by Url
-          },
-          // field: "image",
-          // types: "image/*",
-          // accept: "image/*",
-        },
-      },
-      linkTool: LinkTool,
-      code: Code,
-      delimiter: Delimiter,
-      // simpleImage: SimpleImage,
-    },
-  });
-  console.log("editor", editor);
-  return <div id="editorjs"></div>;
-};
-
-export default Hello;
+export default CustomEditor;
