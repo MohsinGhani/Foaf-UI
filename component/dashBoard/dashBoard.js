@@ -55,6 +55,7 @@ export default function Mainone(props) {
   // console.log(userReducer, "hello");
   return (
     <Layout className="layout_main">
+      <div className="hello"></div>
       <div className="logo">
         <div
           onClick={() => {
