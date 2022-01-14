@@ -9,7 +9,7 @@ import Image from "@editorjs/image";
 import Header from "@editorjs/header";
 
 import SimpleImage from "@editorjs/simple-image";
-// import Code from "./iconChange";
+// import Line from "./iconChange";
 
 // const ImageTool = window.ImageTool;
 // const mediaBaseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -23,7 +23,6 @@ const EDITOR_JS_TOOLS = {
   },
   image: {
     class: Image,
-
     config: {
       uploader: {
         uploadByFile(file) {
@@ -59,11 +58,31 @@ const EDITOR_JS_TOOLS = {
 const ReactEditorJS = createReactEditorJS();
 
 const CustomEditor = () => {
+  let editor = null;
+  const saveData = async () => {
+    console.log(editor, "edotor datata");
+    try {
+      const outputData = await editor?.save();
+      console.log("Article data: ", outputData);
+    } catch (e) {
+      console.log("Saving failed: ", e);
+    }
+  };
   return (
     <div className="article_editor">
-      <ReactEditorJS tools={EDITOR_JS_TOOLS} holder="editorjs">
+      <ReactEditorJS
+        tools={EDITOR_JS_TOOLS}
+        editorInstance={(editorInstance) =>
+          console.log(
+            editorInstance,
+            "editorInstanceeditorInstanceeditorInstance"
+          )
+        }
+        holder="editorjs"
+      >
         <div id="editorjs"></div>
       </ReactEditorJS>
+      <button onClick={saveData}>save</button>
     </div>
   );
 };
