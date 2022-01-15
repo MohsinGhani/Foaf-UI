@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import Profile from "../../../re-usabelComponent/profile";
-
+import { Form } from "antd";
 import { EventDetails } from "../steps/eventDetailes";
 import { Location } from "../steps/location";
 
@@ -11,11 +11,30 @@ import Preview from "../steps/preview";
 export const EventData = ({ Details, number }) => {
   const [heading, setHeading] = useState("");
   const [image, setimage] = useState(null);
+  const [form] = Form.useForm();
+
+  // const [eventData, setEventData] = [{}];
+  form
+    .validateFields()
+    .then((values) => {
+      console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
+      console.log(fullVideo, "fullVideofullVideo");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   const component = () => {
     const data = number;
     switch (data) {
       case 1: {
-        return <EventDetails setHeading={setHeading} heading="Event Details" />;
+        return (
+          <EventDetails
+            setHeading={setHeading}
+            // setEventData={setEventData}
+            heading="Event Details"
+          />
+        );
       }
       case 2:
         return <Location setHeading={setHeading} heading="Location" />;

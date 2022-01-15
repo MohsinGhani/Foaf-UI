@@ -9,6 +9,7 @@ import Image from "@editorjs/image";
 import Header from "@editorjs/header";
 
 import SimpleImage from "@editorjs/simple-image";
+import { useRef } from "react";
 // import Line from "./iconChange";
 
 // const ImageTool = window.ImageTool;
@@ -58,26 +59,32 @@ const EDITOR_JS_TOOLS = {
 const ReactEditorJS = createReactEditorJS();
 
 const CustomEditor = () => {
-  let editor = null;
+  const editor = useRef(null);
+
   const saveData = async () => {
     console.log(editor, "edotor datata");
-    try {
-      const outputData = await editor?.save();
-      console.log("Article data: ", outputData);
-    } catch (e) {
-      console.log("Saving failed: ", e);
-    }
+    const data = editor.current.save();
+    data
+      .then((outoput) => {
+        console.log(outoput, "outoputoutoputoutoput");
+      })
+      .catch((err) => {
+        console.log(err, "errrroutoputoutoputoutoput");
+      });
   };
   return (
     <div className="article_editor">
       <ReactEditorJS
         tools={EDITOR_JS_TOOLS}
-        editorInstance={(editorInstance) =>
-          console.log(
-            editorInstance,
-            "editorInstanceeditorInstanceeditorInstance"
-          )
-        }
+        // editorInstance={(editorInstance) =>
+        //   console.log(
+        //     editorInstance,
+        //     "editorInstanceeditorInstanceeditorInstance"
+        //   )
+        // }
+        onInitialize={(instance) => {
+          editor.current = instance;
+        }}
         holder="editorjs"
       >
         <div id="editorjs"></div>
