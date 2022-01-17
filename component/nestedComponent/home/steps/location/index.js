@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AutoComplete } from "antd";
 import Image from "next/image";
 import Icondes from "../description/icon";
-export const Location = ({ heading, setHeading }) => {
+import { Form } from "antd";
+export const Location = ({ heading, setHeading, form }) => {
   const [select, setSelect] = useState(false);
   const [classChange, setClassChange] = useState("");
   useEffect(() => {
@@ -59,34 +60,38 @@ export const Location = ({ heading, setHeading }) => {
       <p>Add a physical lo cation for people to join your event. </p>
       <div className="auto_location">
         <p className={`text ${classChange}`}>Location</p>
-        <div className="loacation_field">
-          <AutoComplete
-            size="large"
-            dropdownClassName="autocomplete_location"
-            style={{
-              width: 250,
-            }}
-            options={options}
-            placeholder={select && "Include a place or address"}
-            onFocus={() => {
-              setSelect(true);
-              setClassChange("location_text");
-            }}
-            onBlur={() => {
-              setSelect(false);
-              setClassChange("");
-            }}
-          />
-          <div className="location_image">
-            <Image
-              src="/images/CreatePost/location.png"
-              width="24"
-              height="24"
-              alt="pic"
-              layout="fixed"
-            />
+        <Form name="location" form={form} autoComplete="off">
+          <div className="loacation_field">
+            <Form.Item name="location">
+              <AutoComplete
+                size="large"
+                dropdownClassName="autocomplete_location"
+                style={{
+                  width: 250,
+                }}
+                options={options}
+                placeholder={select && "Include a place or address"}
+                onFocus={() => {
+                  setSelect(true);
+                  setClassChange("location_text");
+                }}
+                onBlur={() => {
+                  setSelect(false);
+                  setClassChange("");
+                }}
+              />
+            </Form.Item>
+            <div className="location_image">
+              <Image
+                src="/images/CreatePost/location.png"
+                width="24"
+                height="24"
+                alt="pic"
+                layout="fixed"
+              />
+            </div>
           </div>
-        </div>
+        </Form>
       </div>
     </div>
   );

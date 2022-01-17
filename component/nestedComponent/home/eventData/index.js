@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import Profile from "../../../re-usabelComponent/profile";
-import { Form } from "antd";
+
 import { EventDetails } from "../steps/eventDetailes";
 import { Location } from "../steps/location";
 
@@ -8,21 +8,9 @@ import { UplodOption } from "../UploadOption";
 import { Description } from "../steps/description";
 import Preview from "../steps/preview";
 
-export const EventData = ({ Details, number }) => {
+export const EventData = ({ Details, number, form }) => {
   const [heading, setHeading] = useState("");
   const [image, setimage] = useState(null);
-  const [form] = Form.useForm();
-
-  // const [eventData, setEventData] = [{}];
-  form
-    .validateFields()
-    .then((values) => {
-      console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
-      console.log(fullVideo, "fullVideofullVideo");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
 
   const component = () => {
     const data = number;
@@ -33,13 +21,22 @@ export const EventData = ({ Details, number }) => {
             setHeading={setHeading}
             // setEventData={setEventData}
             heading="Event Details"
+            form={form}
           />
         );
       }
       case 2:
-        return <Location setHeading={setHeading} heading="Location" />;
+        return (
+          <Location setHeading={setHeading} heading="Location" form={form} />
+        );
       case 3:
-        return <Description setHeading={setHeading} heading="Description" />;
+        return (
+          <Description
+            setHeading={setHeading}
+            heading="Description"
+            form={form}
+          />
+        );
       case 4:
         return (
           <UplodOption
@@ -48,10 +45,18 @@ export const EventData = ({ Details, number }) => {
             image={image}
             setHeading={setHeading}
             heading="Cover Photo"
+            formCover={form}
           />
         );
       case 5:
-        return <Preview setHeading={setHeading} heading="Preview" />;
+        return (
+          <Preview
+            setHeading={setHeading}
+            heading="Preview"
+            image={image}
+            form={form}
+          />
+        );
       default:
         console.log(`Sorry, we are out of `);
     }

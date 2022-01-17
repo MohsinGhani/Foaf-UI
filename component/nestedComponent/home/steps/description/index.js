@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Input } from "antd";
+import { Form, Input } from "antd";
 import Image from "next/image";
 
-export const Description = ({ heading, setHeading }) => {
+export const Description = ({ heading, setHeading, form }) => {
   useEffect(() => {
     setHeading(heading);
   }, [heading, setHeading]);
@@ -16,26 +16,30 @@ export const Description = ({ heading, setHeading }) => {
       </p>
       <div className="description_text_main">
         <p className={`text ${classChange}`}>Description </p>
-        <div className="description_text">
-          <TextArea
-            autoSize={{ minRows: 5, maxRows: 7 }}
-            onBlur={() => {
-              setClassChange("");
-            }}
-            onClick={() => {
-              setClassChange("discription_text");
-            }}
-          />
-          <div className="text_image">
-            <Image
-              src="/images/CreatePost/description.png"
-              width="24"
-              height="24"
-              alt="pic"
-              layout="fixed"
-            />
+        <Form name="location" form={form} autoComplete="off">
+          <div className="description_text">
+            <Form.Item name="description">
+              <TextArea
+                autoSize={{ minRows: 5, maxRows: 7 }}
+                onBlur={() => {
+                  setClassChange("");
+                }}
+                onClick={() => {
+                  setClassChange("discription_text");
+                }}
+              />
+            </Form.Item>
+            <div className="text_image">
+              <Image
+                src="/images/CreatePost/description.png"
+                width="24"
+                height="24"
+                alt="pic"
+                layout="fixed"
+              />
+            </div>
           </div>
-        </div>
+        </Form>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ export const UplodOption = ({
   setimage,
   image,
   setfullVideo,
+  formCover,
 }) => {
   const { Dragger } = Upload;
   useEffect(() => {
@@ -83,31 +84,36 @@ export const UplodOption = ({
 
       <div className="upload_data">
         {!image ? (
-          <Dragger
-            {...props}
-            onChange={(info) => {
-              uploadData(info);
-            }}
-          >
-            <div className="upload_image">
-              <Image
-                src={
-                  (video && "/images/CreatePost/upload.png") ||
-                  ((audio || picture) && "/images/CreatePost/audioUpload.png")
-                }
-                alt="background"
-                width="90"
-                height="90"
-              />
-            </div>
-            <p className="text1">
-              Upload{" "}
-              {(video && "Video") ||
-                (audio && "Audio") ||
-                (picture && "Picture")}
-            </p>
-            <p className="text2">or Drag and drop</p>
-          </Dragger>
+          <Form name="location" form={formCover} autoComplete="off">
+            <Form.Item name="coverPhoto">
+              <Dragger
+                {...props}
+                onChange={(info) => {
+                  uploadData(info);
+                }}
+              >
+                <div className="upload_image">
+                  <Image
+                    src={
+                      (video && "/images/CreatePost/upload.png") ||
+                      ((audio || picture) &&
+                        "/images/CreatePost/audioUpload.png")
+                    }
+                    alt="background"
+                    width="90"
+                    height="90"
+                  />
+                </div>
+                <p className="text1">
+                  Upload{" "}
+                  {(video && "Video") ||
+                    (audio && "Audio") ||
+                    (picture && "Picture")}
+                </p>
+                <p className="text2">or Drag and drop</p>
+              </Dragger>
+            </Form.Item>
+          </Form>
         ) : (
           (video && (
             <ReactPlayer

@@ -66,7 +66,11 @@ export const StatusUpdate = ({ form }) => {
             !image ? "text_color_grey" : "text_color_white"
           }`}
         >
-          <Form name="basic" form={form}>
+          <Form
+            name="basicDiscription"
+            form={form}
+            initialValues={{ discription: "whats on you Mind?" }}
+          >
             <Form.Item
               name="discription"
               // rules={[
@@ -79,7 +83,7 @@ export const StatusUpdate = ({ form }) => {
               <TextArea
                 // placeholder="whats on you Mind?"
                 autoSize={{ minRows: 1, maxRows: 7 }}
-                defaultValue="whats on you Mind?"
+                // defaultValue="whats on you Mind?"
               />
             </Form.Item>
           </Form>

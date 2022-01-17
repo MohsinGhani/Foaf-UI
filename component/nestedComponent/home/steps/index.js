@@ -2,7 +2,7 @@ import { Space } from "antd";
 import React, { useState } from "react";
 import { CommonButton } from "../../../re-usabelComponent/common/button";
 import { EventData } from "../eventData";
-
+import { Form } from "antd";
 export default function Steps() {
   const [number, setNumber] = useState(1);
 
@@ -14,6 +14,23 @@ export default function Steps() {
     ,
   ];
   console.log(number);
+
+  const [form] = Form.useForm();
+
+  const next = () => {
+    form
+      .validateFields()
+      .then((values) => {
+        console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
+        let temp = form.getFieldsValue(true);
+        temp["coverPhoto"] = "hello";
+        console.log("temnp", temp);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="steps_main">
@@ -43,7 +60,7 @@ export default function Steps() {
       </div>
       <div className="event_data">
         <div>
-          <EventData setNumber={setNumber} number={number} />
+          <EventData setNumber={setNumber} number={number} form={form} />
         </div>
         <div className="bottom_next">
           <Space>
@@ -64,6 +81,7 @@ export default function Steps() {
               }}
             >
               <CommonButton
+                onclick={next}
                 butText={
                   number === 4 ? "Preview" : number === 5 ? "Publish" : "next"
                 }

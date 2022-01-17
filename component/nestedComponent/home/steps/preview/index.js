@@ -3,10 +3,24 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { CommonButton } from "../../../../re-usabelComponent/common/button";
 
-const Preview = ({ heading, setHeading }) => {
+const Preview = ({ heading, setHeading, form }) => {
   useEffect(() => {
     setHeading(heading);
   }, [heading, setHeading]);
+  {
+    form &&
+      form
+        .validateFields()
+        .then((values) => {
+          console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
+          let temp = form.getFieldsValue(true);
+          temp["coverPhoto"] = "hello";
+          console.log("temnphellolelel", temp);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
   return (
     <div className="parent">
       <div
