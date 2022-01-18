@@ -21,7 +21,7 @@ export const EventData = ({ Details, number, form }) => {
             setHeading={setHeading}
             // setEventData={setEventData}
             heading="Event Details"
-            form={form}
+            // form={form}
           />
         );
       }
@@ -34,7 +34,7 @@ export const EventData = ({ Details, number, form }) => {
           <Description
             setHeading={setHeading}
             heading="Description"
-            form={form}
+            // form={form}
           />
         );
       case 4:
@@ -45,7 +45,7 @@ export const EventData = ({ Details, number, form }) => {
             image={image}
             setHeading={setHeading}
             heading="Cover Photo"
-            formCover={form}
+            // formCover={form}
           />
         );
       case 5:

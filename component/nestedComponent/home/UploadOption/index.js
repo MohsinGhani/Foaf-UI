@@ -35,7 +35,7 @@ export const UplodOption = ({
 
     if (picture) {
       const data = await getBase64(info.file.originFileObj);
-      console.log(data, "datainfo.file.originFileObj");
+      // console.log(data, "datainfo.file.originFileObj");
       setimage(data);
     } else {
       setimage(URL.createObjectURL(info.file.originFileObj));
@@ -49,7 +49,7 @@ export const UplodOption = ({
       console.log("Dropped files", e.dataTransfer.files);
     },
   };
-  console.log("imageimageimage", image);
+
   const { TextArea } = Input;
   return (
     <div className="uplaod_data_main">
@@ -84,37 +84,44 @@ export const UplodOption = ({
 
       <div className="upload_data">
         {!image ? (
-          <Form name="location" form={formCover} autoComplete="off">
-            <Form.Item name="coverPhoto">
-              <Dragger
-                {...props}
-                onChange={(info) => {
-                  uploadData(info);
-                }}
-              >
-                <div className="upload_image">
-                  <Image
-                    src={
-                      (video && "/images/CreatePost/upload.png") ||
-                      ((audio || picture) &&
-                        "/images/CreatePost/audioUpload.png")
-                    }
-                    alt="background"
-                    width="90"
-                    height="90"
-                  />
-                </div>
-                <p className="text1">
-                  Upload{" "}
-                  {(video && "Video") ||
-                    (audio && "Audio") ||
-                    (picture && "Picture")}
-                </p>
-                <p className="text2">or Drag and drop</p>
-              </Dragger>
-            </Form.Item>
-          </Form>
+          // <Form name="location" form={formCover} autoComplete="off">
+          <Form.Item
+            name="coverPhoto"
+            rules={[
+              {
+                required: true,
+                message: "Please select picture.",
+              },
+            ]}
+          >
+            <Dragger
+              {...props}
+              onChange={(info) => {
+                uploadData(info);
+              }}
+            >
+              <div className="upload_image">
+                <Image
+                  src={
+                    (video && "/images/CreatePost/upload.png") ||
+                    ((audio || picture) && "/images/CreatePost/audioUpload.png")
+                  }
+                  alt="background"
+                  width="90"
+                  height="90"
+                />
+              </div>
+              <p className="text1">
+                Upload{" "}
+                {(video && "Video") ||
+                  (audio && "Audio") ||
+                  (picture && "Picture")}
+              </p>
+              <p className="text2">or Drag and drop</p>
+            </Dragger>
+          </Form.Item>
         ) : (
+          // </Form>
           (video && (
             <ReactPlayer
               controls

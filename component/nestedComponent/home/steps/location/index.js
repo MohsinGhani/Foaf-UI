@@ -60,38 +60,46 @@ export const Location = ({ heading, setHeading, form }) => {
       <p>Add a physical lo cation for people to join your event. </p>
       <div className="auto_location">
         <p className={`text ${classChange}`}>Location</p>
-        <Form name="location" form={form} autoComplete="off">
-          <div className="loacation_field">
-            <Form.Item name="location">
-              <AutoComplete
-                size="large"
-                dropdownClassName="autocomplete_location"
-                style={{
-                  width: 250,
-                }}
-                options={options}
-                placeholder={select && "Include a place or address"}
-                onFocus={() => {
-                  setSelect(true);
-                  setClassChange("location_text");
-                }}
-                onBlur={() => {
-                  setSelect(false);
-                  setClassChange("");
-                }}
-              />
-            </Form.Item>
-            <div className="location_image">
-              <Image
-                src="/images/CreatePost/location.png"
-                width="24"
-                height="24"
-                alt="pic"
-                layout="fixed"
-              />
-            </div>
+        {/* <Form name="location" form={form} autoComplete="off"> */}
+        <div className="loacation_field">
+          <Form.Item
+            name="location"
+            rules={[
+              {
+                required: true,
+                message: "Please input location",
+              },
+            ]}
+          >
+            <AutoComplete
+              size="large"
+              dropdownClassName="autocomplete_location"
+              style={{
+                width: 250,
+              }}
+              options={options}
+              placeholder={select && "Include a place or address"}
+              onFocus={() => {
+                setSelect(true);
+                setClassChange("location_text");
+              }}
+              onBlur={() => {
+                setSelect(false);
+                setClassChange("");
+              }}
+            />
+          </Form.Item>
+          <div className="location_image">
+            <Image
+              src="/images/CreatePost/location.png"
+              width="24"
+              height="24"
+              alt="pic"
+              layout="fixed"
+            />
           </div>
-        </Form>
+        </div>
+        {/* </Form> */}
       </div>
     </div>
   );

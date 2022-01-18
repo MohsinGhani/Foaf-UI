@@ -1,47 +1,51 @@
 import { Space } from "antd";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CommonButton } from "../../../../re-usabelComponent/common/button";
+import moment from "moment";
 
-const Preview = ({ heading, setHeading, form }) => {
+const Preview = ({ heading, setHeading, form, image }) => {
+  const [previewData, setPreviewData] = useState([]);
   useEffect(() => {
     setHeading(heading);
   }, [heading, setHeading]);
-  {
-    form &&
-      form
-        .validateFields()
-        .then((values) => {
-          console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
-          let temp = form.getFieldsValue(true);
-          temp["coverPhoto"] = "hello";
-          console.log("temnphellolelel", temp);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-  }
+
+  console.log(previewData, "hello");
+
+  useEffect(() => {
+    let temp = form?.getFieldsValue(true);
+    temp["coverPhoto"] = image;
+    let Month = moment(temp.startDate._d).format("MMM");
+    let date = moment(temp.startDate._d).format("do");
+    let fulldate = temp.startDate._d;
+
+    let data = {
+      ...temp,
+      startDatefull: `${fulldate}`,
+      Month: `${Month}`,
+      date: `${date}`,
+    };
+    setPreviewData(data);
+
+    console.log(Month, date, "datetem.startDate");
+  }, [image, form]);
+
   return (
     <div className="parent">
       <div
         className="event_image"
-        style={{ backgroundImage: "url(/images/dashboard/post.svg)" }}
+        style={{ backgroundImage: `url(${previewData?.coverPhoto})` }}
       >
         <div className="footer">
           <div className="calender">
             <div className="">
-              <Image
-                src="/images/CreatePost/calculator.png"
-                alt="img"
-                width="48"
-                height="48"
-                layout="fixed"
-              />
+              <div className="month">march</div>
+              <div className="">24</div>
             </div>
             <div className="date">
-              <p>FOAF EVENT</p>
-              <p>Saturday, 24 March 2021 AT 12:00 UTC+01</p>
-              <p>Texas, Dolby, United States</p>
+              <p>{previewData?.event_name}</p>
+              <p>{previewData?.startDatefull}</p>
+              <p>{previewData?.location}</p>
             </div>
           </div>
           <div className="button_site">

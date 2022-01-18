@@ -21,9 +21,9 @@ export default function Steps() {
     form
       .validateFields()
       .then((values) => {
+        number === 5 ? "" : setNumber(number + 1);
         console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
         let temp = form.getFieldsValue(true);
-        temp["coverPhoto"] = "hello";
         console.log("temnp", temp);
       })
       .catch((err) => {
@@ -60,7 +60,9 @@ export default function Steps() {
       </div>
       <div className="event_data">
         <div>
-          <EventData setNumber={setNumber} number={number} form={form} />
+          <Form name="basic" form={form} autoComplete="off">
+            <EventData setNumber={setNumber} number={number} form={form} />
+          </Form>
         </div>
         <div className="bottom_next">
           <Space>
@@ -75,11 +77,7 @@ export default function Steps() {
                 number={number === 1 && true}
               />
             </div>
-            <div
-              onClick={() => {
-                number === 5 ? "" : setNumber(number + 1);
-              }}
-            >
+            <div onClick={() => {}}>
               <CommonButton
                 onclick={next}
                 butText={

@@ -16,30 +16,38 @@ export const Description = ({ heading, setHeading, form }) => {
       </p>
       <div className="description_text_main">
         <p className={`text ${classChange}`}>Description </p>
-        <Form name="location" form={form} autoComplete="off">
-          <div className="description_text">
-            <Form.Item name="description">
-              <TextArea
-                autoSize={{ minRows: 5, maxRows: 7 }}
-                onBlur={() => {
-                  setClassChange("");
-                }}
-                onClick={() => {
-                  setClassChange("discription_text");
-                }}
-              />
-            </Form.Item>
-            <div className="text_image">
-              <Image
-                src="/images/CreatePost/description.png"
-                width="24"
-                height="24"
-                alt="pic"
-                layout="fixed"
-              />
-            </div>
+        {/* <Form name="location" form={form} autoComplete="off"> */}
+        <div className="description_text">
+          <Form.Item
+            name="description"
+            rules={[
+              {
+                required: true,
+                message: "Please input description",
+              },
+            ]}
+          >
+            <TextArea
+              autoSize={{ minRows: 5, maxRows: 7 }}
+              onBlur={() => {
+                setClassChange("");
+              }}
+              onClick={() => {
+                setClassChange("discription_text");
+              }}
+            />
+          </Form.Item>
+          <div className="text_image">
+            <Image
+              src="/images/CreatePost/description.png"
+              width="24"
+              height="24"
+              alt="pic"
+              layout="fixed"
+            />
           </div>
-        </Form>
+        </div>
+        {/* </Form> */}
       </div>
     </div>
   );
