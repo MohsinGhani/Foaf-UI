@@ -51,6 +51,7 @@ export const EventData = ({ Details, number, form }) => {
       case 5:
         return (
           <Preview
+            number={number}
             setHeading={setHeading}
             heading="Preview"
             image={image}

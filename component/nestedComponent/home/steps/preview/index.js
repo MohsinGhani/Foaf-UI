@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { CommonButton } from "../../../../re-usabelComponent/common/button";
 import moment from "moment";
 
-const Preview = ({ heading, setHeading, form, image }) => {
+const Preview = ({ heading, setHeading, form, image, number }) => {
   const [previewData, setPreviewData] = useState([]);
   useEffect(() => {
     setHeading(heading);
@@ -15,21 +15,24 @@ const Preview = ({ heading, setHeading, form, image }) => {
   useEffect(() => {
     let temp = form?.getFieldsValue(true);
     temp["coverPhoto"] = image;
-    let Month = moment(temp.startDate._d).format("MMM");
-    let date = moment(temp.startDate._d).format("do");
-    let fulldate = temp.startDate._d;
-
+    let Month = moment(temp.startDate?._d).format("MMM");
+    let date = moment(temp.startDate).format("D");
+    let fullDate = moment(temp.startDate).format("dddd , D MMMM YYYY [At]");
+    let time = moment(temp.startTime).format("h:mm [UTC+01]");
     let data = {
       ...temp,
-      startDatefull: `${fulldate}`,
+      fullDate: `${fullDate}`,
       Month: `${Month}`,
       date: `${date}`,
+      time: `${time}`,
     };
     setPreviewData(data);
 
-    console.log(Month, date, "datetem.startDate");
+    console.log(time, "datetem.startDate");
   }, [image, form]);
-
+  if (number === 6) {
+    console.log("hello");
+  }
   return (
     <div className="parent">
       <div
@@ -38,13 +41,17 @@ const Preview = ({ heading, setHeading, form, image }) => {
       >
         <div className="footer">
           <div className="calender">
-            <div className="">
-              <div className="month">march</div>
-              <div className="">24</div>
+            <div className="date_box">
+              <div className="month">
+                <span>{previewData?.Month}</span>
+              </div>
+              <div className="date">
+                <span>{previewData?.date}</span>
+              </div>
             </div>
-            <div className="date">
-              <p>{previewData?.event_name}</p>
-              <p>{previewData?.startDatefull}</p>
+            <div className="date_name">
+              <p className="event_name">{previewData?.event_name}</p>
+              <p>{`${previewData?.fullDate}  ${previewData?.time}`}</p>
               <p>{previewData?.location}</p>
             </div>
           </div>

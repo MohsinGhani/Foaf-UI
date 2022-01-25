@@ -20,8 +20,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            .date {
+            .date_box {
+                width: 50px;
+                .month {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+                    height: 18px;
+                    border-radius: 4px 4px 0 0;
+                    span {
+                        font-size: 10px;
+                        color: #ffffff;
+                        font-weight: 600;
+                    }
+                }
+                .date {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 35px;
+                    background: #ffffff;
+                    border-radius: 0 0 2px 2px;
+                    span {
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .date_name {
                 margin-left: 10px;
+                .event_name {
+                    font-weight: 600;
+                    color: #212121;
+                    font-size: 12px;
+                }
                 p {
                     margin: unset;
                     font-size: 10px;

@@ -104,11 +104,12 @@ export const UplodOption = ({
                 <Image
                   src={
                     (video && "/images/CreatePost/upload.png") ||
-                    ((audio || picture) && "/images/CreatePost/audioUpload.png")
+                    (audio && "/images/CreatePost/voice.png") ||
+                    (picture && "/images/CreatePost/CoverPhoto.png")
                   }
                   alt="background"
-                  width="90"
-                  height="90"
+                  width="80"
+                  height="80"
                 />
               </div>
               <p className="text1">

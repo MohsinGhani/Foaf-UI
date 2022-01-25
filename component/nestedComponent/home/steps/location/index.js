@@ -1,14 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { AutoComplete } from "antd";
+import Geosuggest from "react-geosuggest";
+
 import Image from "next/image";
-import Icondes from "../description/icon";
-import { Form } from "antd";
+import { AutoComplete, Form } from "antd";
 export const Location = ({ heading, setHeading, form }) => {
   const [select, setSelect] = useState(false);
   const [classChange, setClassChange] = useState("");
+  // const [location, setLocation] = useState("");
+
   useEffect(() => {
     setHeading(heading);
   }, [heading, setHeading]);
+
+  // useEffect(() => {
+  //   Location();
+  // }, []);
+
+  // const Location = async () => {
+  //   try {
+  //     let response = await fetch(`${process.env.NEXT_PUBLIC_BASE_LOCATION}`);
+
+  //     const locationResponse = await response.json();
+  //     setLocation(locationResponse);
+  //     console.log(locationResponse, "location ka response");
+  //   } catch (err) {
+  //     console.log(err), "error ";
+  //   }
+  // };
 
   const renderItem = (title) => ({
     value: title,
@@ -55,9 +73,15 @@ export const Location = ({ heading, setHeading, form }) => {
       ],
     },
   ];
+
+  const fixtures = [
+    { label: "New York", location: { lat: 40.7033127, lng: -73.979681 } },
+    { label: "Rio", location: { lat: -22.066452, lng: -42.9232368 } },
+    { label: "Tokyo", location: { lat: 35.673343, lng: 139.710388 } },
+  ];
   return (
     <div className="location">
-      <p>Add a physical lo cation for people to join your event. </p>
+      <p>Add a physical location for people to join your event. </p>
       <div className="auto_location">
         <p className={`text ${classChange}`}>Location</p>
         {/* <Form name="location" form={form} autoComplete="off"> */}
@@ -71,6 +95,11 @@ export const Location = ({ heading, setHeading, form }) => {
               },
             ]}
           >
+            {/* <Geosuggest
+              placeholder="Start typing!"
+              initialValue="Hamburg"
+              onSuggestSelect={(e) => console.log("E", e)}
+            /> */}
             <AutoComplete
               size="large"
               dropdownClassName="autocomplete_location"

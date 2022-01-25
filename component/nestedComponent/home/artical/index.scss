@@ -1,15 +1,22 @@
 .article_editor {
     margin-top: 18px;
+    width: 100%;
     .codex-editor {
         .codex-editor__redactor {
             .ce-block__content {
+                padding: 0 25px 0 25px;
+                max-width: 100%;
                 .cdx-block {
-                    padding-left: 15px;
+                    padding-left: 28px;
                 }
             }
         }
         .ce-toolbar {
             .ce-toolbar__content {
+                max-width: 987px !important;
+            }
+            .ce-toolbar__content {
+                width: 100%;
                 .ce-toolbar__plus {
                     border-right: 1.27103px solid #bfbfbf;
                     width: 43px;

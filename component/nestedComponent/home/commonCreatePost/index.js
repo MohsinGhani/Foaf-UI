@@ -101,40 +101,45 @@ export default function CreatePostContent({
           )}
           {article && <Article />}
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
+          {!article ? (
+            <>
+              <div className="add_post">
+                <div className="text">Add to your post</div>
+                <div>
+                  <Space>
+                    <Image
+                      src="/images/CreatePost/add1.png"
+                      width="30"
+                      height="30"
+                      alt="color"
+                    />
+                    <Image
+                      src="/images/CreatePost/add2.png"
+                      width="30"
+                      height="30"
+                      alt="color"
+                    />
+                    <Image
+                      src="/images/CreatePost/add3.png"
+                      width="30"
+                      height="30"
+                      alt="color"
+                    />
+                    <Image
+                      src="/images/CreatePost/dots.png"
+                      width="20"
+                      height="4"
+                      alt="color"
+                    />
+                  </Space>
+                </div>
+              </div>
 
-          <div className="add_post">
-            <div className="text">Add to your post</div>
-            <div>
-              <Space>
-                <Image
-                  src="/images/CreatePost/add1.png"
-                  width="30"
-                  height="30"
-                  alt="color"
-                />
-                <Image
-                  src="/images/CreatePost/add2.png"
-                  width="30"
-                  height="30"
-                  alt="color"
-                />
-                <Image
-                  src="/images/CreatePost/add3.png"
-                  width="30"
-                  height="30"
-                  alt="color"
-                />
-                <Image
-                  src="/images/CreatePost/dots.png"
-                  width="20"
-                  height="4"
-                  alt="color"
-                />
-              </Space>
-            </div>
-          </div>
-
-          <CommonButton className="post" butText="Post" onclick={post} />
+              <CommonButton className="post" butText="Post" onclick={post} />
+            </>
+          ) : (
+            <CommonButton className="post article" butText="Next" />
+          )}
         </div>
       )}
       {steps && <Steps />}

@@ -9,11 +9,17 @@ import Image from "@editorjs/image";
 import Header from "@editorjs/header";
 
 import SimpleImage from "@editorjs/simple-image";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import Tooltip from "codex-tooltip";
+import { Content } from "antd/lib/layout/layout";
 // import Line from "./iconChange";
 
 // const ImageTool = window.ImageTool;
 // const mediaBaseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+// const tooltip = new Tooltip();
+// const element = document.getElementById("editorjs");
+// tooltip.show(element, "Tooltip text");
+
 const EDITOR_JS_TOOLS = {
   paragraph: {
     class: Paragraph,
@@ -48,7 +54,10 @@ const EDITOR_JS_TOOLS = {
       },
     },
   },
-  header: Header,
+  header: {
+    class: Header,
+    inlineToolbar: true,
+  },
   linkTool: LinkTool,
   code: {
     class: Code,
@@ -61,6 +70,13 @@ const ReactEditorJS = createReactEditorJS();
 const CustomEditor = () => {
   const editor = useRef(null);
 
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("helololadjbas,dgskfgbksd");
+  //     // editor.current.destroy();
+  //   };
+  // }, []);
+
   const saveData = async () => {
     console.log(editor, "edotor datata");
     const data = editor.current.save();
@@ -71,7 +87,9 @@ const CustomEditor = () => {
       .catch((err) => {
         console.log(err, "errrroutoputoutoputoutoput");
       });
+    editor?.current?.destroy();
   };
+
   return (
     <div className="article_editor">
       <ReactEditorJS

@@ -21,7 +21,6 @@ export default function Steps() {
     form
       .validateFields()
       .then((values) => {
-        number === 5 ? "" : setNumber(number + 1);
         console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
         let temp = form.getFieldsValue(true);
         console.log("temnp", temp);
@@ -79,7 +78,10 @@ export default function Steps() {
             </div>
             <div onClick={() => {}}>
               <CommonButton
-                onclick={next}
+                onclick={() => {
+                  next;
+                  number === 5 ? "" : setNumber(number + 1);
+                }}
                 butText={
                   number === 4 ? "Preview" : number === 5 ? "Publish" : "next"
                 }

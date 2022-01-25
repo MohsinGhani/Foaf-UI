@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/link-passhref */
 
 import "../styles/scss/index.scss";
 import "../styles/globals.scss";
 // import DashBoard from "../component/dashBoard/dashBoard";
-
+import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
 import "slick-carousel/slick/slick.css";
