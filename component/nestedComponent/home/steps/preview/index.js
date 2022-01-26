@@ -1,11 +1,13 @@
 import { Space } from "antd";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CommonButton } from "../../../../re-usabelComponent/common/button";
 import moment from "moment";
+import { MyContext } from "../../../../../shared/helper";
 
-const Preview = ({ heading, setHeading, form, image, number }) => {
+const Preview = ({ heading, setHeading, form, image }) => {
   const [previewData, setPreviewData] = useState([]);
+  const { allData, setAllData } = useContext(MyContext);
   useEffect(() => {
     setHeading(heading);
   }, [heading, setHeading]);
@@ -27,12 +29,10 @@ const Preview = ({ heading, setHeading, form, image, number }) => {
       time: `${time}`,
     };
     setPreviewData(data);
-
+    setAllData({ ...allData, data });
     console.log(time, "datetem.startDate");
   }, [image, form]);
-  if (number === 6) {
-    console.log("hello");
-  }
+
   return (
     <div className="parent">
       <div

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Upload, Form, Input } from "antd";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import { MyContext } from "../../../../shared/helper";
 export const UplodOption = ({
   heading,
   setHeading,
@@ -17,6 +18,7 @@ export const UplodOption = ({
   formCover,
 }) => {
   const { Dragger } = Upload;
+  const { allData, setAllData } = useContext(MyContext);
   useEffect(() => {
     {
       picture && setHeading(heading);
@@ -37,6 +39,7 @@ export const UplodOption = ({
       const data = await getBase64(info.file.originFileObj);
       // console.log(data, "datainfo.file.originFileObj");
       setimage(data);
+      setAllData({ imageFile: info.file.originFileObj });
     } else {
       setimage(URL.createObjectURL(info.file.originFileObj));
       setfullVideo(info.file);
