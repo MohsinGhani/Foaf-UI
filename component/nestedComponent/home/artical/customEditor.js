@@ -1,24 +1,14 @@
 import { createReactEditorJS } from "react-editor-js";
-// import EditorJS from "@editorjs/editorjs";
-
 import Code from "@editorjs/code";
 import LinkTool from "@editorjs/link";
 import Paragraph from "@editorjs/paragraph";
 import Delimiter from "@editorjs/delimiter";
 import Image from "@editorjs/image";
 import Header from "@editorjs/header";
-
+import { API } from "../../../../pages/api/create";
 import SimpleImage from "@editorjs/simple-image";
 import { useEffect, useRef } from "react";
-import Tooltip from "codex-tooltip";
-import { Content } from "antd/lib/layout/layout";
-// import Line from "./iconChange";
-
-// const ImageTool = window.ImageTool;
-// const mediaBaseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-// const tooltip = new Tooltip();
-// const element = document.getElementById("editorjs");
-// tooltip.show(element, "Tooltip text");
+import { useSelector } from "react-redux";
 
 const EDITOR_JS_TOOLS = {
   paragraph: {
@@ -68,26 +58,42 @@ const EDITOR_JS_TOOLS = {
 const ReactEditorJS = createReactEditorJS();
 
 const CustomEditor = () => {
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
   const editor = useRef(null);
-
-  // useEffect(() => {
-  //   return () => {
-  //     console.log("helololadjbas,dgskfgbksd");
-  //     // editor.current.destroy();
-  //   };
-  // }, []);
 
   const saveData = async () => {
     console.log(editor, "edotor datata");
-    const data = editor.current.save();
-    data
-      .then((outoput) => {
-        console.log(outoput, "outoputoutoputoutoput");
+    const articleData = editor.current.save();
+    articleData
+      .then(async (outPut) => {
+        let formData = new FormData();
+        formData.append("article_name", "some name");
+        formData.append("article_data", JSON.stringify(outPut));
+        formData.append("category", "some category");
+        formData.append("tags", "some tags");
+        formData.append("location", "");
+        formData.append("liked_by", "[]");
+        try {
+          let response = await fetch(`${API.CREATE_ARTICLE}`, {
+            method: "POST",
+            headers: {
+              // "Content-Type":
+              //   "multipart/form-data; boundary=<calculated when request is sent>",
+              Authorization: `Token ${data.token}`,
+            },
+            body: formData,
+          });
+          const createArticle = await response.json();
+          console.log(createArticle, "createEvent");
+        } catch (err) {
+          console.log(err), "error ";
+        }
       })
       .catch((err) => {
         console.log(err, "errrroutoputoutoputoutoput");
       });
-    editor?.current?.destroy();
+    // editor?.current?.destroy();
   };
 
   return (
@@ -111,41 +117,5 @@ const CustomEditor = () => {
     </div>
   );
 };
-
-// const Hello = () => {
-//   const statedata = useSelector((state) => state);
-//   var data = statedata?.user?.userDetailes?.result?.user;
-//   const id = document.getElementById("editorjs");
-//   const editor = new EditorJS({
-//     holderId: id,
-//     tools: {
-//       paragraph: {
-//         class: Paragraph,
-//         inlineToolbar: true,
-//         config: {
-//           placeholder: "Tell your story....",
-//         },
-//       },
-//       image: {
-//         class: Image,
-//         config: {
-//           endpoints: {
-//             byFile: "", // Your backend file uploader endpoint
-//             byUrl: "", // Your endpoint that provides uploading by Url
-//           },
-//           // field: "image",
-//           // types: "image/*",
-//           // accept: "image/*",
-//         },
-//       },
-//       linkTool: LinkTool,
-//       code: Code,
-//       delimiter: Delimiter,
-//       // simpleImage: SimpleImage,
-//     },
-//   });
-//   console.log("editor", editor);
-//   return <div id="editorjs"></div>;
-// };
 
 export default CustomEditor;

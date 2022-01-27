@@ -69,20 +69,20 @@ export default function SilkSlider() {
             />
           </div>
 
-          {/* <div className="story_image">
+          <div className="story_image">
             <Image
-              src="/images/dashboard/post4.jpg"
+              src="/images/dashboard/post.svg"
               width="1100"
               height="560"
               alt="story"
             />
-          </div> */}
-          <ReactPlayer
+          </div>
+          {/* <ReactPlayer
             controls
             className="react-player"
             url="blob:http://localhost:3000/3744e4a2-60ee-4189-88aa-f5924c11fb6d"
             width="100%"
-          />
+          /> */}
           <div className="story_image">
             <Image
               src="/images/dashboard/post3.jpg"

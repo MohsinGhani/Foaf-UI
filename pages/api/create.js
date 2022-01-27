@@ -7,6 +7,7 @@ const API = {
   CREATE_AUDIO_STATUS: `${mediaBaseUrl}/post/api/create_audio_status`,
   GET_VIDEO_STATUS: `${mediaBaseUrl}/post/api/get_video_status`,
   CREATE_EVENT: `${mediaBaseUrl}/events/api/create_event`,
+  CREATE_ARTICLE: `${mediaBaseUrl}/post/api/create_article`,
 };
 module.exports = {
   API,

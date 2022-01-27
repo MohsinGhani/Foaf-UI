@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Space } from "antd";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
@@ -75,6 +76,7 @@ const Preview = ({ heading, setHeading, form, image }) => {
         </div>
       </div>
       <h3 className="about">About</h3>
+      <p className="about_text">{previewData?.description}</p>
       <div className="about_details">
         <div className="left_site">
           <div className="detail_heading">Details</div>

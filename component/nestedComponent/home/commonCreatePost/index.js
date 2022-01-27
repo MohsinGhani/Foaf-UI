@@ -48,7 +48,6 @@ export default function CreatePostContent({
               body: formData,
             });
             const createVideo = await response.json();
-
             console.log(createVideo, "createStatus");
           } catch (err) {
             console.log(err), "error araha hai";

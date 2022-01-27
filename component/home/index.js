@@ -18,10 +18,36 @@ import { userData } from "../features/user";
 import ShowTrending from "../nestedComponent/home/trending/showTrandings";
 import FloatingBut from "../nestedComponent/home/floatingButton";
 import FloatingOption from "../nestedComponent/home/floatingOption";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Event } from "../re-usabelComponent/home/homeEventPost";
-
+import { API } from "../../pages/api/home";
 export default function HomeDashBoard() {
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
+
+  useEffect(() => {
+    FeedData();
+  }, []);
+
+  const FeedData = async () => {
+    if (data?.token) {
+      try {
+        let response = await fetch(`${API.HOME_FEED}`, {
+          method: "GET",
+          headers: {
+            "Content-Type":
+              "multipart/form-data; boundary=<calculated when request is sent>",
+            Authorization: `Token ${data.token}`,
+          },
+        });
+        const fetchHomeData = await response.json();
+        console.log(fetchHomeData, "fetchHomeData");
+      } catch (err) {
+        console.log(err), "error ";
+      }
+    }
+  };
+
   const dispatch = useDispatch();
   const [state, setState] = useState(false);
   const settings = {
@@ -31,7 +57,6 @@ export default function HomeDashBoard() {
     slidesToShow: 3,
     slidesToScroll: 3,
   };
-
   return (
     <div className="home_main">
       <div className="left-side">
@@ -41,63 +66,6 @@ export default function HomeDashBoard() {
         <div className="status">
           <Stories />
         </div>
-        {/* <div className="status_main"> */}
-        {/* <div className="status"> */}
-        {/* <div className="wow_2"> */}
-        {/* <Stories
-                url="/images/dashboard/samesize.svg"
-                name="Erin Press"
-                bgurl="/images/dashboard/story1.png"
-              /> */}
-        {/* <CreateStory /> */}
-        {/* </div> */}
-        {/* <div className="wow_2">
-              <Stories
-                url="/images/dashboard/requestProfile1.svg"
-                name="Erin Press"
-                bgurl="/images/dashboard/story2.png"
-              /> */}
-        {/* </div>
-            <div className="wow_2">
-              <Stories
-                url="/images/dashboard/requestProfile3.svg"
-                name="Erin Press"
-                bgurl="/images/dashboard/story3.png"
-              />
-            </div>
-            <div className="wow_2"> */}
-        {/* <Stories
-                url="/images/dashboard/samesize.svg"
-                name="Erin Press"
-                bgurl="/images/dashboard/story4.png"
-              />
-            </div> */}
-        {/* <div className="wow_2">
-              <Stories
-                url="/images/dashboard/requestProfile3.svg"
-                name="Erin Press"
-                bgurl="/images/dashboard/story3.png"
-              />
-            </div> */}
-        {/* <div className="wow_2">
-              <Stories
-                url="/images/dashboard/requestProfile1.svg"
-                name="Erin Press"
-                bgurl="/images/dashboard/story2.png"
-              />
-            </div> */}
-        {/* <div className="wow_2">
-              <img
-                src="/images/dashboard/king.png"
-                alt="king"
-                width="100"
-                height="140"
-              /> */}
-        {/* </div> */}
-        {/* </div> */}
-        {/* </div> */}
-        {/* </div> */}
-
         <div className="home_post">
           <Post
             profile="/images/dashboard/samesize.svg"
@@ -138,56 +106,12 @@ export default function HomeDashBoard() {
         </div>
       </div>
       <div className="right-side">
-        {/* <div className="text">
-          <p> Sponsored</p>
-        </div> */}
-        {/* <div>
-          <Sponsored />
-        </div> */}
-        {/* <div>
-          <Sponsored />
-        </div> */}
         <div className="sponsoreds_main">
           <Sponsoreds />
         </div>
         <div className="show_trending_main">
           <ShowTrending />
         </div>
-
-        {/* <div>
-          <div className="request">
-            <p>Requests</p>
-            <div className="circle">3</div>
-          </div>
-          <div className="request-card">
-            <Request
-              url="/images/dashboard/requestProfile1.svg"
-              name="Kianna Rosser"
-            />
-            <Request
-              url="/images/dashboard/requestProfile2.svg"
-              name="Kaylynn Torff"
-            />
-            <Request
-              url="/images/dashboard/requestProfile3.svg"
-              name="Rajat Sharma"
-            />
-            <Request
-              url="/images/dashboard/requestProfile3.svg"
-              name="Rajat Sharma"
-            />
-
-            <Request
-              url="/images/dashboard/requestProfile3.svg"
-              name="Rajat Sharma"
-            />
-
-            <Request
-              url="/images/dashboard/requestProfile3.svg"
-              name="Rajat Sharma"
-            />
-          </div>
-        </div> */}
       </div>
       <div className="button_float">
         <FloatingBut state={state} setState={setState} />

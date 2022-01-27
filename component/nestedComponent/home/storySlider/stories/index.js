@@ -8,40 +8,41 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { videoStatus } from "../../../../features/Create";
 export default function Stories() {
-  const [allVideoStatus, setallvideoStatus] = useState();
+  // const [allVideoStatus, setallvideoStatus] = useState();
   const router = useRouter();
-  const statedata = useSelector((state) => state);
-  var data = statedata?.user?.userDetailes?.result?.user;
-  const dispatch = useDispatch();
-  const getVideoStatus = async () => {
-    if (data?.token) {
-      try {
-        let response = await fetch(`${API.GET_VIDEO_STATUS}`, {
-          method: "GEt",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${data?.token}`,
-          },
-        });
-        const Status = await response.json();
-        setallvideoStatus(Status);
-        dispatch(videoStatus(Status));
-        console.log(Status, "get all videoStatus");
-      } catch (err) {
-        console.log(err), "error araha hai";
-      }
-    }
-  };
+  // const statedata = useSelector((state) => state);
+  // var data = statedata?.user?.userDetailes?.result?.user;
+  // const dispatch = useDispatch();
+  // const getVideoStatus = async () => {
+  //   if (data?.token) {
+  //     try {
+  //       let response = await fetch(`${API.GET_VIDEO_STATUS}`, {
+  //         method: "GEt",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Token ${data?.token}`,
+  //         },
+  //       });
+  //       const Status = await response.json();
+  //       setallvideoStatus(Status);
+  //       dispatch(videoStatus(Status));
+  //       console.log(Status, "get all videoStatus");
+  //     } catch (err) {
+  //       console.log(err), "error araha hai";
+  //     }
+  //   }
+  // };
 
-  useEffect(() => {
-    getVideoStatus();
-  }, []);
-  console.log(videoStatus?.result?.friends, "friendVedio");
+  // useEffect(() => {
+  //   getVideoStatus();
+  // }, []);
+
+  // console.log(videoStatus?.result?.friends, "friendVedio");
   return (
     <div className="stories_main">
       <CreateStory />
 
-      {allVideoStatus?.result?.friends?.map((data, index) => {
+      {/* {allVideoStatus?.result?.friends?.map((data, index) => {
         if (index < 1) {
           return (
             <Story
@@ -53,9 +54,14 @@ export default function Stories() {
               status={data.status}
             />
           );
-        }
-      })}
-
+        } */}
+      {/* })} */}
+      <Story
+        classname="hide2"
+        url="/images/dashboard/samesize.svg"
+        name="Erin Press"
+        bgurl="/images/dashboard/post.svg"
+      />
       <Story
         classname="hide2"
         url="/images/dashboard/requestProfile1.svg"

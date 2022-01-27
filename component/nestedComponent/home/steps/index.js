@@ -68,7 +68,6 @@ export default function Steps() {
     formData.append("invited", "[]");
     formData.append("event_object", "{}");
     formData.append("liked_by", "[]");
-
     try {
       let response = await fetch(`${API.CREATE_EVENT}`, {
         method: "POST",
