@@ -2,9 +2,10 @@
 import { Space } from "antd";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
-import { CommonButton } from "../../../../re-usabelComponent/common/button";
+
 import moment from "moment";
 import { MyContext } from "../../../../../shared/helper";
+import DetailedImage from "../../../../re-usabelComponent/common/detailedImage";
 
 const Preview = ({ heading, setHeading, form, image }) => {
   const [previewData, setPreviewData] = useState([]);
@@ -33,48 +34,9 @@ const Preview = ({ heading, setHeading, form, image }) => {
     setAllData({ ...allData, data });
     console.log(time, "datetem.startDate");
   }, [image, form]);
-
   return (
     <div className="parent">
-      <div
-        className="event_image"
-        style={{ backgroundImage: `url(${previewData?.coverPhoto})` }}
-      >
-        <div className="footer">
-          <div className="calender">
-            <div className="date_box">
-              <div className="month">
-                <span>{previewData?.Month}</span>
-              </div>
-              <div className="date">
-                <span>{previewData?.date}</span>
-              </div>
-            </div>
-            <div className="date_name">
-              <p className="event_name">{previewData?.event_name}</p>
-              <p>{`${previewData?.fullDate}  ${previewData?.time}`}</p>
-              <p>{previewData?.location}</p>
-            </div>
-          </div>
-          <div className="button_site">
-            <CommonButton
-              icon="interested"
-              butText="Intrested"
-              className="event_button"
-            />
-            <CommonButton
-              icon="going"
-              butText="Going"
-              className="event_button"
-            />
-            <CommonButton
-              icon="invite"
-              butText="invite"
-              className="event_button"
-            />
-          </div>
-        </div>
-      </div>
+      <DetailedImage previewData={previewData} />
       <h3 className="about">About</h3>
       <p className="about_text">{previewData?.description}</p>
       <div className="about_details">

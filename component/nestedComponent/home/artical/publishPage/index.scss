@@ -1,0 +1,11 @@
+.publishPage {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .leftSide {
+        width: 48%;
+    }
+    .rightSide {
+        width: 48%;
+    }
+}

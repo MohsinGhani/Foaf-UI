@@ -12,6 +12,9 @@ import { useSelector } from "react-redux";
 import { API } from "../../../../pages/api/create";
 import { array } from "yup";
 import Article from "../artical";
+import Preview from "../steps/preview";
+import ProjectCover from "../artical/projectCover";
+import Publish from "../artical/publishPage";
 export default function CreatePostContent({
   status,
   video,
@@ -24,6 +27,7 @@ export default function CreatePostContent({
   const [image, setimage] = useState(null);
   const [steps, setSteps] = useState(false);
   const [fullVideo, setfullVideo] = useState(null);
+  const [preview, setPreview] = useState(true);
   const [form] = Form.useForm();
   const post = () => {
     console.log(fullVideo, "fullVideofullVideofullVideo");
@@ -98,7 +102,8 @@ export default function CreatePostContent({
               setfullVideo={setfullVideo}
             />
           )}
-          {article && <Article />}
+          {article && preview && <Article />}
+          {article && !preview && <Publish />}
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
           {!article ? (
             <>
@@ -133,11 +138,16 @@ export default function CreatePostContent({
                   </Space>
                 </div>
               </div>
-
               <CommonButton className="post" butText="Post" onclick={post} />
             </>
           ) : (
-            <CommonButton className="post article" butText="Next" />
+            <CommonButton
+              className="post article"
+              butText="Next"
+              onclick={() => {
+                setPreview(false);
+              }}
+            />
           )}
         </div>
       )}
