@@ -39,6 +39,7 @@
         border: none;
         margin-top: 20px;
         height: 40px;
+        margin-bottom: 10px;
     }
 }
 .event_button {
@@ -59,14 +60,16 @@
 .article {
     .btn {
         height: 45px;
+        margin-bottom: 10px;
     }
 }
-
 .projectCover {
     .btn {
         background: linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
         border-radius: 9px;
         border: none;
+        font-size: 12px;
+        width: 100px;
     }
 }
 .publish_button {

@@ -27,7 +27,7 @@ export default function CreatePostContent({
   const [image, setimage] = useState(null);
   const [steps, setSteps] = useState(false);
   const [fullVideo, setfullVideo] = useState(null);
-  const [preview, setPreview] = useState(true);
+
   const [form] = Form.useForm();
   const post = () => {
     console.log(fullVideo, "fullVideofullVideofullVideo");
@@ -102,8 +102,8 @@ export default function CreatePostContent({
               setfullVideo={setfullVideo}
             />
           )}
-          {article && preview && <Article />}
-          {article && !preview && <Publish />}
+          {article && <Article />}
+          {/* {article && !preview && <Publish />} */}
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
           {!article ? (
             <>
@@ -141,13 +141,14 @@ export default function CreatePostContent({
               <CommonButton className="post" butText="Post" onclick={post} />
             </>
           ) : (
-            <CommonButton
-              className="post article"
-              butText="Next"
-              onclick={() => {
-                setPreview(false);
-              }}
-            />
+            // <CommonButton
+            //   className="post article"
+            //   butText="Next"
+            //   onclick={() => {
+            //     setPreview(false);
+            //   }}
+            // />
+            ""
           )}
         </div>
       )}

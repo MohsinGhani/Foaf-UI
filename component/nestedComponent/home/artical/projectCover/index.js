@@ -4,13 +4,18 @@ import React from "react";
 import { CommonButton } from "../../../../re-usabelComponent/common/button";
 import DetailedImage from "../../../../re-usabelComponent/common/detailedImage";
 import Tags from "./tags";
-
 const ProjectCover = () => {
   return (
-    <div>
-      <DetailedImage ProjectCover={true} image="/images/CreatePost/cover.png" />
-      <Space size={25}>
-        <div className="image">
+    <div className="project_cover">
+      <p className="Project_heading">Project Cover</p>
+      <DetailedImage
+        ProjectCover={true}
+        height="300px"
+        image="/images/CreatePost/cover.png"
+        footerHeight="70px"
+      />
+      <div className="image">
+        <Space size={10} direction="vertical">
           <Space>
             <Image
               src="/images/CreatePost/Edit.png"
@@ -18,19 +23,21 @@ const ProjectCover = () => {
               width="16px"
               height="16px"
             />
-            <p>Edit Cover Image</p>
+            <p className="">Edit Cover Image</p>
           </Space>
-          <p>
-            Publishing to: <span> Lydia Workaman </span>
+          <p className="publishName">
+            Publishing to: <span className="userName"> Lydia Workaman </span>
           </p>
           <p>
             Add or change tags (up to 5) so readers know what your Article is
             about
           </p>
-          <Tags />
+          <div className="tags">
+            <Tags />
+          </div>
           <p>Learn more about what happens to your post when you publish.</p>
-        </div>
-      </Space>
+        </Space>
+      </div>
       <CommonButton butText="Publish now" className="publish_button" />
     </div>
   );

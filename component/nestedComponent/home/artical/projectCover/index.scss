@@ -1,6 +1,27 @@
-// .project_cover {
-//     .image {
-//         .edit_data {
-//         }
-//     }
-// }
+.project_cover {
+    .Project_heading {
+        font-weight: 600;
+        font-size: 20px;
+        color: #121212;
+    }
+    .image {
+        p {
+            color: #bfbfbf;
+            font-weight: 500;
+        }
+        .publishName {
+            font-weight: 600;
+        }
+        .userName {
+            color: #121212;
+        }
+        .tags {
+            background: #eaeaea;
+            border-radius: 8px;
+            padding: 15px;
+            .ant-tag {
+                // line-height: 30px;
+            }
+        }
+    }
+}

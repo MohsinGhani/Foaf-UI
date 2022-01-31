@@ -96,12 +96,12 @@ class Tags extends Component {
             <Tag
               className="edit-tag"
               key={tag}
-              closable={index !== 0}
+              closable={index !== -1}
               onClose={() => this.handleClose(tag)}
             >
               <span
                 onDoubleClick={(e) => {
-                  if (index !== 0) {
+                  if (index !== -1) {
                     this.setState(
                       { editInputIndex: index, editInputValue: tag },
                       () => {

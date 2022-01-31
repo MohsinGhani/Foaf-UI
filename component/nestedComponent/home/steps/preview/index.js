@@ -36,7 +36,11 @@ const Preview = ({ heading, setHeading, form, image }) => {
   }, [image, form]);
   return (
     <div className="parent">
-      <DetailedImage previewData={previewData} />
+      <DetailedImage
+        previewData={previewData}
+        height="440px"
+        footerHeight="85px"
+      />
       <h3 className="about">About</h3>
       <p className="about_text">{previewData?.description}</p>
       <div className="about_details">
