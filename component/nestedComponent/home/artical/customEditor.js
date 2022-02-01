@@ -60,10 +60,11 @@ const EDITOR_JS_TOOLS = {
 };
 const ReactEditorJS = createReactEditorJS();
 
-const CustomEditor = ({ articleData, setDataArticle }) => {
+const CustomEditor = ({ articleData }) => {
   const dispatch = useDispatch();
   const [preview, setPreview] = useState(true);
-
+  const [dataArticle, setDataArticle] = useState(null);
+  const preData = useRef(null);
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
   const editor = useRef(null);
@@ -73,14 +74,18 @@ const CustomEditor = ({ articleData, setDataArticle }) => {
   );
   // data g&& dispatch(article(data));
 
-  const saveData = async () => {
+  const saveData = () => {
     setPreview(false);
     console.log(editor, "edotor datata");
     const articleData = editor.current.save();
+    console.log("articleData", articleData);
     articleData
       .then(async (outPut) => {
-        console.log(outPut, "outPutoutPutoutPut");
+        preData.current = outPut;
         setDataArticle(outPut);
+        console.log(outPut, "outPutoutPutoutPut");
+        // dispatch(article(outPut));
+        // setDataArticle(outPut);
         // dispatch(article(outPut));
         // dispatch(article(outPut));
         // let formData = new FormData();
@@ -111,10 +116,13 @@ const CustomEditor = ({ articleData, setDataArticle }) => {
       });
     // editor?.current?.destroy();
   };
-  console.log(articleData, "Data is here");
+  // console.log(dataArticle, "Data is here");
+  // {
+  // dataArticle && dispatch(article(dataArticle));
+  // }
   return (
     <>
-      {preview ? (
+      {dataArticle === null ? (
         <div className="article_editor">
           <ReactEditorJS
             tools={EDITOR_JS_TOOLS}
@@ -132,15 +140,19 @@ const CustomEditor = ({ articleData, setDataArticle }) => {
           >
             <div id="editorjs"></div>
           </ReactEditorJS>
-          <CommonButton
-            className="post article"
-            butText="Next"
-            onclick={saveData}
-          />
+          {articleData ? (
+            ""
+          ) : (
+            <CommonButton
+              className="post article"
+              butText="Next"
+              onclick={saveData}
+            />
+          )}
           {/* <button onClick={saveData}>save</button> */}
         </div>
       ) : (
-        <Publish />
+        <Publish data={preData.current} />
       )}
     </>
   );

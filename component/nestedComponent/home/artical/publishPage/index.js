@@ -2,11 +2,12 @@ import React from "react";
 import ArticlePreview from "../articlePreview";
 import ProjectCover from "../projectCover";
 
-const Publish = () => {
+const Publish = ({ data }) => {
   return (
     <div className="publishPage">
       <div className="leftSide">
-        <ArticlePreview />
+        <p>Article Preview</p>
+        <ArticlePreview datadata={data} />
       </div>
       <div className="rightSide">
         <ProjectCover />

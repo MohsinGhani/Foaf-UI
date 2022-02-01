@@ -7,6 +7,9 @@ export const PostBottom = ({ event }) => {
 
   const switchData = (data) => {
     switch (data) {
+      case "like":
+        setImage("/images/dashboard/like.svg");
+        break;
       case "celebration":
         setImage("/images/dashboard/celebration.svg");
         break;
@@ -25,25 +28,23 @@ export const PostBottom = ({ event }) => {
       case "dead":
         setImage("/images/dashboard/dead.svg");
         break;
-      case "like":
-        setImage("/images/dashboard/like.svg");
-        break;
-      case "disLike":
-        setImage("/images/dashboard/disLike.svg");
-        break;
+
+      // case "disLike":
+      // setImage("/images/dashboard/disLike.svg");
+      // break;
       //   default:
       //     setImage("/images/dashboard/heartIcon.svg");
     }
   };
   const url = [
+    "like",
     "celebration",
     "clap",
     "love",
     "sorry",
     "sick",
     "dead",
-    "like",
-    "disLike",
+    // "disLike",
   ];
   const content = (
     <div className="icon_parent fade-in">

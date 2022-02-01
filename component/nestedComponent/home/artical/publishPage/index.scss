@@ -2,8 +2,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
     .leftSide {
         width: 48%;
+        p {
+            font-weight: 600;
+            font-size: 20px;
+            color: #121212;
+        }
     }
     .rightSide {
         width: 48%;
