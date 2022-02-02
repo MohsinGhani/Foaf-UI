@@ -9,6 +9,12 @@
             color: #bfbfbf;
             font-weight: 500;
         }
+        .Cover_image {
+            background: -webkit-linear-gradient(93.15deg, #c7539a -11.17%, #fb3e78 48.61%, #ff5369 96.45%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .publishName {
             font-weight: 600;
         }
@@ -19,9 +25,9 @@
             background: #eaeaea;
             border-radius: 8px;
             padding: 15px;
-            .ant-tag {
-                // line-height: 30px;
-            }
+            // .ant-tag {
+            // line-height: 30px;
+            // }
         }
     }
 }

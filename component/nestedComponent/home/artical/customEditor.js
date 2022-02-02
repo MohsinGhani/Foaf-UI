@@ -84,10 +84,7 @@ const CustomEditor = ({ articleData }) => {
         preData.current = outPut;
         setDataArticle(outPut);
         console.log(outPut, "outPutoutPutoutPut");
-        // dispatch(article(outPut));
-        // setDataArticle(outPut);
-        // dispatch(article(outPut));
-        // dispatch(article(outPut));
+
         // let formData = new FormData();
         // formData.append("article_name", "some name");
         // formData.append("article_data", JSON.stringify(outPut));

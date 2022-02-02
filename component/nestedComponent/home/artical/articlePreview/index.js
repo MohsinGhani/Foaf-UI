@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { useDispatch, useSelector } from "react-redux";
 import { article } from "../../../../features/articleData.js";
-const ArticlePreview = ({ datadata }) => {
-  console.log("datadatadatadata", datadata);
+const ArticlePreview = ({ articleData }) => {
+  console.log("ArticleDataArticleData", articleData);
   const dispatch = useDispatch();
   const [dataArticle, setDataArticle] = useState(null);
   const statedata = useSelector((state) => state);
@@ -22,7 +22,7 @@ const ArticlePreview = ({ datadata }) => {
     <div>
       {CustomEditor && (
         <CustomEditor
-          articleData={datadata && datadata}
+          articleData={articleData && articleData}
           // setDataArticle={setDataArticle}
           // dataArticle={dataArticle}
         />

@@ -4,7 +4,7 @@ import { PlusOutlined } from "@ant-design/icons";
 
 class Tags extends Component {
   state = {
-    tags: ["Unremovable", "Tag 2", "Tag 3"],
+    tags: ["USA", "Covid"],
     inputVisible: false,
     inputValue: "",
     editInputIndex: -1,
@@ -31,7 +31,8 @@ class Tags extends Component {
     if (inputValue && tags.indexOf(inputValue) === -1) {
       tags = [...tags, inputValue];
     }
-    console.log(tags);
+    this.props.setTags(tags);
+    console.log(tags, "hello");
     this.setState({
       tags,
       inputVisible: false,

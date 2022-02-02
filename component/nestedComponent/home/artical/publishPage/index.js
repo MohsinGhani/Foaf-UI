@@ -7,10 +7,10 @@ const Publish = ({ data }) => {
     <div className="publishPage">
       <div className="leftSide">
         <p>Article Preview</p>
-        <ArticlePreview datadata={data} />
+        <ArticlePreview articleData={data} />
       </div>
       <div className="rightSide">
-        <ProjectCover />
+        <ProjectCover articleData={data} />
       </div>
     </div>
   );
