@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 
 import { Menu } from "antd";
@@ -22,6 +23,9 @@ import { useEffect, useState } from "react";
 import { Event } from "../re-usabelComponent/home/homeEventPost";
 import { API } from "../../pages/api/home";
 export default function HomeDashBoard() {
+  const dispatch = useDispatch();
+  const [post, setPost] = useState();
+  const [state, setState] = useState(false);
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
 
@@ -41,6 +45,7 @@ export default function HomeDashBoard() {
           },
         });
         const fetchHomeData = await response.json();
+        setPost(fetchHomeData);
         console.log(fetchHomeData, "fetchHomeData");
       } catch (err) {
         console.log(err), "error ";
@@ -48,8 +53,6 @@ export default function HomeDashBoard() {
     }
   };
 
-  const dispatch = useDispatch();
-  const [state, setState] = useState(false);
   const settings = {
     dots: true,
     infinite: true,
@@ -66,17 +69,23 @@ export default function HomeDashBoard() {
         <div className="status">
           <Stories />
         </div>
-        <div className="home_post">
-          <Post
-            profile="/images/dashboard/samesize.svg"
-            time="10mins ago"
-            Post="/images/dashboard/post.svg"
-            profilecolor="grey"
-            name="Lydia Workman"
-          />
-        </div>
-
-        <div className="home_post">
+        {post &&
+          post?.result?.data?.map((data, key) => {
+            if (data?.postType === "article") {
+              return (
+                <div className="home_post" key={key}>
+                  <Post
+                    profile="/images/dashboard/samesize.svg"
+                    time={data?.timestamp}
+                    Post="/images/dashboard/post.svg"
+                    profilecolor="grey"
+                    name={data?.user?.username}
+                  />
+                </div>
+              );
+            }
+          })}
+        {/* <div className="home_post">
           <Event
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
@@ -85,8 +94,8 @@ export default function HomeDashBoard() {
             name="Talan Bator"
             event={true}
           />
-        </div>
-        <div className="home_post">
+        </div> */}
+        {/* <div className="home_post">
           <Post
             profile="/images/dashboard/ProfileImage2.svg "
             time="1hour ago"
@@ -94,8 +103,8 @@ export default function HomeDashBoard() {
             profilecolor="grey"
             name="Lydia Workman"
           />
-        </div>
-        <div className="home_post">
+        </div> */}
+        {/* <div className="home_post">
           <Post
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
@@ -103,7 +112,7 @@ export default function HomeDashBoard() {
             profilecolor="grey "
             name="Cristofer Westervelt"
           />
-        </div>
+        </div> */}
       </div>
       <div className="right-side">
         <div className="sponsoreds_main">

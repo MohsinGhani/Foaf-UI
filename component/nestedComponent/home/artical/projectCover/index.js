@@ -85,7 +85,7 @@ const ProjectCover = ({ articleData }) => {
           </p>
           <p>
             Add or change tags (up to 5) so readers know what your Article is
-            about
+            about.
           </p>
           <div className="tags">
             <Tags setTags={setTags} tags={tags} />
