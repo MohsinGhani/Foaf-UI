@@ -1,0 +1,66 @@
+.backImage {
+    width: 100%;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+    align-items: center;
+    border-radius: 20px;
+    .border__1 {
+        border: 1.5px solid rgba(255, 255, 255, 0.47);
+        border-radius: 75px;
+        margin-bottom: 40px;
+
+        .border__2 {
+            border: 1.5px solid rgba(255, 255, 255, 0.47);
+            border-radius: 75px;
+            margin-left: -15px;
+        }
+        .border__3 {
+            border: 1.5px solid rgba(255, 255, 255, 0.47);
+            border-radius: 75px;
+            margin-left: 3px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .rhap_container {
+        background-color: transparent;
+        box-shadow: none;
+        .rhap_progress-section {
+            .rhap_current-time {
+                color: white;
+            }
+            .rhap_progress-container {
+                .rhap_progress-indicator {
+                    background-color: white;
+                }
+            }
+            .rhap_time {
+                color: white;
+            }
+        }
+        .rhap_controls-section {
+            .rhap_main-controls {
+                .rhap_main-controls-button {
+                    color: white;
+                }
+            }
+            .rhap_volume-controls {
+                .rhap_volume-container {
+                    .rhap_volume-button {
+                        color: white;
+                    }
+                    .rhap_volume-bar-area {
+                        .rhap_volume-indicator {
+                            background: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

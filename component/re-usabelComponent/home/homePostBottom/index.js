@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button, Popover } from "antd";
-export const PostBottom = ({ event }) => {
+export const PostBottom = ({ event, comment, reaction, view }) => {
   const [seleteImage, setselectImage] = useState();
   const [image, setImage] = useState();
-
   const switchData = (data) => {
     switch (data) {
       case "like":
@@ -71,44 +70,50 @@ export const PostBottom = ({ event }) => {
   return (
     <div className={"bottom"}>
       <div className="icons">
-        <div className="heart">
-          <div className="heartIcon">
-            <Popover placement="topLeft" content={content}>
+        <div className="left_icons">
+          <div className="heart">
+            <div className="heartIcon">
+              <Popover placement="topLeft" content={content}>
+                <Image
+                  src={image ? image : `/images/dashboard/heartIcon.svg`}
+                  alt="heart"
+                  width="17"
+                  height="17"
+                  layout="fixed"
+                />
+              </Popover>
+            </div>
+            <p>{reaction}</p>
+          </div>
+          <div className="views">
+            <div className="viewsIcon">
               <Image
-                src={image ? image : `/images/dashboard/heartIcon.svg`}
-                alt="heart"
+                src="/images/dashboard/show.svg"
+                alt="view"
                 width="17"
                 height="17"
                 layout="fixed"
               />
-            </Popover>
+            </div>
+            <p>{view}</p>
           </div>
-          <p>10,720 Reactions</p>
         </div>
-        <div className="views">
-          <div className="viewsIcon">
-            <Image
-              src="/images/dashboard/show.svg"
-              alt="view"
-              width="17"
-              height="17"
-              layout="fixed"
-            />
+        {event ? (
+          ""
+        ) : (
+          <div className="views">
+            <div className="viewsIcon">
+              <Image
+                src="/images/dashboard/comment.svg"
+                alt="view"
+                width="17"
+                height="17"
+                layout="fixed"
+              />
+            </div>
+            <p>{comment}</p>
           </div>
-          <p>24,928 Views</p>
-        </div>
-        <div className="views">
-          <div className="viewsIcon">
-            <Image
-              src="/images/dashboard/comment.svg"
-              alt="view"
-              width="17"
-              height="17"
-              layout="fixed"
-            />
-          </div>
-          <p>25,992 Comments</p>
-        </div>
+        )}
         <div className="event_but">{event && <Button>Learn More</Button>}</div>
       </div>
     </div>

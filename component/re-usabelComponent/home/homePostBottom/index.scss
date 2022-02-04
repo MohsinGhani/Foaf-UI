@@ -6,45 +6,50 @@
     // justify-content: space-between;
     // align-items: center;
     .icons {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         // width: 50%;
         // justify-content: space-evenly;
         // width: 100%;
         // justify-content: space-between;
-        .heart {
+        .left_icons {
+            width: 50%;
             display: flex;
-            align-items: center;
-            .heartIcon {
-                cursor: pointer;
+            .heart {
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                width: 20px;
-                height: 20px;
-            }
+                .heartIcon {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20px;
+                    height: 20px;
+                }
 
-            p {
-                color: #bfbfbf;
-                margin: 0px 5px;
-                font-size: 12px;
+                p {
+                    color: #bfbfbf;
+                    margin: 0px 5px;
+                    font-size: 12px;
+                }
             }
-        }
-        .views {
-            display: flex;
-            align-items: center;
-            margin-left: 10px;
-            .viewsIcon {
+            .views {
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                width: 20px;
-                height: 20px;
-            }
-            p {
-                color: #bfbfbf;
-                margin: 0px 5px;
-                font-size: 12px;
+                margin-left: 10px;
+                .viewsIcon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20px;
+                    height: 20px;
+                }
+                p {
+                    color: #bfbfbf;
+                    margin: 0px 5px;
+                    font-size: 12px;
+                }
             }
         }
         .event_but {

@@ -22,6 +22,9 @@ import FloatingOption from "../nestedComponent/home/floatingOption";
 import { useEffect, useState } from "react";
 import { Event } from "../re-usabelComponent/home/homeEventPost";
 import { API } from "../../pages/api/home";
+import Video from "../re-usabelComponent/home/video";
+import Audio from "../re-usabelComponent/home/audio";
+import Spinner from "../re-usabelComponent/common/spinner";
 export default function HomeDashBoard() {
   const dispatch = useDispatch();
   const [post, setPost] = useState();
@@ -69,22 +72,51 @@ export default function HomeDashBoard() {
         <div className="status">
           <Stories />
         </div>
-        {post &&
+        {post ? (
           post?.result?.data?.map((data, key) => {
-            if (data?.postType === "article") {
-              return (
-                <div className="home_post" key={key}>
-                  <Post
-                    profile="/images/dashboard/samesize.svg"
-                    time={data?.timestamp}
-                    Post="/images/dashboard/post.svg"
-                    profilecolor="grey"
-                    name={data?.user?.username}
-                  />
-                </div>
-              );
+            let condition = data?.postType;
+            switch (condition) {
+              case "video":
+              case "audio":
+              case "text":
+                return (
+                  <div className="home_post" key={key}>
+                    <Post
+                      profile="/images/dashboard/samesize.svg"
+                      time={data?.timestamp}
+                      Post="/images/dashboard/post.svg"
+                      profilecolor="grey"
+                      name={data?.user?.username}
+                      link={data?.link}
+                      postType={data?.postType}
+                      comment={data?.commentCount}
+                      reaction={data?.reactionCount}
+                    />
+                  </div>
+                );
+
+              case "event":
+              case "article":
+                return (
+                  <div className="home_post">
+                    <Event
+                      profile="/images/dashboard/ProfileImage2.svg"
+                      time="1hour ago"
+                      Post="/images/dashboard/post3.jpg"
+                      profilecolor="pink"
+                      name="Talan Bator"
+                      event={true}
+                      comment={data?.commentCount}
+                      reaction={data?.reactionCount}
+                      view={data?.views}
+                    />
+                  </div>
+                );
             }
-          })}
+          })
+        ) : (
+          <Spinner />
+        )}
         {/* <div className="home_post">
           <Event
             profile="/images/dashboard/ProfileImage2.svg"

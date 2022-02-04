@@ -5,6 +5,8 @@ import ReactPlayer from "react-player";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { MyContext } from "../../../../shared/helper";
+import VideoPost from "../../../re-usabelComponent/home/video";
+import AudioPost from "../../../re-usabelComponent/home/audio";
 export const UplodOption = ({
   heading,
   setHeading,
@@ -126,38 +128,8 @@ export const UplodOption = ({
           </Form.Item>
         ) : (
           // </Form>
-          (video && (
-            <ReactPlayer
-              controls
-              className="react-player"
-              url={image}
-              width="100%"
-            />
-          )) ||
-          (audio && (
-            <div
-              className="backImage"
-              style={{
-                backgroundImage: "url(/images/CreatePost/audioBackground.png)",
-              }}
-            >
-              <div className="border__1">
-                <div className="border__2">
-                  <div className="border__3">
-                    <Image
-                      src="/images/CreatePost/hello12.png"
-                      alt="image"
-                      width="120px"
-                      height="120px"
-                      layout="fixed"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <AudioPlayer src={image} controls customAdditionalControls={[]} />
-            </div>
-          )) ||
+          (video && <VideoPost url={image} />) ||
+          (audio && <AudioPost url={image} />) ||
           (picture && image && (
             <Image
               src={image}

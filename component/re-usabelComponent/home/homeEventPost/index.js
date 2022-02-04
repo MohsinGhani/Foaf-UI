@@ -24,7 +24,12 @@ export const Event = (props) => {
           sed aliquet non. Nulla libero a a orci placerat. Viverra vitae congue
           in duis.
         </p>
-        <PostBottom event={props.event} />
+        <PostBottom
+          event={props.event}
+          reaction={props.reaction}
+          comment={props.comment}
+          view={props.view}
+        />
       </div>
     </div>
   );
