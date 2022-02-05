@@ -9,7 +9,6 @@ import Video from "../../../re-usabelComponent/home/video";
 import Audio from "../../../re-usabelComponent/home/audio";
 export default function Post(props) {
   let time = moment(props.time).fromNow();
-
   return (
     <div className="post-main">
       <Profile
@@ -19,13 +18,14 @@ export default function Post(props) {
         nameColor="homePostText"
         name={props.name}
         class="image"
+        user={props?.user}
       />
       <div className="post">
         {props?.postType === "video" && <Video url={props?.link} />}
         {props?.postType === "audio" && <Audio url={props?.link} />}
 
         {props?.postType === "text" && (
-          <img src={props.Post} alt="post" width="100%" height="100%" />
+          <img src={props?.Post} alt="post" width="100%" height="100%" />
         )}
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu, netus

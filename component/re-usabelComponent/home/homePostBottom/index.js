@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button, Popover } from "antd";
+import { Button, Popover, Space } from "antd";
 export const PostBottom = ({ event, comment, reaction, view }) => {
   const [seleteImage, setselectImage] = useState();
   const [image, setImage] = useState();
@@ -68,36 +68,37 @@ export const PostBottom = ({ event, comment, reaction, view }) => {
   );
 
   return (
-    <div className={"bottom"}>
-      <div className="icons">
-        <div className="left_icons">
-          <div className="heart">
-            <div className="heartIcon">
-              <Popover placement="topLeft" content={content}>
-                <Image
-                  src={image ? image : `/images/dashboard/heartIcon.svg`}
-                  alt="heart"
-                  width="17"
-                  height="17"
-                  layout="fixed"
-                />
-              </Popover>
-            </div>
-            <p>{reaction}</p>
-          </div>
-          <div className="views">
-            <div className="viewsIcon">
+    <div className="bottom">
+      <Space size={50}>
+        {/* <div className="icons"> */}
+        {/* <div className="left_icons"> */}
+        <div className="heart">
+          <div className="heartIcon">
+            <Popover placement="topLeft" content={content}>
               <Image
-                src="/images/dashboard/show.svg"
-                alt="view"
+                src={image ? image : `/images/dashboard/heartIcon.svg`}
+                alt="heart"
                 width="17"
                 height="17"
                 layout="fixed"
               />
-            </div>
-            <p>{view}</p>
+            </Popover>
           </div>
+          <p>{reaction}</p>
         </div>
+        <div className="views">
+          <div className="viewsIcon">
+            <Image
+              src="/images/dashboard/show.svg"
+              alt="view"
+              width="17"
+              height="17"
+              layout="fixed"
+            />
+          </div>
+          <p>{view}</p>
+        </div>
+        {/* </div> */}
         {event ? (
           ""
         ) : (
@@ -115,7 +116,8 @@ export const PostBottom = ({ event, comment, reaction, view }) => {
           </div>
         )}
         <div className="event_but">{event && <Button>Learn More</Button>}</div>
-      </div>
+        {/* </div> */}
+      </Space>
     </div>
   );
 };

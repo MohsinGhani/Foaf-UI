@@ -82,15 +82,17 @@ export default function HomeDashBoard() {
                 return (
                   <div className="home_post" key={key}>
                     <Post
-                      profile="/images/dashboard/samesize.svg"
+                      profile={data?.user.avatar}
                       time={data?.timestamp}
-                      Post="/images/dashboard/post.svg"
-                      profilecolor="grey"
+                      Post={data?.background_image}
+                      profilecolor={data?.user?.isHavingStory ? "pink" : "grey"}
                       name={data?.user?.username}
                       link={data?.link}
                       postType={data?.postType}
                       comment={data?.commentCount}
                       reaction={data?.reactionCount}
+                      view={data?.views}
+                      user={data?.user}
                     />
                   </div>
                 );
@@ -100,15 +102,16 @@ export default function HomeDashBoard() {
                 return (
                   <div className="home_post">
                     <Event
-                      profile="/images/dashboard/ProfileImage2.svg"
-                      time="1hour ago"
-                      Post="/images/dashboard/post3.jpg"
-                      profilecolor="pink"
-                      name="Talan Bator"
+                      profile={data?.user.avatar}
+                      time={data?.timestamp}
+                      Post={data?.coverPhoto}
+                      profilecolor={data?.user?.isHavingStory ? "pink" : "grey"}
+                      name={data?.user?.username}
                       event={true}
                       comment={data?.commentCount}
                       reaction={data?.reactionCount}
                       view={data?.views}
+                      user={data?.user}
                     />
                   </div>
                 );

@@ -102,7 +102,7 @@ export const StatusUpdate = ({ form }) => {
                 }}
               >
                 <Image
-                  src={`${data.background_image}`}
+                  src={`${data?.background_image}`}
                   alt="background"
                   width="80"
                   height="80"

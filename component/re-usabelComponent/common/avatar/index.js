@@ -8,10 +8,15 @@ export const Avatar = (props) => {
     <div className={props.classtext}>
       {props.Popover ? (
         <Popover placement="bottom" content={props.component}>
-          <Image src={props.profile} alt="postProfile" width="50" height="50" />
+          <Image
+            src={props?.profile}
+            alt="postProfile"
+            width="50"
+            height="50"
+          />
         </Popover>
       ) : (
-        <Image src={props.profile} alt="postProfile" width="50" height="50" />
+        <Image src={props?.profile} alt="postProfile" width="50" height="50" />
       )}
     </div>
   );

@@ -5,6 +5,9 @@
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    img {
+        border-radius: 10px;
+    }
 }
 .pink {
     min-width: 55px;
@@ -15,6 +18,9 @@
 
     display: flex;
     justify-content: center;
+    img {
+        border-radius: 10px;
+    }
 }
 .popOverAvater {
     border: 3px solid #fe5e71;

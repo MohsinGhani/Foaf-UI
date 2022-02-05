@@ -2,17 +2,19 @@
 import React from "react";
 import Profile from "../../profile";
 import { PostBottom } from "../homePostBottom";
-
+import moment from "moment";
 export const Event = (props) => {
+  let time = moment(props.time).fromNow();
   return (
     <div className="event-main">
       <Profile
         profile={props.profile}
-        time="10mins ago"
+        time={time}
         className={props.profilecolor}
         nameColor="homePostText"
         name={props.name}
         class="image"
+        user={props?.user}
       />
       <div className="post">
         <img src={props.Post} alt="post" width="100%" />
