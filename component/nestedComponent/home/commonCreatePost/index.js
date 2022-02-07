@@ -15,6 +15,7 @@ import Article from "../artical";
 import Preview from "../steps/preview";
 import ProjectCover from "../artical/projectCover";
 import Publish from "../artical/publishPage";
+import { useRouter } from "next/router";
 export default function CreatePostContent({
   status,
   video,
@@ -23,6 +24,7 @@ export default function CreatePostContent({
   article,
 }) {
   const statedata = useSelector((state) => state);
+  const router = useRouter();
   var data = statedata?.user?.userDetailes?.result?.user;
   const [image, setimage] = useState(null);
   const [steps, setSteps] = useState(false);
@@ -53,6 +55,7 @@ export default function CreatePostContent({
             });
             const createVideo = await response.json();
             console.log(createVideo, "createStatus");
+            // router.push("/");
           } catch (err) {
             console.log(err), "error araha hai";
           }

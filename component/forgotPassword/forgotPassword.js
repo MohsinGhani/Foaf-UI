@@ -106,7 +106,7 @@ export default function ForgotPassword() {
                 height="64"
               />
             </Link>
-            <p className={styles.signup}>Forgot Password </p>
+            <p className={styles.signup}>Forgot Password</p>
             <p className={styles.loremText}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum
               amet risus mattis donec libero. Et eget netus dui arcu ridiculus

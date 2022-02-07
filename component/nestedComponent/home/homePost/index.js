@@ -8,7 +8,13 @@ import Profile from "../../../re-usabelComponent/profile";
 import Video from "../../../re-usabelComponent/home/video";
 import Audio from "../../../re-usabelComponent/home/audio";
 export default function Post(props) {
+  console.log(
+    "HUHUHUHUHUHUHUUHU",
+    moment().local().utc(props.time).format("YYYY-MMM-DD h:mm A")
+  );
+  let timeZone = moment().local().utc(props.time).format("DD-MM-YYYY, h:mm A");
   let time = moment(props.time).fromNow();
+
   return (
     <div className="post-main">
       <Profile

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button, Popover, Space } from "antd";
+import { CommonButton } from "../../common/button";
 export const PostBottom = ({ event, comment, reaction, view }) => {
   const [seleteImage, setselectImage] = useState();
   const [image, setImage] = useState();
@@ -66,7 +67,6 @@ export const PostBottom = ({ event, comment, reaction, view }) => {
       ))}
     </div>
   );
-
   return (
     <div className="bottom">
       <Space size={50}>
@@ -115,9 +115,17 @@ export const PostBottom = ({ event, comment, reaction, view }) => {
             <p>{comment}</p>
           </div>
         )}
-        <div className="event_but">{event && <Button>Learn More</Button>}</div>
-        {/* </div> */}
+        <div className="event_but">
+          {event && (
+            <CommonButton
+              butText="Learn more"
+              className="event_but"
+              // onclick={publish}
+            />
+          )}
+        </div>
       </Space>
+      {/* </div> */}
     </div>
   );
 };
