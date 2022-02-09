@@ -15,8 +15,10 @@
         }
         .loacation_field {
             position: relative;
+
             .ant-select {
                 margin-bottom: 50px;
+
                 .ant-select-selector {
                     border-radius: 8px;
                     input {
@@ -65,4 +67,8 @@
 .geosuggest__item--active {
     background: #267dc0;
     color: #fff;
+}
+
+.ant-select-item-group {
+    display: none !important;
 }

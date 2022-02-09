@@ -69,10 +69,11 @@ export const StatusUpdate = ({ form }) => {
           <Form
             name="basicDiscription"
             form={form}
-            initialValues={{ discription: "whats on you Mind?" }}
+            // initialValues={{ discription: "whats on you Mind?" }}
           >
             <Form.Item
               name="discription"
+
               // rules={[
               //   {
               //     required: true,
@@ -81,7 +82,7 @@ export const StatusUpdate = ({ form }) => {
               // ]}
             >
               <TextArea
-                // placeholder="whats on you Mind?"
+                placeholder="whats on you Mind?"
                 autoSize={{ minRows: 1, maxRows: 7 }}
                 // defaultValue="whats on you Mind?"
               />
