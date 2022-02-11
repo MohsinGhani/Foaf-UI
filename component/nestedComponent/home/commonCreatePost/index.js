@@ -42,7 +42,12 @@ export default function CreatePostContent({
         console.log("file", fullVideo);
         const uploadData = async (url, type) => {
           let formData = new FormData();
-          formData.append(type, fullVideo?.originFileObj);
+          {
+            "status"
+              ? formData.append(type, fullVideo)
+              : formData.append(type, fullVideo?.originFileObj);
+          }
+          formData.append("description", values.discription);
           try {
             let response = await fetch(`${url}`, {
               method: "POST",
@@ -67,6 +72,9 @@ export default function CreatePostContent({
         {
           audio && uploadData(API.CREATE_AUDIO_STATUS, "audio");
         }
+        {
+          status && uploadData(API.CREATE_STATUS, "background_image");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -85,7 +93,13 @@ export default function CreatePostContent({
             privacy={true}
           />
 
-          {status && <StatusUpdate form={form} />}
+          {status && (
+            <StatusUpdate
+              form={form}
+              fullVideo={fullVideo}
+              setfullVideo={setfullVideo}
+            />
+          )}
           {video && (
             <UplodOption
               video

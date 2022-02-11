@@ -111,7 +111,6 @@ const CustomEditor = ({ articleData }) => {
       .catch((err) => {
         console.log(err, "errrroutoputoutoputoutoput");
       });
-    // editor?.current?.destroy();
   };
   // console.log(dataArticle, "Data is here");
   // {

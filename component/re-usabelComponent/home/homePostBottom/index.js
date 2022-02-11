@@ -60,8 +60,8 @@ export const PostBottom = ({ event, comment, reaction, view }) => {
           <Image
             src={`/images/dashboard/${data}.svg`}
             alt="heart"
-            width="22"
-            height="22"
+            width="24"
+            height="24"
           />
         </div>
       ))}

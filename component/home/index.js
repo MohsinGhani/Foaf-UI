@@ -25,12 +25,14 @@ import { API } from "../../pages/api/home";
 import Video from "../re-usabelComponent/home/video";
 import Audio from "../re-usabelComponent/home/audio";
 import Spinner from "../re-usabelComponent/common/spinner";
+import { useRouter } from "next/router";
 export default function HomeDashBoard() {
   const dispatch = useDispatch();
   const [post, setPost] = useState();
   const [state, setState] = useState(false);
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
+  const router = useRouter();
 
   useEffect(() => {
     FeedData();
@@ -100,7 +102,12 @@ export default function HomeDashBoard() {
               case "event":
               case "article":
                 return (
-                  <div className="home_post">
+                  <div
+                    className="home_post"
+                    // onClick={() => {
+                    //   router.push("/");
+                    // }}
+                  >
                     <Event
                       profile={data?.user.avatar}
                       time={data?.timestamp}
@@ -113,6 +120,7 @@ export default function HomeDashBoard() {
                       view={data?.views}
                       user={data?.user}
                     />
+                    a
                   </div>
                 );
             }

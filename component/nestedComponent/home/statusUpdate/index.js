@@ -6,7 +6,7 @@ import { Input, Form } from "antd";
 import Image from "next/image";
 import { API } from "../../../../pages/api/create";
 import { useSelector } from "react-redux";
-export const StatusUpdate = ({ form }) => {
+export const StatusUpdate = ({ form, fullVideo, setfullVideo }) => {
   const { TextArea } = Input;
 
   const url = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7];
@@ -50,16 +50,7 @@ export const StatusUpdate = ({ form }) => {
     <>
       <div className="text_background">
         <div className="background">
-          {image && (
-            <Image
-              src={
-                (image === 1 && "/images/CreatePost/back1.png") ||
-                (image === 2 && "/images/CreatePost/back2.png")
-              }
-              alt="background"
-              layout="fill"
-            />
-          )}
+          {image && <Image src={image} alt="background" layout="fill" />}
         </div>
         <div
           className={`text_area ${
@@ -98,8 +89,9 @@ export const StatusUpdate = ({ form }) => {
                 key={i}
                 className="back_image"
                 onClick={() => {
-                  (data === 1 && setimage(1)) || (data === 2 && setimage(2));
+                  setimage(data?.background_image);
                   setBackgroundImage(!backgroundimage);
+                  setfullVideo(data?.image_id);
                 }}
               >
                 <Image
