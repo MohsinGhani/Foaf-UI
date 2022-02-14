@@ -6,43 +6,76 @@ import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import { MyContext } from "../../../../../shared/helper";
 import DetailedImage from "../../../../re-usabelComponent/common/detailedImage";
+import { API } from "../../../../../pages/api/home";
+import { useSelector } from "react-redux";
 
-const Preview = ({ heading, setHeading, form, image }) => {
+const Preview = ({ heading, setHeading, form, image, id }) => {
   const [previewData, setPreviewData] = useState([]);
+  const [singelPost, setSingelPost] = useState([]);
   const { allData, setAllData } = useContext(MyContext);
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
   useEffect(() => {
-    setHeading(heading);
+    setHeading && setHeading(heading);
   }, [heading, setHeading]);
 
-  console.log(previewData, "hello");
+  useEffect(async () => {
+    if (id) {
+      console.log("idsadasdsssssssssssssssssss", id);
+      let formData = new FormData();
+      formData.append("event_id", id);
+      try {
+        let response = await fetch(`${API.GET_SINGLE_EVENT_POST}`, {
+          method: "POST",
+          headers: {
+            // "Content-Type":
+            // "multipart/form-data; boundary=<calculated when request is sent>",
+            Authorization: `Token ${data?.token}`,
+          },
+          body: formData,
+        });
+        const getPost = await response.json();
+        setSingelPost(getPost);
+        console.log(getPost, "SingelPOSt");
+      } catch (err) {
+        console.log(err), "error ";
+      }
+    }
+  }, [id]);
 
+  console.log(previewData, "hello");
+  console.log("setdataisHere", singelPost, id);
   useEffect(() => {
-    let temp = form?.getFieldsValue(true);
-    temp["coverPhoto"] = image;
-    let Month = moment(temp.startDate?._d).format("MMM");
-    let date = moment(temp.startDate).format("D");
-    let fullDate = moment(temp.startDate).format("dddd , D MMMM YYYY [At]");
-    let time = moment(temp.startTime).format("h:mm [UTC+01]");
-    let data = {
-      ...temp,
-      fullDate: `${fullDate}`,
-      Month: `${Month}`,
-      date: `${date}`,
-      time: `${time}`,
-    };
-    setPreviewData(data);
-    setAllData({ ...allData, data });
-    console.log(time, "datetem.startDate");
+    if (form) {
+      let temp = form?.getFieldsValue(true);
+      temp["coverPhoto"] = image;
+      let Month = moment(temp.startDate?._d).format("MMM");
+      let date = moment(temp.startDate).format("D");
+      let fullDate = moment(temp.startDate).format("dddd , D MMMM YYYY [At]");
+      let time = moment(temp.startTime).format("h:mm [UTC+01]");
+      let data = {
+        ...temp,
+        fullDate: `${fullDate}`,
+        Month: `${Month}`,
+        date: `${date}`,
+        time: `${time}`,
+      };
+      setPreviewData(data);
+      setAllData({ ...allData, data });
+      console.log(time, "datetem.startDate");
+    }
   }, [image, form]);
   return (
     <div className="parent">
       <DetailedImage
-        previewData={previewData}
+        previewData={singelPost ? singelPost?.result?.cover_photo : previewData}
         height="440px"
         footerHeight="85px"
       />
       <h3 className="about">About</h3>
-      <p className="about_text">{previewData?.description}</p>
+      <p className="about_text">
+        {singelPost ? singelPost?.result?.event_name : previewData?.description}
+      </p>
       <div className="about_details">
         <div className="left_site">
           <div className="detail_heading">Details</div>

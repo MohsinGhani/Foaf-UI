@@ -26,10 +26,12 @@ import Video from "../re-usabelComponent/home/video";
 import Audio from "../re-usabelComponent/home/audio";
 import Spinner from "../re-usabelComponent/common/spinner";
 import { useRouter } from "next/router";
+import Preview from "../nestedComponent/home/steps/preview";
 export default function HomeDashBoard() {
   const dispatch = useDispatch();
   const [post, setPost] = useState();
   const [state, setState] = useState(false);
+  const [id, setId] = useState("");
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
   const router = useRouter();
@@ -65,70 +67,90 @@ export default function HomeDashBoard() {
     slidesToShow: 3,
     slidesToScroll: 3,
   };
+
+  const singelPostData = async (id) => {
+    console.log(id, "idididi");
+    setId(id);
+    router.push({
+      pathname: "",
+      query: { detailed: "detailedPage" },
+    });
+  };
   return (
     <div className="home_main">
-      <div className="left-side">
-        <MobileStories />
-        <div className="seperator"></div>
-        <ToggelMobile />
-        <div className="status">
-          <Stories />
+      {router.query.detailed === "detailedPage" ? (
+        <div className="previewMain">
+          <Preview id={id} />
         </div>
-        {post ? (
-          post?.result?.data?.map((data, key) => {
-            let condition = data?.postType;
-            switch (condition) {
-              case "video":
-              case "audio":
-              case "text":
-                return (
-                  <div className="home_post" key={key}>
-                    <Post
-                      profile={data?.user.avatar}
-                      time={data?.timestamp}
-                      Post={data?.background_image}
-                      profilecolor={data?.user?.isHavingStory ? "pink" : "grey"}
-                      name={data?.user?.username}
-                      link={data?.link}
-                      postType={data?.postType}
-                      comment={data?.commentCount}
-                      reaction={data?.reactionCount}
-                      view={data?.views}
-                      user={data?.user}
-                    />
-                  </div>
-                );
+      ) : (
+        // </div>
+        <>
+          <div className="left-side">
+            <MobileStories />
+            <div className="seperator"></div>
+            <ToggelMobile />
+            <div className="status">
+              <Stories />
+            </div>
+            {post ? (
+              post?.result?.data?.map((data, key) => {
+                let condition = data?.postType;
+                switch (condition) {
+                  case "video":
+                  case "audio":
+                  case "text":
+                    return (
+                      <div className="home_post" key={key}>
+                        <Post
+                          profile={data?.user.avatar}
+                          time={data?.timestamp}
+                          Post={data?.background_image}
+                          profilecolor={
+                            data?.user?.isHavingStory ? "pink" : "grey"
+                          }
+                          name={data?.user?.username}
+                          link={data?.link}
+                          postType={data?.postType}
+                          comment={data?.commentCount}
+                          reaction={data?.reactionCount}
+                          view={data?.views}
+                          user={data?.user}
+                        />
+                      </div>
+                    );
 
-              case "event":
-              case "article":
-                return (
-                  <div
-                    className="home_post"
-                    // onClick={() => {
-                    //   router.push("/");
-                    // }}
-                  >
-                    <Event
-                      profile={data?.user.avatar}
-                      time={data?.timestamp}
-                      Post={data?.coverPhoto}
-                      profilecolor={data?.user?.isHavingStory ? "pink" : "grey"}
-                      name={data?.user?.username}
-                      event={true}
-                      comment={data?.commentCount}
-                      reaction={data?.reactionCount}
-                      view={data?.views}
-                      user={data?.user}
-                    />
-                    a
-                  </div>
-                );
-            }
-          })
-        ) : (
-          <Spinner />
-        )}
-        {/* <div className="home_post">
+                  case "event":
+                  case "article":
+                    return (
+                      <div
+                        className="home_post"
+                        onClick={() => {
+                          singelPostData(data?.id);
+                        }}
+                      >
+                        <Event
+                          profile={data?.user.avatar}
+                          time={data?.timestamp}
+                          Post={data?.coverPhoto}
+                          profilecolor={
+                            data?.user?.isHavingStory ? "pink" : "grey"
+                          }
+                          name={data?.user?.username}
+                          event={true}
+                          comment={data?.commentCount}
+                          reaction={data?.reactionCount}
+                          view={data?.views}
+                          user={data?.user}
+                        />
+                      </div>
+                    );
+                }
+              })
+            ) : (
+              <Spinner />
+            )}
+
+            {/* <div className="home_post">
           <Event
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
@@ -138,7 +160,7 @@ export default function HomeDashBoard() {
             event={true}
           />
         </div> */}
-        {/* <div className="home_post">
+            {/* <div className="home_post">
           <Post
             profile="/images/dashboard/ProfileImage2.svg "
             time="1hour ago"
@@ -147,7 +169,7 @@ export default function HomeDashBoard() {
             name="Lydia Workman"
           />
         </div> */}
-        {/* <div className="home_post">
+            {/* <div className="home_post">
           <Post
             profile="/images/dashboard/ProfileImage2.svg"
             time="1hour ago"
@@ -156,21 +178,23 @@ export default function HomeDashBoard() {
             name="Cristofer Westervelt"
           />
         </div> */}
-      </div>
-      <div className="right-side">
-        <div className="sponsoreds_main">
-          <Sponsoreds />
-        </div>
-        <div className="show_trending_main">
-          <ShowTrending />
-        </div>
-      </div>
-      <div className="button_float">
-        <FloatingBut state={state} setState={setState} />
-      </div>
-      <div className="option_float">
-        <FloatingOption state={state} />
-      </div>
+          </div>
+          <div className="right-side">
+            <div className="sponsoreds_main">
+              <Sponsoreds />
+            </div>
+            <div className="show_trending_main">
+              <ShowTrending />
+            </div>
+          </div>
+          <div className="button_float">
+            <FloatingBut state={state} setState={setState} />
+          </div>
+          <div className="option_float">
+            <FloatingOption state={state} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
