@@ -8,18 +8,21 @@ import { MyContext } from "../../../../../shared/helper";
 import DetailedImage from "../../../../re-usabelComponent/common/detailedImage";
 import { API } from "../../../../../pages/api/home";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
-const Preview = ({ heading, setHeading, form, image, id }) => {
+const Preview = ({ heading, setHeading, form, image }) => {
   const [previewData, setPreviewData] = useState([]);
   const [singelPost, setSingelPost] = useState([]);
   const { allData, setAllData } = useContext(MyContext);
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
+  const router = useRouter();
   useEffect(() => {
     setHeading && setHeading(heading);
   }, [heading, setHeading]);
 
   useEffect(async () => {
+    let id = router.query.id;
     if (id) {
       console.log("idsadasdsssssssssssssssssss", id);
       let formData = new FormData();
@@ -41,10 +44,8 @@ const Preview = ({ heading, setHeading, form, image, id }) => {
         console.log(err), "error ";
       }
     }
-  }, [id]);
+  }, []);
 
-  console.log(previewData, "hello");
-  console.log("setdataisHere", singelPost, id);
   useEffect(() => {
     if (form) {
       let temp = form?.getFieldsValue(true);
@@ -68,13 +69,15 @@ const Preview = ({ heading, setHeading, form, image, id }) => {
   return (
     <div className="parent">
       <DetailedImage
-        previewData={singelPost ? singelPost?.result?.cover_photo : previewData}
+        previewData={previewData}
+        singelPost={singelPost?.result}
         height="440px"
         footerHeight="85px"
       />
       <h3 className="about">About</h3>
       <p className="about_text">
-        {singelPost ? singelPost?.result?.event_name : previewData?.description}
+        {(singelPost && singelPost?.result?.description) ||
+          (previewData && previewData?.description)}
       </p>
       <div className="about_details">
         <div className="left_site">
@@ -108,42 +111,45 @@ const Preview = ({ heading, setHeading, form, image, id }) => {
               width="30"
               height="30"
             />
-            <p>Texas, Dolby, United States</p>
+            <p>{previewData?.location || singelPost?.result?.event_address}</p>
           </div>
         </div>
         <div className="right_site">
           <p className="detail_heading">Guest</p>
           <div className="guest_site">
             <div className="flex_two">
-              <div>
-                <Image
-                  src="/images/CreatePost/guest1.png"
-                  alt="img"
-                  width="33"
-                  height="33"
-                />
+              <div className="Circle First">
+                <p>
+                  {singelPost
+                    ? singelPost?.result?.going.length
+                      ? singelPost?.result?.going.length + 1
+                      : 0
+                    : 0}
+                </p>
               </div>
               <p>Going</p>
             </div>
             <div className="flex_two">
-              <div>
-                <Image
-                  src="/images/CreatePost/guest2.png"
-                  alt="img"
-                  width="33"
-                  height="33"
-                />
+              <div className="Circle two">
+                <p>
+                  {singelPost
+                    ? singelPost?.result?.interested.length
+                      ? singelPost?.result?.interested.length + 1
+                      : 0
+                    : 0}
+                </p>
               </div>
               <p>Interested</p>
             </div>
             <div className="flex_two">
-              <div>
-                <Image
-                  src="/images/CreatePost/guest3.png"
-                  alt="img"
-                  width="33"
-                  height="33"
-                />
+              <div className="Circle three">
+                <p>
+                  {singelPost
+                    ? singelPost?.result?.invited.length
+                      ? singelPost?.result?.invited.length + 1
+                      : 0
+                    : 0}
+                </p>
               </div>
               <p>Invited</p>
             </div>

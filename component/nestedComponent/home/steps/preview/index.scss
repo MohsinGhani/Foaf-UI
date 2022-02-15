@@ -55,6 +55,27 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    .First {
+                        background: #f2bd6f;
+                    }
+                    .two {
+                        background: linear-gradient(90deg, #c39eff 0%, #a576f3 100%);
+                    }
+                    .three {
+                        background: linear-gradient(98.43deg, #ff808f -16.24%, #c50018 121.79%);
+                    }
+
+                    .Circle {
+                        width: 33px;
+                        height: 33px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50px;
+                        p {
+                            margin: 0;
+                        }
+                    }
                 }
             }
         }

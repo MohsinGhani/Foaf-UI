@@ -7,19 +7,27 @@ const DetailedImage = ({
   image,
   height,
   footerHeight,
+  singelPost,
 }) => {
+  console.log("previewData?.coverPhotopreviewData?.coverPhoto", previewData);
+  console.log("singelPostsingelPost", singelPost);
+  console.log("imageimage", image);
   return (
     <div
       className="event_image"
       style={{
         height: `${height}`,
         backgroundImage: `url(${
-          previewData ? previewData?.coverPhoto : image
+          (singelPost && "https://" + singelPost?.cover_photo) ||
+          previewData?.coverPhoto ||
+          image
         })`,
       }}
     >
       <div className="footer" style={{ height: `${footerHeight}` }}>
-        {previewData && <PreviewFooter previewData={previewData} />}
+        {previewData && (
+          <PreviewFooter previewData={previewData} singelPost={singelPost} />
+        )}
         {ProjectCover && <ProjectCoverFooter />}
       </div>
     </div>
