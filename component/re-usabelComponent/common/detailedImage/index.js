@@ -18,7 +18,7 @@ const DetailedImage = ({
       style={{
         height: `${height}`,
         backgroundImage: `url(${
-          (singelPost && "https://" + singelPost?.cover_photo) ||
+          (singelPost && "https://" + singelPost?.coverPhoto) ||
           previewData?.coverPhoto ||
           image
         })`,

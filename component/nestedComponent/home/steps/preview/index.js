@@ -121,8 +121,8 @@ const Preview = ({ heading, setHeading, form, image }) => {
               <div className="Circle First">
                 <p>
                   {singelPost
-                    ? singelPost?.result?.going.length
-                      ? singelPost?.result?.going.length + 1
+                    ? singelPost?.result?.going?.length
+                      ? singelPost?.result?.going?.length + 1
                       : 0
                     : 0}
                 </p>
@@ -133,8 +133,8 @@ const Preview = ({ heading, setHeading, form, image }) => {
               <div className="Circle two">
                 <p>
                   {singelPost
-                    ? singelPost?.result?.interested.length
-                      ? singelPost?.result?.interested.length + 1
+                    ? singelPost?.result?.interested?.length
+                      ? singelPost?.result?.interested?.length + 1
                       : 0
                     : 0}
                 </p>
@@ -145,8 +145,8 @@ const Preview = ({ heading, setHeading, form, image }) => {
               <div className="Circle three">
                 <p>
                   {singelPost
-                    ? singelPost?.result?.invited.length
-                      ? singelPost?.result?.invited.length + 1
+                    ? singelPost?.result?.invited?.length
+                      ? singelPost?.result?.invited?.length + 1
                       : 0
                     : 0}
                 </p>
