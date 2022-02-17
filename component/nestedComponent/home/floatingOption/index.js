@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommonModal from "../../../re-usabelComponent/common/modal";
 
 function FloatingOption({ state }) {
@@ -15,6 +15,14 @@ function FloatingOption({ state }) {
       query: { tabs: router.query.tabs || "statusUpdate" },
     });
   };
+  useEffect(() => {
+    console.log("checking checking");
+    if (!router.query.tabs) {
+      console.log("checking checking under");
+      setIsModalVisible(false);
+    }
+  }, [router.query]);
+
   console.log(router.query.tabs, "query");
   return (
     <>

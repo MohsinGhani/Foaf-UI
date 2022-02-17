@@ -39,7 +39,7 @@ export default function HomeDashBoard() {
 
   useEffect(() => {
     FeedData();
-  }, []);
+  }, [router]);
 
   const FeedData = async () => {
     if (data?.token) {

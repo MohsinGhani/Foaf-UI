@@ -43,7 +43,7 @@ export default function CreatePostContent({
         const uploadData = async (url, type) => {
           let formData = new FormData();
           {
-            "status"
+            status
               ? formData.append(type, fullVideo)
               : formData.append(type, fullVideo?.originFileObj);
           }
@@ -60,7 +60,10 @@ export default function CreatePostContent({
             });
             const createVideo = await response.json();
             console.log(createVideo, "createStatus");
-            // router.push("/");
+            setfullVideo("");
+            setimage("");
+            form.resetFields();
+            router.push("/");
           } catch (err) {
             console.log(err), "error araha hai";
           }

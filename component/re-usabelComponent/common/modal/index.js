@@ -1,5 +1,5 @@
 import { Modal } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PostTabs } from "../../../nestedComponent/home/createPostTabs";
 import { useRouter } from "next/router";
 export default function CommonModal({
@@ -7,11 +7,11 @@ export default function CommonModal({
   setIsModalVisible,
   title,
 }) {
+  const router = useRouter();
   const handleCancel = () => {
     setIsModalVisible(false);
   };
 
-  const router = useRouter();
   return (
     <div>
       <Modal

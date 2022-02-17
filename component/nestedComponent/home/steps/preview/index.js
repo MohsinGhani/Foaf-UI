@@ -70,7 +70,7 @@ const Preview = ({ heading, setHeading, form, image }) => {
     <div className="parent">
       <DetailedImage
         previewData={previewData}
-        singelPost={singelPost?.result}
+        singelPost={singelPost?.result?.[0]}
         height="440px"
         footerHeight="85px"
       />
