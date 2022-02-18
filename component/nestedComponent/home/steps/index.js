@@ -6,12 +6,13 @@ import { Form } from "antd";
 import { useSelector, useStore } from "react-redux";
 import { MyContext } from "../../../../shared/helper";
 import { API } from "../../../../pages/api/create";
+import { useRouter } from "next/router";
 export default function Steps() {
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
   const [number, setNumber] = useState(1);
   const [allData, setAllData] = useState(null);
-
+  const router = useRouter();
   const arrey = [
     { number: 2, title: "Location" },
     { number: 3, title: "Description" },
@@ -79,7 +80,7 @@ export default function Steps() {
         body: formData,
       });
       const createEvent = await response.json();
-
+      router.push("/");
       console.log(createEvent, "createEvent");
     } catch (err) {
       console.log(err), "error ";

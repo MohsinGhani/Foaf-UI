@@ -39,8 +39,28 @@ const AuthProvider = ({ children, pageComp }) => {
   const user = useSelector((state) => state.user.userDetailes);
   const friends = useSelector((state) => state.freinds);
   const [isLoading, setLoading] = useState(false);
+  const [mainloading, setMainloading] = useState(false);
 
-  // console.log(user, "what is the value of login user");
+  useEffect(() => {
+    const start = () => {
+      setLoading;
+      console.log("asdasdasd startstartstartstart");
+      setMainloading(true);
+    };
+    const end = () => {
+      console.log("asdasdasd endendend");
+      setMainloading(false);
+    };
+
+    router.events.on("routeChangeStart", start);
+    router.events.on("routeChangeComplete", end);
+    router.events.on("routeChangeError", end);
+    return () => {
+      router.events.off("routeChangeStart", start);
+      router.events.off("routeChangeComplete", end);
+      router.events.off("routeChangeError", end);
+    };
+  }, []);
 
   var data = Cookies.get();
 
@@ -74,6 +94,8 @@ const AuthProvider = ({ children, pageComp }) => {
   }, [data?.token]);
   if (typeof window === "undefined") return <></>;
   if (isLoading) return <Spinner name="load" />;
+  // if (mainloading) return <Spinner name="load" />;
+
   if (
     router?.pathname !== "/login-page" &&
     router?.pathname !== "/signup-page" &&

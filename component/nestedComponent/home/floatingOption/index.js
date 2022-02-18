@@ -11,7 +11,7 @@ function FloatingOption({ state }) {
   const showModal = () => {
     setIsModalVisible("createPost");
     router.push({
-      pathname: "",
+      // pathname: "",
       query: { tabs: router.query.tabs || "statusUpdate" },
     });
   };

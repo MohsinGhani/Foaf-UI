@@ -6,12 +6,13 @@ import DetailedImage from "../../../../re-usabelComponent/common/detailedImage";
 import { API } from "../../../../../pages/api/create";
 import Tags from "./tags";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 const ProjectCover = ({ articleData }) => {
   const [photo, setPhoto] = useState("");
   const [tags, setTags] = useState("");
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
-
+  const router = useRouter();
   function getBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -48,6 +49,7 @@ const ProjectCover = ({ articleData }) => {
       });
       const createArticle = await response.json();
       console.log(createArticle, "createEvent");
+      router.push("/");
     } catch (err) {
       console.log(err), "error ";
     }
