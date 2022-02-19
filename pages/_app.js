@@ -39,28 +39,28 @@ const AuthProvider = ({ children, pageComp }) => {
   const user = useSelector((state) => state.user.userDetailes);
   const friends = useSelector((state) => state.freinds);
   const [isLoading, setLoading] = useState(false);
-  const [mainloading, setMainloading] = useState(false);
+  // const [mainloading, setMainloading] = useState(false);
 
-  useEffect(() => {
-    const start = () => {
-      setLoading;
-      console.log("asdasdasd startstartstartstart");
-      setMainloading(true);
-    };
-    const end = () => {
-      console.log("asdasdasd endendend");
-      setMainloading(false);
-    };
+  // useEffect(() => {
+  //   const start = () => {
+  //     setLoading;
+  //     console.log("asdasdasd startstartstartstart");
+  //     setMainloading(true);
+  //   };
+  //   const end = () => {
+  //     console.log("asdasdasd endendend");
+  //     setMainloading(false);
+  //   };
 
-    router.events.on("routeChangeStart", start);
-    router.events.on("routeChangeComplete", end);
-    router.events.on("routeChangeError", end);
-    return () => {
-      router.events.off("routeChangeStart", start);
-      router.events.off("routeChangeComplete", end);
-      router.events.off("routeChangeError", end);
-    };
-  }, []);
+  //   router.events.on("routeChangeStart", start);
+  //   router.events.on("routeChangeComplete", end);
+  //   router.events.on("routeChangeError", end);
+  //   return () => {
+  //     router.events.off("routeChangeStart", start);
+  //     router.events.off("routeChangeComplete", end);
+  //     router.events.off("routeChangeError", end);
+  //   };
+  // }, []);
 
   var data = Cookies.get();
 
@@ -99,20 +99,29 @@ const AuthProvider = ({ children, pageComp }) => {
   if (
     router?.pathname !== "/login-page" &&
     router?.pathname !== "/signup-page" &&
+    router?.pathname !== "/forgotPassword-page" &&
+    router?.pathname !== "/resetPassword-page" &&
+    router?.pathname !== "/successful-page" &&
     !data?.token
   ) {
     router.push("/login-page");
     return <></>;
   } else if (
     (router?.pathname === "/login-page" ||
-      router?.pathname === "/signup-page") &&
+      router?.pathname === "/signup-page" ||
+      router?.pathname === "/forgotPassword-page" ||
+      router?.pathname === "/resetPassword-page" ||
+      router?.pathname === "/successful-page") &&
     data?.token
   ) {
     router.push("/");
     return <></>;
   } else if (
     router?.pathname === "/login-page" ||
-    router?.pathname === "/signup-page"
+    router?.pathname === "/signup-page" ||
+    router?.pathname === "/forgotPassword-page" ||
+    router?.pathname === "/resetPassword-page" ||
+    router?.pathname === "/successful-page"
   )
     return pageComp;
 

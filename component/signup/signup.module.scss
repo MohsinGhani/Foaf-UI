@@ -147,8 +147,16 @@
       }
       .textGreen {
         color: #6fd6a4 !important;
+        // font-weight: 600;
         a {
           text-decoration: none;
+          color: #6fd6a4 !important;
+        }
+      }
+      .signUpText {
+        a {
+          text-decoration: none;
+          font-weight: 600;
           color: #6fd6a4 !important;
         }
       }
@@ -202,6 +210,7 @@
         justify-content: space-around;
         margin-bottom: 30px;
         // padding-right: 30px;
+        margin-top: 25px;
 
         .signin {
           button {

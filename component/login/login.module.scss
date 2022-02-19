@@ -191,6 +191,14 @@
         }
       }
 
+      .signUpText {
+        a {
+          max-width: 800px;
+          text-decoration: none;
+          color: #6fd6a4 !important;
+          font-weight: 600;
+        }
+      }
       .input {
         background: #f8f8f8;
         // border: none;
@@ -231,6 +239,7 @@
         // height: 56px;
         justify-content: space-around;
         margin-bottom: 30px;
+        margin-top: 25px;
 
         // padding-right: 30px;
 

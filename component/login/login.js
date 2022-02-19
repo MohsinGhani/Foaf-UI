@@ -345,7 +345,7 @@ export default function Login() {
             </div>
             <p className={styles.signUpLink}>
               Dont have an account?
-              <span className={styles.textGreen}>
+              <span className={styles.signUpText}>
                 <Link href="/signup-page">
                   <a> Sign Up</a>
                 </Link>

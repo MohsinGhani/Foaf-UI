@@ -84,7 +84,7 @@ export default function ResetPassword() {
       <div className={styles.imageSide}>
         {/* <div className={styles.image}>
           <Image
-            src="/images/reset.png"
+            src="/images/reset.png" 
             className={styles.mediaImage}
             alt="reset"
             width="500"
@@ -116,11 +116,11 @@ export default function ResetPassword() {
               />
             </Link>
             <p className={styles.signup}>Reset Password </p>
-            <p className={styles.loremText}>
+            {/* <p className={styles.loremText}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum
               amet risus mattis donec libero. Et eget netus dui arcu ridiculus
               sollicitudin est.
-            </p>
+            </p> */}
             <Formik
               initialValues={{ newPassword: "", confirmPassword: "" }}
               validationSchema={resetPasswordValidationSchema}
@@ -149,7 +149,7 @@ export default function ResetPassword() {
                         className={styles.input}
                         onChange={handleChange("newPassword")}
                         value={values.newPassword}
-                        placeholder="New Password"
+                        placeholder="Enter a new password"
                       />
                     </Form.Group>
                     {showInvalidInput && errors.newPassword && (
@@ -194,12 +194,12 @@ export default function ResetPassword() {
                   <div className={styles.password}>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                       <Form.Label className={styles.label}>
-                        Conform Password*
+                        Confirm new password
                       </Form.Label>
                       <Form.Control
                         type={confirmPasswordShow ? "text" : "password"}
                         className={styles.input}
-                        placeholder="Password"
+                        placeholder="Confirm your new password"
                         onChange={handleChange("confirmPassword")}
                         value={values.confirmPassword}
                         name="confirmPassword"

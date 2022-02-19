@@ -1,0 +1,39 @@
+.successfulMain {
+    display: flex;
+    margin: 0 auto;
+    .imageSide {
+        width: 40%;
+        background-image: url(../../public/images/login.png);
+        background-size: cover;
+        min-height: 100vh;
+    }
+    .rightSide {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .topBar {
+            display: none;
+            width: 100%;
+            height: 30px;
+            background-image: url(../../public/images/login.png);
+            background-size: cover;
+        }
+        .content {
+            .heading {
+                font-weight: 600;
+                font-size: 40px;
+                line-height: 48px;
+                margin: 30px 0;
+            }
+            .text {
+                margin-top: 30px;
+                p {
+                    margin: 0;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
