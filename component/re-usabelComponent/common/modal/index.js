@@ -6,6 +6,7 @@ export default function CommonModal({
   isModalVisible,
   setIsModalVisible,
   title,
+  className,
 }) {
   const router = useRouter();
   const handleCancel = () => {
@@ -17,10 +18,11 @@ export default function CommonModal({
       <Modal
         className={`common_modal  ${
           router.query.tabs === "article" && "changeWidth"
-        }`}
+        } ${className}`}
         title={title}
         visible={!!isModalVisible}
         onCancel={handleCancel}
+        bodyStyle={{ width: "900px" }}
         afterClose={() => {
           console.log("hello hello hello");
         }}

@@ -1,0 +1,16 @@
+.addTage_main {
+    display: flex;
+    justify-content: space-around;
+    .iconClass {
+        display: flex;
+        align-items: center;
+    }
+    p {
+        margin: 0;
+        font-weight: bold;
+    }
+    .ant-avatar {
+        background: none !important;
+        margin-right: 10px;
+    }
+}

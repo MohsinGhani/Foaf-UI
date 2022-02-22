@@ -22,8 +22,8 @@ const ArticlePreview = ({ articleData }) => {
   // };
 
   useEffect(() => {
+    let id = router.query.id;
     const fetch = async () => {
-      let id = router.query.id;
       if (id) {
         console.log("idsadasdsssssssssssssssssss", id);
         let formData = new FormData();
@@ -47,7 +47,7 @@ const ArticlePreview = ({ articleData }) => {
       }
     };
     fetch();
-  }, [data?.token]);
+  }, [data?.token, router.query.id]);
 
   return (
     <div>

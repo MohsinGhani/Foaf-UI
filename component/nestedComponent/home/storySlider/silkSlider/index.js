@@ -31,7 +31,7 @@ import ReactPlayer from "react-player";
 export default function SilkSlider() {
   const statedata = useSelector((state) => state);
   var data = statedata;
-  console.log(data.create.video.result.friends, "vedioStataus123");
+  // console.log(data.create.video.result.friends, "vedioStataus123");
   const settings = {
     customPaging: function (i) {
       return <Progress percent={20} size="medium" />;

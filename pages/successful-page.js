@@ -1,2 +1,2 @@
-import SuccessfullResst from "../component/successfulPasswordReset";
-export default SuccessfullResst;
+import SuccessFullReset from "../component/passwordResetComponents/succesfullReset";
+export default SuccessFullReset;

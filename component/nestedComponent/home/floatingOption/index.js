@@ -54,6 +54,7 @@ function FloatingOption({ state }) {
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
         title="Create"
+        // className="common_modal"
       />
     </>
   );

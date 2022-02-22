@@ -16,6 +16,9 @@ import Preview from "../steps/preview";
 import ProjectCover from "../artical/projectCover";
 import Publish from "../artical/publishPage";
 import { useRouter } from "next/router";
+import {} from "next/router";
+import AddInPost from "./addingModal";
+
 export default function CreatePostContent({
   status,
   video,
@@ -24,6 +27,7 @@ export default function CreatePostContent({
   article,
 }) {
   const statedata = useSelector((state) => state);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const router = useRouter();
   var data = statedata?.user?.userDetailes?.result?.user;
   const [image, setimage] = useState(null);
@@ -136,6 +140,9 @@ export default function CreatePostContent({
                       width="30"
                       height="30"
                       alt="color"
+                      onClick={() => {
+                        setIsModalVisible("tag");
+                      }}
                     />
                     <Image
                       src="/images/CreatePost/add2.png"
@@ -173,6 +180,12 @@ export default function CreatePostContent({
         </div>
       )}
       {steps && <Steps />}
+      <AddInPost
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        title="Add to your Post"
+        className="addInPost"
+      />
     </>
   );
 }
