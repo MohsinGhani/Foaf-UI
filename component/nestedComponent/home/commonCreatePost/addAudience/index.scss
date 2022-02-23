@@ -1,0 +1,23 @@
+.audience_main {
+    .public {
+        p {
+            margin: 0;
+        }
+        .icon {
+            border-radius: 50%;
+            border: 1px solid #000;
+            width: 20px;
+            height: 20px;
+            // margin-left: 20px;
+        }
+        .ant-avatar {
+            background: none;
+        }
+        .Main_text {
+            width: 200px;
+            .textOne {
+                font-weight: bold;
+            }
+        }
+    }
+}

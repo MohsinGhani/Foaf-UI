@@ -95,7 +95,7 @@ export default function CreatePostContent({
             profile="/images/dashboard/samesize.svg"
             className="CreatePostProfile"
             nameColor="CreatePostColor"
-            name="Lydia Workman"
+            name={data?.username}
             class="image"
             privacy={true}
           />
@@ -149,6 +149,9 @@ export default function CreatePostContent({
                       width="30"
                       height="30"
                       alt="color"
+                      onClick={() => {
+                        setIsModalVisible("audience");
+                      }}
                     />
                     <Image
                       src="/images/CreatePost/add3.png"
@@ -184,7 +187,11 @@ export default function CreatePostContent({
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
         title="Add to your Post"
-        className="addInPost"
+        // width={isModalVisible === "tag" ? "457px" : "700px"}
+        width={
+          isModalVisible === "tag" ? "457px" : "700px"
+          // (isModalVisible === "audience" ? "700px" : "700px")
+        }
       />
     </>
   );

@@ -69,7 +69,7 @@ const AuthProvider = ({ children, pageComp }) => {
       setLoading(true);
       try {
         let response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_user`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/fetch_user`,
           {
             method: "POST",
             headers: {
