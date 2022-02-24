@@ -28,7 +28,7 @@ function FloatingOption({ state }) {
     <>
       <div
         className={`displaye ${
-          state ? `scale-in-hor-right` : `scale-in-hor-right-reverse`
+          !state ? `scale-in-hor-right` : `scale-in-hor-right-reverse`
         }`}
       >
         {url.map((data, i) => (

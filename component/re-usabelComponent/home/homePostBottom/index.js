@@ -2,9 +2,18 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button, Popover, Space } from "antd";
 import { CommonButton } from "../../common/button";
-export const PostBottom = ({ event, comment, reaction, view }) => {
+import { useRouter } from "next/router";
+export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
   const [seleteImage, setselectImage] = useState();
+  const router = useRouter();
   const [image, setImage] = useState();
+
+  const singelPostData = async (id, postType) => {
+    router.push({
+      pathname: "",
+      query: { post: postType, id: id },
+    });
+  };
   const switchData = (data) => {
     switch (data) {
       case "like":
@@ -120,7 +129,9 @@ export const PostBottom = ({ event, comment, reaction, view }) => {
             <CommonButton
               butText="Learn more"
               className="event_but"
-              // onclick={publish}
+              onclick={() => {
+                singelPostData(id, type);
+              }}
             />
           )}
         </div>

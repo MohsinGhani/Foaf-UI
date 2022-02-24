@@ -5,8 +5,8 @@ import Image from "next/image";
 import { Avatar } from "../../../re-usabelComponent/common/avatar";
 import { PostBottom } from "../../../re-usabelComponent/home/homePostBottom";
 import Profile from "../../../re-usabelComponent/profile";
-import Video from "../../../re-usabelComponent/home/video";
-import Audio from "../../../re-usabelComponent/home/audio";
+import VideoPost from "../../../re-usabelComponent/home/video";
+import AudioPost from "../../../re-usabelComponent/home/audio";
 export default function Post(props) {
   console.log(
     "HUHUHUHUHUHUHUUHU",
@@ -27,17 +27,13 @@ export default function Post(props) {
         user={props?.user}
       />
       <div className="post">
-        {props?.postType === "video" && <Video url={props?.link} />}
-        {props?.postType === "audio" && <Audio url={props?.link} />}
+        {props?.postType === "video" && <VideoPost url={props?.link} />}
+        {props?.postType === "audio" && <AudioPost url={props?.link} />}
 
         {props?.postType === "text" && (
           <img src={props?.Post} alt="post" width="100%" height="100%" />
         )}
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu, netus
-          nunc, vulputate at tempus, sed aliquet non. Nulla libero a a orci
-          placerat. Viverra vitae congue in duis.
-        </p>
+        <p>{props.description}</p>
       </div>
       <PostBottom
         comment={props.comment}

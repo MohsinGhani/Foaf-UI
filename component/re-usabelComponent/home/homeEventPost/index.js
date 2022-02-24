@@ -31,6 +31,8 @@ export const Event = (props) => {
           reaction={props.reaction}
           comment={props.comment}
           view={props.view}
+          id={props.id}
+          type={props.type}
         />
       </div>
     </div>

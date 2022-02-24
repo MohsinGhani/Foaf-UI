@@ -69,12 +69,12 @@ export default function HomeDashBoard() {
     slidesToScroll: 3,
   };
 
-  const singelPostData = async (id, postType) => {
-    router.push({
-      pathname: "",
-      query: { post: postType, id: id },
-    });
-  };
+  // const singelPostData = async (id, postType) => {
+  //   router.push({
+  //     pathname: "",
+  //     query: { post: postType, id: id },
+  //   });
+  // };
   return (
     <div className="home_main">
       {(router.query.post === "event" && (
@@ -119,6 +119,7 @@ export default function HomeDashBoard() {
                             reaction={data?.reactionCount}
                             view={data?.views}
                             user={data?.user}
+                            description={data?.description}
                           />
                         </div>
                       );
@@ -128,11 +129,14 @@ export default function HomeDashBoard() {
                       return (
                         <div
                           className="home_post"
-                          onClick={() => {
-                            singelPostData(data?.id, data.postType);
-                          }}
+                          key={key}
+                          // onClick={() => {
+                          //   singelPostData(data?.id, data.postType);
+                          // }}
                         >
                           <Event
+                            id={data?.id}
+                            type={data.postType}
                             profile={data?.user.avatar}
                             time={data?.timestamp}
                             Post={data?.coverPhoto}
