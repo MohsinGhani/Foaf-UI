@@ -9,7 +9,7 @@ export default function FloatingBut({ state, setState }) {
         onClick={() => {
           setState(!state);
         }}
-        className={`circle ${state ? "rotate" : "non_rotate"}`}
+        className={`circle ${!state ? "rotate" : "non_rotate"}`}
       >
         <Image
           src={`/images/dashboard/plus.svg`}

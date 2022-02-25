@@ -5,7 +5,7 @@
     // width: 100%;
     border-bottom: 0.001em solid #eaeaea;
 
-    padding-bottom: 42px;
+    padding: 20px 20px 20px 20px;
     // height: 504px;
     // width: 100px;
     // height: 100px;
@@ -45,6 +45,12 @@
     //         max-height: 30px;
     //     }
     // }
+    &:hover {
+        background: #f2f2f2;
+        border-radius: 20px;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
     .post {
         margin-top: 30px;
         img {

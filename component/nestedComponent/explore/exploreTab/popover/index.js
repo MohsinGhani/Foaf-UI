@@ -44,7 +44,7 @@ export default function PopOver() {
               <p>10,720 Reactions</p>
             </div>
             <div className="views">
-              <span>
+              {/* <span>
                 <svg
                   width="20"
                   height="16"
@@ -59,7 +59,14 @@ export default function PopOver() {
                     fill="#838383"
                   />
                 </svg>
-              </span>
+              </span> */}
+              <Image
+                src="/images/dashboard/show.svg"
+                alt="view"
+                width="17"
+                height="17"
+                layout="fixed"
+              />
               <p>24,928 Views</p>
             </div>
           </div>

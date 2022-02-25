@@ -17,6 +17,11 @@
     //     .left_icons {
     //         width: 50%;
     //         display: flex;
+    .ant-space {
+        .ant-space-item {
+            min-width: 110px;
+        }
+    }
     .heart {
         display: flex;
         align-items: center;
@@ -82,7 +87,7 @@
     // }
 }
 
-.ant-popover-placement-topLeft {
+.reaction_popover {
     .ant-popover-content {
         .ant-popover-arrow {
             display: none;

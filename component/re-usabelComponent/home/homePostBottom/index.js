@@ -78,12 +78,17 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
   );
   return (
     <div className="bottom">
-      <Space size={50}>
+      <Space size={20}>
         {/* <div className="icons"> */}
         {/* <div className="left_icons"> */}
         <div className="heart">
           <div className="heartIcon">
-            <Popover placement="topLeft" content={content}>
+            <Popover
+              placement="topLeft"
+              content={content}
+              trigger="hover"
+              overlayClassName="reaction_popover"
+            >
               <Image
                 src={image ? image : `/images/dashboard/heartIcon.svg`}
                 alt="heart"
@@ -93,7 +98,7 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
               />
             </Popover>
           </div>
-          <p>{reaction}</p>
+          <p>{image ? reaction + 1 : reaction}</p>
         </div>
         <div className="views">
           <div className="viewsIcon">

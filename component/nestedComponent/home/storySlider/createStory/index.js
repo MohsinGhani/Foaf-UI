@@ -39,12 +39,25 @@ export default function CreateStory() {
           showModal();
         }}
       >
-        <Image
-          src="/images/dashboard/createStory.png"
-          alt="createStory"
-          width="200"
-          height="290"
-        />
+        <div className="background">
+          <Image
+            src="/images/dashboard/createBackground.png"
+            alt="createStory"
+            width="89"
+            height="88"
+          />
+        </div>
+        <div className="footer_create">
+          <p>Create Story</p>
+        </div>
+        <div className="plus_icon">
+          <Image
+            src="/images/dashboard/createIcon.svg"
+            alt="createStory"
+            width="28"
+            height="27"
+          />
+        </div>
       </div>
 
       <Modal
