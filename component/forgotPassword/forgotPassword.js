@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/router";
+import { API } from "../../pages/api/resetPassword";
 
 export default function ForgotPassword() {
   const router = useRouter();
@@ -29,16 +30,13 @@ export default function ForgotPassword() {
     let userdetailes = {
       email: value?.email,
     };
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/password_reset`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userdetailes),
-      }
-    );
+    const response = await fetch(`${API.reset_email}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userdetailes),
+    });
 
     if (!response.ok) {
       setButton(false);
@@ -54,7 +52,7 @@ export default function ForgotPassword() {
         setButton(false);
         console.log("MERA DATA AYEGA", data);
         router.push({
-          pathname: `/resetPassword-page`,
+          pathname: `/stepVerfication-page`,
           query: { token: data?.token, email: val?.email },
         });
       })

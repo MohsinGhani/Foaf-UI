@@ -9,17 +9,10 @@ const OtpVerification = () => {
         onChange={(e) => {
           setOtpValue(e);
         }}
-        numInputs={4}
+        numInputs={6}
         // separator={<span>" " </span>}
         // placeholder="1,2,3,4"
-        inputStyle={{
-          width: "100px",
-          height: "70px",
-          borderRadius: "16px",
-          background: "#F8F8F8",
-          border: "none",
-          fontSize: "20px",
-        }}
+        inputStyle="box"
         containerStyle={{ justifyContent: "space-between" }}
       />
     </div>

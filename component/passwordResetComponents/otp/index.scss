@@ -4,4 +4,14 @@
     // background-color: black;
     // justify-content: space-between;
     // }
+    .box {
+        // max-width: 100px !important;
+        width: 70% !important;
+        height: 70px;
+        border-radius: 16px;
+        background: #f8f8f8;
+        border: none;
+        font-size: 20px;
+        // display: flex;
+    }
 }

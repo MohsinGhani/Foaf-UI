@@ -24,7 +24,12 @@ const AudioPost = ({ url }) => {
           </div>
         </div>
 
-        <AudioPlayer src={url} controls customAdditionalControls={[]} />
+        <AudioPlayer
+          src={url}
+          controls
+          customAdditionalControls={[]}
+          autoPlay={false}
+        />
       </div>
     </div>
   );
