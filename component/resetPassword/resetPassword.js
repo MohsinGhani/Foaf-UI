@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/router";
+import { API } from "../../pages/api/resetPassword";
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -28,20 +29,19 @@ export default function ResetPassword() {
   });
 
   const resetPasswordRes = async (value) => {
+    console.log(value);
     let userdetailes = {
-      password: value.password,
+      password: value.confirmPassword,
       email: router.query.email,
     };
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/confirm/${router.query.token}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userdetailes),
-      }
-    );
+    const response = await fetch(`${API.RESET_PASSWORD}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `Token ${router?.query?.data}`,
+      },
+      body: new URLSearchParams(userdetailes),
+    });
 
     if (!response.ok) {
       setButton(false);
@@ -58,7 +58,7 @@ export default function ResetPassword() {
         setButton(false);
         console.log("MERA DATA AYEGA", data);
         router.push({
-          pathname: `/login-page`,
+          pathname: `/successful-page`,
         });
       })
       .catch((err) => {

@@ -8,7 +8,8 @@ const SuccessFullReset = () => {
         heading="Successful Password Reset"
         FirstText="Your password has been successfully reset."
         secondText="click below to log in magically."
-        ButtonText="Continue"
+        // ButtonText="Continue"
+        type="continue"
         src="/images/dashboard/successful.svg"
       />
     </div>

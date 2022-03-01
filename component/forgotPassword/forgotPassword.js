@@ -8,6 +8,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import { API } from "../../pages/api/resetPassword";
+import { emailRegex, phoneRegex } from "../../shared/helper";
 
 export default function ForgotPassword() {
   const router = useRouter();
@@ -15,27 +16,39 @@ export default function ForgotPassword() {
   let [showInvalidInput, setShowInvalidInput] = useState(false);
 
   const forgotValidationSchema = yup.object().shape({
-    email: yup
+    sendTo: yup
       .string()
-      .email("Please enter valid email")
-      .required("Email Address is Required"),
-    // password: yup
-    //   .string()
-    //   .min(6, ({ min }) => `Password must be at least ${min} characters`)
-    //   .required("Password is required"),
+      // .email("Please enter valid email")
+      .required("This field is required.")
+      .test("IsEmailOrPhone", "Enter Valid Phone/Email", function (value) {
+        if (value === null) {
+          return true;
+        }
+
+        let isValidEmail = emailRegex.test(value);
+        let isValidPhone = phoneRegex.test(value);
+
+        if (!isValidEmail && !isValidPhone) {
+          return false;
+        }
+
+        return true;
+      }),
   });
 
-  const forgotPasswordRes = async (value) => {
+  const forgotPasswordRes = async (value, request) => {
+    console.log(request, "request.keyrequest.key");
+    console.log({ [request["key"]]: "hello" });
     setButton(true);
     let userdetailes = {
-      email: value?.email,
+      [request["key"]]: value?.sendTo,
     };
-    const response = await fetch(`${API.reset_email}`, {
+    const response = await fetch(`${request.api}`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify(userdetailes),
+      body: new URLSearchParams(userdetailes),
     });
 
     if (!response.ok) {
@@ -47,13 +60,24 @@ export default function ForgotPassword() {
   };
 
   const forgotPassword = (func, val) => {
-    func(val)
+    let ValidEmail = emailRegex.test(val.sendTo);
+    let ValidPhone = phoneRegex.test(val.sendTo);
+    console.log("isValidEmail", ValidEmail, ValidPhone);
+    let request = {};
+    if (ValidEmail) {
+      request.api = API.SEND_EMAIL;
+      request.key = "email";
+    } else {
+      request.api = API.SEND_MOBILE;
+      request.key = "mob";
+    }
+    func(val, request)
       .then((data) => {
         setButton(false);
         console.log("MERA DATA AYEGA", data);
         router.push({
           pathname: `/stepVerfication-page`,
-          query: { token: data?.token, email: val?.email },
+          query: { email: val?.sendTo },
         });
       })
       .catch((err) => {
@@ -111,7 +135,7 @@ export default function ForgotPassword() {
               sollicitudin est.
             </p> */}
             <Formik
-              initialValues={{ email: "" }}
+              initialValues={{ sendTo: "" }}
               validationSchema={forgotValidationSchema}
               onSubmit={(value) => forgotPassword(forgotPasswordRes, value)}
             >
@@ -133,15 +157,15 @@ export default function ForgotPassword() {
                       Email or Mobile Number*
                     </Form.Label>
                     <Form.Control
-                      type="email"
+                      // type="email"
                       className={styles.input}
-                      onChange={handleChange("email")}
-                      value={values.email}
+                      onChange={handleChange("sendTo")}
+                      value={values.sendTo}
                       placeholder="Enter email or mobile number"
                     />
                   </Form.Group>
-                  {showInvalidInput && errors.email && (
-                    <p className={styles.error}>{errors.email}</p>
+                  {showInvalidInput && errors.sendTo && (
+                    <p className={styles.error}>{errors.sendTo}</p>
                   )}
                   {/* <Link href="/resetPassword-page">
               <a> */}

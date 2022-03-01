@@ -1,16 +1,11 @@
 import Image from "next/image";
+// import { useRouter } from "next/router";
+// import { Form } from "antd";
 import React from "react";
-import { CommonButton } from "../../re-usabelComponent/common/button";
 import OtpVerification from "../otp";
+// import { CommonButton } from "../../re-usabelComponent/common/button";
 
-const CommonCode = ({
-  heading,
-  FirstText,
-  secondText,
-  ButtonText,
-  src,
-  otp,
-}) => {
+const CommonCode = ({ heading, FirstText, secondText, src, type }) => {
   return (
     <div>
       <div className="successfulMain">
@@ -27,9 +22,7 @@ const CommonCode = ({
               <p>{secondText}</p>
             </div>
 
-            {otp && <OtpVerification />}
-
-            <CommonButton butText={ButtonText} className="continue" />
+            {type === "verification" && <OtpVerification type={type} />}
           </div>
         </div>
       </div>

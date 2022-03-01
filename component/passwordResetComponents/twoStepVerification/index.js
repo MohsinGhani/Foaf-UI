@@ -8,9 +8,9 @@ const StepVerification = () => {
         heading="Two-Step Verification"
         FirstText="Enter the verification code we sent to"
         secondText="+1*******179"
-        ButtonText="Verify"
+        // ButtonText="Verify"
         src="/images/dashboard/stepVerfication.svg"
-        otp="otp"
+        type="verification"
       />
     </div>
   );
