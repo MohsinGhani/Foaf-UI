@@ -242,7 +242,7 @@ export default function Mainone(props) {
       </div>
       <Layout className="site-layout">
         <Content
-          className={`container ${
+          className={`mainContainer ${
             router.pathname === "/explore-page" && "widdeContainer"
           }`}
         >

@@ -23,7 +23,7 @@
         // max-height: 100vh;
         // width: 100%;
         height: 100vh;
-
+        position: fixed;
         // margin-bottom: 50px;
         // display: block;
         display: flex;
@@ -496,13 +496,12 @@
     .widdeContainer {
         max-width: 1558px !important;
     }
-    .container {
+    .mainContainer {
         margin: 0 auto;
-        max-width: 1158px;
+        width: 100%;
         display: flex;
         align-items: center;
-
-        // justify-content: center;
+        justify-content: center;
         // min-height: 964px;
         // padding-top: 30px;
         // overflow: hidden;
@@ -513,17 +512,10 @@
         .page {
             // width: 100wh;
             // padding: 50px 0px;
-            width: 100%;
+            width: 1158px;
             height: 97vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
-            // margin-top: 30px;
-            // background: #ffffff;
-            // display: flex;
-            // justify-content: center;
-            // display: flex;
-            // justify-content:center;
-
             box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
             // padding:152px  ;
         }
@@ -669,7 +661,7 @@
 }
 
 @media screen and (max-width: 576px) {
-    .container {
+    .mainContainer {
         padding: 0px !important;
         .page {
             border-radius: 0px !important;
@@ -683,6 +675,7 @@
     }
     .menu-scroll {
         display: none !important;
+
         // width: 100%;
         // position: fixed;
         // bottom: 1px;

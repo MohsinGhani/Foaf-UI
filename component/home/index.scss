@@ -8,7 +8,6 @@
     //     border: 1px solid #000;
     // }
     .left-side {
-        overflow: auto;
         // position: fixed;
         // left: 10px;
         // position: fixed;
@@ -53,7 +52,7 @@
     }
     .right-side {
         width: 40%;
-        overflow: auto;
+        position: fixed;
         // height: 100vh;
         // overflow: scroll;
         margin: 0px 40px 0px 10px;
