@@ -54,11 +54,7 @@ const OtpVerification = () => {
           />
         </Form.Item>
       </Form>
-      <CommonButton
-        butText="ButtonText"
-        className="continue"
-        onclick={verify}
-      />
+      <CommonButton butText="verify" className="continue" onclick={verify} />
     </div>
   );
 };

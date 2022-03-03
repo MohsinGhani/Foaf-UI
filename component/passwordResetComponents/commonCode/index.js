@@ -1,11 +1,26 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 // import { useRouter } from "next/router";
 // import { Form } from "antd";
 import React from "react";
+import { CommonButton } from "../../re-usabelComponent/common/button";
 import OtpVerification from "../otp";
 // import { CommonButton } from "../../re-usabelComponent/common/button";
 
-const CommonCode = ({ heading, FirstText, secondText, src, type }) => {
+const CommonCode = ({
+  heading,
+  FirstText,
+  secondText,
+  src,
+  type,
+  ButtonText,
+}) => {
+  const router = useRouter();
+  const routechange = () => {
+    router.push({
+      pathname: `/login-page`,
+    });
+  };
   return (
     <div>
       <div className="successfulMain">
@@ -22,7 +37,16 @@ const CommonCode = ({ heading, FirstText, secondText, src, type }) => {
               <p>{secondText}</p>
             </div>
 
-            {type === "verification" && <OtpVerification type={type} />}
+            {type === "verification" && (
+              <OtpVerification type={type} ButtonText={ButtonText} />
+            )}
+            {type === "continue" && (
+              <CommonButton
+                butText="continue"
+                className="continue"
+                onclick={routechange}
+              />
+            )}
           </div>
         </div>
       </div>
