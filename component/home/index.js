@@ -157,42 +157,17 @@ export default function HomeDashBoard() {
               ) : (
                 <Spinner />
               )}
-
-              {/* <div className="home_post">
-          <Event
-            profile="/images/dashboard/ProfileImage2.svg"
-            time="1hour ago"
-            Post="/images/dashboard/post3.jpg"
-            profilecolor="pink"
-            name="Talan Bator"
-            event={true}
-          />
-        </div> */}
-              {/* <div className="home_post">
-          <Post
-            profile="/images/dashboard/ProfileImage2.svg "
-            time="1hour ago"
-            Post="/images/dashboard/post4.jpg"
-            profilecolor="grey"
-            name="Lydia Workman"
-          />
-        </div> */}
-              {/* <div className="home_post">
-          <Post
-            profile="/images/dashboard/ProfileImage2.svg"
-            time="1hour ago"
-            Post="/images/dashboard/sponsored.svg"
-            profilecolor="grey "
-            name="Cristofer Westervelt"
-          />
-        </div> */}
             </div>
-            <div className="right-side">
-              <div className="sponsoreds_main">
-                <Sponsoreds />
-              </div>
-              <div className="show_trending_main">
-                <ShowTrending />
+            <div className="right_side_main_parent">
+              <div className="right_side_main">
+                <div className="right-side">
+                  <div className="sponsoreds_main">
+                    <Sponsoreds />
+                  </div>
+                  <div className="show_trending_main">
+                    <ShowTrending />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="button_float">

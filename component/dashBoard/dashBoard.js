@@ -246,7 +246,8 @@ export default function Mainone(props) {
             router.pathname === "/explore-page" && "widdeContainer"
           }`}
         >
-          <div className="page">
+          <div className="page ">
+            <div className="secPage"></div>
             <TopBar />
             {props.component}
           </div>

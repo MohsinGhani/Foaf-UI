@@ -514,10 +514,23 @@
             // padding: 50px 0px;
             width: 1158px;
             height: 97vh;
+            padding-top: 20px;
+            // border: 1px solid rgba(0, 0, 0, 0.07);
+            // border-radius: 20px;
+            // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+            // padding:152px  ;
+        }
+
+        .secPage {
+            position: fixed;
+            width: 1158px;
+            height: 97vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
             box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
-            // padding:152px  ;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
         }
     }
     footer {

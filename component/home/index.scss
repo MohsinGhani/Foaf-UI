@@ -51,11 +51,12 @@
         }
     }
     .right-side {
-        width: 40%;
+        right: 12%;
+        width: 30%;
         position: fixed;
         // height: 100vh;
         // overflow: scroll;
-        margin: 0px 40px 0px 10px;
+        // margin: 0px 40px 0px 10px;
         // position: fixed;
         // right: -40px;
         // position: fixed;
@@ -76,9 +77,9 @@
         .sponsoreds_main {
             margin-top: 35px;
         }
-        .show_trending_main {
-            margin-top: 30px;
-        }
+        // .show_trending_main {
+        // margin-top: 30px;
+        // }
         // .request {
         //     max-width: 360px;
         //     display: flex;
