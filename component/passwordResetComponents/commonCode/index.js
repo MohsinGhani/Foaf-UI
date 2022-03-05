@@ -5,7 +5,7 @@ import { Form } from "antd";
 import React from "react";
 import { CommonButton } from "../../re-usabelComponent/common/button";
 import OtpVerification from "../otp";
-import { useRouter } from "next/router";
+
 import { API } from "../../../pages/api/resetPassword";
 import Cookies from "js-cookie";
 // import { CommonButton } from "../../re-usabelComponent/common/button";
@@ -19,58 +19,10 @@ const CommonCode = ({
   ButtonText,
 }) => {
   const router = useRouter();
-<<<<<<< Updated upstream
   const routechange = () => {
     router.push({
       pathname: `/login-page`,
     });
-=======
-  const [form] = Form.useForm();
-  const verify = async () => {
-    if (type === "verification") {
-      form.validateFields().then(async (value) => {
-        console.log(value);
-        try {
-          let response = await fetch(`${API.VERIFY_EMAIL}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              key: value.otp,
-              email: router.query.email,
-            }),
-          });
-          const verification = await response.json();
-
-          if (router.query.user === "create") {
-            Cookies.set("token", verification.user_token);
-            router.push({
-              pathname: `/`,
-            });
-          } else {
-            router.push({
-              pathname: `/resetPassword-page`,
-              query: {
-                data: verification.user_token,
-                email: router.query.email,
-              },
-            });
-          }
-
-          // setPost(verification);
-          console.log(verification, "verification");
-        } catch (err) {
-          console.log(err), "error ";
-        }
-      });
-    } else {
-      router.push({
-        pathname: `/login-page`,
-        // query: { data: verification.user_token, email: router.query.email },
-      });
-    }
->>>>>>> Stashed changes
   };
   return (
     <div>
@@ -88,7 +40,6 @@ const CommonCode = ({
               <p>{secondText}</p>
             </div>
 
-<<<<<<< Updated upstream
             {type === "verification" && (
               <OtpVerification type={type} ButtonText={ButtonText} />
             )}
@@ -99,14 +50,6 @@ const CommonCode = ({
                 onclick={routechange}
               />
             )}
-=======
-            {type === "verification" && <OtpVerification form={form} />}
-            <CommonButton
-              butText={ButtonText}
-              className="continue"
-              onclick={verify}
-            />
->>>>>>> Stashed changes
           </div>
         </div>
       </div>
