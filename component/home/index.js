@@ -158,16 +158,13 @@ export default function HomeDashBoard() {
                 <Spinner />
               )}
             </div>
-            <div className="right_side_main_parent">
-              <div className="right_side_main">
-                <div className="right-side">
-                  <div className="sponsoreds_main">
-                    <Sponsoreds />
-                  </div>
-                  <div className="show_trending_main">
-                    <ShowTrending />
-                  </div>
-                </div>
+
+            <div className="right-side">
+              <div className="sponsoreds_main">
+                <Sponsoreds />
+              </div>
+              <div className="show_trending_main">
+                <ShowTrending />
               </div>
             </div>
             <div className="button_float">

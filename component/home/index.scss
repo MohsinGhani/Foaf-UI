@@ -18,7 +18,7 @@
         // max-height: 100vh;
         flex-direction: column;
         align-items: center;
-        margin: 0px 10px 0px 10px;
+        // margin: 0px 10px 0px 10px;
         // justify-content: center;
         // justify-content:space-between;
         // padding: 40px 80px 30px;
@@ -35,6 +35,7 @@
 
         .status {
             margin-top: 10px;
+            width: 95%;
             // max-width: 580px;
             // width: 100%;
             // margin-left: 40px;
@@ -51,8 +52,8 @@
         }
     }
     .right-side {
-        right: 12%;
-        width: 30%;
+        right: 20%;
+        width: 22%;
         position: fixed;
         // height: 100vh;
         // overflow: scroll;
@@ -75,38 +76,13 @@
         //     }
         // }
         .sponsoreds_main {
-            margin-top: 35px;
+            margin-top: 30px;
         }
-        // .show_trending_main {
-        // margin-top: 30px;
-        // }
-        // .request {
-        //     max-width: 360px;
-        //     display: flex;
-        //     justify-content: space-between;
-        //     margin-top: 34px;
-        //     p {
-        //         color: rgba(1, 0, 16, 1);
-        //         opacity: 0.5;
-        //     }
-        //     .circle {
-        //         background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
-        //         width: 24px;
-        //         height: 24px;
-        //         -moz-border-radius: 50px;
-        //         -webkit-border-radius: 50px;
-        //         border-radius: 50px;
-        //         display: flex;
-        //         justify-content: center;
-        //         align-items: center;
-        //         color: white;
-        //     }
-        // }
     }
     .button_float {
-        position: absolute;
-        bottom: 20px;
-        right: 40%;
+        position: fixed;
+        bottom: 46px;
+        right: 43%;
     }
     .option_float {
         position: absolute;

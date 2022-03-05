@@ -50,7 +50,6 @@ export default function ForgotPassword() {
       },
       body: new URLSearchParams(userdetailes),
     });
-
     if (!response.ok) {
       setButton(false);
       const message = `Error ${response.status}`;

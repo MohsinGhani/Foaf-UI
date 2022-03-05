@@ -22,6 +22,7 @@
     .menu-scroll {
         // max-height: 100vh;
         // width: 100%;
+        z-index: 999;
         height: 100vh;
         position: fixed;
         // margin-bottom: 50px;
@@ -512,7 +513,7 @@
         .page {
             // width: 100wh;
             // padding: 50px 0px;
-            width: 1158px;
+            max-width: 60%;
             height: 97vh;
             padding-top: 20px;
             // border: 1px solid rgba(0, 0, 0, 0.07);
@@ -523,7 +524,9 @@
 
         .secPage {
             position: fixed;
-            width: 1158px;
+            // width: 1158px;
+            width: 62%;
+
             height: 97vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
@@ -737,7 +740,7 @@
 @media screen and (max-width: 1678px) {
     .menu-scroll {
         .slider {
-            position: initial !important;
+            // position: initial !important;
             // left: 0;
         }
     }
