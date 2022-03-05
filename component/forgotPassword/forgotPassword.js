@@ -18,22 +18,22 @@ export default function ForgotPassword() {
   const forgotValidationSchema = yup.object().shape({
     sendTo: yup
       .string()
-      // .email("Please enter valid email")
-      .required("This field is required.")
-      .test("IsEmailOrPhone", "Enter Valid Phone/Email", function (value) {
-        if (value === null) {
-          return true;
-        }
+      .email("Please enter valid email")
+      .required("This field is required."),
+    // .test("IsEmailOrPhone", "Enter Valid Phone/Email", function (value) {
+    //   if (value === null) {
+    //     return true;
+    //   }
 
-        let isValidEmail = emailRegex.test(value);
-        let isValidPhone = phoneRegex.test(value);
+    //   let isValidEmail = emailRegex.test(value);
+    //   let isValidPhone = phoneRegex.test(value);
 
-        if (!isValidEmail && !isValidPhone) {
-          return false;
-        }
+    //   if (!isValidEmail && !isValidPhone) {
+    //     return false;
+    //   }
 
-        return true;
-      }),
+    //   return true;
+    // }),
   });
 
   const forgotPasswordRes = async (value, request) => {

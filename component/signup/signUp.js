@@ -35,11 +35,11 @@ export default function Signup() {
       .required("Email Address is Required"),
     password: yup
       .string()
-      // .matches(
-      //   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&.,]{8,}$/,
-      //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-      // )
       .min(8, ({ min }) => `Password must be at least ${min} characters`)
+      .matches(
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&.,]{8,}$/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      )
       .required("Password is required"),
     passwordConfirmation: yup
       .string()
@@ -56,6 +56,7 @@ export default function Signup() {
       email: value.email,
       username: value.fullName,
       password: value.password,
+      phone_number: value.phoneNumber,
     };
 
     const response = await fetch(
@@ -89,12 +90,14 @@ export default function Signup() {
         setButton(false);
         console.log("MERA DATA AYEGA", data);
         router.push({
-          pathname: `/login-page`,
+          pathname: `/stepVerfication-page`,
+          query: { user: "create" },
         });
       })
       .catch((error) => {
         setButton(false);
         console.log("ERROR ya hai", error);
+        alert("user can not create");
         // if (error.response) {
         //   console.log(error.response.data);
         // } else if (error.request) {
