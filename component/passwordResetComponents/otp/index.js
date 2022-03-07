@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { Form } from "antd";
-import { CommonButton } from "../../re-usabelComponent/common/button";
 
 const OtpVerification = ({ form }) => {
   const [otpValue, setOtpValue] = useState("");
@@ -23,7 +22,6 @@ const OtpVerification = ({ form }) => {
           />
         </Form.Item>
       </Form>
-      <CommonButton butText="verify" className="continue" onclick={verify} />
     </div>
   );
 };
