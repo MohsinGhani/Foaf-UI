@@ -119,3 +119,60 @@
         display: none;
     }
 }
+
+@media screen and (max-width: 1320px) {
+    .home_main {
+        margin-left: 7px !important;
+        .left-side {
+            width: 63% !important;
+        }
+        .right-side {
+            right: 12% !important;
+            width: 25% !important;
+        }
+        .button_float {
+            right: 37%;
+            .circle {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        .option_float {
+            right: 44%;
+            .displaye {
+                width: 386px;
+                height: 60px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .home_main {
+        margin-left: 3px !important;
+        .left-side {
+            width: 60% !important;
+            // margin-left: 16px;
+        }
+        .right-side {
+            right: 8% !important;
+            width: 28% !important;
+        }
+        .option_float {
+            right: 48%;
+        }
+    }
+}
+// @media screen and (max-width: 1221px) {
+//     .home_main {
+//         margin-left: 3px !important;
+//         .left-side {
+//             // width: 60% !important;
+//             // margin-left: 16px;
+//         }
+//         .right-side {
+//             // right: 8% !important;
+//             // width: 28% !important;
+//         }
+//     }
+// }

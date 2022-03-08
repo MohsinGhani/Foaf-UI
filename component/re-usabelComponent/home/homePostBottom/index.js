@@ -78,69 +78,69 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
   );
   return (
     <div className="bottom">
-      <Space size={20}>
-        {/* <div className="icons"> */}
-        {/* <div className="left_icons"> */}
-        <div className="heart">
-          <div className="heartIcon">
-            <Popover
-              placement="topLeft"
-              content={content}
-              trigger="hover"
-              overlayClassName="reaction_popover"
-            >
-              <Image
-                src={image ? image : `/images/dashboard/heartIcon.svg`}
-                alt="heart"
-                width="17"
-                height="17"
-                layout="fixed"
-              />
-            </Popover>
-          </div>
-          <p>{image ? reaction + 1 : reaction}</p>
+      {/* <Space size={20}> */}
+      {/* <div className=""> */}
+      {/* <div className="left_icons"> */}
+      <div className="heart">
+        <div className="heartIcon">
+          <Popover
+            placement="topLeft"
+            content={content}
+            trigger="hover"
+            overlayClassName="reaction_popover"
+          >
+            <Image
+              src={image ? image : `/images/dashboard/heartIcon.svg`}
+              alt="heart"
+              width="17"
+              height="17"
+              layout="fixed"
+            />
+          </Popover>
         </div>
+        <p>{image ? reaction + 1 : reaction}</p>
+      </div>
+      <div className="views">
+        <div className="viewsIcon">
+          <Image
+            src="/images/dashboard/show.svg"
+            alt="view"
+            width="17"
+            height="17"
+            layout="fixed"
+          />
+        </div>
+        <p>{view}</p>
+      </div>
+      {/* </div> */}
+      {event ? (
+        ""
+      ) : (
         <div className="views">
           <div className="viewsIcon">
             <Image
-              src="/images/dashboard/show.svg"
+              src="/images/dashboard/comment.svg"
               alt="view"
               width="17"
               height="17"
               layout="fixed"
             />
           </div>
-          <p>{view}</p>
+          <p>{comment}</p>
         </div>
-        {/* </div> */}
-        {event ? (
-          ""
-        ) : (
-          <div className="views">
-            <div className="viewsIcon">
-              <Image
-                src="/images/dashboard/comment.svg"
-                alt="view"
-                width="17"
-                height="17"
-                layout="fixed"
-              />
-            </div>
-            <p>{comment}</p>
-          </div>
+      )}
+      <div className="event_but">
+        {event && (
+          <CommonButton
+            butText="Learn more"
+            className="event_but"
+            onclick={() => {
+              singelPostData(id, type);
+            }}
+          />
         )}
-        <div className="event_but">
-          {event && (
-            <CommonButton
-              butText="Learn more"
-              className="event_but"
-              onclick={() => {
-                singelPostData(id, type);
-              }}
-            />
-          )}
-        </div>
-      </Space>
+      </div>
+      {/* </Space> */}
       {/* </div> */}
     </div>
   );
