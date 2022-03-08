@@ -20,10 +20,17 @@ const CommonCode = ({
 }) => {
   const router = useRouter();
   const [form] = Form.useForm();
+
+  // const autoCall = () => {
+  //   verify();
+  // };
+
+  console.log("form", form.getFieldsValue());
+
   const verify = async () => {
     if (type === "verification") {
       form.validateFields().then(async (value) => {
-        console.log(value);
+        console.log(value, "value is here");
         try {
           let response = await fetch(`${API.VERIFY_EMAIL}`, {
             method: "POST",
@@ -37,19 +44,24 @@ const CommonCode = ({
           });
           const verification = await response.json();
 
-          if (router.query.user === "create") {
-            Cookies.set("token", verification.user_token);
-            router.push({
-              pathname: `/`,
-            });
+          console.log(verification, "verfasdasfc");
+          if (verification?.status === 200) {
+            if (router.query.user === "create") {
+              Cookies.set("token", verification.user_token);
+              router.push({
+                pathname: `/`,
+              });
+            } else {
+              router.push({
+                pathname: `/resetPassword-page`,
+                query: {
+                  data: verification.user_token,
+                  email: router.query.email,
+                },
+              });
+            }
           } else {
-            router.push({
-              pathname: `/resetPassword-page`,
-              query: {
-                data: verification.user_token,
-                email: router.query.email,
-              },
-            });
+            alert(verification?.message);
           }
 
           // setPost(verification);
@@ -78,10 +90,12 @@ const CommonCode = ({
             <Image src={src} alt="logo" width="152" height="152" />
             <div className="text">
               <p>{FirstText}</p>
-              <p>{secondText}</p>
+              <p>{secondText ? secondText : router.query.email}</p>
             </div>
 
-            {type === "verification" && <OtpVerification form={form} />}
+            {type === "verification" && (
+              <OtpVerification form={form} autoCall={verify} />
+            )}
             <CommonButton
               butText={ButtonText}
               className="continue"

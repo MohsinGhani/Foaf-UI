@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { Form } from "antd";
+import { useEffect } from "react";
 
-const OtpVerification = ({ form }) => {
-  const [otpValue, setOtpValue] = useState("");
+const OtpVerification = ({ form, autoCall }) => {
+  // const [otpValue, setOtpValue] = useState("");
+
+  // console.log("otpValue", otpValue.split(""));
+
+  // const data = (e) => {};
+
+  // form.setFieldsValue({
+  //   [fname]: fvalue,
+  // });
 
   return (
     <div className="Otp_main">
       <Form form={form}>
         <Form.Item name="otp">
           <OtpInput
-            value={otpValue}
+            // value={otpValue}
             onChange={(e) => {
-              setOtpValue(e);
+              if (e.split("").length > 5) autoCall(e);
+              // console.log(e?.length());
+              // autoCall();
             }}
             numInputs={6}
             // separator={<span>" " </span>}
