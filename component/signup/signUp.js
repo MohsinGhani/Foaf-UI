@@ -91,7 +91,7 @@ export default function Signup() {
         console.log("MERA DATA AYEGA", data);
         router.push({
           pathname: `/stepVerfication-page`,
-          query: { user: "create" },
+          query: { user: "create", email: val.email },
         });
       })
       .catch((error) => {
