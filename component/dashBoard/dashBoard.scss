@@ -19,12 +19,19 @@
             display: flex;
         }
     }
+    .mainMenu_scroll {
+        position: fixed;
+        z-index: 999;
+        .slider {
+            position: absolute;
+        }
+    }
     .menu-scroll {
         // max-height: 100vh;
         // width: 100%;
-        z-index: 999;
+
         height: 100vh;
-        position: fixed;
+
         // margin-bottom: 50px;
         // display: block;
         display: flex;
@@ -103,7 +110,6 @@
 
             // min-width: 270px !important;
             max-height: 80%;
-            position: absolute;
             left: 0px;
             // min-height: 50%;
             // max-height: calc(100%-500px);
@@ -497,6 +503,32 @@
     .widdeContainer {
         max-width: 1558px !important;
     }
+    .Container {
+        margin: 0 auto;
+        max-width: 1158px;
+        display: flex;
+        align-items: center;
+        // min-height: 964px;
+        // padding-top: 30px;
+        // overflow: hidden;
+        // background: #ffffff !important;
+        // overflow: auto;
+        // min-width: 1280px;
+
+        .page {
+            // width: 100wh;
+            // padding: 50px 0px;
+            width: 100%;
+            height: 97vh;
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 20px;
+            // border: 1px solid rgba(0, 0, 0, 0.07);
+            // border-radius: 20px;
+            // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+            // padding:152px  ;
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+        }
+    }
     .mainContainer {
         margin: 0 auto;
         width: 100%;
@@ -510,7 +542,7 @@
         // overflow: auto;
         // min-width: 1280px;
 
-        .page {
+        .mainpage {
             // width: 100wh;
             // padding: 50px 0px;
             max-width: 60%;
