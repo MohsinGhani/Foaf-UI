@@ -10,6 +10,9 @@
     // }
 
     .explore_tab {
+        width: 100%;
+        display: flex;
+        justify-content: center;
         .ant-tabs {
             .ant-tabs-nav {
                 &::before {
