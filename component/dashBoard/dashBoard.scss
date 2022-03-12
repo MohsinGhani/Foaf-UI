@@ -507,7 +507,7 @@
     }
     .Container {
         margin: 0 auto;
-        max-width: 1158px;
+        max-width: 1076px;
         width: 80%;
         // min-width: 500px;
         display: flex;
@@ -549,7 +549,9 @@
         .mainpage {
             // width: 100wh;
             // padding: 50px 0px;
-            max-width: 60%;
+
+            max-width: 1076px;
+            width: 60%;
             height: 97vh;
             padding-top: 10px;
             // border: 1px solid rgba(0, 0, 0, 0.07);
@@ -560,9 +562,9 @@
 
         .secPage {
             position: fixed;
-            // width: 1158px;
+            width: 1076px;
             width: 62%;
-
+            max-width: 1076px;
             height: 97vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
@@ -783,8 +785,8 @@
 // }
 @media screen and (max-width: 1320px) {
     .mainContainer {
-        .page {
-            max-width: 65% !important;
+        .mainpage {
+            width: 65% !important;
             margin-left: 75px !important;
         }
         .secPage {
@@ -796,8 +798,8 @@
 
 @media screen and (max-width: 1024px) {
     .mainContainer {
-        .page {
-            max-width: 76% !important;
+        .mainpage {
+            width: 76% !important;
             // margin-left: 3px !important;
         }
         .secPage {
