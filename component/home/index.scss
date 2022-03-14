@@ -59,8 +59,8 @@
         }
     }
     .upper_level {
-        right: 22%;
-        width: 100%;
+        right: 23%;
+        width: 21%;
         position: fixed;
         .right-side {
             width: 100%;
@@ -139,10 +139,13 @@
         .left-side {
             width: 63% !important;
         }
-        // .right-side {
-        //     right: 12% !important;
-        //     width: 25% !important;
-        // }
+        .upper_level {
+            width: 25% !important;
+            right: 12%;
+            .right-side {
+                // right: 12% !important;
+            }
+        }
         .button_float {
             right: 37%;
             .circle {
@@ -166,6 +169,13 @@
         .left-side {
             width: 60% !important;
             // margin-left: 16px;
+        }
+        .upper_level {
+            width: 29% !important;
+            right: 8%;
+            .right-side {
+                // right: 12% !important;
+            }
         }
         // .right-side {
         //     right: 8% !important;
