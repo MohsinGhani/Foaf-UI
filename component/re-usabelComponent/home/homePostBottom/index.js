@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button, Popover, Space } from "antd";
+import { Popover, Space } from "antd";
 import { CommonButton } from "../../common/button";
 import { useRouter } from "next/router";
 export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
-  const [seleteImage, setselectImage] = useState();
   const router = useRouter();
   const [image, setImage] = useState();
 
@@ -37,24 +36,9 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
       case "dead":
         setImage("/images/dashboard/dead.svg");
         break;
-
-      // case "disLike":
-      // setImage("/images/dashboard/disLike.svg");
-      // break;
-      //   default:
-      //     setImage("/images/dashboard/heartIcon.svg");
     }
   };
-  const url = [
-    "like",
-    "celebration",
-    "clap",
-    "love",
-    "sorry",
-    "sick",
-    "dead",
-    // "disLike",
-  ];
+  const url = ["like", "celebration", "clap", "love", "sorry", "sick", "dead"];
   const content = (
     <div className="icon_parent fade-in">
       {url.map((data, index) => (
@@ -79,8 +63,6 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
   return (
     <div className="bottom">
       <Space size={20}>
-        {/* <div className="icons"> */}
-        {/* <div className="left_icons"> */}
         <div className="heart">
           <div className="heartIcon">
             <Popover
@@ -112,7 +94,7 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
           </div>
           <p>{view}</p>
         </div>
-        {/* </div> */}
+
         {event ? (
           ""
         ) : (
@@ -141,7 +123,6 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
           )}
         </div>
       </Space>
-      {/* </div> */}
     </div>
   );
 };

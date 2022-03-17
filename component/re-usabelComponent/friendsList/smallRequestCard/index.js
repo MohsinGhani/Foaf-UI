@@ -4,14 +4,10 @@ import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  allFriends,
-  freindRequest,
-  closeFriendsRequest,
   familyConnection,
   closeConnection,
   allUser,
 } from "../../../features/friends";
-import { remove } from "js-cookie";
 
 export default function SmallRequestcard(props) {
   const [seleted, setselected] = useState(false);
@@ -65,7 +61,6 @@ export default function SmallRequestcard(props) {
   };
   const remove = async () => {
     if (connectionid) {
-      console.log(connectionid, "connectionid");
       try {
         let response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/remove_connection`,
@@ -167,8 +162,6 @@ export default function SmallRequestcard(props) {
     }
   };
 
-  // console.log(seleted, "value of selected");
-  // console.log(props.connection, "priop.connection");
   return (
     <div className="small_requestCard_main">
       <div className="request">
@@ -178,7 +171,7 @@ export default function SmallRequestcard(props) {
         <div className="text_ellips">
           <p className="name">{props?.name}</p>
         </div>
-        {/* <div className="mutual_main"> */}
+
         <div className="mutual">
           <div className="image1">
             <Image
@@ -209,7 +202,7 @@ export default function SmallRequestcard(props) {
             <p>85 mutual friends</p>
           </div>
         </div>
-        {/* </div> */}
+
         <div
           className={
             seleted
@@ -229,11 +222,6 @@ export default function SmallRequestcard(props) {
             {seleted ? <p>selected</p> : <p>select</p>}
           </Button>
         </div>
-        {/* {props.friendRequest && (
-          <div className="reject">
-            <Button>Reject</Button>
-          </div>
-        )} */}
       </div>
     </div>
   );

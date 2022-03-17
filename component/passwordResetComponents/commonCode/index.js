@@ -1,15 +1,11 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-// import { useRouter } from "next/router";
 import { Form } from "antd";
 import React from "react";
 import { CommonButton } from "../../re-usabelComponent/common/button";
 import OtpVerification from "../otp";
-// import { useRouter } from "next/router";
 import { API } from "../../../pages/api/resetPassword";
 import Cookies from "js-cookie";
-// import { CommonButton } from "../../re-usabelComponent/common/button";
-
 const CommonCode = ({
   heading,
   FirstText,
@@ -21,16 +17,9 @@ const CommonCode = ({
   const router = useRouter();
   const [form] = Form.useForm();
 
-  // const autoCall = () => {
-  //   verify();
-  // };
-
-  console.log("form", form.getFieldsValue());
-
   const verify = async () => {
     if (type === "verification") {
       form.validateFields().then(async (value) => {
-        console.log(value, "value is here");
         try {
           let response = await fetch(`${API.VERIFY_EMAIL}`, {
             method: "POST",
@@ -44,7 +33,6 @@ const CommonCode = ({
           });
           const verification = await response.json();
 
-          console.log(verification, "verfasdasfc");
           if (verification?.status === 200) {
             if (router.query.user === "create") {
               Cookies.set("token", verification.user_token);
@@ -63,8 +51,6 @@ const CommonCode = ({
           } else {
             alert(verification?.message);
           }
-
-          // setPost(verification);
           console.log(verification, "verification");
         } catch (err) {
           console.log(err), "error ";
@@ -73,7 +59,6 @@ const CommonCode = ({
     } else {
       router.push({
         pathname: `/login-page`,
-        // query: { data: verification.user_token, email: router.query.email },
       });
     }
   };

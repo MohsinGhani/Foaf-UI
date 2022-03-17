@@ -1,8 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Space } from "antd";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
-
 import moment from "moment";
 import { MyContext } from "../../../../../shared/helper";
 import DetailedImage from "../../../../re-usabelComponent/common/detailedImage";
@@ -24,15 +22,12 @@ const Preview = ({ heading, setHeading, form, image }) => {
   useEffect(async () => {
     let id = router.query.id;
     if (id) {
-      console.log("idsadasdsssssssssssssssssss", id);
       let formData = new FormData();
       formData.append("event_id", id);
       try {
         let response = await fetch(`${API.GET_SINGLE_EVENT_POST}`, {
           method: "POST",
           headers: {
-            // "Content-Type":
-            // "multipart/form-data; boundary=<calculated when request is sent>",
             Authorization: `Token ${data?.token}`,
           },
           body: formData,
@@ -63,7 +58,6 @@ const Preview = ({ heading, setHeading, form, image }) => {
       };
       setPreviewData(data);
       setAllData({ ...allData, data });
-      console.log(time, "datetem.startDate");
     }
   }, [image, form]);
   return (

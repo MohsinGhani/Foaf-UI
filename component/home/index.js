@@ -1,38 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-
-import { Menu } from "antd";
-import CreateStory from "../nestedComponent/home/storySlider/createStory";
 import MobileStories from "../nestedComponent/home/homeMobileStories";
 import Post from "../nestedComponent/home/homePost";
-import Request from "../nestedComponent/home/homeRequest";
-import Sponsored from "../nestedComponent/home/homeSponsored/sponsoredcode";
-// import Stories from "../nestedComponent/home/storySlider/homeStories";
 import ToggelMobile from "../nestedComponent/home/toggelmobile";
-// import StorySlider from "../nestedComponent/home/storySlider";
-import Trending from "../nestedComponent/home/trending/showTrandings";
 import Stories from "../nestedComponent/home/storySlider/stories";
 import Sponsoreds from "../nestedComponent/home/homeSponsored/sponsoreds";
-// import Toggel from "../nestedComponent/home/homeToggel";
-import { useDispatch, useSelector } from "react-redux";
-import { userData } from "../features/user";
+import { useSelector } from "react-redux";
 import ShowTrending from "../nestedComponent/home/trending/showTrandings";
 import FloatingBut from "../nestedComponent/home/floatingButton";
 import FloatingOption from "../nestedComponent/home/floatingOption";
 import { useEffect, useState } from "react";
 import { Event } from "../re-usabelComponent/home/homeEventPost";
 import { API } from "../../pages/api/home";
-import Video from "../re-usabelComponent/home/video";
-import Audio from "../re-usabelComponent/home/audio";
 import Spinner from "../re-usabelComponent/common/spinner";
 import { useRouter } from "next/router";
 import Preview from "../nestedComponent/home/steps/preview";
 import ArticlePreview from "../nestedComponent/home/artical/articlePreview";
 export default function HomeDashBoard() {
-  const dispatch = useDispatch();
   const [post, setPost] = useState();
   const [state, setState] = useState(false);
-  const [id, setId] = useState("");
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
   const router = useRouter();
@@ -69,12 +55,6 @@ export default function HomeDashBoard() {
     slidesToScroll: 3,
   };
 
-  // const singelPostData = async (id, postType) => {
-  //   router.push({
-  //     pathname: "",
-  //     query: { post: postType, id: id },
-  //   });
-  // };
   return (
     <div className="home_main">
       {(router.query.post === "event" && (
@@ -87,7 +67,6 @@ export default function HomeDashBoard() {
             <ArticlePreview />
           </div>
         )) || (
-          // </div>
           <>
             <div className="left-side">
               <MobileStories />
@@ -127,13 +106,7 @@ export default function HomeDashBoard() {
                     case "event":
                     case "article":
                       return (
-                        <div
-                          className="home_post"
-                          key={key}
-                          // onClick={() => {
-                          //   singelPostData(data?.id, data.postType);
-                          // }}
-                        >
+                        <div className="home_post" key={key}>
                           <Event
                             id={data?.id}
                             type={data.postType}
@@ -157,35 +130,6 @@ export default function HomeDashBoard() {
               ) : (
                 <Spinner />
               )}
-
-              {/* <div className="home_post">
-          <Event
-            profile="/images/dashboard/ProfileImage2.svg"
-            time="1hour ago"
-            Post="/images/dashboard/post3.jpg"
-            profilecolor="pink"
-            name="Talan Bator"
-            event={true}
-          />
-        </div> */}
-              {/* <div className="home_post">
-          <Post
-            profile="/images/dashboard/ProfileImage2.svg "
-            time="1hour ago"
-            Post="/images/dashboard/post4.jpg"
-            profilecolor="grey"
-            name="Lydia Workman"
-          />
-        </div> */}
-              {/* <div className="home_post">
-          <Post
-            profile="/images/dashboard/ProfileImage2.svg"
-            time="1hour ago"
-            Post="/images/dashboard/sponsored.svg"
-            profilecolor="grey "
-            name="Cristofer Westervelt"
-          />
-        </div> */}
             </div>
             <div className="right-side">
               <div className="sponsoreds_main">

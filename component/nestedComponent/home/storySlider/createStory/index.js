@@ -2,10 +2,9 @@
 import Image from "next/image";
 import { Modal } from "antd";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
 import CreateStoryOption from "./createStoryOption";
 import CreateTextOption from "./createTextStory";
-// import CreateStoryButton from "../../../../re-usabelComponent/storySlider/createStory/button";
+
 export default function CreateStory() {
   const [storyOption, setstoryOption] = useState(false);
   const [showComponent, setShowComponent] = useState("");

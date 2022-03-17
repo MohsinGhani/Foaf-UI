@@ -6,17 +6,15 @@ import { Input, Form } from "antd";
 import Image from "next/image";
 import { API } from "../../../../pages/api/create";
 import { useSelector } from "react-redux";
-export const StatusUpdate = ({ form, fullVideo, setfullVideo }) => {
+export const StatusUpdate = ({ form, setfullVideo }) => {
   const { TextArea } = Input;
 
-  const url = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7];
   const [backgroundimage, setBackgroundImage] = useState(false);
   const [image, setimage] = useState("");
-  const [text, setText] = useState("");
   const [backImage, setBackImage] = useState("");
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
-  console.log("hello hello", backImage?.result?.background_image);
+
   useEffect(() => {
     getBackgroundImage();
   }, []);
@@ -30,7 +28,7 @@ export const StatusUpdate = ({ form, fullVideo, setfullVideo }) => {
         },
       });
       const backgroundImage = await response.json();
-      // setgetAllFriends(getallfriends);
+
       setBackImage(backgroundImage);
       console.log(backgroundImage, "get all backgroundImage");
     } catch (err) {
@@ -45,7 +43,7 @@ export const StatusUpdate = ({ form, fullVideo, setfullVideo }) => {
     slidesToShow: 8,
     swipeToSlide: true,
   };
-  console.log(image, "image ya rahi bhai");
+
   return (
     <>
       <div className="text_background">
@@ -57,25 +55,11 @@ export const StatusUpdate = ({ form, fullVideo, setfullVideo }) => {
             !image ? "text_color_grey" : "text_color_white"
           }`}
         >
-          <Form
-            name="basicDiscription"
-            form={form}
-            // initialValues={{ discription: "whats on you Mind?" }}
-          >
-            <Form.Item
-              name="discription"
-
-              // rules={[
-              //   {
-              //     required: true,
-              //     message: "Please input text!",
-              //   },
-              // ]}
-            >
+          <Form name="basicDiscription" form={form}>
+            <Form.Item name="discription">
               <TextArea
                 placeholder="whats on you Mind?"
                 autoSize={{ minRows: 1, maxRows: 7 }}
-                // defaultValue="whats on you Mind?"
               />
             </Form.Item>
           </Form>

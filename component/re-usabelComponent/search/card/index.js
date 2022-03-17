@@ -9,9 +9,7 @@ import EventsIcon from "./imageComponent/eventsIcon";
 export default function SearchCard(props) {
   const router = useRouter();
   const [show, setShow] = useState(null);
-  // console.log("show", show);
-  // console.log(props.id, "prop.id");
-  // console.log("prop.selected", props.selected);
+
   return (
     <div className="Search_card">
       <div className="Search_text">

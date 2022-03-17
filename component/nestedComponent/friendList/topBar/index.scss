@@ -161,9 +161,6 @@
         .ant-modal-body {
             padding: 24px 15px 24px 24px;
 
-            // &::-webkit-scrollbar {
-            //     display: none;
-            // }
             .scroll_div {
                 margin-top: 10px;
                 width: 100%;
@@ -194,16 +191,9 @@
             .ant-input-affix-wrapper:hover {
                 border-color: #f9445b !important;
             }
-            // .ant-input-prefix {
-            //     width: 30px;
-            // }
         }
         .ant-modal-footer {
             display: none;
         }
     }
 }
-
-// .small_requestCard_main {
-//     // margin-right: 20px;
-// }

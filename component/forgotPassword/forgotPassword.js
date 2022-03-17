@@ -37,8 +37,6 @@ export default function ForgotPassword() {
   });
 
   const forgotPasswordRes = async (value, request) => {
-    console.log(request, "request.keyrequest.key");
-    console.log({ [request["key"]]: "hello" });
     setButton(true);
     let userdetailes = {
       [request["key"]]: value?.sendTo,
@@ -62,7 +60,6 @@ export default function ForgotPassword() {
   const forgotPassword = (func, val) => {
     let ValidEmail = emailRegex.test(val.sendTo);
     let ValidPhone = phoneRegex.test(val.sendTo);
-    console.log("isValidEmail", ValidEmail, ValidPhone);
     let request = {};
     if (ValidEmail) {
       request.api = API.SEND_EMAIL;

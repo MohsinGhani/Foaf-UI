@@ -8,7 +8,7 @@ import {
   closeFriendsRequest,
   familyFriendRequest,
 } from "../../../features/friends";
-import { Row, Col, Divider } from "antd";
+import { Row, Col } from "antd";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 import Spinner from "../../../re-usabelComponent/common/spinner";
 
@@ -28,8 +28,7 @@ export default function FriendsRequest(props) {
     {}
   );
   const [loader1, setLoader1] = useState(false);
-  const [loader2, setLoader2] = useState(false);
-  const [loader3, setLoader3] = useState(false);
+
   const [getAllFamilyFriendsRequest, setGetAllFamilyFriendsRequest] = useState(
     {}
   );
@@ -43,8 +42,7 @@ export default function FriendsRequest(props) {
   useEffect(async () => {
     if (router.query.connection === "friend-requests") {
       setLoader1(true);
-      setLoader2(true);
-      setLoader3(true);
+
       try {
         let response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_connection_request`,
@@ -85,11 +83,8 @@ export default function FriendsRequest(props) {
         setGetAllCloseFriendsRequest(getallClosefriendsrequest);
         console.log(getallClosefriendsrequest, "getallClosefriendsrequest");
         dispatch(closeFriendsRequest(getallClosefriendsrequest));
-        setLoader2(false);
-        // return closeFriendsRequest;
       } catch (err) {
         console.log(err), "error araha hai";
-        setLoader2(false);
       }
       try {
         let response = await fetch(
@@ -110,10 +105,8 @@ export default function FriendsRequest(props) {
         console.log(getallfamilyfriendsrequest, "getallfamilyfriendsrequest");
         setGetAllFamilyFriendsRequest(getallfamilyfriendsrequest);
         dispatch(familyFriendRequest(getallfamilyfriendsrequest));
-        setLoader3(false);
       } catch (err) {
         console.log(err), "error araha hai";
-        setLoader3(false);
       }
     }
   }, [router]);
@@ -129,7 +122,6 @@ export default function FriendsRequest(props) {
             <Spinner />
           ) : friendRequest || closeFriendRequest || familyFriendReq ? (
             friendRequest?.map((t, i) => (
-              // console.log(t?.connection_creator.username, "bhai bhai");
               <Col xs={16} sm={12} md={8} lg={6} key={i}>
                 <div className="request_card" key={i}>
                   <RequestCard

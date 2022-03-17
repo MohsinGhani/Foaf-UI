@@ -1,36 +1,17 @@
 .home_main {
-    // max-height: 100vh;
-    // height: calc(100vh - 1px);
     height: 100%;
     position: relative;
     display: flex;
-    // @include sm {
-    //     border: 1px solid #000;
-    // }
+
     .left-side {
         overflow: auto;
 
-        // position: fixed;
-        // left: 10px;
-        // position: fixed;
-        // top: 20px;
-        // height: 100vh;
-        // left: 500px;
-        // display: flex;
-        // max-height: 100vh;
         flex-direction: column;
         align-items: center;
         margin: 0px 10px 0px 10px;
 
-        // margin: 0px 10px 0px 10px;
-        // justify-content: center;
-        // justify-content:space-between;
-        // padding: 40px 80px 30px;
         width: 60%;
-        // height: 964px;
-        // .toggel {
-        //     margin: 30px 0 32px 0;
-        // }
+
         .seperator {
             display: none;
             width: 100%;
@@ -39,10 +20,6 @@
 
         .status {
             margin-top: 10px;
-            // width: 95%;
-            // max-width: 580px;
-            // width: 100%;
-            // margin-left: 40px;
         }
 
         .home_post {
@@ -59,28 +36,12 @@
         width: 40%;
         overflow: auto;
 
-        // height: 100vh;
-        // overflow: scroll;
         margin: 0px 40px 0px 10px;
 
-        // margin: 0px 40px 0px 10px;
-        // position: fixed;
-        // right: -40px;
-        // position: fixed;
-        // right: 0px;
-        // position: relative;
-        // padding: 40px 80px 30px;
         &::-webkit-scrollbar {
             display: none;
         }
-        // .text {
-        //     p {
-        //         margin: 40px 0px 10px 20px;
-        //         color: #010010;
-        //         font-weight: 500;
-        //         opacity: 0.5;
-        //     }
-        // }
+
         .sponsoreds_main {
             margin-top: 35px;
         }
@@ -104,10 +65,7 @@
         height: calc(100vh - 108px) !important;
         .left-side {
             .seperator {
-                // display: flex;
                 display: block;
-                // width: 100vw;
-                // justify-content: center;
             }
             .status {
                 display: none !important;

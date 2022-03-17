@@ -2,7 +2,6 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Profile from "../../../re-usabelComponent/profile";
 import { Space, Form } from "antd";
-
 import { CreateEvent } from "../createEvent";
 import { StatusUpdate } from "../statusUpdate";
 import { UplodOption } from "../UploadOption";
@@ -10,13 +9,8 @@ import Steps from "../steps";
 import { CommonButton } from "../../../re-usabelComponent/common/button";
 import { useSelector } from "react-redux";
 import { API } from "../../../../pages/api/create";
-import { array } from "yup";
 import Article from "../artical";
-import Preview from "../steps/preview";
-import ProjectCover from "../artical/projectCover";
-import Publish from "../artical/publishPage";
 import { useRouter } from "next/router";
-import {} from "next/router";
 import AddInPost from "./addingModal";
 
 export default function CreatePostContent({
@@ -56,8 +50,6 @@ export default function CreatePostContent({
             let response = await fetch(`${url}`, {
               method: "POST",
               headers: {
-                // "Content-Type": "multipart/form-data",
-                // "Content-Type": "multipart/form-data",
                 Authorization: `Token ${data.token}`,
               },
               body: formData,
@@ -127,7 +119,7 @@ export default function CreatePostContent({
             />
           )}
           {article && <Article />}
-          {/* {article && !preview && <Publish />} */}
+
           {event && <CreateEvent setSteps={setSteps} steps={steps} />}
           {!article ? (
             <>
@@ -171,13 +163,6 @@ export default function CreatePostContent({
               <CommonButton className="post" butText="Post" onclick={post} />
             </>
           ) : (
-            // <CommonButton
-            //   className="post article"
-            //   butText="Next"
-            //   onclick={() => {
-            //     setPreview(false);
-            //   }}
-            // />
             ""
           )}
         </div>
@@ -187,11 +172,7 @@ export default function CreatePostContent({
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
         title="Add to your Post"
-        // width={isModalVisible === "tag" ? "457px" : "700px"}
-        width={
-          isModalVisible === "tag" ? "457px" : "700px"
-          // (isModalVisible === "audience" ? "700px" : "700px")
-        }
+        width={isModalVisible === "tag" ? "457px" : "700px"}
       />
     </>
   );

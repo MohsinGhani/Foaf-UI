@@ -16,7 +16,6 @@ export const Description = ({ heading, setHeading, form }) => {
       </p>
       <div className="description_text_main">
         <p className={`text ${classChange}`}>Description </p>
-        {/* <Form name="location" form={form} autoComplete="off"> */}
         <div className="description_text">
           <Form.Item
             name="description"
@@ -47,7 +46,6 @@ export const Description = ({ heading, setHeading, form }) => {
             />
           </div>
         </div>
-        {/* </Form> */}
       </div>
     </div>
   );

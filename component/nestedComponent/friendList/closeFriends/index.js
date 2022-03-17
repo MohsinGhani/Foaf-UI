@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import RequestCard from "../../../re-usabelComponent/friendsList/requestCard";
-import { Row, Col, Divider } from "antd";
+import { Row, Col } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 import { allCloseFriend, closeConnection } from "../../../features/friends";
@@ -10,13 +10,10 @@ import Spinner from "../../../re-usabelComponent/common/spinner";
 export default function CloseFriends(props) {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [getAllColseFriends, setgetAllCloseFriends] = useState({});
+
   const [loader, setloader] = useState(false);
   const [but, setBut] = useState(false);
-  // const allFriend = useSelector((state) => state?.freinds?.allfriend);
-  // const allCloseFrien = useSelector(
-  //   (state) => state?.freinds?.allCloseFriend?.result?.user_friends
-  // );
+
   const allClose = useSelector(
     (state) => state?.freinds?.allCloseFriend?.result?.user_friends
   );
@@ -43,7 +40,6 @@ export default function CloseFriends(props) {
         );
 
         const getallCloseFreind = await response.json();
-        setgetAllCloseFriends(getallCloseFreind);
         console.log(getallCloseFreind, "getallclosefriend helllo");
         dispatch(allCloseFriend(getallCloseFreind));
         setloader(false);
@@ -68,7 +64,6 @@ export default function CloseFriends(props) {
       );
 
       const getallcloseConnection = await response.json();
-      // setgetAllCloseFriends(allcloseConnection);
       console.log(getallcloseConnection, "getallcloseConnection");
       dispatch(closeConnection(getallcloseConnection));
       setloader(false);
@@ -85,7 +80,6 @@ export default function CloseFriends(props) {
           <Spinner />
         ) : allClose ? (
           allClose.map((t, i) => (
-            // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
               <div className="request_card">
                 <RequestCard

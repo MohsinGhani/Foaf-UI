@@ -23,13 +23,11 @@ const ProjectCover = ({ articleData }) => {
   }
 
   const uploadData = async (info) => {
-    console.log("info ya hai bhai", info);
     const data = await getBase64(info.file.originFileObj);
     setPhoto(data);
   };
 
   const publish = async () => {
-    console.log("articleDataarticleDataarticleData ya raha bhai", articleData);
     let formData = new FormData();
     formData.append("article_name", "some name");
     formData.append("article_data", JSON.stringify(articleData));
@@ -41,8 +39,6 @@ const ProjectCover = ({ articleData }) => {
       let response = await fetch(`${API.CREATE_ARTICLE}`, {
         method: "POST",
         headers: {
-          // "Content-Type":
-          //   "multipart/form-data; boundary=<calculated when request is sent>",
           Authorization: `Token ${data.token}`,
         },
         body: formData,

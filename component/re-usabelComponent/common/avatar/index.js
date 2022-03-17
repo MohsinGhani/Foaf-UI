@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 
 export const Avatar = (props) => {
-  console.log(props.classtext, "classsss");
   return (
     <div className={props.classtext}>
       {props.Popover ? (

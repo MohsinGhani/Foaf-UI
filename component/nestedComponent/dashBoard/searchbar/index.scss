@@ -1,6 +1,6 @@
 .searchBarHomeDashboard {
     width: 220px;
-    // width: 100%;
+
     padding-left: 16px;
     display: flex;
 
@@ -20,40 +20,12 @@
             stroke: #4f4f4f;
         }
     }
-    // .ant-input-affix-wrapper {
-    //     border-radius: 12px;
-    //     height: 40px;
-    //     background: rgba(244, 244, 244, 1);
-
-    //     .ant-input {
-    //         background: rgba(244, 244, 244, 1) !important;
-    //         cursor: pointer;
-    //     }
-    // }
-    // .ant-input-affix-wrapper:focus {
-    //     -webkit-box-shadow: 0 0 0 2px #f9445b !important;
-    //     box-shadow: 0 0 0 2px #f9445b !important;
-    //     border-color: #f9445b;
-    // }
-    // .ant-input-affix-wrapper:focus,
-    // .ant-input-affix-wrapper-focused {
-    //     -webkit-box-shadow: 0 0 0 1px rgba(244, 244, 244, 1);
-    //     box-shadow: 0 0 0 1px rgba(244, 244, 244, 1);
-    //     border-color: #f4f4f4;
-    // }
-    // .ant-input-affix-wrapper:hover {
-    //     border-color: #f4f4f4 !important;
-    // }
-    // .ant-input-prefix {
-    //     width: 40px;
-    // }
 }
 .hidethis {
     display: none;
 }
 @media screen and (max-width: 1812px) {
     .searchBarHomeDashboard {
-        // display: none;
         padding-left: 10px;
         width: 180px;
     }
@@ -61,14 +33,12 @@
 
 @media screen and (max-width: 1723px) {
     .searchBarHomeDashboard {
-        // display: none;
         padding-left: 10px;
         width: 155px;
     }
 }
 @media screen and (max-width: 1678px) {
     .searchBarHomeDashboard {
-        // display: none;
         margin-left: 10px;
         padding-left: 10px;
         width: 170px;

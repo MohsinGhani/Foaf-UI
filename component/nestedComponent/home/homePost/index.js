@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Space } from "antd";
+
 import moment from "moment";
-import Image from "next/image";
-import { Avatar } from "../../../re-usabelComponent/common/avatar";
 import { PostBottom } from "../../../re-usabelComponent/home/homePostBottom";
 import Profile from "../../../re-usabelComponent/profile";
 import VideoPost from "../../../re-usabelComponent/home/video";

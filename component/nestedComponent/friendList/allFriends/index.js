@@ -10,22 +10,17 @@ import Spinner from "../../../re-usabelComponent/common/spinner";
 export default function AllFriends(props) {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [getallFriends, setgetAllFriends] = useState({});
   const [loader, setloader] = useState(false);
   const [but, setBut] = useState(false);
   const allFriend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
   );
 
-  const fullState = useSelector(
-    (state) => state?.freinds?.allfriend?.user_friends
-  );
   const statedata = useSelector((state) => state);
 
   var data = statedata?.user?.userDetailes?.result?.user;
 
   useEffect(async () => {
-    console.log("hello hello hello hello");
     if (router.query.connection === "All-friends") {
       setloader(true);
       try {
@@ -41,7 +36,7 @@ export default function AllFriends(props) {
         );
 
         const getallfriends = await response.json();
-        setgetAllFriends(getallfriends);
+
         console.log(getallfriends, "getallfriends");
         dispatch(allFriends(getallfriends));
         setloader(false);
@@ -66,7 +61,6 @@ export default function AllFriends(props) {
         );
 
         const getalluser = await response.json();
-        // setgetAllFriends(getallfriends);
         console.log(getalluser, "getalluser");
         dispatch(allUser(getalluser));
       } catch (err) {
@@ -75,10 +69,6 @@ export default function AllFriends(props) {
     }
   }, [router]);
 
-  // console.log("get All Friend", allFriends);
-  // console.log("fullState", fullState);
-  // console.log("loader", loader);
-
   return (
     <div className="request_card_main">
       <Row gutter={16}>
@@ -86,7 +76,6 @@ export default function AllFriends(props) {
           <Spinner />
         ) : allFriend ? (
           allFriend.map((t, i) => (
-            // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
               <div className="request_card">
                 <RequestCard

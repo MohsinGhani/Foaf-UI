@@ -8,13 +8,10 @@ import * as yup from "yup";
 import styles from "./login.module.scss";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
-import { useDispatch, useSelector } from "react-redux";
-import { loginData, userDetailes } from "../features/user";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
-  const dispatch = useDispatch();
   const router = useRouter();
-  const [checked, setChecked] = useState(false);
   const [passwordShow, setpasswordShow] = useState(false);
   const [showInvalidInput, setShowInvalidInput] = useState(false);
   const [button, setButton] = useState(false);
@@ -68,7 +65,6 @@ export default function Login() {
           Cookies.set("token", data.result.token);
           console.log(data.result.token, "laogin ka token");
           console.log(data, "login ka data");
-          // dispatch(userDetailes(data));
           router.push("/");
         }
       })
@@ -91,29 +87,7 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imageSide}>
-        {/* <div className={styles.image}> */}
-        {/* <Image
-            src="/images/login.png"
-            className={styles.mediaImage}
-            alt="login"
-            width="600"
-            height="1870px"
-            // layout="fixed"
-          />
-        </div> */}
-        {/* </div> */}
-        {/* <div className={styles.imageText}>
-          <p className={styles.imageTextOne}>
-            Lorem ipsum dolor sit amet, consectetur elit.
-          </p>
-          <p className={styles.imageTextTwo}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
-            purus tellus magnis tristique leo.
-          </p>
-        </div> */}
-      </div>
+      <div className={styles.imageSide}></div>
       <div className={styles.main}>
         <div className={styles.topBar}></div>
         <div className={styles.formSide}>
@@ -130,16 +104,7 @@ export default function Login() {
               validationSchema={signInValidationSchema}
               onSubmit={(value) => signIn(signInRes, value)}
             >
-              {({
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                values,
-                errors,
-                touched,
-                isValid,
-                status,
-              }) => (
+              {({ handleChange, handleSubmit, values, errors }) => (
                 <Form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -175,17 +140,6 @@ export default function Login() {
                       <p className={styles.error}>{errors.password}</p>
                     )}
                     <div className={styles.eyeButton}>
-                      {/* <Image
-                      src={
-                        passwordShow
-                          ? "/images/showPassword.png"
-                          : "/images/hidePassword.jpg"
-                      }
-                      width="25"
-                      height="25"
-                      alt="eye"
-                      onClick={togglePasswordVisibility}
-                    /> */}
                       <span onClick={togglePasswordVisibility}>
                         {passwordShow ? (
                           <svg

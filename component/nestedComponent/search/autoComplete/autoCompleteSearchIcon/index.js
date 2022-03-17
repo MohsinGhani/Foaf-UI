@@ -8,7 +8,6 @@ import { allSearch, loader } from "../../../../features/search";
 
 export default function AutoSearchIcon({
   searchValue,
-  setSearchValue,
   condition,
   enterSearch,
   setEnterSearch,
@@ -16,14 +15,12 @@ export default function AutoSearchIcon({
   refresh,
   recentSearch,
 }) {
-  // const [loader, setLoader] = useState("");
   const router = useRouter();
   const dispatch = useDispatch();
   const statedata = useSelector((state) => state);
   var data = statedata?.user?.userDetailes?.result?.user;
-  // console.log(condition, "condition me kiya araha hai");
+
   const search = async () => {
-    // console.log(!router.query.tab, "han bhai tab me kiya arha hai jalid batao");
     setRefresh(false);
     setEnterSearch(false);
     condition(false);
@@ -38,11 +35,9 @@ export default function AutoSearchIcon({
             pathname: "",
             query: { tab: router.query.tab, search: searchValue },
           });
-      console.log(" query change");
     }
 
     if (searchValue) {
-      console.log("han bhai search ki api chal gaye hai");
       try {
         let response = await fetch(`${API.SEARCH_ALL}`, {
           method: "POST",
@@ -56,7 +51,7 @@ export default function AutoSearchIcon({
           }),
         });
         const SearchData = await response.json();
-        // setgetAllFriends(getallfriends);
+
         console.log(SearchData, "getalluser");
         dispatch(allSearch(SearchData));
         recentSearch();
@@ -66,26 +61,8 @@ export default function AutoSearchIcon({
     }
   };
   useEffect(() => {
-    console.log(enterSearch, refresh, "me refresh me hon");
     refresh || enterSearch ? searchValue && search() : "";
-    //  && searchValue && search();
   }, [enterSearch, refresh]);
-
-  // console.log(enterSearch, refresh, "entersearch is here");
-  // useEffect(() => {
-
-  // }, [refresh]);
-  // if (router.query.search) {
-  //   setEnterSearch(true);
-  // }
-  // useEffect(() => {
-  //   console.log("hello2, hello2 ");
-  //   router.query.search && setSearchValue(router.query.search);
-  // }, [router.query.search]);
-  // useEffect(() => {
-  //   console.log("hello, hello ");
-  //   router.query.search && searchValue && search();
-  // }, [router.query.search]);
 
   return (
     <div

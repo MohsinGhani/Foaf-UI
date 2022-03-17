@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { CommonButton } from "../../../re-usabelComponent/common/button";
 import { EventData } from "../eventData";
 import { Form } from "antd";
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 import { MyContext } from "../../../../shared/helper";
 import { API } from "../../../../pages/api/create";
 import { useRouter } from "next/router";
@@ -20,32 +20,14 @@ export default function Steps() {
     { number: 5, title: "Preview" },
     ,
   ];
-  console.log(number);
 
   const [form] = Form.useForm();
-
-  // event_name: allData?.event_name,
-  // start_date: allData?.date,
-  // end_date: allData?.data,
-  // location: 8,
-  // access: "Publich",
-  // cover_photo: allData?.coverPhoto,
-  // expired_at: "10/25/2021 11:06:22",
-  // event_access: "Public",
-  // interested: [],
-  // going: [],
-  // invited: [],
-  // event_object: [],
-  // liked_by: [],
 
   const next = () => {
     form
       .validateFields()
       .then((values) => {
         number === 5 ? "" : setNumber(number + 1);
-        console.log(values, "valuesssvaluesssvaluesssvaluesssvaluesss");
-        let temp = form.getFieldsValue(true);
-        console.log("temnp", temp);
       })
       .catch((err) => {
         console.log(err);
@@ -73,8 +55,6 @@ export default function Steps() {
       let response = await fetch(`${API.CREATE_EVENT}`, {
         method: "POST",
         headers: {
-          // "Content-Type":
-          //   "multipart/form-data; boundary=<calculated when request is sent>",
           Authorization: `Token ${data.token}`,
         },
         body: formData,

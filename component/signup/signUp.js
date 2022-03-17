@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./signup.module.scss";
-import { Form, InputGroup, FormControl } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Formik } from "formik";
@@ -98,13 +98,6 @@ export default function Signup() {
         setButton(false);
         console.log("ERROR ya hai", error);
         alert("user can not create");
-        // if (error.response) {
-        //   console.log(error.response.data);
-        // } else if (error.request) {
-        //   console.log(error.request);
-        // } else {
-        //   console.log("Error", error.message);
-        // }
       });
   };
 
@@ -122,32 +115,10 @@ export default function Signup() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imageSide}>
-        {/* <div className={styles.image}>
-          <Image
-            src="/images/signup.png"
-            className={styles.mediaImage}
-            alt="signup"
-            width="500"
-            height="500"
-          />
-        </div> */}
-        {/* <div className={styles.imageText}>
-          <p className={styles.imageTextOne}>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur elit.
-          </p>
-          <p className={styles.imageTextTwo}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
-            purus tellus magnis tristique leo.
-          </p>
-        </div> */}
-      </div>
+      <div className={styles.imageSide}></div>
       <div className={styles.main}>
         <div className={styles.topBar}></div>
         <div className={styles.formSide}>
-          {/* <div className={styles.topbar}></div> */}
           <div className={styles.form}>
             <Link href="/" passHref={true}>
               <Image
@@ -171,15 +142,7 @@ export default function Signup() {
               validationSchema={signUpValidationSchema}
               onSubmit={(value) => signUp(signUpRes, value)}
             >
-              {({
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                values,
-                errors,
-                isValid,
-                setFieldValue,
-              }) => (
+              {({ handleChange, handleSubmit, values, errors }) => (
                 <Form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -391,8 +354,6 @@ export default function Signup() {
                 </Form>
               )}
             </Formik>
-            {/* </Form> */}
-            {/* <Image src="/images/ShowIcon.png" alt="showIcon" width="24" height="24"/> */}
 
             <div className={styles.sepratorPosition}>
               <div className={styles.seprator}>
@@ -409,13 +370,6 @@ export default function Signup() {
             <div className={styles.bottom}>
               <div className={styles.signin}>
                 <Button variant="light" type="submit">
-                  {/* <Image
-                  src="/images/google.svg"
-                  alt="google"
-                  width="15"
-                  height="15"
-                  className={styles.googleImage}
-                /> */}
                   <span>
                     <svg
                       width="20"
@@ -452,13 +406,6 @@ export default function Signup() {
 
               <div className={`${styles.signin} ${styles.apple}`}>
                 <Button variant="light" type="submit">
-                  {/* <Image
-                  src="/images/apple.svg"
-                  alt="apple"
-                  width="15"
-                  height="15"
-                  className={styles.appleImage}
-                /> */}
                   <span>
                     <svg
                       width="20"

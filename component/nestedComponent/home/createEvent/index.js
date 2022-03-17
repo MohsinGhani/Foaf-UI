@@ -1,7 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
-import Profile from "../../../re-usabelComponent/profile";
-import Steps from "../steps";
+import React from "react";
 
 export const CreateEvent = ({ steps, setSteps }) => {
   console.log(steps, "steps is here 2222");

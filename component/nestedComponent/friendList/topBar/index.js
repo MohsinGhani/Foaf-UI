@@ -10,14 +10,14 @@ import { Input } from "antd";
 import SmallRequestcard from "../../../re-usabelComponent/friendsList/smallRequestCard";
 import Searchicon from "../../dashBoard/dashboardIcons/search";
 import { PlusCircleOutlined } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
 
 export default function Topbar() {
   const router = useRouter();
   const [filterSearch, setFilterSearch] = useState("");
-  const fullstate = useSelector((state) => state);
+
   const friend = useSelector(
     (state) => state?.freinds?.allfriend?.result?.user_friends
   );
@@ -51,13 +51,8 @@ export default function Topbar() {
     nonFamilyFriend?.some((el) => el.friend?.id === data.user_id)
   );
 
-  // console.log(
-  //   nonFamilyFriend,
-  //   "nonFamilyFriend nonFamilyFriend nonFamilyFriend"
-  // );
-
   const { TabPane } = Tabs;
-  const [showButton, setShowButton] = useState(false);
+
   const [text, setText] = useState(true);
   const [isCloseModalVisible, setIsCloseModalVisible] = useState(false);
 
@@ -122,7 +117,6 @@ export default function Topbar() {
                 <Button
                   className="friends_request"
                   onClick={() => {
-                    setShowButton(false);
                     router.push({
                       pathname: ``,
                       query: { connection: "friend-requests" },
@@ -141,7 +135,6 @@ export default function Topbar() {
                 <Button
                   className="all_frineds"
                   onClick={() => {
-                    setShowButton(true);
                     setText("allFriend");
                     router.push({
                       pathname: ``,
@@ -161,7 +154,6 @@ export default function Topbar() {
                 <Button
                   className="close_friends"
                   onClick={() => {
-                    setShowButton(true);
                     setText("closeFriend");
                     router.push({
                       pathname: ``,
@@ -181,7 +173,6 @@ export default function Topbar() {
                 <Button
                   className="family"
                   onClick={() => {
-                    setShowButton(true);
                     setText("Family");
                     router.push({
                       pathname: ``,
@@ -250,7 +241,6 @@ export default function Topbar() {
                       (isCloseModalVisible === "Friend" && allUser)
                     }
                   />
-                  // </div>
                 ))
             ) : (
               <EmptyData text="already added all friends" />

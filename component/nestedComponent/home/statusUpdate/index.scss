@@ -3,9 +3,7 @@
     .background {
         width: 100%;
         height: 340px;
-        // border-radius: 30px;
-        // background-repeat: no-repeat;
-        // padding: 10px 10px 10px 8px;
+
         margin-bottom: 20px;
         margin-top: 20px;
         img {
@@ -14,8 +12,6 @@
     }
     .text_color_grey {
         .ant-input {
-            // color: #94a3b8;
-
             &::placeholder {
                 color: #94a3b8;
             }
@@ -30,8 +26,6 @@
             &::placeholder {
                 color: #ffffff;
                 font-size: 30px;
-
-                // vertical-align: middle;
             }
         }
     }
@@ -43,11 +37,9 @@
         .ant-form {
             width: 100%;
             .ant-input {
-                // width: 100%;
                 background: none;
                 border: none;
                 box-shadow: none;
-                // padding: 10px;
                 font-size: 22px;
             }
         }

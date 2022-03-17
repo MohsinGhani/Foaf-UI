@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Space, Tabs } from "antd";
+import { Tabs } from "antd";
 import SearchCard from "../../../re-usabelComponent/search/card";
 import SeeAllButton from "../../../re-usabelComponent/search/button";
 import { useRouter } from "next/router";
 import EventOption from "./eventOption";
 import VedioCard from "../../../re-usabelComponent/search/vedioCard";
 import CommonCreatePost from "../../home/commonCreatePost";
-import { people, places, events, video, group } from "../../../../shared/json";
+import { places, events, video, group } from "../../../../shared/json";
 import GroupCard from "../../../re-usabelComponent/search/groupCard";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-
 import Spinner from "../../../re-usabelComponent/common/spinner";
-// import { Button } from "antd";
+
 export default function SearchTabs({ search, create, className }) {
   const router = useRouter();
   const { TabPane } = Tabs;
@@ -22,17 +21,6 @@ export default function SearchTabs({ search, create, className }) {
   const statedata = useSelector((state) => state?.search?.allSearch?.result);
   const loader = useSelector((state) => state?.search?.loader);
   const users = statedata?.users;
-  const groups = statedata?.groups;
-  const pages = statedata?.pages;
-  // console.log(users, "all user data is here");
-  // console.log(people, "all people data is here");
-
-  // const joinData = users.map((data, i) =>
-  //   { let hello = data[i]
-  //     hello = people.map((data, i) => data[i]
-  //   })
-  // );
-  // console.log(joinData, "join data is here");
 
   const operations = (
     <Button onClick={() => setFilter(!filter)}>
@@ -107,9 +95,6 @@ export default function SearchTabs({ search, create, className }) {
                       profile={data.profile}
                       text1={data.user_username}
                       mutualFriend={data.mutual_friends}
-                      // text2={data.text2}
-                      // text3={data.text3}
-                      // text4={data.text4}
                     />
                   </div>
                 ))

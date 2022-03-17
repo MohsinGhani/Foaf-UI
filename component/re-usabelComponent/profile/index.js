@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Image from "next/image";
-import { Popover, Space } from "antd";
-import PopOver from "../../nestedComponent/explore/exploreTab/popover";
+import { Space } from "antd";
+
 import { Avatar } from "../common/avatar";
 
 export default function Profile(props) {

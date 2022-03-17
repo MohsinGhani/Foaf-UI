@@ -8,7 +8,7 @@ const PreviewFooter = ({ previewData, singelPost }) => {
     "dddd , D MMMM YYYY [At]"
   );
   let time = moment(singelPost?.start_date).format("h:mm [UTC+01]");
-  console.log(Month, "month monthg");
+
   return (
     <>
       <div className="calender">

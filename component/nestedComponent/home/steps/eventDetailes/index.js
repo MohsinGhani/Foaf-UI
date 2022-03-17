@@ -1,7 +1,7 @@
 import { DatePicker, Input, Space, TimePicker } from "antd";
 import React, { useEffect, useState } from "react";
 import { Form } from "antd";
-export const EventDetails = ({ heading, setHeading, form }) => {
+export const EventDetails = ({ heading, setHeading }) => {
   const [classChange, setClassChange] = useState("");
   const [endDate, setEndDate] = useState(false);
   const [endTime, setEndTime] = useState(false);
@@ -11,7 +11,6 @@ export const EventDetails = ({ heading, setHeading, form }) => {
   }, [heading, setHeading]);
   return (
     <div className="event_details">
-      {/* <Form name="basic" form={form} autoComplete="off"> */}
       <Space direction="vertical" size={25}>
         <div className={`event_name ${classChange}`}>
           <p>Event name</p>
@@ -99,7 +98,6 @@ export const EventDetails = ({ heading, setHeading, form }) => {
           </div>
         </div>
       </Space>
-      {/* </Form> */}
     </div>
   );
 };

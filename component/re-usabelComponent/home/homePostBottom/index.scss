@@ -1,22 +1,6 @@
 .bottom {
     padding: 12px 0 0 15px;
-    // max-width: 580px;
-    // width: 100%;
-    // display: flex;
-    // justify-content: space-between;
-    // justify-content: space-between;
-    // align-items: center;
-    // .icons {
-    //     width: 100%;
-    //     display: flex;
-    //     justify-content: space-between;
-    //     // width: 50%;
-    //     // justify-content: space-evenly;
-    //     // width: 100%;
-    //     // justify-content: space-between;
-    //     .left_icons {
-    //         width: 50%;
-    //         display: flex;
+
     .ant-space {
         .ant-space-item {
             min-width: 110px;
@@ -43,7 +27,7 @@
     .views {
         display: flex;
         align-items: center;
-        // margin-left: 10px;
+
         .viewsIcon {
             display: flex;
             justify-content: center;
@@ -69,22 +53,6 @@
         border: none;
         font-size: 12px;
     }
-    // }
-    // }
-    // .Trending {
-    //     // width: 100%;
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     max-height: 24px;
-    //     p {
-    //         color: red;
-    //     }
-    //     // display: flex;
-    //     // justify-content: center;
-    //     // align-items: center;
-    //     // padding-top: 5px;
-    //     // text-align: center;
-    // }
 }
 
 .reaction_popover {

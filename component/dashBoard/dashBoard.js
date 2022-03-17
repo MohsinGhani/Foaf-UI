@@ -2,7 +2,6 @@
 import { Layout, Menu, Breadcrumb } from "antd";
 import React, { Component } from "react";
 import { useState, useEffect } from "react";
-import { Input } from "antd";
 import Logo from "../nestedComponent/dashBoard/dashboardIcons/logoSvg";
 import Searchicon from "../nestedComponent/dashBoard/dashboardIcons/search";
 import MessagesIcon from "../nestedComponent/dashBoard/dashboardIcons/messages";
@@ -12,34 +11,24 @@ import ProfileIcon from "../nestedComponent/dashBoard/dashboardIcons/profile";
 import NotificationIcon from "../nestedComponent/dashBoard/dashboardIcons/notification";
 import SettingIcon from "../nestedComponent/dashBoard/dashboardIcons/settings";
 import HomeIcon from "../nestedComponent/dashBoard/dashboardIcons/home";
-import ToggelHome from "../nestedComponent/dashBoard/dashboardIcons/toggelhomje";
 import { useRouter } from "next/router";
-import ToggelSearch from "../nestedComponent/dashBoard/dashboardIcons/toggelSearch";
-import Toggel from "../nestedComponent/dashBoard/dashboardIcons/toggel";
 import TopBar from "../nestedComponent/dashBoard/top-bar";
-
 import Link from "next/link";
-import HomeDashBoard from "../home";
 import EventIcon from "../nestedComponent/dashBoard/dashboardIcons/events";
-import SearchBarDashboard from "../nestedComponent/dashBoard/searchbar";
 import HamBurger from "../nestedComponent/dashBoard/dashboardIcons/hamBurger";
-
-import { loginData } from "../features/user";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import Logout from "../nestedComponent/dashBoard/dashboardIcons/logout";
 import SearchBarExplore from "../nestedComponent/dashBoard/searchbar";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default function Mainone(props) {
-  const dispatch = useDispatch();
   const stateData = useSelector((state) => state);
   const [collapsed, setCollapsed] = useState(true);
   const router = useRouter();
 
-  console.log(stateData, "deshboard se data araha hai");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (router.pathname === "/explore-page") {
@@ -47,12 +36,10 @@ export default function Mainone(props) {
     }
   }, [router]);
   const logout = () => {
-    console.log("logout");
     Cookies.remove("token");
     window.location.reload();
-    // dispatch(loginData(null));
   };
-  // console.log(userReducer, "hello");
+
   return (
     <Layout className="layout_main">
       <div className="hello"></div>
@@ -76,22 +63,9 @@ export default function Mainone(props) {
           }`}
           collapsible
           collapsed={collapsed}
-          // onMouseEnter={() => setCollapsed(false)}
-          // onMouseLeave={() => setCollapsed(true)}
           reverseArrow={true}
         >
           <Menu className="menu" mode="inline">
-            {/* {collapsed ? (
-              <>
-                <Menu.Item key="1" icon={<ToggelHome />}></Menu.Item>
-                <Menu.Item key="2" icon={<ToggelSearch />}></Menu.Item>
-              </>
-            ) : (
-              <Menu.Item
-                key={selected ? "2" : "1"}
-                icon={<Toggel selected={selected} disSelected={setSelected} />}
-              ></Menu.Item>
-            )} */}
             <Menu.Item
               key="1"
               icon={<HamBurger />}
@@ -119,10 +93,6 @@ export default function Mainone(props) {
               <Link href="/">Home</Link>
             </Menu.Item>
 
-            {/* <Menu.Item key="10" icon={<ProfileIcon />}>
-              Profile
-            </Menu.Item> */}
-
             <SubMenu key="sub1" icon={<ProfileIcon />} title="Profile">
               <Menu.Item
                 key="5"
@@ -133,11 +103,9 @@ export default function Mainone(props) {
                   });
                 }}
               >
-                {/* <Link href="/friendsList-page"> */}
                 <ul>
                   <li>Friends List</li>
                 </ul>
-                {/* </Link> */}
               </Menu.Item>
               <Menu.Item key="6">
                 <ul>
@@ -229,12 +197,7 @@ export default function Mainone(props) {
               </Menu.Item>
             </SubMenu>
 
-            <Menu.Item
-              onClick={logout}
-              key="21"
-              // className={router.pathname == "/" ? "active" : ""}
-              icon={<Logout />}
-            >
+            <Menu.Item onClick={logout} key="21" icon={<Logout />}>
               <div>logout</div>
             </Menu.Item>
           </Menu>

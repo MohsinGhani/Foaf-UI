@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Upload, Form, Input } from "antd";
 import Image from "next/image";
-import ReactPlayer from "react-player";
-import AudioPlayer from "react-h5-audio-player";
+
 import "react-h5-audio-player/lib/styles.css";
 import { MyContext } from "../../../../shared/helper";
 import VideoPost from "../../../re-usabelComponent/home/video";
@@ -17,7 +16,6 @@ export const UplodOption = ({
   setimage,
   image,
   setfullVideo,
-  formCover,
 }) => {
   const { Dragger } = Upload;
   const { allData, setAllData } = useContext(MyContext);
@@ -35,11 +33,9 @@ export const UplodOption = ({
     });
   }
   const uploadData = async (info) => {
-    console.log("info ya hai bhai", info);
-
     if (picture) {
       const data = await getBase64(info.file.originFileObj);
-      // console.log(data, "datainfo.file.originFileObj");
+
       setimage(data);
       setAllData({ imageFile: info.file.originFileObj });
     } else {
@@ -61,15 +57,7 @@ export const UplodOption = ({
       <div className={`text_area_upload ${image && "size_change"}`}>
         {!picture && (
           <Form name="basic" form={form}>
-            <Form.Item
-              name="discription"
-              // rules={[
-              //   {
-              //     required: true,
-              //     message: "Please input text!",
-              //   },
-              // ]}
-            >
+            <Form.Item name="discription">
               <TextArea
                 placeholder={
                   image
@@ -80,7 +68,6 @@ export const UplodOption = ({
                     : "What’s up?"
                 }
                 autoSize={{ minRows: 1, maxRows: 7 }}
-                // defaultValue={}
               />
             </Form.Item>
           </Form>
@@ -89,7 +76,6 @@ export const UplodOption = ({
 
       <div className="upload_data">
         {!image ? (
-          // <Form name="location" form={formCover} autoComplete="off">
           <Form.Item
             name="coverPhoto"
             rules={[

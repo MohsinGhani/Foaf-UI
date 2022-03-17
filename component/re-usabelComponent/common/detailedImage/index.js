@@ -9,9 +9,6 @@ const DetailedImage = ({
   footerHeight,
   singelPost,
 }) => {
-  console.log("previewData?.coverPhotopreviewData?.coverPhoto", previewData);
-  console.log("singelPostsingelPost", singelPost);
-  console.log("imageimage", image);
   return (
     <div
       className="event_image"

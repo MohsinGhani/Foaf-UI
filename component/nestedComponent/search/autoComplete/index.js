@@ -5,11 +5,7 @@ import Recent from "./recentIcon";
 import { Space } from "antd";
 import Popular from "./popularicon";
 import { useRouter } from "next/router";
-import { useRef } from "react";
 import { API } from "../../../../pages/api/search";
-import SearchBar from "../../../re-usabelComponent/searchBar";
-import Searchicon from "../../dashBoard/dashboardIcons/search";
-import AutoSearchS from "./autoCompleteSearchIcon";
 import AutoSearchIcon from "./autoCompleteSearchIcon";
 import { useSelector } from "react-redux";
 
@@ -39,19 +35,15 @@ export default function AutoSearch({ condition }) {
         }),
       });
       const recentSearchData = await response.json();
-      // setgetAllFriends(getallfriends);
 
       console.log(recentSearchData, "recentSearchData");
 
       setRecentHistory(recentSearchData);
-      // lol();
-      // dispatch(allSearch(SearchData));
     } catch (err) {
       console.log(err), "error araha hai";
     }
   };
 
-  console.log(recentHistory, "hello");
   const renderItem = (title, icon) => ({
     value: title,
     label: (
@@ -66,55 +58,32 @@ export default function AutoSearch({ condition }) {
 
   const recentData = () => {
     let arr = [];
-    recentHistory?.result?.recent
-      // .filter((x, i) => {
-      //   if (i < 3) {
-      //     console.log("hello sssx", x);
-      //     return x;
-      //   }
-      // })
-      .map((data, i) => {
-        if (i < 3) {
-          const hello = data?.searched_phrase;
-          console.log(hello, "hello222");
-          arr.push(renderItem(hello, <Recent />));
-        }
-      });
+    recentHistory?.result?.recent.map((data, i) => {
+      if (i < 3) {
+        const hello = data?.searched_phrase;
+
+        arr.push(renderItem(hello, <Recent />));
+      }
+    });
     return arr;
   };
 
   const options = [
     {
-      options: recentData(),
       label: "Recent Search",
+      options: recentData(),
     },
     {
+      label: "Popular Search",
       options: [
         renderItem("Dune: Part 2", <Popular />),
         renderItem("Kyrsten Sinema", <Popular />),
         renderItem("Lakers vs Spurs", <Popular />),
         renderItem("Miami Heat", <Popular />),
       ],
-      label: "Popular Search",
     },
   ];
-  // const options = [
-  //   {
-  //     value: "Recent Search",
-  //   },
-  //   {
-  //     value: "Popular Search",
-  //   },
-  //   {
-  //     value: "hello",
-  //   },
-  //   {
-  //     value: "movies",
-  //   },
-  //   {
-  //     value: "cricket",
-  //   },
-  // ];
+
   const onChange = (data) => {
     setSearchValue(data);
     setBackground(false);
@@ -125,7 +94,7 @@ export default function AutoSearch({ condition }) {
   };
   const stateChange = (e) => {
     let search = document?.getElementById("search");
-    // console.log(e.path, "key ya rahi bhai");
+
     if (condition) {
       if (search && e.path.includes(search) && background) {
         setBackground(false);
@@ -142,24 +111,18 @@ export default function AutoSearch({ condition }) {
   }, [background]);
 
   useEffect(() => {
-    console.log(router.query.search, "me router me hon ");
     router.query.search && setSearchValue(router.query.search);
     setRefresh(true);
-    // console.log(typeof window, "window ader hai bhai");
-    // console.log(searchValue, "search value ya hai");
   }, []);
   return (
     <>
       <div className="auto">
         <AutoComplete
           dropdownClassName="autocomplete_search"
-          // onClick={recentSearch}
           onBlur={() => {
             setBackground(true);
           }}
           id="search"
-          // dropdownClassName="hanadhakslflallasbjlabdgjlba"
-          // dropdownMatchSelectWidth="true/100"
           onSelect={() => changeComponent()}
           options={options}
           placeholder="Search FOAF"
@@ -168,16 +131,9 @@ export default function AutoSearch({ condition }) {
             if (e.key === "Enter") {
               setBackground(true);
               setEnterSearch(true);
-              // condition(false);
             }
           }}
           value={searchValue}
-          // onFocus={() => {
-          //   setBackground(false);
-          // }}
-          // filterOption={(inputValue, option) =>
-          //   option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-          // }
         />
         <AutoSearchIcon
           searchValue={searchValue}

@@ -1,5 +1,3 @@
-// import Accordion from "../reUsabelComponent/setting/accordion";
-
 import SettingAccordion from "../nestedComponent/setting/accordion";
 import CommonHeading from "../re-usabelComponent/setting/commonHeading";
 import CommonChangeText from "../re-usabelComponent/setting/commonChangeText";

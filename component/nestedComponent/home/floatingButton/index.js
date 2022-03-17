@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { useState } from "react";
 
 export default function FloatingBut({ state, setState }) {
   return (

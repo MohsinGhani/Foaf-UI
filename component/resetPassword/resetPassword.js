@@ -29,7 +29,6 @@ export default function ResetPassword() {
   });
 
   const resetPasswordRes = async (value) => {
-    console.log(value);
     let userdetailes = {
       password: value.confirmPassword,
       email: router.query.email,
@@ -81,28 +80,7 @@ export default function ResetPassword() {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.imageSide}>
-        {/* <div className={styles.image}>
-          <Image
-            src="/images/reset.png" 
-            className={styles.mediaImage}
-            alt="reset"
-            width="500"
-            height="500"
-          />
-        </div> */}
-        {/* <div className={styles.imageText}>
-          <p className={styles.imageTextOne}>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur elit.
-          </p>
-          <p className={styles.imageTextTwo}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            ultricies nibh lorem fames hendrerit varius fringilla. Rhoncus,
-            purus tellus magnis tristique leo.
-          </p>
-        </div> */}
-      </div>
+      <div className={styles.imageSide}></div>
       <div className={styles.main}>
         <div className={styles.topBar}></div>
         <div className={styles.formSide}>
@@ -116,24 +94,13 @@ export default function ResetPassword() {
               />
             </Link>
             <p className={styles.signup}>Reset Password </p>
-            {/* <p className={styles.loremText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum
-              amet risus mattis donec libero. Et eget netus dui arcu ridiculus
-              sollicitudin est.
-            </p> */}
+
             <Formik
               initialValues={{ newPassword: "", confirmPassword: "" }}
               validationSchema={resetPasswordValidationSchema}
               onSubmit={(value) => resetPassword(resetPasswordRes, value)}
             >
-              {({
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                values,
-                errors,
-                isValid,
-              }) => (
+              {({ handleChange, handleSubmit, values, errors }) => (
                 <Form
                   onSubmit={(e) => {
                     e.preventDefault();

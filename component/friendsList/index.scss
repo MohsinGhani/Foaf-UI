@@ -1,13 +1,7 @@
 .friend_request_main {
-    // margin: 40px 0 0 60px;
-    // max-height: 100vh;
-    // height: calc(100vh - 1px);
     height: 100%;
     overflow: scroll;
     &::-webkit-scrollbar {
         display: none;
     }
-    // .request_topbar_main {
-    //     // margin: 40px 0px 0px 40px;
-    // }
 }

@@ -1,17 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import SearchBar from "../../../re-usabelComponent/searchBar";
-import { Popover, Tabs } from "antd";
-import Image from "next/image";
+
+import { Tabs } from "antd";
+
 import Profile from "../../../re-usabelComponent/profile";
 import PopOver from "./popover";
 export default function ExploreTabs() {
   const { TabPane } = Tabs;
   return (
     <div className="explore-main_page">
-      {/* <div className="searchBar_main">
-        <SearchBar />
-      </div> */}
       <div className="explore_tab">
         <Tabs defaultActiveKey="1">
           <TabPane tab="Explore" key="1">

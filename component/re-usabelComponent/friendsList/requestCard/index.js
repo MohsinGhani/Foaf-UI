@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "react-bootstrap";
-import { Empty } from "antd";
+
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -12,7 +12,6 @@ import {
   familyFriendRequest,
 } from "../../../features/friends";
 import { useState } from "react";
-import { remove } from "js-cookie";
 
 export default function RequestCard(props) {
   const statedata = useSelector((state) => state);
@@ -23,10 +22,6 @@ export default function RequestCard(props) {
   const dispatch = useDispatch();
 
   const accept = async () => {
-    // let responseData = {
-    //   response: true,
-    //   connection_request_id: props.id,
-    // };
     props.setBut(true);
     try {
       let response = await fetch(
@@ -46,7 +41,7 @@ export default function RequestCard(props) {
 
       const requestResponse = await response.json();
       console.log(requestResponse, "accept ka response");
-      // dispatch(freindRequest(getallfriendsrequest));
+
       const friendData = getdata();
       return friendData;
     } catch (err) {
@@ -56,10 +51,6 @@ export default function RequestCard(props) {
   };
 
   const reject = async () => {
-    // let responseData = {
-    //   response: false,
-    //   connection_request_id: props.id,
-    // };
     props.setBut(true);
     try {
       let response = await fetch(
@@ -79,7 +70,7 @@ export default function RequestCard(props) {
 
       const requestResponse = await response.json();
       console.log(requestResponse, "reject ka response");
-      // dispatch(freindRequest(getallfriendsrequest));
+
       const friendDat = getdata();
       return friendDat;
     } catch (err) {
@@ -106,7 +97,7 @@ export default function RequestCard(props) {
 
       const removeResponse = await response.json();
       console.log(removeResponse, "remove ka response");
-      // dispatch(freindRequest(getallfriendsrequest));
+
       const friendDat = getdata();
       return friendDat;
     } catch (err) {
@@ -173,7 +164,6 @@ export default function RequestCard(props) {
       props.connection_type === "Family" &&
         dispatch(familyFriendRequest(getallfriendsrequest)) &&
         console.log(getallfriendsrequest, "getallFamilyfriendsrequest");
-      // return freindRequest;
     } catch (err) {
       console.log(err), "error araha hai";
       setBut(true);
@@ -186,7 +176,7 @@ export default function RequestCard(props) {
       </div>
       <div className="contant">
         <p className="name">{props.name}</p>
-        {/* <div className="mutual_main"> */}
+
         <div className="mutual">
           <div className="image1">
             <Image
@@ -217,7 +207,7 @@ export default function RequestCard(props) {
             <p>85 mutual friends</p>
           </div>
         </div>
-        {/* </div> */}
+
         <div
           className={`${props.friendRequest ? "freind_request" : ""}  
           ${props.allFreinds ? "all_freinds" : ""}  ${
@@ -237,7 +227,6 @@ export default function RequestCard(props) {
           ) : (
             <Button
               disabled={selected === props.id ? props.but : false}
-              // disabled={props.but}
               onClick={() => {
                 setSelected(props.id);
                 remove();

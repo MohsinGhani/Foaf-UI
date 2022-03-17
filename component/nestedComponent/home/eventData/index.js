@@ -16,27 +16,14 @@ export const EventData = ({ Details, number, form }) => {
     const data = number;
     switch (data) {
       case 1: {
-        return (
-          <EventDetails
-            setHeading={setHeading}
-            // setEventData={setEventData}
-            heading="Event Details"
-            // form={form}
-          />
-        );
+        return <EventDetails setHeading={setHeading} heading="Event Details" />;
       }
       case 2:
         return (
           <Location setHeading={setHeading} heading="Location" form={form} />
         );
       case 3:
-        return (
-          <Description
-            setHeading={setHeading}
-            heading="Description"
-            // form={form}
-          />
-        );
+        return <Description setHeading={setHeading} heading="Description" />;
       case 4:
         return (
           <UplodOption
@@ -45,7 +32,6 @@ export const EventData = ({ Details, number, form }) => {
             image={image}
             setHeading={setHeading}
             heading="Cover Photo"
-            // formCover={form}
           />
         );
       case 5:

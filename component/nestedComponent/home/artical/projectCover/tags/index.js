@@ -13,7 +13,7 @@ class Tags extends Component {
 
   handleClose = (removedTag) => {
     const tags = this.state.tags.filter((tag) => tag !== removedTag);
-    console.log(tags);
+
     this.setState({ tags });
   };
 
@@ -32,7 +32,7 @@ class Tags extends Component {
       tags = [...tags, inputValue];
     }
     this.props.setTags(tags);
-    console.log(tags, "hello");
+
     this.setState({
       tags,
       inputVisible: false,
@@ -66,13 +66,8 @@ class Tags extends Component {
   };
 
   render() {
-    const {
-      tags,
-      inputVisible,
-      inputValue,
-      editInputIndex,
-      editInputValue,
-    } = this.state;
+    const { tags, inputVisible, inputValue, editInputIndex, editInputValue } =
+      this.state;
     return (
       <>
         {tags.map((tag, index) => {

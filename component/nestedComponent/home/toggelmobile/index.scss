@@ -1,7 +1,4 @@
 .mobile_toggel_wow {
-    // display: none;
-    // margin-top: 5px;
-    // width: 100%;
     width: 100px;
     display: none;
     .ant-menu::before {
@@ -29,28 +26,16 @@
             display: none !important ;
             content: unset !important;
         }
-        // ul {
-        //     li {
-        //         padding: unset !important;
-        //     }
-        // }
+
         .ant-menu-item {
             padding: 0;
         }
-        // text-align: center;
-        // .ant-menu-item {
-        //     // position: fixed !important;
-        //     // display: flex;
-        //     // flex-direction: column;
-        //     padding: 0 0 0 20px !important;
-        //     margin: 20px 0 20px 0px !important;
-        // }
+
         .icon {
             margin: 0 !important;
             padding: 0px !important;
         }
         .ant-menu-item-selected {
-            // background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
             background: none !important;
             .toggelHome {
                 background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
@@ -70,7 +55,6 @@
 }
 @media screen and (max-width: 576px) {
     .mobile_toggel_wow {
-        // display: inline !important;
         display: block;
     }
 }

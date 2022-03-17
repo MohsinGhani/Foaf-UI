@@ -22,7 +22,6 @@ export default function CommonModal({
         title={title}
         visible={!!isModalVisible}
         onCancel={handleCancel}
-        // bodyStyle={{ width: "900px" }}
         afterClose={() => {
           console.log("hello hello hello");
         }}

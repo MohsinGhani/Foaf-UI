@@ -13,11 +13,7 @@ export default function CreateTextOption() {
         <Input placeholder="start Typing" />
         <p>Choose Privacy</p>
 
-        <Select
-          // style={{ width: "100%", padding: "20px" }}
-          defaultValue="lucy"
-          onChange={handleChange}
-        >
+        <Select defaultValue="lucy" onChange={handleChange}>
           <Option value="jack">Jack</Option>
           <Option value="lucy">Lucy</Option>
 

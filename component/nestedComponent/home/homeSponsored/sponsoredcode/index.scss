@@ -1,30 +1,22 @@
 .sponsored-main {
-    // display: flex;
     margin: 16px 0px;
     max-width: 360px;
-    // height: 504px;
-    // width: 100px;
-    // height: 100px;
-    // .text {
 
     .sponsored-post {
         box-shadow: 0px 0px 24px -10px rgba(0, 0, 0, 0.15);
         border-radius: 12px;
-
         display: flex;
         flex-direction: column;
         height: 281px;
         justify-content: space-evenly;
         max-width: 360px;
 
-        // align-items: center;
-
         .profile-main {
             display: flex;
             max-width: 360px;
             max-height: 45px;
             justify-content: space-between;
-            // justify-content: center;
+
             margin: 0 20px;
             align-items: center;
             .profile-image {
@@ -32,8 +24,6 @@
                 .post-profile {
                     max-width: 45px;
                     max-height: 45px;
-                    // border: 3px solid #bfbfbf;
-                    // border-radius: 10px;
                     margin: 0px 10px 0 0;
 
                     display: flex;
@@ -42,7 +32,7 @@
                 .name {
                     display: flex;
                     justify-content: center;
-                    // align-items: center;
+
                     flex-direction: column;
                     p {
                         color: #bfbfbf;
@@ -57,8 +47,6 @@
             }
         }
         .post {
-            //     width: 320px;
-            //     height: 172px;
             margin: 0 20px;
         }
     }

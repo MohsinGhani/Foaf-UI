@@ -11,19 +11,15 @@ function FloatingOption({ state }) {
   const showModal = () => {
     setIsModalVisible("createPost");
     router.push({
-      // pathname: "",
       query: { tabs: router.query.tabs || "statusUpdate" },
     });
   };
   useEffect(() => {
-    console.log("checking checking");
     if (!router.query.tabs) {
-      console.log("checking checking under");
       setIsModalVisible(false);
     }
   }, [router.query]);
 
-  console.log(router.query.tabs, "query");
   return (
     <>
       <div
@@ -54,7 +50,6 @@ function FloatingOption({ state }) {
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
         title="Create"
-        // className="common_modal"
       />
     </>
   );

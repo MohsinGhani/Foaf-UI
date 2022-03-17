@@ -1,32 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Geosuggest from "react-geosuggest";
-
 import Image from "next/image";
 import { AutoComplete, Form } from "antd";
-export const Location = ({ heading, setHeading, form }) => {
+export const Location = ({ heading, setHeading }) => {
   const [select, setSelect] = useState(false);
   const [classChange, setClassChange] = useState("");
-  // const [location, setLocation] = useState("");
 
   useEffect(() => {
     setHeading(heading);
   }, [heading, setHeading]);
-
-  // useEffect(() => {
-  //   Location();
-  // }, []);
-
-  // const Location = async () => {
-  //   try {
-  //     let response = await fetch(`${process.env.NEXT_PUBLIC_BASE_LOCATION}`);
-
-  //     const locationResponse = await response.json();
-  //     setLocation(locationResponse);
-  //     console.log(locationResponse, "location ka response");
-  //   } catch (err) {
-  //     console.log(err), "error ";
-  //   }
-  // };
 
   const renderItem = (title) => ({
     value: title,
@@ -84,7 +65,7 @@ export const Location = ({ heading, setHeading, form }) => {
       <p>Add a physical location for people to join your event. </p>
       <div className="auto_location">
         <p className={`text ${classChange}`}>Location</p>
-        {/* <Form name="location" form={form} autoComplete="off"> */}
+
         <div className="loacation_field">
           <Form.Item
             name="location"
@@ -95,11 +76,6 @@ export const Location = ({ heading, setHeading, form }) => {
               },
             ]}
           >
-            {/* <Geosuggest
-              placeholder="Start typing!"
-              initialValue="Hamburg"
-              onSuggestSelect={(e) => console.log("E", e)}
-            /> */}
             <AutoComplete
               size="large"
               dropdownClassName="autocomplete_location"
@@ -128,7 +104,6 @@ export const Location = ({ heading, setHeading, form }) => {
             />
           </div>
         </div>
-        {/* </Form> */}
       </div>
     </div>
   );

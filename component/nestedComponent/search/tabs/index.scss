@@ -2,9 +2,7 @@
     .ant-tabs {
         .ant-tabs-content-holder {
             overflow: auto;
-            // max-height: 70vh;
             max-height: calc(100vh - 222px);
-
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -78,7 +76,7 @@
                 .ant-tabs-nav-list {
                     height: 31px;
                     background: #f0eff0;
-                    // padding: 0 5px 0 5px;
+
                     border-radius: 9px;
                 }
                 .first {
@@ -96,20 +94,6 @@
                     box-shadow: rgba(199, 83, 154, 0.45) 0px 22px 28px -9px;
                     .btn {
                         color: #ffffff;
-
-                        // transition-delay: 1s;
-                        // transition-property: color;
-                        // transition: color 0.5s ease;
-                        // animation: colorchange 0.6s;
-                        // @keyframes colorchange {
-                        //     50% {
-                        //         color: rgba(79, 79, 79, 1);
-                        //     }
-
-                        //     100% {
-                        //         color: #ffffff;
-                        //     }
-                        // }
                     }
                 }
             }
@@ -147,23 +131,15 @@
         &::before {
             border: none !important;
         }
-        // .ant-tabs-tab {
-        // padding-bottom: 0px !important;
-        // }
     }
 }
 
 .group_main {
     display: grid;
     width: 100%;
-    // padding: 0 200px;
 
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: flex-start;
     justify-content: center;
     grid-template-columns: repeat(4, minmax(100px, 232px));
-    // grid-template-columns: repeat(4, 232px);
-    // grid-auto-rows: 1fr;
+
     grid-gap: 1rem;
 }

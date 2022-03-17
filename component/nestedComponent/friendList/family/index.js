@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import RequestCard from "../../../re-usabelComponent/friendsList/requestCard";
-import { Row, Col, Divider } from "antd";
+import { Row, Col } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import EmptyData from "../../../re-usabelComponent/friendsList/emptyData";
-import { route } from "next/dist/server/router";
 import { allFamilyFriend, familyConnection } from "../../../features/friends";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -11,7 +10,6 @@ import Spinner from "../../../re-usabelComponent/common/spinner";
 export default function Family(props) {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [getAllFamily, setgetAllFamily] = useState({});
   const [loader, setloader] = useState(false);
   const [but, setBut] = useState(false);
   const allfamilyFriend = useSelector(
@@ -39,7 +37,7 @@ export default function Family(props) {
         );
 
         const getallFamilyFreind = await response.json();
-        setgetAllFamily(getallFamilyFreind);
+
         console.log(getallFamilyFreind, "getallFamilyFreind");
         dispatch(allFamilyFriend(getallFamilyFreind));
         setloader(false);
@@ -63,7 +61,6 @@ export default function Family(props) {
         );
 
         const getallFamilyConnection = await response.json();
-        // setgetAllCloseFriends(allcloseConnection);
         console.log(getallFamilyConnection, "getallFamilyConnection");
         dispatch(familyConnection(getallFamilyConnection));
         setloader(false);
@@ -81,7 +78,6 @@ export default function Family(props) {
           <Spinner />
         ) : allfamilyFriend ? (
           allfamilyFriend.map((t, i) => (
-            // console.log(t?.connection_creator.username, "bhai bhai");
             <Col xs={16} sm={12} md={8} lg={6} key={i}>
               <div className="request_card">
                 <RequestCard

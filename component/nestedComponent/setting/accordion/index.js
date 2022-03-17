@@ -2,10 +2,6 @@ import { Collapse } from "antd";
 import Link from "next/link";
 const { Panel } = Collapse;
 export default function SettingAccordion() {
-  // function callback(key) {
-  //   console.log(key);
-  // }
-
   return (
     <div className="accordion_main">
       <Collapse>
