@@ -15,14 +15,23 @@ export default function ExploreTabs() {
             <div className="explore_image">
               <div className="big_site">
                 <div className="small_image">
-                  <img src="/images/explore/Rectangle1.png" alt="image" />
-                  <img src="/images/explore/Rectangle3.png" alt="image" />
+                  <img
+                    src="/images/explore/Rectangle1.png"
+                    alt="image"
+                    width="100%"
+                  />
+                  <img
+                    src="/images/explore/Rectangle3.png"
+                    alt="image"
+                    width="100%"
+                  />
                 </div>
                 <div className="big_image">
                   <img
                     className="big"
                     src="/images/explore/Rectangle2.png"
                     alt="image"
+                    width="100%"
                   />
                   <div className="position">
                     <Profile
@@ -39,9 +48,21 @@ export default function ExploreTabs() {
                 </div>
               </div>
               <div className="small_site">
-                <img src="/images/explore/Rectangle4.png" alt="image" />
-                <img src="/images/explore/Rectangle5.png" alt="image" />
-                <img src="/images/explore/Rectangle6.png" alt="image" />
+                <img
+                  src="/images/explore/Rectangle4.png"
+                  alt="image"
+                  width="100%"
+                />
+                <img
+                  src="/images/explore/Rectangle5.png"
+                  alt="image"
+                  width="100%"
+                />
+                <img
+                  src="/images/explore/Rectangle6.png"
+                  alt="image"
+                  width="100%"
+                />
               </div>
             </div>
           </TabPane>

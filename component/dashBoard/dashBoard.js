@@ -56,7 +56,11 @@ export default function Mainone(props) {
         <SearchBarExplore />
       </div>
 
-      <div className="menu-scroll">
+      <div
+        className={`menu-scroll  ${
+          router.pathname === "/" && "mainMenu_scroll"
+        }`}
+      >
         <Sider
           className={`slider ${collapsed ? "smallwidth" : "largewidth"} ${
             router.pathname === "/explore-page" && "wide"
@@ -205,15 +209,28 @@ export default function Mainone(props) {
       </div>
       <Layout className="site-layout">
         <Content
-          className={`container ${
+          className={`
+          ${router.pathname === "/" ? "mainContainer" : "Container"}    ${
             router.pathname === "/explore-page" && "widdeContainer"
-          }`}
+          }  `}
         >
-          <div className="page">
+          {router.pathname === "/" && <div className="secPage"></div>}
+          <div className={` ${router.pathname === "/" ? "mainpage" : "page"}`}>
             <TopBar />
             {props.component}
           </div>
         </Content>
+        {/* <Content
+          className={`mainContainer ${
+            router.pathname === "/explore-page" && "widdeContainer"
+          }`}
+        >
+          <div className="secPage"></div>
+          <div className="page">
+            <TopBar />
+            {props.component}
+          </div>
+        </Content> */}
         <Footer>
           <Menu className="menu" mode="horizontal">
             <Menu.Item key="1" icon={<HomeIcon />}></Menu.Item>

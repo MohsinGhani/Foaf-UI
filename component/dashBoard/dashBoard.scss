@@ -3,6 +3,10 @@
     background: white !important;
     .ant-layout {
         background: white;
+        margin-top: 15px;
+        overflow: scroll;
+
+        // display: flex;
     }
     .logo {
         position: fixed;
@@ -14,7 +18,17 @@
             display: flex;
         }
     }
+    .mainMenu_scroll {
+        position: fixed;
+        z-index: 999;
+        .slider {
+            position: absolute;
+        }
+    }
     .menu-scroll {
+        // max-height: 100vh;
+        // width: 100%;
+
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -59,7 +73,6 @@
             background: white;
             margin-left: 30px;
             max-height: 80%;
-            position: absolute;
             left: 0px;
 
             .ant-menu-inline-collapsed {
@@ -269,18 +282,71 @@
     .widdeContainer {
         max-width: 1558px !important;
     }
-    .container {
+    .Container {
         margin: 0 auto;
-        max-width: 1158px;
+        max-width: 1076px;
+        width: 80%;
+        // min-width: 500px;
         display: flex;
         align-items: center;
+        // min-height: 964px;
+        // padding-top: 30px;
+        // overflow: hidden;
+        // background: #ffffff !important;
+        // overflow: auto;
+        // min-width: 1280px;
+
         .page {
             width: 100%;
             height: 97vh;
             border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 20px;
-
+            // border: 1px solid rgba(0, 0, 0, 0.07);
+            // border-radius: 20px;
+            // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+            // padding:152px  ;
             box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+        }
+    }
+    .mainContainer {
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // min-height: 964px;
+        // padding-top: 30px;
+        // overflow: hidden;
+        // background: #ffffff !important;
+        // overflow: auto;
+        // min-width: 1280px;
+
+        .mainpage {
+            // width: 100wh;
+            // padding: 50px 0px;
+
+            max-width: 1076px;
+            width: 60%;
+            height: 97vh;
+            padding-top: 10px;
+            // border: 1px solid rgba(0, 0, 0, 0.07);
+            // border-radius: 20px;
+            // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+            // padding:152px  ;
+        }
+
+        .secPage {
+            position: fixed;
+            width: 1076px;
+            width: 62%;
+            max-width: 1076px;
+            height: 97vh;
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 20px;
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.07);
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
         }
     }
     footer {
@@ -410,7 +476,7 @@
 }
 
 @media screen and (max-width: 576px) {
-    .container {
+    .mainContainer {
         padding: 0px !important;
         .page {
             border-radius: 0px !important;
@@ -424,6 +490,13 @@
     }
     .menu-scroll {
         display: none !important;
+
+        // width: 100%;
+        // position: fixed;
+        // bottom: 1px;
+        // display: flex;
+        // flex-direction: column;
+        // z-index: 222;
     }
 
     footer {
@@ -436,10 +509,49 @@
         display: -webkit-box !important;
     }
 }
-@media screen and (max-width: 1678px) {
-    .menu-scroll {
-        .slider {
-            position: initial !important;
+// @media screen and (max-width: 1678px) {
+//     .menu-scroll {
+//         .slider {
+//             // position: initial !important;
+//             // left: 0;
+//         }
+//     }
+// }
+@media screen and (max-width: 1320px) {
+    .mainContainer {
+        .mainpage {
+            width: 65% !important;
+            margin-left: 75px !important;
+        }
+        .secPage {
+            width: 70% !important;
+            right: 45% !important;
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .mainContainer {
+        .mainpage {
+            width: 76% !important;
+            // margin-left: 3px !important;
+        }
+        .secPage {
+            width: 81% !important;
+            right: 45% !important;
+        }
+    }
+}
+
+// @media screen and (max-width: 1221px) {
+//     .mainContainer {
+//         .page {
+//             // max-width: 76% !important;
+//             // margin-left: 3px !important;
+//         }
+//         .secPage {
+//             // width: 81% !important;
+//             // right: 45% !important;
+//         }
+//     }
+// }
