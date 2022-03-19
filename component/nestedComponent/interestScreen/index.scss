@@ -1,0 +1,43 @@
+.interestCard {
+    text-align: center;
+
+    .mainEventImage {
+        cursor: pointer;
+        max-width: 235px;
+        width: 100%;
+        position: relative;
+
+        .image {
+            width: 100%;
+            border-radius: 10px;
+            min-height: 157px;
+        }
+        .check {
+            img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+            }
+        }
+        .middle {
+            display: flex;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            background: #ffa2b9;
+            height: 100%;
+            opacity: 0.7;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            width: 100%;
+        }
+    }
+    p {
+        margin-top: 10px;
+    }
+}

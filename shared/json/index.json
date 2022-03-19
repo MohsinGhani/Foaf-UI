@@ -167,5 +167,23 @@
     }
   ],
   "select": ["pakistan", "india", "USA"],
-  "date": [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012]
+  "date": [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012],
+  "interestImg": [
+    { "src": "/images/interest/Sport.png", "name": "Sports" },
+    { "src": "/images/interest/gym.png", "name": "Gym" },
+    { "src": "/images/interest/food.png", "name": "Food" },
+    { "src": "/images/interest/art.png", "name": "Art" },
+    { "src": "/images/interest/fashion.png", "name": "Fashion" },
+    { "src": "/images/interest/friend.png", "name": "Friends" },
+    { "src": "/images/interest/technology.png", "name": "Technology" },
+    { "src": "/images/interest/hotel.png", "name": "Hotels" },
+    { "src": "/images/interest/car.png", "name": "Casrs" },
+    { "src": "/images/interest/bike.png", "name": "Bikes" },
+    { "src": "/images/interest/yogo.png", "name": "Yogo" },
+    { "src": "/images/interest/fighting.png", "name": "Fighting" },
+    { "src": "/images/interest/hollywood.png", "name": "Hollywood" },
+    { "src": "/images/interest/beach.png", "name": "Beach" },
+    { "src": "/images/interest/restaurant.png", "name": "Restaurants" },
+    { "src": "/images/interest/hill.png", "name": "Hills" }
+  ]
 }

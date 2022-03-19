@@ -1,0 +1,27 @@
+.interest_container {
+    margin: 0 auto;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    .main_interest {
+        width: 95%;
+        .top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // padding-bottom: 46px;
+            height: 148px;
+            border-bottom: 1px solid #bfbfbf;
+            // h2 {
+            //     font-weight: bold;
+            // }
+        }
+        .content {
+            padding: 100px;
+            .ant-checkbox {
+                display: none;
+            }
+        }
+    }
+}
