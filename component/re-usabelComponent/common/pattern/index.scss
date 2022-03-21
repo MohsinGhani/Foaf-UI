@@ -1,0 +1,23 @@
+.Pattern_main {
+    display: flex;
+    .image_side {
+        width: 40%;
+        background-image: url(../../../../public/images/login.png);
+        background-size: cover;
+        min-height: 100vh;
+    }
+    .content {
+        width: 60%;
+        margin: auto;
+        .form {
+            max-width: 600px;
+            margin: auto;
+            .image {
+                margin-bottom: 50px;
+            }
+            // img {
+            //     margin-bottom: 50px;
+            // }
+        }
+    }
+}

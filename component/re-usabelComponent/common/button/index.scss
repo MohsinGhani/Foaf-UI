@@ -113,3 +113,36 @@
         height: 64px;
     }
 }
+.next_profile {
+    .btn {
+        width: 100%;
+        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+        border-radius: 5px;
+        border: none;
+        height: 50px;
+    }
+}
+.Skip_profile {
+    .btn {
+        width: 100%;
+        background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+        border-radius: 5px;
+        border: none;
+        height: 50px;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        &:hover {
+            background: #f2f2f2;
+            -webkit-text-fill-color: lightgreen;
+        }
+    }
+}
+.inviteBut {
+    .btn {
+        width: 100%;
+        background: linear-gradient(91.11deg, #fe5e71 -5.39%, #ff3951 104.71%);
+        border-radius: 5px;
+        border: none;
+        height: 50px;
+    }
+}

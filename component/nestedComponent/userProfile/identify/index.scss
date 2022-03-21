@@ -1,0 +1,26 @@
+.identify {
+    .heading {
+        font-weight: 600;
+    }
+    .ant-radio-group {
+        padding: 20px 0 20px 0;
+        .ant-radio-wrapper {
+            .ant-radio-input:focus + .ant-radio-inner {
+                box-shadow: 0 0 0 1px #3ec684 !important;
+            }
+            .ant-radio-checked {
+                .ant-radio-inner {
+                    border-color: #3ec684;
+
+                    &::after {
+                        background: linear-gradient(90deg, #6dd7a4 0%, #3ec684 100%);
+                    }
+                }
+            }
+            span {
+                color: #010010;
+                font-weight: 600;
+            }
+        }
+    }
+}

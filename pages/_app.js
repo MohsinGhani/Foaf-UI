@@ -104,6 +104,7 @@ const AuthProvider = ({ children, pageComp }) => {
     router?.pathname !== "/successful-page" &&
     router?.pathname !== "/stepVerfication-page" &&
     router?.pathname !== "/interest" &&
+    router?.pathname !== "/user_Profile" &&
     !data?.token
   ) {
     router.push("/login-page");
@@ -115,7 +116,9 @@ const AuthProvider = ({ children, pageComp }) => {
       router?.pathname === "/resetPassword-page" ||
       router?.pathname === "/successful-page" ||
       router?.pathname === "/stepVerfication-page" ||
-      router?.pathname === "/interest") &&
+      router?.pathname === "/stepVerfication-page" ||
+      router?.pathname === "/interest" ||
+      router?.pathname === "/user_Profile") &&
     data?.token
   ) {
     router.push("/");
@@ -127,7 +130,8 @@ const AuthProvider = ({ children, pageComp }) => {
     router?.pathname === "/resetPassword-page" ||
     router?.pathname === "/successful-page" ||
     router?.pathname === "/stepVerfication-page" ||
-    router?.pathname === "/interest"
+    router?.pathname === "/interest" ||
+    router?.pathname === "/user_Profile"
   )
     return pageComp;
 
