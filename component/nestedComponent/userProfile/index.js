@@ -1,15 +1,19 @@
 import { Form } from "antd";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useContext, useState } from "react";
+import { PatternContext } from "../../../shared/helper";
 import { CommonButton } from "../../re-usabelComponent/common/button";
 import Identify from "./identify";
 import Invite from "./inviteFriend";
 import Language from "./language";
 
-const UserProfileCommon = () => {
+const UserProfileCommon = ({ setActiveStep, activeStep, next }) => {
+  const router = useRouter();
   const [condition, setCondition] = useState(1);
-  console.log(condition);
+  const { pattern, setPattern } = useContext(PatternContext);
+  console.log(pattern, "patternpattern");
   const userSteps = () => {
-    switch (condition) {
+    switch (activeStep) {
       case 1:
         return <Identify />;
       case 2:
@@ -24,16 +28,20 @@ const UserProfileCommon = () => {
         console.log("some thing wrong");
     }
   };
-  const next = () => {
-    setCondition(++condition);
-  };
+  // const next = () => {
+  //   router.replace(`/user_Profile/?tab=${activeStep}`);
+  //   setActiveStep((prev) => prev + 1);
+  //   // if (condition === 3) {
+  //   //   setPattern(true);
+  //   // } else {
+  //   //   setCondition(++condition);
+  //   // }
+  // };
   return (
     <div className="profile_user">
-      <Form name="userDetails" layout="verticle">
-        {userSteps()}
-      </Form>
+      {userSteps()}
       <CommonButton butText="Next" className="next_profile" onclick={next} />
-      <CommonButton butText="Skip" className="Skip_profile" />
+      <CommonButton butText="Skip" className="Skip_profile" onclick={next} />
     </div>
   );
 };

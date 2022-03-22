@@ -2,4 +2,37 @@
     .heading {
         font-weight: 600;
     }
+    .picture {
+        margin-bottom: 20px;
+    }
+    .copy {
+        margin-bottom: 40px;
+    }
+    .ant-divider {
+        min-width: 153px;
+        width: 153px;
+        margin: auto !important;
+    }
+    input {
+        height: 50px;
+        background-color: #f8f8f8;
+        &:focus {
+            border-color: rgba(255, 57, 81, 1);
+        }
+        &:hover {
+            border-color: rgba(255, 57, 81, 1);
+        }
+    }
+    // .field {
+    // margin-top: 20px;
+    // }
+
+    .addClass {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .ant-space-item {
+            width: 100%;
+        }
+    }
 }
