@@ -1,25 +1,55 @@
 import { Form } from "antd";
-import Router, { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
-import { PatternContext } from "../../shared/helper";
+import { useSelector } from "react-redux";
+import { API } from "../../pages/api/userProfile";
 import UserProfileCommon from "../nestedComponent/userProfile";
-import Identify from "../nestedComponent/userProfile/identify";
 import Interest from "../nestedComponent/userProfile/interest";
 import Pattern from "../re-usabelComponent/common/pattern";
 
 const steps = ["A", "B", "C", "D"];
 const UserProfile = () => {
   const [activeStep, setActiveStep] = useState(1);
-
+  const statedata = useSelector((state) => state);
+  var data = statedata?.user?.userDetailes?.result?.user;
   const next = () => {
     setActiveStep(activeStep + 1);
   };
+  const skip = () => {
+    setActiveStep(activeStep + 1);
+  };
+
   const [form] = Form.useForm();
   const formData = () => {
     form
       .validateFields()
-      .then((values) => {
-        console.log(values, "formform");
+      .then(async (values) => {
+        console.log(values.interests, "formform");
+        if (values.interests.length) {
+          console.log(values.interests, "under");
+          let formData = new FormData();
+          formData.append("interests", values?.interests);
+          try {
+            let response = await fetch(
+              "https://dev-foaf-backend.com/api/add_interests",
+              {
+                method: "POST",
+                headers: {
+                  Authorization: `Token ${data?.token}`,
+                },
+                body: formData,
+              }
+            );
+            const verification = await response.json();
+
+            if (verification?.status === 200 || verification?.status === 201) {
+              console.log("true");
+            } else {
+              alert(verification?.message);
+            }
+          } catch (err) {
+            console.log(err), "error ";
+          }
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -38,6 +68,7 @@ const UserProfile = () => {
                 activeStep={activeStep}
                 setActiveStep={setActiveStep}
                 next={next}
+                skip={skip}
               />
             }
           />

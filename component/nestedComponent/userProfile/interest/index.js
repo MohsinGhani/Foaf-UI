@@ -18,7 +18,7 @@ const Interest = ({ formData }) => {
           />
         </div>
         <div className="content">
-          <Form.Item name="interestssss">
+          <Form.Item name="interests">
             <Checkbox.Group>
               <Row gutter={[16, 16]} justify="center">
                 {interestImg.map(({ src, name }, key) => (
