@@ -2,10 +2,11 @@ import React from "react";
 import Card from "./card";
 
 import { Checkbox, Form } from "antd";
-import { interestImg } from "../../../../shared/json";
+import packageInfo from "../../../../shared/json/index.json";
 import { Row, Col } from "antd";
 import { CommonButton } from "../../../re-usabelComponent/common/button";
 const Interest = ({ formData }) => {
+  const { interestImg } = packageInfo;
   return (
     <div className="interest_container">
       <div className="main_interest">

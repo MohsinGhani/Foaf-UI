@@ -3,9 +3,7 @@ import { Input } from "antd";
 import { Select } from "antd";
 export default function CreateTextOption() {
   const { Option } = Select;
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+
   return (
     <div className="CreateTextStory_main">
       <div className="start_typing">

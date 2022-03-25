@@ -4,23 +4,11 @@
     display: flex;
 
     .left-side {
-        // position: fixed;
-        // left: 10px;
-        // position: fixed;
-        // top: 20px;
-        // height: 100vh;
-        // left: 500px;
-        // display: flex;
-        // max-height: 100vh;
         max-width: 600px;
-        // margin: 0 38px 38px 38px;
 
         flex-direction: column;
         align-items: center;
-        // margin: 0px 10px 0px 10px;
-        // justify-content: center;
-        // justify-content:space-between;
-        // padding: 40px 80px 30px;
+
         width: 60%;
 
         .seperator {
@@ -32,13 +20,6 @@
         .status {
             margin-top: 10px;
             width: 96%;
-            // display: flex;
-            // flex-wrap: wrap;
-            // justify-content: space-around;
-            // max-width: 565px;
-            // max-width: 580px;
-            // width: 100%;
-            // margin-left: 40px;
         }
 
         .home_post {
@@ -58,28 +39,11 @@
         .right-side {
             width: 100%;
             position: sticky;
-            // max-width: 380px;
-            // margin: 0 38px 38px 38px;
-            // height: 100vh;
-            // overflow: scroll;
-            // margin: 0px 40px 0px 10px;
-            // position: fixed;
-            // right: -40px;
-            // position: fixed;
-            // right: 0px;
-            // position: relative;
-            // padding: 40px 80px 30px;
+
             &::-webkit-scrollbar {
                 display: none;
             }
-            // .text {
-            //     p {
-            //         margin: 40px 0px 10px 20px;
-            //         color: #010010;
-            //         font-weight: 500;
-            //         opacity: 0.5;
-            //     }
-            // }
+
             .sponsoreds_main {
                 margin-top: 30px;
             }
@@ -132,9 +96,6 @@
         .upper_level {
             width: 25% !important;
             right: 12%;
-            .right-side {
-                // right: 12% !important;
-            }
         }
         .button_float {
             right: 37%;
@@ -158,34 +119,14 @@
         margin-left: 3px !important;
         .left-side {
             width: 60% !important;
-            // margin-left: 16px;
         }
         .upper_level {
             width: 29% !important;
             right: 8%;
-            .right-side {
-                // right: 12% !important;
-            }
         }
-        // .right-side {
-        //     right: 8% !important;
-        //     width: 28% !important;
-        // }
+
         .option_float {
             right: 48%;
         }
     }
 }
-// @media screen and (max-width: 1221px) {
-//     .home_main {
-//         margin-left: 3px !important;
-//         .left-side {
-//             // width: 60% !important;
-//             // margin-left: 16px;
-//         }
-//         .right-side {
-//             // right: 8% !important;
-//             // width: 28% !important;
-//         }
-//     }
-// }

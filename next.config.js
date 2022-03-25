@@ -18,8 +18,6 @@ module.exports = withCSS(
     )
   )
 );
-// const withImage = require("next-images");
-// module.exports = withImage();
 
 module.exports = {
   images: {

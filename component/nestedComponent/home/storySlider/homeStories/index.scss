@@ -2,12 +2,10 @@
     max-width: 89px;
     min-width: 80px;
     height: 120px;
-    // width: 100%;
+
     box-shadow: 0px 4px 6px 0px #0000002e;
     margin-left: 10px;
-    // background-size: cover;
-    // border: 1px solid black;
-    // padding:152px 75px 0 75px
+
     transition: transform 0.3s;
     background-position: top;
     border-radius: 16px;
@@ -19,8 +17,6 @@
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
     }
-    // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%),
-    //     linear-gradient(0deg, rgba(110, 194, 255, 0.57), rgba(110, 194, 255, 0.57));
 
     .profile {
         position: absolute;
@@ -33,7 +29,6 @@
     .name {
         p {
             width: 27px;
-            // height: 22px;
             position: absolute;
             color: #ffffff;
             top: 88px;
@@ -50,53 +45,20 @@
     .hide5 {
         display: none !important;
     }
-    // .story_main {
-    //     width: 105px !important;
-    //     height: 150px !important;
-    // }
 }
-// @media screen and (max-width: 1221px) {
-//     .hide4 {
-//         // display: none !important;
-//     }
-//     // .story_main {
-//     //     width: 135px !important;
-//     //     height: 170px !important;
-//     // }
-// }
+
 @media screen and (max-width: 1221px) {
     .hide3 {
         display: none !important;
     }
-    // .story_main {
-    //     width: 135px !important;
-    //     height: 170px !important;
-    // }
 }
 @media screen and (max-width: 1221px) {
     .hide3 {
         display: none !important;
     }
-    // .story_main {
-    //     width: 135px !important;
-    //     height: 170px !important;
-    // }
 }
 @media screen and (max-width: 1440px) {
     .hide5 {
         display: none !important;
     }
-    // .story_main {
-    //     width: 135px !important;
-    //     height: 170px !important;
-    // }
 }
-// @media screen and (max-width: 1192px) {
-//     .hide3 {
-//         display: none !important;
-//     }
-//     .story_main {
-//         width: 150px !important;
-//         height: 200px !important;
-//     }
-// }

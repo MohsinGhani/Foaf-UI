@@ -65,7 +65,6 @@ export default function Steps() {
     } catch (err) {
       console.log(err), "error ";
     }
-    console.log("allData", allData);
   };
   const value = { allData, setAllData };
   return (

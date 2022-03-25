@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 export const CreateEvent = ({ steps, setSteps }) => {
-  console.log(steps, "steps is here 2222");
   return (
     <>
       <div className="event_main">

@@ -20,20 +20,6 @@ export default function ForgotPassword() {
       .string()
       .email("Please enter valid email")
       .required("This field is required."),
-    // .test("IsEmailOrPhone", "Enter Valid Phone/Email", function (value) {
-    //   if (value === null) {
-    //     return true;
-    //   }
-
-    //   let isValidEmail = emailRegex.test(value);
-    //   let isValidPhone = phoneRegex.test(value);
-
-    //   if (!isValidEmail && !isValidPhone) {
-    //     return false;
-    //   }
-
-    //   return true;
-    // }),
   });
 
   const forgotPasswordRes = async (value, request) => {
@@ -116,14 +102,8 @@ export default function ForgotPassword() {
         <div className={styles.topBar}></div>
         <div className={styles.formSide}>
           <div className={styles.form}>
-            <Link href="/" passHref={true}>
-              <Image
-                src="/images/foaf.svg"
-                alt="logo"
-                width="147"
-                height="64"
-              />
-            </Link>
+            <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+
             <p className={styles.signup}>Forgot Password?</p>
             {/* <p className={styles.loremText}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque cum
@@ -268,7 +248,7 @@ export default function ForgotPassword() {
             <p className={styles.signUpLink}>
               Dont have an account?
               <span className={styles.textGreen}>
-                <Link href="/signup-page">
+                <Link href={{ pathname: "/signup-page" }}>
                   <a> Sign Up</a>
                 </Link>
               </span>

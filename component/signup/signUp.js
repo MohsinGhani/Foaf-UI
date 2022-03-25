@@ -120,14 +120,8 @@ export default function Signup() {
         <div className={styles.topBar}></div>
         <div className={styles.formSide}>
           <div className={styles.form}>
-            <Link href="/" passHref={true}>
-              <Image
-                src="/images/foaf.svg"
-                alt="logo"
-                width="147"
-                height="64"
-              />
-            </Link>
+            <Image src="/images/foaf.svg" alt="logo" width="147" height="64" />
+
             <p className={styles.signup}>Sign Up </p>
 
             <Formik
@@ -436,7 +430,7 @@ export default function Signup() {
             <p className={styles.signUpLink}>
               Already have an account?
               <span className={styles.signUpText}>
-                <Link href="/login-page">
+                <Link href={{ pathname: "/login-page" }}>
                   <a> Sign in</a>
                 </Link>
               </span>

@@ -187,7 +187,7 @@ export default function Login() {
                           <>
                             Remember me
                             <div className={styles.textGreen}>
-                              <Link href="/forgotPassword-page">
+                              <Link href={{ pathname: "/forgotPassword-page" }}>
                                 <a> Forgot Password?</a>
                               </Link>
                             </div>
@@ -300,7 +300,7 @@ export default function Login() {
             <p className={styles.signUpLink}>
               Dont have an account?
               <span className={styles.signUpText}>
-                <Link href="/signup-page">
+                <Link href={{ pathname: "/signup-page" }}>
                   <a> Sign Up</a>
                 </Link>
               </span>

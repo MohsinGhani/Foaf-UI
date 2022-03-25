@@ -47,7 +47,6 @@ export const PostBottom = ({ event, comment, reaction, view, id, type }) => {
           className={`reaction_icon ${data}`}
           onClick={() => {
             switchData(data);
-            console.log(data, "bhai ya data hai");
           }}
         >
           <Image

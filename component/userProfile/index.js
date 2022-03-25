@@ -23,9 +23,7 @@ const UserProfile = () => {
     form
       .validateFields()
       .then(async (values) => {
-        console.log(values.interests, "formform");
         if (values.interests.length) {
-          console.log(values.interests, "under");
           let formData = new FormData();
           formData.append("interests", values?.interests);
           try {
@@ -42,7 +40,9 @@ const UserProfile = () => {
             const verification = await response.json();
 
             if (verification?.status === 200 || verification?.status === 201) {
-              console.log("true");
+              router.push({
+                pathname: `/`,
+              });
             } else {
               alert(verification?.message);
             }

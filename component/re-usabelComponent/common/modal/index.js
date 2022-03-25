@@ -22,9 +22,6 @@ export default function CommonModal({
         title={title}
         visible={!!isModalVisible}
         onCancel={handleCancel}
-        afterClose={() => {
-          console.log("hello hello hello");
-        }}
       >
         {isModalVisible === "createPost" && <PostTabs />}
       </Modal>

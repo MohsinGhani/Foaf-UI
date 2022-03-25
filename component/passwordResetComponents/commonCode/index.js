@@ -37,7 +37,7 @@ const CommonCode = ({
             if (router.query.user === "create") {
               Cookies.set("token", verification.user_token);
               router.push({
-                pathname: `/`,
+                pathname: `/user_Profile`,
               });
             } else {
               router.push({

@@ -7,13 +7,14 @@ import { useRouter } from "next/router";
 import EventOption from "./eventOption";
 import VedioCard from "../../../re-usabelComponent/search/vedioCard";
 import CommonCreatePost from "../../home/commonCreatePost";
-import { places, events, video, group } from "../../../../shared/json";
+import packageInfo from "../../../../shared/json";
 import GroupCard from "../../../re-usabelComponent/search/groupCard";
 import { UpOutlined, DownOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import Spinner from "../../../re-usabelComponent/common/spinner";
 
 export default function SearchTabs({ search, create, className }) {
+  const { places, events, video, group } = packageInfo;
   const router = useRouter();
   const { TabPane } = Tabs;
   const [selected, setSelected] = useState(false);
@@ -27,9 +28,7 @@ export default function SearchTabs({ search, create, className }) {
       Filter {filter ? <UpOutlined /> : <DownOutlined />}
     </Button>
   );
-  function callback(key) {
-    console.log(key, "key ya rahi bhai");
-  }
+
   const SearchTabsRoute = (tab) => {
     router.push({
       pathname: "",
